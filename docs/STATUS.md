@@ -8,14 +8,14 @@ This is the current-state handoff. Active redesign phases and acceptance gates b
 | --- | --- |
 | Canonical source version | `v2026.8.15a` in `VERSION.txt`; deployed status build, with no corresponding tag or GitHub Release claimed |
 | Historical runtime | `v2026.8.15` was observed playable at commit `7f88655` on 2026-08-15, but the product owner rejected its UI, art, map, gameplay feel, terminology, and AI as the future direction |
-| Active phase | Phase 0 — source and Pages publication complete; final owner/rendered/cache/device evidence pending |
+| Active phase | Phase 0 — source and Pages publication complete; one portrait mobile render observed; final owner/landscape/cache/console evidence pending |
 | Redesign gameplay implementation | Not started |
 | Current source boundary | Minimal redesign status page plus the approved roadmap/status documents; it contains no playable redesign |
 | GitHub Pages | Status page deployed from merge commit `ede6f330181059e264c5e9a5b32eb72189164947`; main audit run `31909014413` and Pages run `31909014335` succeeded on 2026-08-15 |
 | Multiplayer | Not shipped; remains a later phase after the local redesign is approved |
-| Verification | 59/59 integrated checks passed; six public files returned `200` and matched merged source byte for byte; sampled rejected prototype paths returned `404`; rendered browser, old-cache migration, console, and physical-device evidence remains pending |
+| Verification | 59/59 integrated checks passed; six public files returned `200` and matched merged source byte for byte; sampled rejected prototype paths returned `404`; one owner-supplied portrait mobile render is recorded; landscape, desktop/tablet, old-cache migration, navigation, and console evidence remains pending |
 
-Do not describe the current Pages build or the transition page as redesigned gameplay. The recorded workflow and exact HTTPS observations establish this deployment only; they do not establish a tag, GitHub Release, rendered quality, physical-device result, or redesigned gameplay.
+Do not describe the current Pages build or the transition page as redesigned gameplay. The recorded workflow and exact HTTPS observations establish this deployment. The owner-supplied capture establishes only the visible portrait mobile state described below; neither category establishes a tag, GitHub Release, other viewport/device behavior, cache migration, console cleanliness, or redesigned gameplay.
 
 ## Approval record
 
@@ -38,9 +38,13 @@ On 2026-08-15, the product owner approved Phase 0 and authorized its implementat
 
 Draft Phase 1 menu, battlefield, faction, structure, combat, mobile-control, and production/rally concepts were generated and shown to the product owner during Phase 0. They are unapproved previews: they are not versioned shipping assets, do not close any Phase 1 checklist item, and are not evidence of implemented gameplay. No redesigned map, entity, building, movement, combat, AI, touch, or networking runtime evidence exists yet. The interim status page is a communication surface only. Each phase in [`REDESIGN.md`](REDESIGN.md) defines its own required source, automated, rendered, physical-device, and owner-approval evidence.
 
+### Owner-supplied portrait mobile observation
+
+On 2026-08-15 the product owner supplied a 945×2048 portrait mobile-browser screenshot of the live `xenovoyage.github.io` status page. The capture visibly shows the Aeon of Kingdoms wordmark, redesign status, Phase 0 label, rebuilding statement, explanatory copy, and current-boundary section. The content is readable, remains inside the visible browser safe area, and does not show the rejected gameplay shell. The screenshot does not prove the unseen remainder of the page, link activation, landscape behavior, another device or viewport, console state, offline reopening, or migration from an existing prototype service-worker cache.
+
 ## Next gate
 
-1. Open the deployed status page in a normal existing browser profile and verify the old prototype is replaced without a stale-cache loop.
-2. Record rendered desktop and mobile readability, console cleanliness, link navigation, and rollback readiness without converting those observations into gameplay claims.
+1. Verify replacement of an existing prototype service-worker cache in a previously used browser profile without a stale-cache loop.
+2. Record landscape and desktop/tablet readability, console cleanliness, link navigation, and rollback readiness without converting those observations into gameplay claims.
 3. Close Phase 0 only after the repository, live site, and owner review tell the same truth.
 4. Review the draft Phase 1 concept set, revise it where required, and record explicit approval or rejection; begin gameplay renderer work only after the complete visual gate is approved.

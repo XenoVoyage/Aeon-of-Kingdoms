@@ -6,7 +6,7 @@ Read this file in full at the start of every task, before inspecting or changing
 
 The published `v2026.8.15` runtime was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. Read [`docs/REDESIGN.md`](docs/REDESIGN.md) before any task. During the redesign it takes precedence over prototype-era product and architecture descriptions when they conflict.
 
-Phase 0 and the roadmap baseline were approved by the product owner on 2026-08-15. The non-playable `v2026.8.15a` redesign status page is deployed from merge commit `ede6f330`; final rendered/cache/device observations remain pending. That approval authorizes the truth-and-cleanup transition only; it does not approve Phase 1 visuals, later gameplay work, a tag, or a release without their own gates.
+Phase 0 and the roadmap baseline were approved by the product owner on 2026-08-15. The non-playable `v2026.8.15a` redesign status page is deployed from merge commit `ede6f330`. One owner-supplied portrait mobile capture now proves the new shell rendered on that load; landscape, desktop/tablet, navigation, console, and pre-existing-cache evidence remains pending. That approval authorizes the truth-and-cleanup transition only; it does not approve Phase 1 visuals, later gameplay work, a tag, or a release without their own gates.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
