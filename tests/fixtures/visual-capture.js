@@ -21,8 +21,6 @@
       frameDocument.body.dataset.gameState === "playing"
       && population?.textContent === "5 / 24"
     ) {
-      frameDocument.getElementById("pause-button").click();
-      frameDocument.getElementById("pause-dialog").close();
       captureRoot.dataset.captureState = "ready";
       captureRoot.dataset.capturePlayers = "6";
       captureRoot.dataset.captureBattleTime = battleTime.textContent;
