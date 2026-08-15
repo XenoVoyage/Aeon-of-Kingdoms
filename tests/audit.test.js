@@ -21,6 +21,16 @@ const REQUIRED_FILES = [
   "css/tokens.css",
   "css/app.css",
   "css/status.css",
+  "concepts/index.html",
+  "concepts/gallery.css",
+  "concepts/images/battlefield.webp",
+  "concepts/images/astral-concord.webp",
+  "concepts/images/gravebound-court.webp",
+  "concepts/images/structures.webp",
+  "concepts/images/combat-readability.webp",
+  "concepts/images/minimal-menu.webp",
+  "concepts/images/mobile-landscape.webp",
+  "concepts/images/production-rally.webp",
   "js/config.js",
   "js/core.js",
   "js/simulation.js",
@@ -60,19 +70,25 @@ test("public documentation identifies the rejected prototype and active redesign
   const readme = read("README.md");
   assert.match(readme, /rejected the `v2026\.8\.15` prototype/);
   assert.match(readme, /docs\/REDESIGN\.md/);
-  assert.match(readme, /status page, not redesigned gameplay/);
+  assert.match(readme, /neither surface is redesigned gameplay/);
   assert.match(readme, /historical release `v2026\.8\.15`/);
   assert.doesNotMatch(readme, /Historical prototype controls/);
   assert.doesNotMatch(readme, /docs\/assets\/gameplay\.webp/);
   assert.match(read("AGENTS.md"), /Active redesign override/);
   assert.match(read("AGENTS.md"), /Phase 0 and the roadmap baseline were approved/);
   assert.match(read("CONTRIBUTING.md"), /docs\/REDESIGN\.md/);
-  assert.match(read("docs/ASSETS.md"), /Prototype-era document/);
-  assert.match(read("tests/README.md"), /active Phase 0 runtime is a deployed non-playable redesign status page/i);
+  assert.match(read("docs/ASSETS.md"), /Active redesign review references/);
+  assert.match(read("docs/ASSETS.md"), /Rejected prototype archive/);
+  assert.match(read("docs/ASSETS.md"), /1,253,726 bytes/);
+  assert.match(read("tests/README.md"), /deployed non-playable redesign status page plus an unapproved Phase 1 concept-review gallery/i);
   assert.match(read("docs/STATUS.md"), /Redesign gameplay implementation \| Not started/);
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
+  assert.match(read("docs/STATUS.md"), /63\/63 integrated checks passed/);
+  assert.match(read("docs/STATUS.md"), /For `v2026\.8\.15a`, six public files returned `200`/);
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
+  assert.match(read("SECURITY.md"), /static non-playable redesign status site/);
+  assert.doesNotMatch(read("SECURITY.md"), /current release is a static local browser game/i);
 });
 
 test("VERSION.txt is canonical and required public mirrors match", () => {
@@ -153,7 +169,7 @@ test("workflows are bounded, least-privilege, and deploy the staged allowlist", 
   }
 });
 
-test("Pages allowlist contains only the transition shell and its public status documents", () => {
+test("Pages allowlist contains only the transition shell, concept review, and public status documents", () => {
   const staging = require(path.join(ROOT, ".github/scripts/stage-pages.js"));
   const files = staging.verifyRuntimeFiles();
   assert.deepEqual(files, staging.RUNTIME_FILES);
@@ -162,6 +178,16 @@ test("Pages allowlist contains only the transition shell and its public status d
     "sw.js",
     "css/status.css",
     "js/status.js",
+    "concepts/index.html",
+    "concepts/gallery.css",
+    "concepts/images/battlefield.webp",
+    "concepts/images/astral-concord.webp",
+    "concepts/images/gravebound-court.webp",
+    "concepts/images/structures.webp",
+    "concepts/images/combat-readability.webp",
+    "concepts/images/minimal-menu.webp",
+    "concepts/images/mobile-landscape.webp",
+    "concepts/images/production-rally.webp",
     "docs/REDESIGN.md",
     "docs/STATUS.md"
   ]);
@@ -175,7 +201,7 @@ test("Pages allowlist contains only the transition shell and its public status d
       const rawTarget = match[1].trim().replace(/^<|>$/g, "");
       if (!rawTarget || /^(?:https?:|mailto:|#)/i.test(rawTarget)) continue;
       const target = decodeURIComponent(rawTarget.split("#", 1)[0]);
-      const stagedTarget = path.posix.normalize(path.posix.join(path.posix.dirname(relativePath), target));
+      const stagedTarget = staging.resolvedPublicPath(relativePath, target);
       assert.ok(files.includes(stagedTarget), `${relativePath} links to unstaged ${rawTarget}`);
     }
   }

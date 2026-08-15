@@ -24,10 +24,11 @@ test("public shell truthfully presents the phased redesign", () => {
     /not the game[\s\S]*we\s+are\s+moving\s+forward\s+with/i,
     /Design before implementation/i,
     /aria-current=["']step["']/i,
-    /Status build v2026\.8\.15a/i
+    /Status build v2026\.8\.16/i
   ]) assert.match(html, pattern);
 
   assert.match(html, /href=["']https:\/\/github\.com\/XenoVoyage\/Aeon-of-Kingdoms["']/i);
+  assert.match(html, /href=["']concepts\/["']/i);
   assert.match(html, /href=["']docs\/REDESIGN\.md["']/i);
   assert.match(html, /href=["']docs\/STATUS\.md["']/i);
   assert.match(html, /<script\b[^>]*src=["']js\/status\.js["']/i);
@@ -71,7 +72,7 @@ test("status styles include compact layouts, visible focus, and reduced motion",
 test("service worker replaces old game caches with only the status shell", () => {
   const worker = read("sw.js");
   const registration = read("js/status.js");
-  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.15a/);
+  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.16/);
   assert.match(worker, /cache: "reload"/, "install requests must bypass a fresh HTTP-cached prototype shell");
   assert.match(worker, /cache\.put\(request, response\)/);
   assert.doesNotMatch(worker, /cache\.addAll\(/);
@@ -103,11 +104,11 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   };
   const caches = {
     open(name) {
-      assert.equal(name, "aok-shell-v2026.8.15a");
+      assert.equal(name, "aok-shell-v2026.8.16");
       return Promise.resolve(cache);
     },
     keys() {
-      return Promise.resolve(["aok-shell-v2026.8.15", "unrelated-origin-cache"]);
+      return Promise.resolve(["aok-shell-v2026.8.15a", "unrelated-origin-cache"]);
     },
     delete(name) {
       deletedCaches.push(name);
@@ -184,7 +185,7 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   let activateWork;
   listeners.get("activate")({ waitUntil(promise) { activateWork = promise; } });
   await activateWork;
-  assert.deepEqual(deletedCaches, ["aok-shell-v2026.8.15"]);
+  assert.deepEqual(deletedCaches, ["aok-shell-v2026.8.15a"]);
   assert.equal(claimed, 1);
   assert.deepEqual(navigatedClients, [`${scope}?old-prototype=1#battle`]);
 });
@@ -195,6 +196,16 @@ test("Pages staging contains status and source-of-truth links but no rejected ga
     "sw.js",
     "css/status.css",
     "js/status.js",
+    "concepts/index.html",
+    "concepts/gallery.css",
+    "concepts/images/battlefield.webp",
+    "concepts/images/astral-concord.webp",
+    "concepts/images/gravebound-court.webp",
+    "concepts/images/structures.webp",
+    "concepts/images/combat-readability.webp",
+    "concepts/images/minimal-menu.webp",
+    "concepts/images/mobile-landscape.webp",
+    "concepts/images/production-rally.webp",
     "docs/REDESIGN.md",
     "docs/STATUS.md"
   ]);
@@ -212,6 +223,7 @@ test("Pages-subpath delivery serves every linked local status resource", async (
       return;
     }
     let relativePath = pathname.slice("/Aeon-of-Kingdoms/".length) || "index.html";
+    if (relativePath.endsWith("/")) relativePath += "index.html";
     relativePath = path.posix.normalize(relativePath);
     if (!allowed.has(relativePath)) {
       response.writeHead(404).end();
@@ -231,5 +243,14 @@ test("Pages-subpath delivery serves every linked local status resource", async (
   for (const reference of staging.localReferences(html)) {
     const response = await fetch(new URL(reference, base));
     assert.equal(response.status, 200, `failed to load ${reference} from the Pages subpath`);
+  }
+
+  const galleryUrl = new URL("concepts/", base);
+  const galleryPage = await fetch(galleryUrl);
+  assert.equal(galleryPage.status, 200);
+  const galleryHtml = await galleryPage.text();
+  for (const reference of staging.localReferences(galleryHtml)) {
+    const response = await fetch(new URL(reference, galleryUrl));
+    assert.equal(response.status, 200, `failed to load gallery resource ${reference} from the Pages subpath`);
   }
 });
