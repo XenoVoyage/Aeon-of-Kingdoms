@@ -14,7 +14,8 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 
 - Pull request `#1` merged as commit `ede6f330181059e264c5e9a5b32eb72189164947`; the main audit and Pages deployment both completed successfully.
 - The six deployed public files were observed over HTTPS and matched the merged source byte for byte; rejected prototype runtime paths returned `404`.
-- No `v2026.8.15a` tag or GitHub Release is claimed. Rendered-browser, pre-existing-cache, console, and physical-device observations remain separate pending evidence.
+- The owner supplied a real portrait mobile-browser capture showing the deployed status shell readable inside safe areas with no rejected gameplay visible on that load.
+- No `v2026.8.15a` tag or GitHub Release is claimed. Landscape, desktop/tablet, link-navigation, pre-existing-cache, and console observations remain separate pending evidence.
 
 ## [v2026.8.15] — 2026-08-15
 

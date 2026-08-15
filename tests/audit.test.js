@@ -70,7 +70,7 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/ASSETS.md"), /Prototype-era document/);
   assert.match(read("tests/README.md"), /active Phase 0 runtime is a deployed non-playable redesign status page/i);
   assert.match(read("docs/STATUS.md"), /Redesign gameplay implementation \| Not started/);
-  assert.match(read("docs/STATUS.md"), /exact HTTPS observations establish this deployment only/);
+  assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
 });
