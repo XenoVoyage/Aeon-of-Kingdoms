@@ -1,8 +1,10 @@
 # Game design
 
+> **Prototype-era document:** everything below describes the rejected `v2026.8.15` direction as frozen history. Do not extend or implement its prescriptive language during the redesign. [`REDESIGN.md`](REDESIGN.md) is the active contract until Phase 1 replaces this file with the approved visual and gameplay specification.
+
 Aeon of Kingdoms is a compact 2D real-time strategy game about control, reinforcement, and decisive movement. It removes worker queues and free-form base construction so the player can read the map, choose a force, and act quickly on desktop or touch.
 
-This document owns intended player experience. Implemented scope and evidence belong in [`STATUS.md`](STATUS.md); technical ownership belongs in [`ARCHITECTURE.md`](ARCHITECTURE.md).
+This document records the prototype's intended player experience. Current redesign intent and evidence belong in [`REDESIGN.md`](REDESIGN.md) and [`STATUS.md`](STATUS.md).
 
 ## Design pillars
 

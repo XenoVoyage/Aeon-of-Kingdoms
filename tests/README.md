@@ -1,4 +1,6 @@
-# Aeon of Kingdoms test suite
+# Aeon of Kingdoms verification
+
+The active Phase 0 candidate is a non-playable redesign status page. Verification proves that this transition source is truthful, local, bounded, accessible, and staged exactly; it does not validate redesigned gameplay. The rejected `v2026.8.15` prototype and its old tests remain historical evidence only.
 
 Run the complete dependency-free verification from the repository root:
 
@@ -6,65 +8,51 @@ Run the complete dependency-free verification from the repository root:
 node tests/run.js
 ```
 
-The browser game does not need Node.js. Node.js 20 or newer is used only for local and continuous verification; the suite installs no package and performs no external network request.
+Node.js 20 or newer is used only for local and continuous verification. The suite installs no package and performs no external network request.
 
-## Suite map
+## Active suite map
 
-| Suite | Responsibility |
+| Suite | Current responsibility |
 | --- | --- |
-| `ai-completion.test.js` | JSON-safe AI strategy state, stable target selection, objective recovery, and bounded 2-/4-player match progress |
-| `audit.test.js` | Required files, canonical version mirrors, zero dependencies, CSP and local resources, script order, documentation links, least-privilege workflows, explicit Pages allowlist, and honest multiplayer status |
-| `browser-smoke.test.js` | Semantic shell hooks, classic-script syntax, responsive/focus/reduced-motion contracts, and local delivery from the `/Aeon-of-Kingdoms/` Pages subpath |
-| `checksum.test.js` | Canonical authoritative-state hashing, configuration/command sensitivity, replay stability, cosmetic exclusions, and invalid-state rejection |
-| `combat-navigation.test.js` | Simultaneous combat fairness, tie attribution, dense multi-ring attack approaches, and living-structure exclusion |
-| `core.test.js` | Deterministic math, seeded random behavior, geometry, paths, spatial primitives, and fixed utility contracts |
-| `hud.test.js` | Rival objective warnings and non-overlapping compact HUD control regions |
-| `input.test.js` | Touch slop, drag/pinch safety, pointer cancellation, keyboard commands, and lifecycle cleanup |
-| `map-balance.test.js` | Equal nearest-site opening geometry, mirrored player sets, inward headings, and obstacle/site clearance |
-| `simulation.test.js` | Commands, fixed-step state, population/economy, capture, recruitment, combat, AI-facing rules, victory, limits, and reproducibility |
-| `site-ownership-render.test.js` | Persistent numbered ownership cues for captured sites on the battlefield and minimap |
+| `audit.test.js` | Required project files, canonical version mirrors, status-page CSP and local resources, documentation truth, zero dependencies, workflow permissions, and the exact Pages allowlist |
+| `browser-smoke.test.js` | Status-page semantics, enhancement safety, responsive/focus/reduced-motion contracts, service-worker lifecycle, and local delivery from the `/Aeon-of-Kingdoms/` Pages subpath |
 
-`tests/run.js` discovers every `*.test.js` file in stable filename order and runs them with Node's built-in test runner. Add a focused suite when a new responsibility cannot fit an existing owner; never silently omit a test from a hand-maintained list.
+## Historical regression suites
 
-## Final candidate checks
+The following suites still exercise preserved prototype source so its history remains inspectable during cleanup: `ai-completion.test.js`, `checksum.test.js`, `combat-navigation.test.js`, `core.test.js`, `hud.test.js`, `input.test.js`, `map-balance.test.js`, `simulation.test.js`, and `site-ownership-render.test.js`. A pass is not evidence for the redesign and must never be reported as current gameplay acceptance.
 
-1. Run focused tests while iterating.
+The old six-faction visual-capture fixture and manually triggered workflow are also historical. They are not a capture path for the Phase 0 page or an approved visual reference. Later phases add new focused suites and rendered fixtures only after their product gate is approved.
+
+`tests/run.js` discovers every `*.test.js` file in stable filename order and runs them with Node's built-in test runner. Never omit an active test to hide a failure; remove a historical suite only in the approved phase that replaces or deletes its source owner.
+
+## Final transition-candidate checks
+
+1. Run focused active tests while integrating the status page.
 2. Freeze the complete candidate and run `node tests/run.js`.
-3. Run `node .github/scripts/stage-pages.js _site` and inspect the staged file list when delivery changes.
-4. Run `git diff --check`, inspect `git status --short`, and review the complete diff against the current base.
-5. Complete applicable manual rows below and record only what was observed.
+3. Run `node .github/scripts/stage-pages.js _site` and verify the stage contains only `.nojekyll`, `index.html`, `sw.js`, `css/status.css`, `js/status.js`, `docs/REDESIGN.md`, and `docs/STATUS.md`.
+4. Confirm no prototype script, style, manifest, icon, gameplay capture, release file, test, or repository configuration enters `_site`.
+5. Run `git diff --check`, inspect `git status --short`, and review the complete diff against the current base.
+6. Complete the applicable observations below. Keep source, simulated, rendered, deployed, and physical-device evidence separate.
 
 The `_site` directory is generated delivery output and must not be committed.
 
-## Manual acceptance matrix
+## Phase 0 manual acceptance
 
 | Area | Required observation |
 | --- | --- |
-| Direct-file baseline | Open `index.html` through `file://`; start Skirmish, select, box-select, move/attack, recruit, capture, pause/resume, finish or restart, and confirm no failed local resource or console error |
-| Pages subpath | Open the candidate or deployed `/Aeon-of-Kingdoms/` URL and repeat a short Play action without root-relative resource failures |
-| Desktop controls | Exercise click, drag selection, Shift additive selection, right-click order, WASD/arrows, wheel zoom, Space/middle pan, Escape, dialogs, and visible focus |
-| Touch controls | On a physical phone/tablet in landscape, exercise tap selection/order, one-finger pan, pinch zoom, on-screen zoom/home, pause, rotation, background/foreground, and capture-loss cleanup |
-| Accessibility | Navigate start and pause UI by keyboard; verify dialog focus, live resources/population/objective text, non-color faction/state cues, zoom behavior, and reduced-motion preference |
-| First Light | Complete the authored preset and verify its setup/objective is distinct and returns cleanly to the menu; do not describe it as a campaign sequence |
-| Dense movement | Send a capped force through narrow routes and around a target; inspect formation stability, recovery from congestion, large footprints, and absence of one-coordinate attack piles |
-| Sites and economy | Contest each site type, tie/interrupt capture, lose and retake ownership, recruit from an eligible forward site, and verify Aether/population restrictions |
-| Modes | For each actually exposed mode, verify objective progress, headquarters elimination, simultaneous/tie handling, and a single deterministic outcome |
-| Player layouts | Start 2-, 4-, and 6-faction local setups; inspect spawn fairness, early economy access, AI activity, UI ownership colors, sustained performance, and end conditions separately |
-| Long run | Play a population-capped match through repeated captures and combat; inspect memory, frame pacing, collection cleanup, AI, and path-search stability |
-| Published runtime | After deployment, open the exact Pages URL on desktop and touch where available, select **Play**, issue orders, and record the deployed commit and observed result |
+| Direct-file baseline | Open `index.html` through `file://`; confirm the title, rejected-prototype notice, phase status, roadmap/status links, and repository link remain readable without a failed local resource or console error |
+| Local Pages subpath | Serve the candidate under `/Aeon-of-Kingdoms/`; confirm both documentation links, focus behavior, status enhancement, and service-worker registration use the repository subpath correctly |
+| Responsive status | Inspect representative narrow, wide, portrait, and landscape viewports; confirm the informational page remains readable without claiming that portrait gameplay is supported |
+| Accessibility | Navigate every link by keyboard; verify semantic headings, visible focus, sufficient contrast, motion preference, zoom/reflow, and understandable status without color or animation |
+| Offline/cache | After one successful local or deployed load, verify the bounded status shell can reopen offline and activation removes older `aok-shell-*` prototype caches without deleting unrelated origins' caches |
+| Staged delivery | Inspect generated `_site`; verify its exact allowlist and open that staged copy before publication |
+| Published transition | After Pages deployment, open the exact URL, record the deployed commit, verify `v2026.8.15a`, follow both local documentation links, inspect the console, and confirm no rejected gameplay shell or stale service-worker view appears |
+| Rollback readiness | Record the last known-good commit and confirm the protected workflow can redeploy it without moving or deleting the published `v2026.8.15` historical tag, which project policy treats as immutable |
+
+## Future gameplay evidence
+
+The repeatable landscape, map, entity movement, production/rally, combat, AI, determinism, performance, visual, and physical-device scenarios live in [`../docs/REDESIGN.md`](../docs/REDESIGN.md). They become active only in their approved phases. Cross-network multiplayer remains unimplemented and untested.
 
 ## Evidence boundary
 
-The browser smoke uses Node parsing and a local HTTP server; it does not render Canvas, execute layout, simulate a real browser event stack, or judge game feel. Core and simulation tests can prove deterministic contracts under their fixtures, not whether the art is clear or the balance is enjoyable. Simulated pointer or viewport checks never count as physical-device acceptance.
-
-Report these categories separately:
-
-- source/static audit;
-- deterministic Node simulation;
-- simulated browser shell or delivery;
-- rendered local browser;
-- deployed Pages browser;
-- physical desktop/touch device;
-- real cross-network multiplayer, once that feature exists.
-
-An unobserved category is pending, not passed. Never infer live evidence from a successful workflow badge.
+Static audits and Node/browser-smoke fixtures cannot prove rendered quality, browser cache replacement, live Pages content, a physical device, game feel, or networking. A workflow badge, source version, or changelog heading does not establish a deployment, published tag, or GitHub Release. Record unobserved categories as pending, not passed.

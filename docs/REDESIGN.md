@@ -1,0 +1,299 @@
+# Aeon of Kingdoms redesign roadmap
+
+Status: **approved baseline; Phase 0 integration in progress; later phases require separate gate approval**.
+
+This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. It does not claim that any redesigned feature is currently implemented.
+
+The prototype remains in Git history as evidence. Its menu, battlefield presentation, art, map vocabulary, portrait behavior, movement feel, combat interaction, AI behavior, and public product claims are not design precedents for the replacement.
+
+## Approval record
+
+The product owner approved Phase 0 and this roadmap baseline on 2026-08-15 and authorized the truth-and-cleanup implementation. This approval does not claim that the transition candidate is verified, deployed, tagged, or released, and it does not pre-approve Phase 1 visual choices or any gameplay phase.
+
+## Working rules
+
+1. Complete one phase at a time.
+2. Treat the owner-locked requirements below as fixed. Close the remaining phase-specific choices at each gate before implementing them.
+3. Build the replacement on short-lived branches; do not use `main` as a visual experiment.
+4. Do not merge a phase because tests pass. Source checks, rendered evidence, game feel, and owner approval are independent requirements.
+5. Preserve the old release and tag as immutable project history; correct the project through new commits rather than rewriting published history. This is a project policy, not a claim that GitHub has technically locked the release.
+6. Keep the implementation small and direct. Rebuilding from scratch does not justify a framework, generic engine, ECS library, asset pipeline, or networking abstraction without proven need.
+7. Neon Voyage is evidence of the owner's preference for restraint and clarity only. Aeon of Kingdoms must not copy its layout, styling, structure, assets, or gameplay.
+8. Keep this roadmap as a versioned approved baseline. Later decisions change it explicitly with rationale; “frozen” never means hiding unresolved choices.
+
+## Owner-locked requirements
+
+- Original 2D RTS identity created for this game.
+- Landscape gameplay only on desktop, phone, and tablet.
+- A battlefield larger than the viewport with deliberate pan and zoom.
+- Illustrated terrain with mountains, cliffs, ruins, or other clearly impassable features.
+- Two visually distinct opening factions, each with unique public entity names, silhouettes, weapons, effects, and animation.
+- Slower armies that move in readable groups and maintain spacing.
+- Explicit focus attacks plus autonomous nearby combat, attack-move, defend, stop, and rally behavior.
+- Exactly three structure categories: faction headquarters, checkpoint, and recruitment structure.
+- Tick-based production queues, visible progress, bounded queue capacity, cancellation rules, spawn validation, and rally points.
+- Strategic AI that evaluates threats, strength, objectives, economy, attack timing, and defense instead of sending every entity to one target.
+- One deterministic command language shared by human input, AI, replay, campaign scripting, host/client multiplayer, and a possible dedicated server.
+- No multiplayer claim until real cross-network matches are observed.
+
+## Terminology and world model
+
+`Entity` is the authoritative code term for an identified world object. The replacement uses one entity identifier that remains stable for the lifetime of a match, replay, or restored snapshot, plus one bounded authoritative collection. It does not imply permanent identity between matches. This is a naming contract, not permission to introduce an ECS framework.
+
+| Term | Meaning |
+| --- | --- |
+| Entity | Any authoritative identified world object that can be referenced by a command or rule |
+| Combat entity | A selectable mobile fighter, support character, creature, machine, or future equivalent |
+| Structure entity | A headquarters, checkpoint, or recruitment structure |
+| Projectile entity | A bounded authoritative missile only when its travel affects rules |
+| Visual effect | Non-authoritative presentation; not an entity unless gameplay can target or simulate it |
+| Formation | Stable destinations and spacing for a commanded set of combat entities |
+| Task force | An AI-owned strategic grouping; it uses normal entity commands and grants no special rules |
+
+Public UI should prefer each faction's actual names rather than exposing generic engine categories. Existing `unit`, `units`, `unitId`, and `unitIds` contracts are removed during the entity-foundation phase; compatibility aliases are not retained unless a real external consumer exists.
+
+## Structure and economy contract
+
+| Structure | Ownership | Core function | Production |
+| --- | --- | --- | --- |
+| Faction headquarters | Begins owned | Faction anchor and elimination condition; capture, economy, and exact production roster close at the Phase 1/4 gates | Producing capability follows the approved roster rule |
+| Checkpoint | Capturable | Territorial control; its exact resource, population, vision, or objective benefit closes at the Phase 1/4 gates | None |
+| Recruitment structure | Capturable unless Phase 1 approves another ownership rule | Forward reinforcement location with clear owner treatment | Produces the current owner's eligible faction entities |
+
+No Aether Well, Relay Forge, Aeon Core, Seal, or fourth disguised structure category survives by default. Any future structure type is a later product decision, not an implementation convenience.
+
+### Production queue
+
+- Selecting a producing structure opens one compact production bar anchored to the gameplay HUD.
+- Every option shows the faction-specific entity, cost, population use, production time, availability, and shortcut where applicable.
+- Accepted production spends resources under one documented refund rule and appends to a bounded queue.
+- The active queue item advances in authoritative simulation ticks, never wall-clock or animation time.
+- The UI shows active progress, remaining queue order, blocked state, and cancellation feedback.
+- Completion validates ownership, population, and an unoccupied spawn position through a bounded ordered spawn-slot search. If every slot is blocked, the completed item remains at the queue head without duplication or further progress until space opens, the player cancels it, ownership changes, or the structure is destroyed.
+- Phase 4 must approve one explicit deterministic refund table for ordinary cancellation, blocked-complete cancellation, ownership change, and structure destruction before implementation.
+- Queue, cancellation, completion, refund, ownership-change, and destruction outcomes require deterministic tests.
+
+### Rally point
+
+- Selecting a producing structure and contextual-right-clicking valid terrain issues `SET_RALLY`.
+- Touch uses the same contextual command through an explicit rally mode rather than a hidden gesture.
+- The battlefield shows the selected structure's rally marker and path preview.
+- A newly spawned combat entity receives an ordinary validated movement order toward the rally point.
+- Invalid or unreachable rally placement is rejected without changing the current rally. A route that later becomes blocked follows the ordinary bounded repath/stop rule.
+- Rally points never bypass obstacles, ownership, visibility rules, command bounds, or networking validation.
+
+## Battlefield and camera contract
+
+- Gameplay presentation is landscape-first across an approved aspect range, not a responsive portrait dashboard. Phase 1 concepts use 16:9 as the reference frame; wider or narrower landscape screens expand safe world view or use deliberate letterboxing without moving essential controls outside safe areas.
+- The world extends beyond the current view. Camera bounds prevent exposing empty space.
+- Wheel or pinch zooms around the pointer/finger focus; pan supports keyboard, edge or drag intent as approved during the interaction phase.
+- On supported installed/fullscreen browsers, make a best-effort `screen.orientation.lock("landscape")` request after a player gesture.
+- When a browser cannot lock orientation, portrait shows only a rotate-device gate, pauses authoritative play, clears transient input, and resumes safely after returning to landscape; it does not run or rearrange gameplay.
+- Mountains, cliffs, walls, deep water, ruins, and structures may create hard navigation blockers. Decorative terrain never silently blocks movement.
+- Walkability, blocker clearance, spawn clearance, capture bounds, formation width, and camera bounds share one authored map definition.
+- The opening map must support fair tested layouts incrementally: approve 2-player play first, then validate 4-player and 6-player layouts rather than assuming that rotational symmetry proves balance.
+
+## Movement, formations, and animation
+
+- Combat entities move at deliberately readable speeds calibrated through rendered play, not only numeric tests.
+- A group order produces distributed formation destinations and preserves stable entity ordering.
+- Strategic routing avoids hard blockers; local avoidance and separation resolve congestion without a full physics engine.
+- Large entities receive larger footprints and may require wider routes.
+- Melee attackers reserve reachable contact positions; ranged attackers retain appropriate distance; overflow waits or selects another valid ring.
+- No group order, focused attack, rally completion, or spawn may intentionally send every entity to the same coordinate.
+- Presentation exposes at least idle, move, acquire, wind-up, attack or cast, recover, hit, and defeat states where applicable.
+- Simulation ticks own hit timing. Animation communicates the result without becoming authority.
+
+## Player command contract
+
+| Player intent | Authoritative command |
+| --- | --- |
+| Move selected combat entities to terrain | `MOVE` |
+| Focus a specific hostile entity | `ATTACK_ENTITY` |
+| Move while engaging encountered hostiles | `ATTACK_MOVE` |
+| Stop current orders | `STOP` |
+| Guard an area or friendly entity | `DEFEND` |
+| Queue faction-specific production | `QUEUE_PRODUCTION` |
+| Cancel a queued production item | `CANCEL_PRODUCTION` |
+| Set or clear a producing structure's destination | `SET_RALLY` / `CLEAR_RALLY` |
+
+Desktop requires left-click selection, drag selection, additive selection, enemy hover highlighting, contextual right-click move or focused attack, and camera zoom/pan. Mobile requires readable tap selection, contextual enemy attack, explicit rally placement, two-finger camera movement, pinch zoom, and feedback before a destructive or ambiguous action.
+
+Combat entities automatically acquire valid hostiles inside a configured awareness range, evaluate attack range separately, chase within a bounded leash, retarget deterministically, and resume or finish their current command according to explicit rules. A focus attack has priority until invalid, cancelled, or constrained by the leash/order contract.
+
+### Order priority and interruption
+
+| Current order | Nearby hostile | Directly attacked | Target invalid or unreachable | Completion |
+| --- | --- | --- | --- | --- |
+| `MOVE` | Does not initiate or detour | May return fire only under the approved stance, then resumes | Repath within bounds or stop with feedback | Idle at destination |
+| `ATTACK_ENTITY` | Keeps explicit target | Keeps explicit target unless unable to respond | Bounded repath, then stop or resume the queued prior order according to the approved queue rule | Idle or resume queued order |
+| `ATTACK_MOVE` | Acquires by stable threat/priority rules | May reprioritize the immediate attacker deterministically | Return to route after bounded engagement; stop with feedback if destination is unreachable | Idle at destination |
+| `DEFEND` | Engages only inside the defended area's/entity's leash | Responds within the same leash | Returns to the defend anchor when pursuit ends | Persists until replaced or stopped |
+| `STOP` / idle | May acquire only under the approved idle stance | May defend itself without starting an unlimited pursuit | Remains stopped | Persists until replaced |
+
+Phase 5 must close stance, leash, prior-order queue, and target-priority values before implementation. Tests cover every row rather than relying on informal “nearby combat” behavior.
+
+## Strategic AI contract
+
+AI is a deterministic command producer with no privileged mutation path and no hidden resource advantage unless an explicitly named difficulty allows it.
+
+The AI decision stack is intentionally small:
+
+1. Observe owned structures, visible hostile entities, recent threats, resources, population, production, travel cost, and objective state.
+2. Maintain bounded strategic needs: recover, defend, reinforce, capture, raid, pressure, or assault.
+3. Estimate local friendly and hostile strength with faction-aware composition weights.
+4. Form several bounded task forces when the map and population justify it; retain a defensive reserve instead of collapsing the entire army onto one destination.
+5. Choose reachable targets using value, threat, distance, current commitments, and expected strength rather than identifier order alone.
+6. Issue only the same move, attack, defend, production, and rally commands available to a human.
+7. Re-evaluate on a configured strategic cadence and on bounded urgent events, not every render frame.
+
+Required AI scenarios include defending a threatened headquarters, reinforcing a contested recruitment structure, cancelling a losing assault, exploiting an undefended checkpoint, producing a missing counter-role, splitting pressure between fronts, regrouping after losses, and completing a match without deterministic stalemate.
+
+## Networking compatibility
+
+Networking is a later transport over the already-approved simulation, never a separate rules implementation.
+
+- Commands carry stable entity identifiers, issuing player, sequence, target tick, kind, and bounded payload.
+- Authoritative checksum/snapshot state includes protocol and configuration version, tick, seed and RNG/event state, entity identifiers/kinds/positions/health/ownership/orders/paths/cooldowns/targets, resources, population, production queues/progress, rally points, capture progress, objective state, AI strategy state, and every other value that can change a future result.
+- A host validates entity ownership, target legality, command rate, queue capacity, resources, population, and encoded size before ordering commands.
+- Local AI and remote humans remain indistinguishable at the simulation boundary.
+- The networking phase begins with a transport/topology spike. Private host-authoritative WebRTC is the leading candidate for casual rooms, while a dedicated WebSocket authority remains a later candidate; neither is approved merely by this roadmap.
+- If WebRTC is chosen, signaling and TURN are external infrastructure and GitHub Pages remains only the static client host. Ranked or trusted competition is not promised by a player-hosted room.
+
+## Performance and accessibility gates
+
+- Fixed-step authoritative simulation with render interpolation and bounded catch-up.
+- Configured caps for combat entities, structures, projectiles, effects, queues, commands, path searches, AI candidates, snapshots, and remote payloads.
+- Spatial queries and route reuse are measured before optimization; no unbounded whole-world work in hot loops.
+- Landscape phone, landscape tablet, and desktop browser budgets are measured independently.
+- Ownership, selection, target, queue state, damage, disabled state, and objectives never rely on color or animation alone.
+- Reduced motion changes presentation only. Keyboard focus, pause, lifecycle cleanup, readable status, and touch target size remain release requirements.
+
+## Repeatable evidence matrix
+
+Every gate records the exact commit, configuration, seed, viewport/device, commands, result, and evidence category. Values such as speed, leash, spacing, timing, and caps live in the approved configuration; the scenarios below test behavior against those values.
+
+| Area | Repeatable acceptance scenario |
+| --- | --- |
+| Landscape shell | Reference desktop, phone-landscape, and tablet-landscape viewports keep map and essential controls inside safe areas; portrait pauses and shows only the rotate gate; returning to landscape clears stale input and resumes safely |
+| Blocker routing | The same selected formation crosses an open field, routes around an authored mountain, traverses a minimum-width choke, and reports an unreachable destination without entering blocked cells |
+| Formation and congestion | A capped group moves, turns, passes a choke, exits, and surrounds a structure with unique destinations, bounded overlap, stable ordering, and no permanent jam |
+| Focus and autonomous combat | Seeded fixtures separately prove move, explicit attack, attack-move, defend, stop/idle, leash, target death, unreachable target, and resume behavior from the order table |
+| Production and rally | Queue, progress, cancel/refund, population failure, ownership change, destruction, blocked spawn, rally set/reject/clear, and spawned-entity movement replay identically |
+| AI strategy | Seeded scenarios prove headquarters defense, reserve retention, multi-front task forces, composition response, retreat/regroup, objective pressure, and bounded match progress without privileged mutation |
+| Determinism | Identical map/config/seed/command logs produce matching periodic checksums and final snapshots in the supported browser matrix; any mismatch blocks the phase |
+| Performance | The approved population/structure/projectile caps sustain measured simulation and render budgets on the reference desktop, phone, and tablet without unbounded queue, path, AI, or effect growth |
+| Visual approval | Captures and short recordings match the approved menu, map, factions, structures, animation states, selection, target, production, and rally references; owner approval is recorded separately from automated checks |
+
+## Phase roadmap
+
+### Phase 0 — Truth and cleanup
+
+- [x] Mark `v2026.8.15` as a rejected historical prototype in current documentation.
+- [x] Stop presenting the prototype as the current approved game in the current source.
+- [x] Integrate a restrained redesign/status-page source candidate after owner approval.
+- [ ] Replace the live Pages prototype with that status page through the protected publication path and verify the deployed commit and content.
+- [x] Version the interim page as the `v2026.8.15a` source candidate and record its player-visible intent in the changelog.
+- [ ] Complete final integrated source, staged-delivery, deployment, live-browser, and rollback evidence for the interim page.
+- [x] Preserve the published historical tag and release under the project's immutability policy; do not move the tag, force-push, or rewrite history.
+- [x] Approve and version this roadmap baseline and contributor rules before redesigned gameplay work begins.
+
+Gate: the repository and live site tell the same truth, the transition evidence is recorded, and the owner-approved roadmap remains the active contract. Source integration alone does not close the gate.
+
+### Phase 1 — Visual and interaction lock
+
+- [ ] Original minimal menu concept.
+- [ ] Full 16:9 opening battlefield concept with blockers, three structure types, armies, and readable routes.
+- [ ] Two complete faction identity and combat-entity sheets.
+- [ ] Structure sheet covering both faction headquarters and neutral/captured states.
+- [ ] Close combat scene showing formations, range, target feedback, and animation direction.
+- [ ] Landscape phone/tablet control mockup.
+- [ ] Local asset format, sprite/atlas, animation, and size budget decision, with origin, author/tool, license, and transformations recorded for every shipped asset.
+- [ ] Explicitly confirm that no rejected prototype or Neon Voyage visual asset/style was reused.
+- [ ] Approve supported landscape aspect range, minimum viewport, safe areas/letterboxing, and the desktop/phone/tablet browser-device matrix.
+
+Gate: explicit owner approval of the visual target. No gameplay renderer begins before this gate.
+
+### Phase 2 — Landscape battlefield foundation
+
+- [ ] New semantic shell and original menu from scratch.
+- [ ] Landscape orientation gate and supported-browser lock request.
+- [ ] Camera pan, focus-centred zoom, bounds, resize, pause, and lifecycle behavior.
+- [ ] New map schema, terrain renderer, blockers, navigation debug view, and two-player layout.
+- [ ] Rendered desktop, phone-landscape, and tablet-landscape evidence.
+
+Gate: the empty battlefield already resembles the approved concept and camera interaction feels correct.
+
+### Phase 3 — Entity and movement foundation
+
+- [ ] Replace prototype unit terminology and state with the approved entity contract.
+- [ ] Audit authoritative state, commands, tests, selectors, and current UI so no live `unit*` compatibility contract remains; historical prototype documents may retain the old word.
+- [ ] Add selection, contextual targets, formation destinations, hard blocker routing, local separation, large footprints, and congestion recovery.
+- [ ] Add approved faction combat-entity art and idle/move state animation.
+- [ ] Prove slow readable group movement through open terrain and chokepoints.
+- [ ] Establish replay, canonical snapshot, and periodic checksum tests now; maintain them through every later phase and supported browser.
+
+Gate: selected armies move naturally without stacking, visual drift, or placeholder ships.
+
+### Phase 4 — Structures, economy, production, and rally
+
+- [ ] Implement only headquarters, checkpoint, and recruitment structure entities.
+- [ ] Implement capture, ownership treatment, economy/population effects, queue rules, progress UI, spawn validation, and rally commands.
+- [ ] Close and test the refund, blocked-complete, ownership-change, destruction, and invalid/unreachable rally outcomes.
+- [ ] Make production and rally deterministic, replayable, AI-usable, and network-ready.
+
+Gate: a player can expand, produce, redirect reinforcements, lose structures, and recover through clear readable interactions.
+
+### Phase 5 — Combat and tactical commands
+
+- [ ] Focus attack with desktop enemy hover/right-click and mobile contextual attack.
+- [ ] Autonomous acquire, attack range, chase/leash, retarget, defend, stop, and attack-move.
+- [ ] Melee contact positions, ranged spacing, projectiles where required, simultaneous damage, support behavior, defeat, and structure assault.
+- [ ] Complete combat animation and feedback states.
+
+Gate: short battles are tactically understandable, visually faithful, deterministic, and satisfying on desktop and touch.
+
+### Phase 6 — Strategic AI and local skirmish
+
+- [ ] Threat assessment, production planning, defensive reserve, task forces, objective value, retreat/regroup, and timed assaults.
+- [ ] Scenario tests for defense, multi-front behavior, composition, recovery, and match completion.
+- [ ] Finish and tune the first two-player Conquest skirmish.
+
+Gate: AI presents varied credible pressure without cheating or issuing every entity the same destination.
+
+### Phase 7 — Product hardening
+
+- [ ] Physical desktop, phone, and tablet input testing.
+- [ ] Landscape rotation/fullscreen/background recovery.
+- [ ] Accessibility, reduced motion, color-independent state, audio, options, and onboarding.
+- [ ] Long-match performance, thermal, memory, congestion, queue, and population-cap tests.
+- [ ] Replace the interim redesign/status page only after owner approval of the complete local slice.
+
+Gate: one polished map, two factions, and local skirmish meet the release evidence matrix.
+
+### Phase 8 — Modes and campaign
+
+- [ ] Add only approved objective modes around the same combat/economy core.
+- [ ] Build a real first campaign mission with authored pacing, objectives, and completion state.
+- [ ] Keep elimination, production, AI, and commands shared rather than forking scenario rules.
+
+Gate: additional content expands the approved game without weakening the core slice.
+
+### Phase 9 — Networked multiplayer
+
+- [ ] Compare authority and transport candidates against the approved simulation, browser constraints, infrastructure, privacy, failure, and cost requirements.
+- [ ] Extend the already-running replay, snapshot, and checksum harness with protocol and hostile-input tests offline.
+- [ ] Exercise two local clients through simulated delay, jitter, duplication, reordering, loss, disconnect, and resync.
+- [ ] Implement the approved private-room authority and transport behind the deterministic command boundary, with a compatibility handshake, honest connectivity UI, and bounded reconnect.
+- [ ] If the approved transport is WebRTC, add separately reviewed signaling and TURN boundaries before claiming general connectivity.
+- [ ] Verify real matches across different networks and physical devices.
+
+Gate: multiplayer is advertised only after complete real cross-network matches.
+
+### Phase 10 — Future enhancements
+
+Candidates, not commitments: validated 4- and 6-player layouts, additional factions and maps, further campaign missions, team modes, alliances, replay, spectators, host migration, fog of war, richer abilities, optional dedicated authority, and public matchmaking. Each requires a separate scope, threat model, performance budget, and acceptance gate.
+
+## First replacement release definition
+
+The first correct replacement release contains one approved map, two approved factions, a minimal original menu, landscape-only play, camera pan/zoom, the three structure categories, deterministic production/rally, readable formations, complete focused/automatic combat, strategic two-player AI, and verified desktop/physical-touch evidence. Multiplayer, a campaign sequence, public matchmaking, and additional factions are not prerequisites for that release.

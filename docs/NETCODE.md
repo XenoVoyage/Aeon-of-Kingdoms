@@ -1,6 +1,8 @@
 # Multiplayer and netcode plan
 
-Multiplayer is an architectural target, not a feature of the current vertical slice. The shipped GitHub Pages build is local-only and makes no signaling, relay, matchmaking, or game-server request.
+> **Redesign dependency:** everything below is frozen prototype-era research input, not an approved topology or schema. The replacement must rebuild commands and snapshots around approved entity, production, rally, combat, and AI state, then compare transport options in its networking phase. Do not implement networking before the earlier gates in [`REDESIGN.md`](REDESIGN.md) pass.
+
+Multiplayer was an architectural target, not a feature of the published rejected prototype. The GitHub Pages prototype is local-only and makes no signaling, relay, matchmaking, or game-server request.
 
 ## Hosting reality
 
@@ -30,7 +32,7 @@ Commands travel on a reliable ordered data channel. Cosmetic cursor or presence 
 
 ## Why this is bandwidth efficient
 
-Unit state is derived locally from the same seed, tick, configuration, and commands. A move order for a selected squad is sent once, not as dozens of positions 60 times per second. Periodic hashes are tiny, while complete snapshots are exceptional recovery data with strict size and frequency limits.
+Entity state can be derived locally from the same seed, tick, configuration, and commands. A move order for a selected group is sent once, not as dozens of positions 60 times per second. Periodic hashes are tiny, while complete snapshots are exceptional recovery data with strict size and frequency limits.
 
 This optimization is valid only while determinism is proven. If a system cannot reproduce across supported browsers, that state must be quantized or explicitly synchronized before multiplayer ships.
 
@@ -48,7 +50,7 @@ Every message needs an exact versioned schema and a maximum encoded size. A conc
 | `kind` | Small allowlisted message or command type |
 | `payload` | Type-specific bounded integer/fixed-point data |
 
-Unit identifiers, selected-unit count, command rate, chat length, snapshot bytes, resync frequency, and lobby seats all require hard limits. Unknown fields and invalid enum values are rejected; remote data is never merged blindly into state or DOM.
+Entity identifiers, selected-entity count, command rate, chat length, snapshot bytes, resync frequency, and lobby seats all require hard limits. Unknown fields and invalid enum values are rejected; remote data is never merged blindly into state or DOM.
 
 ## WebRTC room lifecycle
 
@@ -71,7 +73,7 @@ The browser client must never contain AWS credentials. Deployment configuration,
 
 ## Security and fairness
 
-Host authority prevents ordinary clients from creating units or spending resources they do not own, but the host can still cheat or terminate a P2P game. UI must call this model **hosted** rather than implying trusted competitive authority.
+Host authority prevents ordinary clients from creating entities or spending resources they do not own, but the host can still cheat or terminate a P2P game. UI must call this model **hosted** rather than implying trusted competitive authority.
 
 Before either adapter ships:
 

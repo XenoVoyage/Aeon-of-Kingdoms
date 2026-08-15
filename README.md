@@ -2,41 +2,34 @@
 
 # Aeon of Kingdoms
 
-**A compact real-time strategy game where every captured point reshapes the war.**
+**An original landscape real-time strategy game, being rebuilt one approved phase at a time.**
 
-[![Version v2026.8.15](https://img.shields.io/badge/version-v2026.8.15-6ef3ff)](CHANGELOG.md)
+[![Source candidate v2026.8.15a](https://img.shields.io/badge/source_candidate-v2026.8.15a-6ef3ff)](CHANGELOG.md)
 [![Offline audit](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/ci.yml/badge.svg)](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/ci.yml)
 [![GitHub Pages](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/pages.yml/badge.svg)](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/pages.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-cbd5e1)](LICENSE)
 
-## [Play Aeon of Kingdoms](https://xenovoyage.github.io/Aeon-of-Kingdoms/)
+> **Active redesign:** the product owner rejected the `v2026.8.15` prototype and approved the phased replacement plan. Its UI, art, map, controls, terminology, gameplay feel, and AI are not the baseline for future work.
+
+## [Read the approved redesign roadmap](docs/REDESIGN.md)
 
 </div>
 
-![Six-faction Conquest opening on Aeon Convergence, with selected Astral Concord units, rival armies, capture sites, resources, and recruitment controls](docs/assets/gameplay.webp)
-
-Aeon of Kingdoms is an initial playable RTS vertical slice for desktop and touch devices. Command the Astral Concord or Gravebound Court, claim Aether Wells and forward Relay Forges, respect the population limit, and destroy the enemy Nexus.
+The current working tree contains the `v2026.8.15a` transition candidate: a restrained status page, not redesigned gameplay. A source version does not prove that Pages, a tag, or a GitHub Release exists; publication is verified separately. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag and Git history. Prototype-era source also remains temporarily in the working tree for historical regression evidence, but it is not referenced or included in the Pages payload.
 
 ## At a glance
 
-| Detail | Current slice |
+| Detail | Current truth |
 | --- | --- |
-| Play | One skirmish and one campaign scenario against deterministic AI |
-| Factions | Astral Concord and Gravebound Court, each with six faction-named roles |
-| Battlefield | Aeon Convergence, with mirrored 2-, 4-, and 6-faction seats and distance-matched opening sites; balance remains pending |
-| Runtime | Local HTML, CSS, JavaScript, and Canvas; no build step or runtime dependency |
-| Multiplayer | Protocol and transport architecture documented; not shipped in this build |
+| Public source candidate | Interim redesign status page only; deployment verification is pending integration |
+| Active work | Approved Phase 0 truth-and-cleanup transition |
+| Replacement target | One original map, two factions, landscape camera play, three structure categories, production/rally, readable combat, and strategic AI |
+| Replacement runtime principle | Local HTML, CSS, JavaScript, and Canvas unless an approved phase proves another need |
+| Multiplayer | Later phase after the redesigned local simulation is approved; not shipped |
 
-## Command
+## Preview the transition page locally
 
-- Select units with pointer or touch, then issue a move or attack order on the battlefield.
-- Capture Aether Wells and Relay Forges to grow map control without base-building.
-- Recruit within the shared population cap; positioning and composition matter more than unit spam.
-- Eliminate opposing headquarters in every mode, or complete the selected Conquest, King of the Hill, or Domination objective first.
-
-## Run locally
-
-Clone or download the repository and open `index.html` in a modern browser. No installation is required. Node.js 20 or newer is used only for the dependency-free verification suite:
+Open `index.html` in a modern browser. It intentionally provides redesign status and documentation links only. Node.js 20 or newer is used for the dependency-free source verification suite:
 
 ```sh
 node tests/run.js
@@ -44,11 +37,12 @@ node tests/run.js
 
 ## Project documentation
 
-- [Game design](docs/GAME_DESIGN.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Multiplayer and netcode plan](docs/NETCODE.md)
+- [Active redesign roadmap](docs/REDESIGN.md)
 - [Current status](docs/STATUS.md)
-- [Asset and art direction](docs/ASSETS.md)
+- [Prototype-era game design](docs/GAME_DESIGN.md)
+- [Prototype-era architecture](docs/ARCHITECTURE.md)
+- [Multiplayer and netcode plan](docs/NETCODE.md)
+- [Prototype-era asset record](docs/ASSETS.md)
 - [Contributing](CONTRIBUTING.md) and [security](SECURITY.md)
 
-Designed and implemented with **OpenAI Codex**, with gameplay direction and review from **XenoVoyage**. Released under the [MIT License](LICENSE).
+Directed and reviewed by **XenoVoyage**, with implementation support from **OpenAI Codex**. Released under the [MIT License](LICENSE).
