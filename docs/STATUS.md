@@ -6,16 +6,16 @@ This is the current-state handoff. Active redesign phases and acceptance gates b
 
 | Area | Status |
 | --- | --- |
-| Canonical source version | `v2026.8.15a` in `VERSION.txt`; this is a transition candidate, not evidence of a tag, release, or deployment |
+| Canonical source version | `v2026.8.15a` in `VERSION.txt`; deployed status build, with no corresponding tag or GitHub Release claimed |
 | Historical runtime | `v2026.8.15` was observed playable at commit `7f88655` on 2026-08-15, but the product owner rejected its UI, art, map, gameplay feel, terminology, and AI as the future direction |
-| Active phase | Phase 0 — approved; truth-and-cleanup integration in progress |
+| Active phase | Phase 0 — source and Pages publication complete; final owner/rendered/cache/device evidence pending |
 | Redesign gameplay implementation | Not started |
 | Current source boundary | Minimal redesign status page plus the approved roadmap/status documents; it contains no playable redesign |
-| GitHub Pages | Last observed serving the rejected prototype at commit `7f88655` on 2026-08-15; the status-page candidate still requires final integration, complete verification, deployment, and live observation |
+| GitHub Pages | Status page deployed from merge commit `ede6f330181059e264c5e9a5b32eb72189164947`; main audit run `31909014413` and Pages run `31909014335` succeeded on 2026-08-15 |
 | Multiplayer | Not shipped; remains a later phase after the local redesign is approved |
-| Verification | Prototype results are historical only; transition-candidate checks and delivery evidence must be recorded after final integration |
+| Verification | 59/59 integrated checks passed; six public files returned `200` and matched merged source byte for byte; sampled rejected prototype paths returned `404`; rendered browser, old-cache migration, console, and physical-device evidence remains pending |
 
-Do not describe the current Pages build or the transition page as redesigned gameplay. Do not infer implementation, a deployment, or a release from source files, version text, workflow badges, or the roadmap.
+Do not describe the current Pages build or the transition page as redesigned gameplay. The recorded workflow and exact HTTPS observations establish this deployment only; they do not establish a tag, GitHub Release, rendered quality, physical-device result, or redesigned gameplay.
 
 ## Approval record
 
@@ -40,7 +40,7 @@ Draft Phase 1 menu, battlefield, faction, structure, combat, mobile-control, and
 
 ## Next gate
 
-1. Integrate the `v2026.8.15a` transition candidate and run the complete source and staged-delivery verification.
-2. Deploy through the protected Pages workflow, then record the exact commit, live content, console result, navigation, and cache transition actually observed.
-3. Close Phase 0 only after the repository and live site both tell the same truth.
+1. Open the deployed status page in a normal existing browser profile and verify the old prototype is replaced without a stale-cache loop.
+2. Record rendered desktop and mobile readability, console cleanliness, link navigation, and rollback readiness without converting those observations into gameplay claims.
+3. Close Phase 0 only after the repository, live site, and owner review tell the same truth.
 4. Review the draft Phase 1 concept set, revise it where required, and record explicit approval or rejection; begin gameplay renderer work only after the complete visual gate is approved.

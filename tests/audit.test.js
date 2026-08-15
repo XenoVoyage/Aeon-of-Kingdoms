@@ -68,8 +68,9 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("AGENTS.md"), /Phase 0 and the roadmap baseline were approved/);
   assert.match(read("CONTRIBUTING.md"), /docs\/REDESIGN\.md/);
   assert.match(read("docs/ASSETS.md"), /Prototype-era document/);
-  assert.match(read("tests/README.md"), /active Phase 0 candidate is a non-playable redesign status page/i);
+  assert.match(read("tests/README.md"), /active Phase 0 runtime is a deployed non-playable redesign status page/i);
   assert.match(read("docs/STATUS.md"), /Redesign gameplay implementation \| Not started/);
+  assert.match(read("docs/STATUS.md"), /exact HTTPS observations establish this deployment only/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
 });
@@ -77,7 +78,7 @@ test("public documentation identifies the rejected prototype and active redesign
 test("VERSION.txt is canonical and required public mirrors match", () => {
   const version = read("VERSION.txt").trim();
   assert.match(version, /^v\d{4}\.\d{1,2}\.\d{1,2}[a-z]?$/);
-  assert.match(read("README.md"), new RegExp(`Source candidate ${version.replaceAll(".", "\\.")}`));
+  assert.match(read("README.md"), new RegExp(`Status build ${version.replaceAll(".", "\\.")}`));
   assert.ok(read("CHANGELOG.md").includes(`## [${version}]`), "changelog current heading does not match VERSION.txt");
   assert.ok(read("docs/STATUS.md").includes(`\`${version}\` in \`VERSION.txt\``), "status version does not match VERSION.txt");
   assert.ok(read("index.html").includes(version), "visible transition page version does not match VERSION.txt");

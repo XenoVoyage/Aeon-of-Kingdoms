@@ -2,7 +2,7 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
-## [v2026.8.15a] — 2026-08-15 (source candidate)
+## [v2026.8.15a] — 2026-08-15 (deployed status build; untagged)
 
 ### Changed
 
@@ -12,7 +12,9 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 
 ### Publication status
 
-- This heading records a source-version target only. It does not claim completed verification, a tag, GitHub Release, Pages deployment, or live-browser observation; those remain pending final integration and publication checks.
+- Pull request `#1` merged as commit `ede6f330181059e264c5e9a5b32eb72189164947`; the main audit and Pages deployment both completed successfully.
+- The six deployed public files were observed over HTTPS and matched the merged source byte for byte; rejected prototype runtime paths returned `404`.
+- No `v2026.8.15a` tag or GitHub Release is claimed. Rendered-browser, pre-existing-cache, console, and physical-device observations remain separate pending evidence.
 
 ## [v2026.8.15] — 2026-08-15
 
