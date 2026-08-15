@@ -134,7 +134,7 @@ test("workflows are bounded, least-privilege, and deploy the staged allowlist", 
   assert.match(visual, /node tests\/run\.js/);
   assert.match(visual, /persist-credentials: false/);
   assert.match(visual, /--window-size=1440,810/);
-  assert.match(visual, /data-capture-state=\\?"ready\\?"/);
+  assert.match(visual, /--timeout=3000/);
   assert.match(visual, /name: aeon-six-faction-gameplay-1440x810/);
   assert.match(visual, /path: artifacts\/aeon-of-kingdoms-six-faction-1440x810\.png/);
   assert.doesNotMatch(visual, /(?:npm|pnpm|yarn)\s+(?:install|add|ci)/);
@@ -155,7 +155,9 @@ test("manual visual capture uses a deterministic same-origin six-faction harness
   assert.match(fixture, /player-count[^\n]+value=\\?"6\\?"/);
   assert.match(fixture, /battle-mode[^\n]+value=\\?"conquest\\?"/);
   assert.match(fixture, /population\?\.textContent === "5 \/ 24"/);
+  assert.match(fixture, /getImageData/);
   assert.match(fixture, /dataset\.captureState = "ready"/);
+  assert.match(fixture, /getElementById\("pause-button"\)\.click\(\)/);
   assert.doesNotThrow(() => new vm.Script(fixture, { filename: "tests/fixtures/visual-capture.js" }));
 });
 

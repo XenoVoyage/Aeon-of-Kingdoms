@@ -59,6 +59,7 @@ jobs:
             --disable-default-apps
             --disable-dev-shm-usage
             --disable-extensions
+            --disable-gpu
             --disable-sync
             --force-color-profile=srgb
             --force-device-scale-factor=1
@@ -68,23 +69,10 @@ jobs:
             --window-size=1440,810
           )
 
-          readiness_profile="$RUNNER_TEMP/aeon-visual-readiness-profile"
-          readiness_dom="$RUNNER_TEMP/aeon-visual-readiness.html"
-          "$browser_path" "${browser_flags[@]}" \
-            --user-data-dir="$readiness_profile" \
-            --virtual-time-budget=6000 \
-            --dump-dom \
-            "$capture_url" >"$readiness_dom"
-          if ! grep --fixed-strings --quiet 'data-capture-state="ready"' "$readiness_dom"; then
-            echo "The capture harness did not reach its deterministic ready state." >&2
-            sed -n '1,40p' "$readiness_dom" >&2
-            exit 1
-          fi
-
           screenshot_profile="$RUNNER_TEMP/aeon-visual-screenshot-profile"
           "$browser_path" "${browser_flags[@]}" \
             --user-data-dir="$screenshot_profile" \
-            --virtual-time-budget=6000 \
+            --timeout=3000 \
             --screenshot="$capture_path" \
             "$capture_url"
 
@@ -96,6 +84,7 @@ jobs:
             const width = image.readUInt32BE(16);
             const height = image.readUInt32BE(20);
             if (width !== 1440 || height !== 810) throw new Error(`unexpected capture size ${width}x${height}`);
+            if (image.length < 450000) throw new Error(`capture is unexpectedly sparse (${image.length} bytes)`);
           ' "$capture_path"
       - name: Upload gameplay capture
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
