@@ -1,10 +1,39 @@
 # Assets and art direction
 
-> **Prototype-era document:** everything below records the rejected `v2026.8.15` asset set and visual direction. It must not guide the replacement. Phase 1 of [`REDESIGN.md`](REDESIGN.md) will establish original approved art, recorded provenance/licensing, animation, atlas, and size rules before new gameplay rendering begins.
+This file owns the active review-reference inventory and preserves the rejected prototype asset record below. Phase 1 of [`REDESIGN.md`](REDESIGN.md) still must establish approved shipping art, provenance/licensing, animation, atlas, and size rules before new gameplay rendering begins.
+
+## Active redesign review references
+
+The `v2026.8.16` candidate includes eight raster references solely so the product owner can accept or revise a coherent visual and interaction direction. They are not gameplay screenshots, final production assets, implementation evidence, or proof that their detail survives normal RTS zoom.
+
+| File | Dimensions | Bytes | Review-only purpose |
+| --- | ---: | ---: | --- |
+| `concepts/images/battlefield.webp` | 1672×941 | 244,336 | Battlefield mood, route, blocker, territory, and scale language; not a validated 2/4/6-player layout |
+| `concepts/images/astral-concord.webp` | 1672×941 | 112,798 | Six proposed living-faction combat-entity silhouettes and material language |
+| `concepts/images/gravebound-court.webp` | 1672×941 | 106,914 | Six proposed undead-faction combat-entity silhouettes and material language |
+| `concepts/images/structures.webp` | 1536×1024 | 140,124 | Exactly three structure categories and proposed neutral/captured ownership treatments |
+| `concepts/images/combat-readability.webp` | 1672×941 | 171,102 | Formation spacing, focused target, range, command, impact, and defeat language |
+| `concepts/images/minimal-menu.webp` | 1672×941 | 85,924 | Original restrained landscape menu direction without a dashboard-card shell |
+| `concepts/images/mobile-landscape.webp` | 1798×875 | 148,910 | Map-dominant landscape touch-control composition without a virtual joystick |
+| `concepts/images/production-rally.webp` | 1672×941 | 243,618 | Producing-headquarters selection, queue, progress, cancellation, spawn, and rally interaction direction |
+
+Total review-image payload: **1,253,726 bytes**.
+
+### Origin, transformation, and distribution
+
+- **Direction:** XenoVoyage.
+- **Source method/tool:** Generated as project-specific concept references with OpenAI image generation through OpenAI Codex. No third-party stock or rejected-project image was intentionally supplied as source material.
+- **Transformation:** Original PNG outputs retained their pixel dimensions, had metadata removed with FFmpeg `-map_metadata -1`, and were lossily encoded with FFmpeg's `libwebp` encoder at quality 78 and compression level 6. The PNG outputs are not shipped in Pages or committed to the repository.
+- **Distribution decision:** These review copies are included as project material under the repository's MIT license. This does not approve them as final shipping art; generated output may not be unique, and final asset selection/licensing remains a Phase 1 gate.
+- **Delivery:** Each reference is local, below 300 KiB, linked at full size, and excluded from the four-file offline status-shell cache. Seven below-fold images lazy-load; the first is prioritized.
+
+## Rejected prototype archive
+
+> The sections below record the rejected `v2026.8.15` asset set and visual direction. They must not guide the replacement.
 
 The vertical slice uses procedural Canvas shapes and local interface styling. This keeps unit silhouettes crisp across zoom levels, supports recoloring and animation without sprite duplication, and avoids a runtime download or build pipeline.
 
-## Current inventory
+### Prototype inventory
 
 | Area | Source | Provenance |
 | --- | --- | --- |
@@ -20,7 +49,7 @@ The vertical slice uses procedural Canvas shapes and local interface styling. Th
 
 The two local SVG sources and their raster install variants use the same geometric Aeon sigil and cyan/violet deep-space palette as the interface. No generated concept image is presented as an in-game screenshot. The README image comes from the real game through the repository's manual, dependency-free Chrome capture workflow.
 
-## Visual language
+### Rejected visual language
 
 Aeon of Kingdoms combines fantasy, mythology, modern technology, and alien civilizations inside one deep-space visual system.
 
@@ -32,7 +61,7 @@ Aeon of Kingdoms combines fantasy, mythology, modern technology, and alien civil
 
 The tone should feel scientific and premium without covering a strategy map in glow. Bloom, particles, trails, and screen movement support state feedback; they do not substitute for shape, labels, or contrast.
 
-## Unit readability
+### Rejected unit readability
 
 Every role needs a recognizable footprint at normal play zoom:
 
@@ -47,7 +76,7 @@ Every role needs a recognizable footprint at normal play zoom:
 
 Faction-specific names and details may change the motif, but should not erase the role's battlefield read. Selection, ownership, health, capture, disabled, and target states require non-color signals.
 
-## Animation rules
+### Rejected animation rules
 
 - Authoritative timing lives in simulation state; rendering reads it without changing an outcome.
 - Prefer small stateful motions—stance, recoil, cast, impact, death—over perpetual decoration.
@@ -69,7 +98,7 @@ Assets may be added when they materially improve the game and remain local, lice
 
 Third-party assets require a license compatible with the MIT-distributed repository and an attribution record when the license requires one. “Free” or generated does not by itself establish redistribution rights.
 
-## README capture gate
+## Rejected prototype README capture record
 
 The current capture passed this gate on 2026-08-15. Future replacements must preserve the same evidence standard.
 

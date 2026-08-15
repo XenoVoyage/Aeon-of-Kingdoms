@@ -6,14 +6,15 @@ This is the current-state handoff. Active redesign phases and acceptance gates b
 
 | Area | Status |
 | --- | --- |
-| Canonical source version | `v2026.8.15a` in `VERSION.txt`; deployed status build, with no corresponding tag or GitHub Release claimed |
+| Canonical source version | `v2026.8.16` in `VERSION.txt`; concept-gallery source candidate, with no deployment, tag, or GitHub Release claimed by this change alone |
 | Historical runtime | `v2026.8.15` was observed playable at commit `7f88655` on 2026-08-15, but the product owner rejected its UI, art, map, gameplay feel, terminology, and AI as the future direction |
-| Active phase | Phase 0 — source and Pages publication complete; one portrait mobile render observed; final owner/landscape/cache/console evidence pending |
+| Active phase | Phase 0 — the status-only deployment is verified; final owner/landscape/cache/console evidence remains pending; `v2026.8.16` makes unapproved Phase 1 drafts reviewable in source |
 | Redesign gameplay implementation | Not started |
-| Current source boundary | Minimal redesign status page plus the approved roadmap/status documents; it contains no playable redesign |
+| Current source boundary | Minimal redesign status page, review-only concept gallery, and the approved roadmap/status documents; they contain no playable redesign |
 | GitHub Pages | Status page deployed from merge commit `ede6f330181059e264c5e9a5b32eb72189164947`; main audit run `31909014413` and Pages run `31909014335` succeeded on 2026-08-15 |
 | Multiplayer | Not shipped; remains a later phase after the local redesign is approved |
-| Verification | 59/59 integrated checks passed; six public files returned `200` and matched merged source byte for byte; sampled rejected prototype paths returned `404`; one owner-supplied portrait mobile render is recorded; landscape, desktop/tablet, old-cache migration, navigation, and console evidence remains pending |
+| Candidate source verification | 63/63 integrated checks passed; the stage contains 16 explicit files plus generated `.nojekyll`; gallery rendering, deployment, navigation, and live bytes remain pending |
+| Last verified deployment | For `v2026.8.15a`, six public files returned `200` and matched merged source byte for byte; sampled rejected prototype paths returned `404`; one owner-supplied portrait mobile render is recorded; landscape, desktop/tablet, old-cache migration, navigation, and console evidence remains pending |
 
 Do not describe the current Pages build or the transition page as redesigned gameplay. The recorded workflow and exact HTTPS observations establish this deployment. The owner-supplied capture establishes only the visible portrait mobile state described below; neither category establishes a tag, GitHub Release, other viewport/device behavior, cache migration, console cleanliness, or redesigned gameplay.
 
@@ -36,7 +37,7 @@ On 2026-08-15, the product owner approved Phase 0 and authorized its implementat
 
 ## Evidence boundary
 
-Draft Phase 1 menu, battlefield, faction, structure, combat, mobile-control, and production/rally concepts were generated and shown to the product owner during Phase 0. They are unapproved previews: they are not versioned shipping assets, do not close any Phase 1 checklist item, and are not evidence of implemented gameplay. No redesigned map, entity, building, movement, combat, AI, touch, or networking runtime evidence exists yet. The interim status page is a communication surface only. Each phase in [`REDESIGN.md`](REDESIGN.md) defines its own required source, automated, rendered, physical-device, and owner-approval evidence.
+Draft Phase 1 menu, battlefield, faction, structure, combat, mobile-control, and production/rally concepts are versioned in the `v2026.8.16` source candidate for a [review-only concept gallery](../concepts/). They remain unapproved: they are not shipping game assets, do not close any Phase 1 checklist item, and are not evidence of implemented gameplay. Gallery rendering and publication have not yet been observed. No redesigned map, entity, building, movement, combat, AI, touch, or networking runtime evidence exists yet. The interim status page and gallery are communication surfaces only. Each phase in [`REDESIGN.md`](REDESIGN.md) defines its own required source, automated, rendered, physical-device, and owner-approval evidence.
 
 ### Owner-supplied portrait mobile observation
 
@@ -47,4 +48,4 @@ On 2026-08-15 the product owner supplied a 945×2048 portrait mobile-browser scr
 1. Verify replacement of an existing prototype service-worker cache in a previously used browser profile without a stale-cache loop.
 2. Record landscape and desktop/tablet readability, console cleanliness, link navigation, and rollback readiness without converting those observations into gameplay claims.
 3. Close Phase 0 only after the repository, live site, and owner review tell the same truth.
-4. Review the draft Phase 1 concept set, revise it where required, and record explicit approval or rejection; begin gameplay renderer work only after the complete visual gate is approved.
+4. Review the [draft Phase 1 concept set](../concepts/), revise it where required, and record explicit approval or rejection; begin gameplay renderer work only after the complete visual gate is approved.

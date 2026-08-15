@@ -14,17 +14,17 @@ Include the affected version, browser or environment, concise reproduction, expe
 
 ## Current boundary
 
-The current release is a static local browser game. It has no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection.
+The verified deployment is a static non-playable redesign status site; the current `v2026.8.16` candidate adds a script-free local concept-review gallery. Neither surface is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection.
 
 Relevant reports include:
 
 - script execution or Content Security Policy bypass;
 - unexpected external loading or network communication;
-- unsafe parsing or rendering of local/imported data;
+- unsafe delivery, caching, or rendering of the local status and concept-review resources;
 - GitHub Actions, Pages, artifact, branch-protection, or release-integrity weaknesses;
 - a vulnerability in a future networking feature that is actually present on `main`.
 
-Editing local game state, AI behavior visible in source, host cheating in a future explicitly host-authoritative P2P match, browser-extension injection, and unsupported-browser defects are not security boundaries for this static version.
+Editing the preserved rejected prototype's local game state, AI behavior visible in historical source, host cheating in a future explicitly host-authoritative P2P match, browser-extension injection, and unsupported-browser defects are not security boundaries for the current static communication surfaces.
 
 ## Future multiplayer
 

@@ -10,6 +10,16 @@ const RUNTIME_FILES = Object.freeze([
   "sw.js",
   "css/status.css",
   "js/status.js",
+  "concepts/index.html",
+  "concepts/gallery.css",
+  "concepts/images/battlefield.webp",
+  "concepts/images/astral-concord.webp",
+  "concepts/images/gravebound-court.webp",
+  "concepts/images/structures.webp",
+  "concepts/images/combat-readability.webp",
+  "concepts/images/minimal-menu.webp",
+  "concepts/images/mobile-landscape.webp",
+  "concepts/images/production-rally.webp",
   "docs/REDESIGN.md",
   "docs/STATUS.md"
 ]);
@@ -51,7 +61,16 @@ function normalizedPublicPath(reference) {
   if (normalized === ".." || normalized.startsWith("../") || path.posix.isAbsolute(normalized)) {
     throw new Error(`Pages reference escapes the public root: ${reference}`);
   }
-  return normalized;
+  if (normalized === ".") return "index.html";
+  return normalized.endsWith("/") ? `${normalized}index.html` : normalized;
+}
+
+function resolvedPublicPath(ownerPath, reference) {
+  const joined = path.posix.join(path.posix.dirname(ownerPath), reference);
+  if (reference.endsWith("/") && !joined.endsWith("/")) {
+    return normalizedPublicPath(`${joined}/`);
+  }
+  return normalizedPublicPath(joined);
 }
 
 function isRejectedPrototypePath(relativePath) {
@@ -83,11 +102,13 @@ function verifyRuntimeFiles() {
     }
   }
 
-  const html = fs.readFileSync(path.join(PROJECT_ROOT, "index.html"), "utf8");
-  for (const reference of localReferences(html)) {
-    const normalized = normalizedPublicPath(reference);
-    if (!allowed.has(normalized)) {
-      throw new Error(`index.html references a file outside the Pages allowlist: ${reference}`);
+  for (const relativePath of RUNTIME_FILES.filter((entry) => entry.endsWith(".html"))) {
+    const html = fs.readFileSync(path.join(PROJECT_ROOT, relativePath), "utf8");
+    for (const reference of localReferences(html)) {
+      const normalized = resolvedPublicPath(relativePath, reference);
+      if (!allowed.has(normalized)) {
+        throw new Error(`${relativePath} references a file outside the Pages allowlist: ${reference}`);
+      }
     }
   }
 
@@ -151,7 +172,7 @@ function stage(outputArgument) {
 if (require.main === module) {
   try {
     const files = stage(process.argv[2]);
-    process.stdout.write(`Staged ${files.length} verified status files in _site\n`);
+    process.stdout.write(`Staged ${files.length} verified public files in _site\n`);
   } catch (error) {
     process.stderr.write(`${error && error.message ? error.message : error}\n`);
     process.exitCode = 1;
@@ -162,6 +183,7 @@ module.exports = {
   EXPECTED_SHELL_ASSETS,
   RUNTIME_FILES,
   localReferences,
+  resolvedPublicPath,
   stage,
   verifyRuntimeFiles
 };

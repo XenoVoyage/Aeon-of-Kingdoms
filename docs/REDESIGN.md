@@ -202,6 +202,8 @@ Gate: the repository and live site tell the same truth, the transition evidence 
 
 ### Phase 1 — Visual and interaction lock
 
+Eight draft frames cover six visual targets below—the faction target uses two sheets—plus an additional production/rally interaction reference. They are available in the [unapproved concept review gallery](../concepts/) and remain open until the owner accepts or replaces them; publication alone does not check an item or close this gate.
+
 - [ ] Original minimal menu concept.
 - [ ] Full 16:9 opening battlefield concept with blockers, three structure types, armies, and readable routes.
 - [ ] Two complete faction identity and combat-entity sheets.
