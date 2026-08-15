@@ -154,7 +154,7 @@ test("manual visual capture uses a deterministic same-origin six-faction harness
   assert.doesNotMatch(html, /(?:src|href)=["'](?:https?:|\/)/i);
   assert.match(fixture, /player-count[^\n]+value=\\?"6\\?"/);
   assert.match(fixture, /battle-mode[^\n]+value=\\?"conquest\\?"/);
-  assert.match(fixture, /battleTime\?\.textContent === "00:02"/);
+  assert.match(fixture, /population\?\.textContent === "5 \/ 24"/);
   assert.match(fixture, /dataset\.captureState = "ready"/);
   assert.match(fixture, /getElementById\("pause-button"\)\.click\(\)/);
   assert.doesNotThrow(() => new vm.Script(fixture, { filename: "tests/fixtures/visual-capture.js" }));

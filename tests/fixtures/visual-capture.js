@@ -3,7 +3,7 @@
 
   const frame = document.getElementById("game-frame");
   const captureRoot = document.body;
-  const maximumWaitMilliseconds = 5000;
+  const maximumWaitMilliseconds = 2000;
   const pollMilliseconds = 25;
   let startedAt = 0;
   let initialized = false;
@@ -16,12 +16,10 @@
 
   function waitForBattleFrame(frameWindow, frameDocument) {
     const battleTime = frameDocument.getElementById("battle-time");
-    const liveStatus = frameDocument.getElementById("live-status");
-    const sixFactionsStarted = liveStatus?.textContent.includes("6 factions");
+    const population = frameDocument.getElementById("population");
     if (
       frameDocument.body.dataset.gameState === "playing"
-      && battleTime?.textContent === "00:02"
-      && sixFactionsStarted
+      && population?.textContent === "5 / 24"
     ) {
       frameDocument.getElementById("pause-button").click();
       frameDocument.getElementById("pause-dialog").close();
@@ -33,7 +31,7 @@
     }
 
     if (performance.now() - startedAt >= maximumWaitMilliseconds) {
-      fail("six-faction battle did not reach 00:02");
+      fail("six-faction opening did not become ready");
       return;
     }
     frameWindow.setTimeout(() => waitForBattleFrame(frameWindow, frameDocument), pollMilliseconds);
@@ -61,17 +59,6 @@
       for (let index = 0; index < 3; index += 1) {
         frameDocument.getElementById("zoom-out").click();
       }
-      frameWindow.dispatchEvent(new frameWindow.KeyboardEvent("keydown", {
-        key: "Enter",
-        code: "Enter",
-        bubbles: true,
-      }));
-      frameWindow.dispatchEvent(new frameWindow.KeyboardEvent("keyup", {
-        key: "Enter",
-        code: "Enter",
-        bubbles: true,
-      }));
-
       startedAt = performance.now();
       waitForBattleFrame(frameWindow, frameDocument);
     } catch (error) {
