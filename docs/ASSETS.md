@@ -4,7 +4,7 @@ This file owns the active review-reference inventory and preserves the rejected 
 
 ## Active redesign review references
 
-The `v2026.8.16` candidate includes eight raster references solely so the product owner can accept or revise a coherent visual and interaction direction. They are not gameplay screenshots, final production assets, implementation evidence, or proof that their detail survives normal RTS zoom.
+The deployed `v2026.8.16` review gallery includes eight raster references solely so the product owner can accept or revise a coherent visual and interaction direction. They are not gameplay screenshots, final production assets, implementation evidence, or proof that their detail survives normal RTS zoom.
 
 | File | Dimensions | Bytes | Review-only purpose |
 | --- | ---: | ---: | --- |

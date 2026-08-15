@@ -1,6 +1,6 @@
 # Aeon of Kingdoms verification
 
-The active candidate boundary is a deployed non-playable redesign status page plus an unapproved Phase 1 concept-review gallery source candidate. Verification proves that these communication surfaces are truthful, local, bounded, accessible, and staged exactly; it does not establish gallery rendering or deployment, validate redesigned gameplay, or approve the concepts. The rejected `v2026.8.15` prototype and its old tests remain historical evidence only.
+The active public boundary is a deployed non-playable redesign status page plus an unapproved Phase 1 concept-review gallery. Verification proves that these communication surfaces are truthful, local, bounded, accessible, and staged exactly; exact live bytes establish deployment but do not establish gallery rendering, validate redesigned gameplay, or approve the concepts. The rejected `v2026.8.15` prototype and its old tests remain historical evidence only.
 
 Run the complete dependency-free verification from the repository root:
 

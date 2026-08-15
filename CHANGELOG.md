@@ -2,18 +2,20 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
-## [v2026.8.16] — 2026-08-16 (source candidate; untagged)
+## [v2026.8.16] — 2026-08-16 (deployed status/review build; untagged)
 
 ### Added
 
 - Added one local, review-only gallery containing eight optimized concept references for the battlefield, two opening factions, three structure categories, combat readability, minimal menu, landscape touch controls, and production/rally interaction.
 - Added a visible route from the Phase 0 status page to the concept set and a numbered owner decision checklist.
 
-### Boundaries
+### Publication and boundaries
 
 - The concepts remain unapproved direction references, not shipping assets, gameplay screenshots, or proof of implementation.
 - The gallery does not enter the bounded offline status-shell cache and introduces no script, dependency, tracking, or external request.
-- No deployment, tag, or GitHub Release is claimed by this source candidate.
+- Pull request `#4` merged as commit `27895cca87c1415183500b176e36a9234f6d4e8a`; main audit run `31912225152` and Pages run `31912225209` succeeded.
+- All 16 allowlisted files and both directory entry routes were observed over HTTPS and matched merged source byte for byte; sampled rejected prototype paths returned `404`.
+- No `v2026.8.16` tag or GitHub Release is claimed. Rendered gallery, keyboard, console, cache-migration, and physical-device observations remain separate pending evidence.
 
 ## [v2026.8.15a] — 2026-08-15 (deployed status build; untagged)
 

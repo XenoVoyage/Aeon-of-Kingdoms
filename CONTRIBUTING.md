@@ -2,7 +2,7 @@
 
 Aeon of Kingdoms is undergoing a gated redesign. Contributions must preserve the approved redesign contract and enduring deterministic, accessible, secure browser boundaries; they must not preserve the rejected prototype presentation or gameplay by default.
 
-Phase 0 is the only currently approved implementation scope. The last verified deployment is a non-playable redesign status page; the `v2026.8.16` candidate adds an explicitly unapproved concept-review gallery. Redesigned gameplay begins only after the complete Phase 1 visual gate is explicitly approved.
+Phase 0 is the only currently approved implementation scope. The deployed `v2026.8.16` public runtime is a non-playable redesign status page plus an explicitly unapproved concept-review gallery. Redesigned gameplay begins only after the complete Phase 1 visual gate is explicitly approved.
 
 ## Before changing code
 
