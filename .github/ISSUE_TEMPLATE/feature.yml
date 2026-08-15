@@ -1,0 +1,56 @@
+name: Focused improvement
+description: Propose a concrete improvement that fits the compact RTS direction.
+title: "[Proposal]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Player problem
+      description: Describe the observed need before suggesting an implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: State what should become possible or clearer for the player.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Smallest useful scope
+      description: Explain what is included and deliberately excluded.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Primary area
+      options:
+        - Gameplay and balance
+        - Controls and accessibility
+        - Visuals and audio
+        - Performance and determinism
+        - Campaign and AI
+        - Multiplayer architecture
+        - Documentation and delivery
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance evidence
+      description: Describe an observable result and the devices, player counts, or network conditions that matter.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I read the current project status and searched existing issues.
+          required: true
+        - label: I have not described a planned feature as already shipped.
+          required: true

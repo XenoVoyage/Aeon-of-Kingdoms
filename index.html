@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#03050d">
+    <meta name="color-scheme" content="dark">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    >
+    <meta
+      name="description"
+      content="A compact deterministic real-time strategy game of territory, formations, and faction warfare."
+    >
+    <title>Aeon of Kingdoms</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body data-game-state="menu" data-input-mode="command">
+    <a class="skip-link" href="#start-screen">Skip to game setup</a>
+
+    <div id="app">
+      <main class="battlefield" aria-label="Aeon of Kingdoms game">
+        <canvas
+          id="game-canvas"
+          tabindex="0"
+          aria-label="Battlefield. Select your units, then issue movement orders across the map."
+          aria-describedby="command-help"
+        >
+          Your browser needs Canvas support to render the battlefield.
+        </canvas>
+        <div class="canvas-vignette" aria-hidden="true"></div>
+
+        <section id="start-screen" class="screen" tabindex="-1" aria-labelledby="game-title">
+          <div class="menu-shell">
+            <div class="brand-lockup" aria-label="Aeon of Kingdoms">
+              <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2 21 7v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.4"/>
+                  <path d="m7.7 15.8 4.3-9 4.3 9M9.2 12.8h5.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span>
+                <span class="brand-kicker">Strategic transmission</span>
+                <span class="brand-name">Aeon of Kingdoms</span>
+              </span>
+            </div>
+
+            <header class="hero-copy">
+              <p class="eyebrow">Control creates strength</p>
+              <h1 id="game-title">Aeon <span>of Kingdoms</span></h1>
+              <p class="tagline">
+                Command a readable army across one convergent battlefield. Take Aether Wells,
+                unlock forward Relay Forges, and break every rival Nexus.
+              </p>
+            </header>
+
+            <div class="menu-layout">
+              <form id="skirmish-setup" class="menu-panel" aria-label="Skirmish setup">
+                <div class="setup-grid">
+                  <fieldset class="choice-group">
+                    <legend class="panel-label">Faction</legend>
+                    <div class="select-wrap">
+                      <select id="faction-select" name="faction" aria-label="Your faction">
+                        <option value="concord">Astral Concord</option>
+                        <option value="gravebound">Gravebound Court</option>
+                      </select>
+                    </div>
+                  </fieldset>
+
+                  <fieldset class="choice-group">
+                    <legend class="panel-label">Factions</legend>
+                    <div class="segmented">
+                      <label>
+                        <input type="radio" name="player-count" value="2" checked>
+                        <span>2</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="player-count" value="4">
+                        <span>4</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="player-count" value="6">
+                        <span>6</span>
+                      </label>
+                    </div>
+                  </fieldset>
+
+                  <fieldset class="choice-group">
+                    <legend class="panel-label">Objective</legend>
+                    <div class="segmented mode-choice">
+                      <label>
+                        <input type="radio" name="battle-mode" value="total-domination">
+                        <span>Total Domination</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="battle-mode" value="conquest" checked>
+                        <span>Conquest</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="battle-mode" value="king-of-the-hill">
+                        <span>King of the Hill</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="battle-mode" value="domination">
+                        <span>Domination</span>
+                      </label>
+                    </div>
+                  </fieldset>
+
+                  <button id="start-skirmish" class="button button-primary primary-action" type="submit">
+                    Start skirmish
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <path d="m7 4 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+
+              <div class="mode-stack">
+                <article class="mode-card" aria-labelledby="campaign-title">
+                  <p class="panel-label">Campaign transmission 01</p>
+                  <h2 id="campaign-title">First Light</h2>
+                  <p id="campaign-description">Lead the Astral Concord against the Pale Regent in an authored two-faction Conquest.</p>
+                  <button
+                    id="start-campaign"
+                    class="button button-quiet"
+                    type="button"
+                    aria-describedby="campaign-description"
+                  >
+                    Begin campaign
+                  </button>
+                </article>
+
+                <article class="mode-card is-locked" aria-labelledby="multiplayer-title">
+                  <h2 id="multiplayer-title">Hosted multiplayer</h2>
+                  <p>Private host-and-client rooms are a planned protocol milestone, not part of this local slice.</p>
+                  <button class="button button-quiet" type="button" disabled aria-disabled="true">Not shipped</button>
+                </article>
+              </div>
+            </div>
+
+            <noscript>
+              <p class="boot-error">JavaScript is required to run the deterministic battlefield.</p>
+            </noscript>
+          </div>
+        </section>
+
+        <header id="game-hud" class="game-hud" hidden aria-label="Battle status">
+          <div class="hud-brand" aria-hidden="true">
+            <span class="brand-mark">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 2 21 7v10l-9 5-9-5V7l9-5Z" stroke="currentColor" stroke-width="1.4"/>
+                <path d="m7.7 15.8 4.3-9 4.3 9M9.2 12.8h5.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span>
+              <span class="brand-kicker">Local command</span>
+              <span class="brand-name">Aeon</span>
+            </span>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <span class="stat-indicator" aria-hidden="true"></span>
+              <span class="stat-label">Aether</span>
+              <output id="resource-aether" class="stat-value" aria-label="Current Aether">0</output>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Population</span>
+              <output id="population" class="stat-value" aria-label="Current population and cap">0 / 0</output>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Battle time</span>
+              <output id="battle-time" class="stat-value" aria-label="Battle time">00:00</output>
+            </div>
+          </div>
+
+          <button id="pause-button" class="button button-icon button-quiet" type="button" aria-label="Pause game">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M6.5 4.5v11M13.5 4.5v11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </header>
+
+        <aside id="objective-panel" class="objective-panel" hidden aria-labelledby="objective-label">
+          <p id="objective-label" class="panel-label">Active objective</p>
+          <strong id="objective-status">Destroy every rival Nexus</strong>
+          <progress id="objective-progress" class="objective-progress" max="1" value="0">0%</progress>
+          <output
+            id="rival-objective"
+            class="objective-rival"
+            aria-label="Leading rival objective progress"
+            hidden
+          ></output>
+        </aside>
+
+        <section id="selection-panel" class="selection-panel" hidden aria-labelledby="selection-name">
+          <p id="selection-role" class="unit-role">Selection</p>
+          <div class="selection-name">
+            <span id="selection-name">No units selected</span>
+            <span id="selection-count" class="selection-count"></span>
+          </div>
+          <p id="selection-meta" class="selection-meta">Select a unit or drag across a formation</p>
+          <div class="health-line">
+            <progress id="selection-health" class="health-bar" max="100" value="0">0%</progress>
+            <span id="selection-health-value" class="health-value">—</span>
+          </div>
+        </section>
+
+        <nav id="recruit-dock" class="recruit-dock" hidden aria-label="Recruit units">
+          <button class="recruit-button" type="button" data-role="vanguard">
+            <span class="unit-role">Front line</span>
+            <span class="recruit-name">Vanguard</span>
+            <span class="recruit-cost">0 · 0 pop</span>
+          </button>
+          <button class="recruit-button" type="button" data-role="ranger">
+            <span class="unit-role">Ranged</span>
+            <span class="recruit-name">Ranger</span>
+            <span class="recruit-cost">0 · 0 pop</span>
+          </button>
+          <button class="recruit-button" type="button" data-role="bulwark">
+            <span class="unit-role">Defender</span>
+            <span class="recruit-name">Bulwark</span>
+            <span class="recruit-cost">0 · 0 pop</span>
+          </button>
+          <button class="recruit-button" type="button" data-role="breaker">
+            <span class="unit-role">Siege</span>
+            <span class="recruit-name">Breaker</span>
+            <span class="recruit-cost">0 · 0 pop</span>
+          </button>
+          <button class="recruit-button" type="button" data-role="support">
+            <span class="unit-role">Control</span>
+            <span class="recruit-name">Support</span>
+            <span class="recruit-cost">0 · 0 pop</span>
+          </button>
+          <button class="recruit-button" type="button" data-role="ascendant">
+            <span class="unit-role">Signature</span>
+            <span class="recruit-name">Ascendant</span>
+            <span class="recruit-cost">0 · 0 pop</span>
+          </button>
+        </nav>
+
+        <aside id="command-help" class="command-help" hidden aria-label="Desktop controls">
+          <p><kbd>Click</kbd> select · <kbd>Drag</kbd> formation · <kbd>Shift</kbd> add</p>
+          <p><kbd>Right</kbd> command · <kbd>WASD</kbd> pan · <kbd>Wheel</kbd> zoom</p>
+          <p><kbd>1–6</kbd> recruit · <kbd>Q</kbd> army · <kbd>Enter</kbd> command view centre</p>
+          <p><kbd>F</kbd> focus · <kbd>Esc</kbd> clear or pause</p>
+        </aside>
+
+        <nav id="camera-controls" class="camera-controls" hidden aria-label="Camera controls">
+          <button id="zoom-out" class="button button-quiet" type="button" aria-label="Zoom out">−</button>
+          <button id="select-army" class="button button-quiet" type="button" aria-label="Select all active units">Army</button>
+          <button id="camera-home" class="button button-quiet" type="button" aria-label="Focus headquarters">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="m4 9 6-5 6 5v7H4V9Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button id="zoom-in" class="button button-quiet" type="button" aria-label="Zoom in">+</button>
+        </nav>
+
+        <dialog id="pause-dialog" aria-labelledby="pause-title" aria-describedby="pause-description">
+          <div class="dialog-card">
+            <p class="eyebrow">Command suspended</p>
+            <h2 id="pause-title">Battle paused</h2>
+            <p id="pause-description">The local simulation is frozen. No Aether, movement, or combat advances while paused.</p>
+            <div class="dialog-actions">
+              <button id="resume-game" class="button button-primary" type="button">Resume battle</button>
+              <button id="restart-game" class="button button-quiet" type="button">Restart match</button>
+              <button id="pause-main-menu" class="button button-quiet" type="button">Return to command screen</button>
+            </div>
+          </div>
+        </dialog>
+
+        <dialog id="end-dialog" aria-labelledby="end-title" aria-describedby="end-summary">
+          <div class="dialog-card">
+            <p class="eyebrow">Battle resolved</p>
+            <h2 id="end-title">The aeon is yours</h2>
+            <p id="end-summary">A faction secured the battlefield.</p>
+            <div class="dialog-actions">
+              <button id="rematch-game" class="button button-primary" type="button">Play again</button>
+              <button id="end-main-menu" class="button button-quiet" type="button">Return to command screen</button>
+            </div>
+          </div>
+        </dialog>
+
+        <p id="live-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+        <p id="boot-error" class="boot-error" role="alert" hidden>
+          The game could not start. Reload this page or open it in a current browser.
+        </p>
+      </main>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/simulation.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/game.js"></script>
+  </body>
+</html>

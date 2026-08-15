@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Aeon of Kingdoms</title>
+  <desc id="desc">A cyan and violet geometric Aeon sigil on deep space blue.</desc>
+  <defs>
+    <radialGradient id="bg" cx="65%" cy="30%" r="85%">
+      <stop offset="0" stop-color="#152650"/>
+      <stop offset="0.5" stop-color="#090f24"/>
+      <stop offset="1" stop-color="#03050d"/>
+    </radialGradient>
+    <linearGradient id="energy" x1="96" y1="72" x2="416" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#91f2ff"/>
+      <stop offset="0.48" stop-color="#4de8ff"/>
+      <stop offset="1" stop-color="#9a72ff"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="104" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="188" fill="none" stroke="#78dfff" stroke-opacity=".12" stroke-width="2"/>
+  <circle cx="256" cy="256" r="152" fill="#4de8ff" fill-opacity=".025" stroke="#9a72ff" stroke-opacity=".22" stroke-width="3" stroke-dasharray="7 17"/>
+  <path d="m256 76 152 88v176l-152 88-152-88V164L256 76Z" fill="#070c1d" fill-opacity=".7" stroke="url(#energy)" stroke-width="10" stroke-linejoin="round"/>
+  <g fill="none" stroke="url(#energy)" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <path d="m171 354 85-198 85 198" stroke-width="21"/>
+    <path d="M204 290h104" stroke-width="17"/>
+  </g>
+  <circle cx="256" cy="156" r="9" fill="#d5fbff"/>
+</svg>

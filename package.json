@@ -1,0 +1,13 @@
+{
+  "name": "aeon-of-kingdoms",
+  "private": true,
+  "description": "Dependency-free verification commands for the Aeon of Kingdoms static browser game.",
+  "scripts": {
+    "test": "node tests/run.js",
+    "audit": "node --test tests/audit.test.js",
+    "stage:pages": "node .github/scripts/stage-pages.js _site"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
