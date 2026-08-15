@@ -1,6 +1,6 @@
 # Aeon of Kingdoms verification
 
-The active Phase 0 candidate is a non-playable redesign status page. Verification proves that this transition source is truthful, local, bounded, accessible, and staged exactly; it does not validate redesigned gameplay. The rejected `v2026.8.15` prototype and its old tests remain historical evidence only.
+The active Phase 0 runtime is a deployed non-playable redesign status page. Verification proves that this transition source is truthful, local, bounded, accessible, and staged exactly; it does not validate redesigned gameplay. The rejected `v2026.8.15` prototype and its old tests remain historical evidence only.
 
 Run the complete dependency-free verification from the repository root:
 

@@ -2,7 +2,7 @@
 
 Aeon of Kingdoms is undergoing a gated redesign. Contributions must preserve the approved redesign contract and enduring deterministic, accessible, secure browser boundaries; they must not preserve the rejected prototype presentation or gameplay by default.
 
-Phase 0 is the only currently approved implementation scope. The working-tree runtime candidate is a non-playable redesign status page; redesigned gameplay begins only after the Phase 1 visual gate is explicitly approved.
+Phase 0 is the only currently approved implementation scope. The deployed runtime is a non-playable redesign status page; redesigned gameplay begins only after the Phase 1 visual gate is explicitly approved.
 
 ## Before changing code
 

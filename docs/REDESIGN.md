@@ -1,6 +1,6 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 integration in progress; later phases require separate gate approval**.
+Status: **approved baseline; Phase 0 deployed with final owner/rendered/cache evidence pending; later phases require separate gate approval**.
 
 This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. It does not claim that any redesigned feature is currently implemented.
 
@@ -192,9 +192,9 @@ Every gate records the exact commit, configuration, seed, viewport/device, comma
 - [x] Mark `v2026.8.15` as a rejected historical prototype in current documentation.
 - [x] Stop presenting the prototype as the current approved game in the current source.
 - [x] Integrate a restrained redesign/status-page source candidate after owner approval.
-- [ ] Replace the live Pages prototype with that status page through the protected publication path and verify the deployed commit and content.
+- [x] Replace the live Pages prototype with that status page through the protected publication path and verify the deployed commit and exact public content.
 - [x] Version the interim page as the `v2026.8.15a` source candidate and record its player-visible intent in the changelog.
-- [ ] Complete final integrated source, staged-delivery, deployment, live-browser, and rollback evidence for the interim page.
+- [ ] Complete the remaining rendered-browser, pre-existing-cache, console, owner-review, physical-device, and rollback evidence for the interim page; source, staged-delivery, deployment, and exact live-content evidence are complete.
 - [x] Preserve the published historical tag and release under the project's immutability policy; do not move the tag, force-push, or rewrite history.
 - [x] Approve and version this roadmap baseline and contributor rules before redesigned gameplay work begins.
 
