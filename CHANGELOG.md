@@ -2,6 +2,18 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.15a] — 2026-08-15 (source candidate)
+
+### Changed
+
+- Replaced the current public-runtime source with a restrained redesign status page while the game is rebuilt.
+- Removed the rejected prototype's gameplay instructions and presentation from the current public entry point.
+- Recorded the owner-approved phased redesign contract in this candidate, including the landscape battlefield, entity terminology, three-structure model, production queues, rally commands, tactical combat, strategic AI, and later networking gates.
+
+### Publication status
+
+- This heading records a source-version target only. It does not claim completed verification, a tag, GitHub Release, Pages deployment, or live-browser observation; those remain pending final integration and publication checks.
+
 ## [v2026.8.15] — 2026-08-15
 
 ### Added

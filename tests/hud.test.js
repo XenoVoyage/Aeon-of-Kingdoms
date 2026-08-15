@@ -9,8 +9,6 @@ const vm = require("node:vm");
 const ROOT = path.resolve(__dirname, "..");
 const GAME_SOURCE = fs.readFileSync(path.join(ROOT, "js/game.js"), "utf8");
 const CONFIG_SOURCE = fs.readFileSync(path.join(ROOT, "js/config.js"), "utf8");
-const HTML_SOURCE = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-const CSS_SOURCE = fs.readFileSync(path.join(ROOT, "css/app.css"), "utf8");
 
 class FakeEventTarget {
   constructor() {
@@ -231,31 +229,4 @@ test("Total Domination keeps the rival objective readout out of the HUD", () => 
   assert.equal(rival.hidden, true);
   assert.equal(rival.textContent, "");
   assert.equal(rival.getAttribute("data-alert"), null);
-});
-
-test("compact HUD reserves separate selection and camera-control regions", () => {
-  assert.match(
-    HTML_SOURCE,
-    /<output\s[^>]*id="rival-objective"[^>]*aria-label="Leading rival objective progress"[^>]*hidden/,
-  );
-  assert.match(
-    CSS_SOURCE,
-    /@media \(max-width: 640px\)[\s\S]*?\.selection-panel\s*\{[\s\S]*?- 12\.85rem[\s\S]*?\}/,
-  );
-  assert.match(
-    CSS_SOURCE,
-    /@media \(max-width: 480px\), \(max-width: 640px\) and \(orientation: portrait\)[\s\S]*?bottom:\s*calc\([^;]+\+ 8\.5rem\);[\s\S]*?width:\s*auto/,
-  );
-
-  const rem = 16;
-  const edgeInset = 12;
-  const cameraWidth = (2.6 + 3.8 + 2.6 + 2.6 + (3 * 0.25)) * rem;
-  const selectionWidth = 640 - edgeInset - edgeInset - (12.85 * rem);
-  const selectionRight = edgeInset + selectionWidth;
-  const cameraLeft = 640 - edgeInset - cameraWidth;
-  assert.ok(selectionRight < cameraLeft, "compact landscape regions must retain a visible gap");
-
-  const coarseCameraTop = 5.25 * rem + 3 * rem;
-  const stackedSelectionBottom = 8.5 * rem;
-  assert.ok(stackedSelectionBottom > coarseCameraTop, "portrait selection must stack above 48px controls");
 });

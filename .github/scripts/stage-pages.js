@@ -7,14 +7,21 @@ const path = require("node:path");
 const PROJECT_ROOT = path.resolve(__dirname, "../..");
 const RUNTIME_FILES = Object.freeze([
   "index.html",
-  "manifest.webmanifest",
   "sw.js",
-  "icons/icon.svg",
-  "icons/icon-maskable.svg",
-  "icons/icon-192.png",
-  "icons/icon-512.png",
-  "icons/icon-maskable-512.png",
-  "icons/apple-touch-icon.png",
+  "css/status.css",
+  "js/status.js",
+  "docs/REDESIGN.md",
+  "docs/STATUS.md"
+]);
+const EXPECTED_SHELL_ASSETS = Object.freeze([
+  "./",
+  "index.html",
+  "css/status.css",
+  "js/status.js"
+]);
+const REJECTED_PROTOTYPE_PATHS = Object.freeze([
+  "manifest.webmanifest",
+  "icons/",
   "css/tokens.css",
   "css/app.css",
   "js/config.js",
@@ -23,7 +30,8 @@ const RUNTIME_FILES = Object.freeze([
   "js/ai.js",
   "js/render.js",
   "js/input.js",
-  "js/game.js"
+  "js/game.js",
+  "docs/assets/"
 ]);
 
 function localReferences(source) {
@@ -36,9 +44,38 @@ function localReferences(source) {
   return references;
 }
 
+function normalizedPublicPath(reference) {
+  const withoutDotPrefix = reference.replace(/^\.\//, "");
+  if (!withoutDotPrefix) return "index.html";
+  const normalized = path.posix.normalize(withoutDotPrefix);
+  if (normalized === ".." || normalized.startsWith("../") || path.posix.isAbsolute(normalized)) {
+    throw new Error(`Pages reference escapes the public root: ${reference}`);
+  }
+  return normalized;
+}
+
+function isRejectedPrototypePath(relativePath) {
+  return REJECTED_PROTOTYPE_PATHS.some((prototypePath) => (
+    prototypePath.endsWith("/")
+      ? relativePath.startsWith(prototypePath)
+      : relativePath === prototypePath
+  ));
+}
+
+function serviceWorkerShell(serviceWorker) {
+  const shellLiteral = serviceWorker.match(/const\s+SHELL_ASSETS\s*=\s*Object\.freeze\(\[([\s\S]*?)\]\);/);
+  if (!shellLiteral) {
+    throw new Error("sw.js must expose one explicit frozen SHELL_ASSETS allowlist");
+  }
+  return Array.from(shellLiteral[1].matchAll(/["']([^"']+)["']/g), (match) => match[1]);
+}
+
 function verifyRuntimeFiles() {
   const allowed = new Set(RUNTIME_FILES);
   for (const relativePath of RUNTIME_FILES) {
+    if (isRejectedPrototypePath(relativePath)) {
+      throw new Error(`Rejected prototype source must not be staged: ${relativePath}`);
+    }
     const sourcePath = path.join(PROJECT_ROOT, relativePath);
     const stat = fs.lstatSync(sourcePath, { throwIfNoEntry: false });
     if (!stat || !stat.isFile() || stat.isSymbolicLink()) {
@@ -48,7 +85,7 @@ function verifyRuntimeFiles() {
 
   const html = fs.readFileSync(path.join(PROJECT_ROOT, "index.html"), "utf8");
   for (const reference of localReferences(html)) {
-    const normalized = path.posix.normalize(reference.replace(/^\.\//, ""));
+    const normalized = normalizedPublicPath(reference);
     if (!allowed.has(normalized)) {
       throw new Error(`index.html references a file outside the Pages allowlist: ${reference}`);
     }
@@ -59,27 +96,10 @@ function verifyRuntimeFiles() {
     for (const match of css.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/gi)) {
       const value = match[1].trim();
       if (!value || /^(?:data:|https?:|#)/i.test(value)) continue;
-      const normalized = path.posix.normalize(path.posix.join(path.posix.dirname(relativePath), value.split(/[?#]/, 1)[0]));
+      const normalized = normalizedPublicPath(path.posix.join(path.posix.dirname(relativePath), value.split(/[?#]/, 1)[0]));
       if (!allowed.has(normalized)) {
         throw new Error(`${relativePath} references a file outside the Pages allowlist: ${value}`);
       }
-    }
-  }
-
-  const manifest = JSON.parse(fs.readFileSync(path.join(PROJECT_ROOT, "manifest.webmanifest"), "utf8"));
-  if (manifest.start_url !== "./" && manifest.start_url !== "./index.html") {
-    throw new Error("manifest.webmanifest must use a repository-relative start_url");
-  }
-  if (manifest.scope !== "./") {
-    throw new Error("manifest.webmanifest must use the repository-relative ./ scope");
-  }
-  if (!Array.isArray(manifest.icons) || manifest.icons.length === 0) {
-    throw new Error("manifest.webmanifest must declare local icons");
-  }
-  for (const icon of manifest.icons) {
-    const normalized = path.posix.normalize(String(icon.src || "").replace(/^\.\//, ""));
-    if (!allowed.has(normalized)) {
-      throw new Error(`manifest.webmanifest references a file outside the Pages allowlist: ${icon.src || "(missing)"}`);
     }
   }
 
@@ -87,34 +107,15 @@ function verifyRuntimeFiles() {
   if (/https?:\/\//i.test(serviceWorker)) {
     throw new Error("sw.js must not reference an external origin");
   }
-  for (const match of serviceWorker.matchAll(/["']\.\/([^"'?#]*)[?#]?[^"']*["']/g)) {
-    const value = match[1];
-    const normalized = value ? path.posix.normalize(value) : "index.html";
-    if (!allowed.has(normalized)) {
-      throw new Error(`sw.js references a file outside the Pages allowlist: ./${value}`);
+  const cachedAssets = serviceWorkerShell(serviceWorker);
+  if (cachedAssets.length !== EXPECTED_SHELL_ASSETS.length || cachedAssets.some((asset, index) => asset !== EXPECTED_SHELL_ASSETS[index])) {
+    throw new Error("sw.js must cache only the minimal redesign status shell");
+  }
+  for (const asset of cachedAssets) {
+    const normalized = normalizedPublicPath(asset);
+    if (!allowed.has(normalized) || normalized.startsWith("docs/") || normalized === "sw.js") {
+      throw new Error(`sw.js caches a non-shell file: ${asset}`);
     }
-  }
-  const shellLiteral = serviceWorker.match(/const\s+SHELL_ASSETS\s*=\s*Object\.freeze\(\[([\s\S]*?)\]\);/);
-  if (!shellLiteral) {
-    throw new Error("sw.js must expose one explicit frozen SHELL_ASSETS allowlist");
-  }
-  const cachedFiles = new Set();
-  for (const match of shellLiteral[1].matchAll(/["']([^"']+)["']/g)) {
-    const value = match[1];
-    const normalized = value === "./" ? "index.html" : path.posix.normalize(value.replace(/^\.\//, ""));
-    if (!allowed.has(normalized)) {
-      throw new Error(`sw.js caches a file outside the Pages allowlist: ${value}`);
-    }
-    cachedFiles.add(normalized);
-  }
-  const expectedCache = RUNTIME_FILES.filter((relativePath) => relativePath !== "sw.js");
-  for (const relativePath of expectedCache) {
-    if (!cachedFiles.has(relativePath)) {
-      throw new Error(`sw.js does not cache an allowlisted shell file: ${relativePath}`);
-    }
-  }
-  if (cachedFiles.size !== expectedCache.length) {
-    throw new Error("sw.js shell cache and the Pages allowlist are out of sync");
   }
 
   return RUNTIME_FILES.slice();
@@ -150,11 +151,17 @@ function stage(outputArgument) {
 if (require.main === module) {
   try {
     const files = stage(process.argv[2]);
-    process.stdout.write(`Staged ${files.length} verified runtime files in _site\n`);
+    process.stdout.write(`Staged ${files.length} verified status files in _site\n`);
   } catch (error) {
     process.stderr.write(`${error && error.message ? error.message : error}\n`);
     process.exitCode = 1;
   }
 }
 
-module.exports = { RUNTIME_FILES, localReferences, stage, verifyRuntimeFiles };
+module.exports = {
+  EXPECTED_SHELL_ASSETS,
+  RUNTIME_FILES,
+  localReferences,
+  stage,
+  verifyRuntimeFiles
+};

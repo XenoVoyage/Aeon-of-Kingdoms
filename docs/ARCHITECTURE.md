@@ -1,8 +1,10 @@
 # Architecture
 
+> **Prototype-era document:** everything below describes the rejected `v2026.8.15` runtime as frozen historical evidence. Prescriptive language records what that prototype did; it is not an instruction to preserve source names, ownership, data shapes, tuning, or behavior. [`REDESIGN.md`](REDESIGN.md) owns the replacement phases.
+
 Aeon of Kingdoms is a static browser game: semantic HTML, responsive CSS, classic JavaScript, and a Canvas battlefield. The playable client has no build step or runtime package dependency and works both from `file://` and from the GitHub Pages repository subpath.
 
-This document owns runtime boundaries and data flow. Player-facing intent belongs in [`GAME_DESIGN.md`](GAME_DESIGN.md); current completion and evidence belong in [`STATUS.md`](STATUS.md); future networking belongs in [`NETCODE.md`](NETCODE.md).
+This document records the prototype runtime boundaries and data flow. Current redesign truth belongs in [`REDESIGN.md`](REDESIGN.md) and [`STATUS.md`](STATUS.md).
 
 ## Runtime flow
 
@@ -27,7 +29,7 @@ flowchart LR
     State --> Outcome[Objectives and victory]
 ```
 
-## Source ownership
+## Prototype source inventory
 
 | Source | Owns | Must not own |
 | --- | --- | --- |
@@ -43,7 +45,7 @@ flowchart LR
 | `js/game.js` | Startup, modes, frame loop, UI projection, lifecycle | Duplicate balance tables |
 | `tests/` | Deterministic and delivery contracts | Human balance or art acceptance |
 
-Put a change in the existing owner. Split an owner only when the new file has a small explicit interface and removes a proven responsibility conflict; size alone is not a reason.
+Prototype maintenance belonged in these owners. An approved redesign phase may replace the files or boundaries; any replacement must still keep responsibilities direct and interfaces small.
 
 ## Determinism and time
 

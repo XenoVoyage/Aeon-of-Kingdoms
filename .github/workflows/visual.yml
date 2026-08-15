@@ -1,4 +1,4 @@
-name: Capture gameplay visual
+name: Historical rejected prototype capture
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   capture:
-    name: six-faction-capture
+    name: historical-rejected-prototype
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -18,7 +18,7 @@ jobs:
           persist-credentials: false
       - name: Verify source
         run: node tests/run.js
-      - name: Render deterministic six-faction frame
+      - name: Render historical rejected six-faction frame
         shell: bash
         run: |
           set -euo pipefail
@@ -30,7 +30,7 @@ jobs:
           fi
 
           capture_directory="$GITHUB_WORKSPACE/artifacts"
-          capture_path="$capture_directory/aeon-of-kingdoms-six-faction-1440x810.png"
+          capture_path="$capture_directory/historical-rejected-prototype-six-faction-1440x810.png"
           capture_url="http://127.0.0.1:4173/tests/fixtures/visual-capture.html"
           mkdir -p "$capture_directory"
 
@@ -86,10 +86,10 @@ jobs:
             if (width !== 1440 || height !== 810) throw new Error(`unexpected capture size ${width}x${height}`);
             if (image.length < 450000) throw new Error(`capture is unexpectedly sparse (${image.length} bytes)`);
           ' "$capture_path"
-      - name: Upload gameplay capture
+      - name: Upload historical rejected prototype capture
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: aeon-six-faction-gameplay-1440x810
-          path: artifacts/aeon-of-kingdoms-six-faction-1440x810.png
+          name: historical-rejected-prototype-six-faction-1440x810
+          path: artifacts/historical-rejected-prototype-six-faction-1440x810.png
           if-no-files-found: error
           retention-days: 7

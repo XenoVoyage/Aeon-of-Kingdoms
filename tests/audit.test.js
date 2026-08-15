@@ -4,7 +4,6 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
-const vm = require("node:vm");
 
 const ROOT = path.resolve(__dirname, "..");
 const read = (relativePath) => fs.readFileSync(path.join(ROOT, relativePath), "utf8");
@@ -21,6 +20,7 @@ const REQUIRED_FILES = [
   "icons/apple-touch-icon.png",
   "css/tokens.css",
   "css/app.css",
+  "css/status.css",
   "js/config.js",
   "js/core.js",
   "js/simulation.js",
@@ -28,6 +28,7 @@ const REQUIRED_FILES = [
   "js/render.js",
   "js/input.js",
   "js/game.js",
+  "js/status.js",
   "README.md",
   "AGENTS.md",
   "CONTRIBUTING.md",
@@ -38,6 +39,7 @@ const REQUIRED_FILES = [
   "docs/GAME_DESIGN.md",
   "docs/ARCHITECTURE.md",
   "docs/NETCODE.md",
+  "docs/REDESIGN.md",
   "docs/STATUS.md",
   "docs/ASSETS.md",
   "tests/fixtures/visual-capture.html",
@@ -54,12 +56,31 @@ test("required source and project-standard files exist", () => {
   }
 });
 
+test("public documentation identifies the rejected prototype and active redesign", () => {
+  const readme = read("README.md");
+  assert.match(readme, /rejected the `v2026\.8\.15` prototype/);
+  assert.match(readme, /docs\/REDESIGN\.md/);
+  assert.match(readme, /status page, not redesigned gameplay/);
+  assert.match(readme, /historical release `v2026\.8\.15`/);
+  assert.doesNotMatch(readme, /Historical prototype controls/);
+  assert.doesNotMatch(readme, /docs\/assets\/gameplay\.webp/);
+  assert.match(read("AGENTS.md"), /Active redesign override/);
+  assert.match(read("AGENTS.md"), /Phase 0 and the roadmap baseline were approved/);
+  assert.match(read("CONTRIBUTING.md"), /docs\/REDESIGN\.md/);
+  assert.match(read("docs/ASSETS.md"), /Prototype-era document/);
+  assert.match(read("tests/README.md"), /active Phase 0 candidate is a non-playable redesign status page/i);
+  assert.match(read("docs/STATUS.md"), /Redesign gameplay implementation \| Not started/);
+  assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
+  assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
+});
+
 test("VERSION.txt is canonical and required public mirrors match", () => {
   const version = read("VERSION.txt").trim();
   assert.match(version, /^v\d{4}\.\d{1,2}\.\d{1,2}[a-z]?$/);
-  assert.match(read("README.md"), new RegExp(`Version ${version.replaceAll(".", "\\.")}`));
+  assert.match(read("README.md"), new RegExp(`Source candidate ${version.replaceAll(".", "\\.")}`));
   assert.ok(read("CHANGELOG.md").includes(`## [${version}]`), "changelog current heading does not match VERSION.txt");
   assert.ok(read("docs/STATUS.md").includes(`\`${version}\` in \`VERSION.txt\``), "status version does not match VERSION.txt");
+  assert.ok(read("index.html").includes(version), "visible transition page version does not match VERSION.txt");
   assert.ok(read("sw.js").includes(`\${CACHE_PREFIX}${version}`), "service-worker cache version does not match VERSION.txt");
   const packageJson = JSON.parse(read("package.json"));
   assert.equal(Object.hasOwn(packageJson, "version"), false, "package.json must not become a second version owner");
@@ -75,28 +96,25 @@ test("verification metadata has no install-time or runtime dependencies", () => 
   assert.equal(fs.existsSync(path.join(ROOT, "package-lock.json")), false, "a lockfile is unnecessary for a zero-package harness");
 });
 
-test("HTML uses local relative runtime resources and a restrictive CSP", () => {
+test("status HTML uses only its local relative shell and a restrictive CSP", () => {
   const html = read("index.html");
   assert.match(html, /http-equiv=["']Content-Security-Policy["']/i);
   assert.doesNotMatch(html, /unsafe-eval/i);
   assert.doesNotMatch(html, /<(?:script|link)\b[^>]+(?:src|href)=["'](?:https?:|\/)/i);
+  assert.doesNotMatch(html, /<canvas\b/i);
+  assert.doesNotMatch(html, /manifest\.webmanifest/i);
 
-  const expectedScripts = [
-    "js/config.js",
-    "js/core.js",
-    "js/simulation.js",
-    "js/ai.js",
-    "js/render.js",
-    "js/input.js",
-    "js/game.js"
-  ];
+  const expectedScripts = ["js/status.js"];
   const scripts = Array.from(html.matchAll(/<script\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi), (match) => match[1]);
   assert.deepEqual(scripts, expectedScripts, "runtime scripts must appear exactly once in dependency order");
   for (const script of scripts) assert.ok(fs.existsSync(path.join(ROOT, script)), `missing ${script}`);
 
-  for (const stylesheet of ["css/tokens.css", "css/app.css"]) {
+  for (const stylesheet of ["css/status.css"]) {
     assert.equal((html.match(new RegExp(stylesheet.replaceAll(".", "\\."), "g")) || []).length, 1, `${stylesheet} must be linked exactly once`);
   }
+  assert.doesNotMatch(html, /css\/(?:tokens|app)\.css/);
+  assert.match(html, /docs\/REDESIGN\.md/);
+  assert.match(html, /docs\/STATUS\.md/);
 });
 
 test("local Markdown links resolve", () => {
@@ -112,28 +130,9 @@ test("local Markdown links resolve", () => {
   }
 });
 
-test("README uses a bounded verified gameplay capture", () => {
-  const readme = read("README.md");
-  const relativePath = "docs/assets/gameplay.webp";
-  const imagePath = path.join(ROOT, relativePath);
-  assert.match(
-    readme,
-    /!\[[^\]]{40,}\]\(docs\/assets\/gameplay\.webp\)/,
-    "README capture needs meaningful alternative text",
-  );
-  const image = fs.readFileSync(imagePath);
-  assert.ok(image.length <= 100 * 1024, "README capture must remain at or below 100 KiB");
-  assert.equal(image.subarray(0, 4).toString("ascii"), "RIFF");
-  assert.equal(image.subarray(8, 12).toString("ascii"), "WEBP");
-  assert.equal(image.subarray(12, 16).toString("ascii"), "VP8 ");
-  assert.equal(image.readUInt16LE(26) & 0x3fff, 1200);
-  assert.equal(image.readUInt16LE(28) & 0x3fff, 675);
-});
-
 test("workflows are bounded, least-privilege, and deploy the staged allowlist", () => {
   const ci = read(".github/workflows/ci.yml");
   const pages = read(".github/workflows/pages.yml");
-  const visual = read(".github/workflows/visual.yml");
   assert.match(ci, /permissions:\s*\n\s+contents: read/);
   assert.match(ci, /timeout-minutes: 10/);
   assert.match(ci, /node tests\/run\.js/);
@@ -145,18 +144,7 @@ test("workflows are bounded, least-privilege, and deploy the staged allowlist", 
   assert.match(pages, /stage-pages\.js _site/);
   assert.match(pages, /path: _site/);
   assert.doesNotMatch(pages, /path: \.\s*$/m, "Pages must not upload the repository root");
-  assert.match(visual, /^on:\s*\n\s+workflow_dispatch:\s*$/m);
-  assert.doesNotMatch(visual, /^\s+(?:push|pull_request|schedule):/m);
-  assert.match(visual, /permissions:\s*\n\s+contents: read/);
-  assert.match(visual, /timeout-minutes: 5/);
-  assert.match(visual, /node tests\/run\.js/);
-  assert.match(visual, /persist-credentials: false/);
-  assert.match(visual, /--window-size=1440,810/);
-  assert.match(visual, /--timeout=3000/);
-  assert.match(visual, /name: aeon-six-faction-gameplay-1440x810/);
-  assert.match(visual, /path: artifacts\/aeon-of-kingdoms-six-faction-1440x810\.png/);
-  assert.doesNotMatch(visual, /(?:npm|pnpm|yarn)\s+(?:install|add|ci)/);
-  for (const workflow of [ci, pages, visual]) {
+  for (const workflow of [ci, pages]) {
     assert.doesNotMatch(workflow, /uses:\s+[^\s@]+@v\d+/i, "actions must be pinned to immutable commit SHAs");
     for (const action of workflow.matchAll(/uses:\s+([^\s@]+)@([^\s#]+)/g)) {
       assert.match(action[2], /^[a-f0-9]{40}$/, `${action[1]} must use a full commit SHA`);
@@ -164,33 +152,36 @@ test("workflows are bounded, least-privilege, and deploy the staged allowlist", 
   }
 });
 
-test("manual visual capture uses a deterministic same-origin six-faction harness", () => {
-  const html = read("tests/fixtures/visual-capture.html");
-  const fixture = read("tests/fixtures/visual-capture.js");
-  assert.match(html, /src=["']\.\.\/\.\.\/index\.html["']/);
-  assert.match(html, /src=["']visual-capture\.js["']/);
-  assert.doesNotMatch(html, /(?:src|href)=["'](?:https?:|\/)/i);
-  assert.match(fixture, /player-count[^\n]+value=\\?"6\\?"/);
-  assert.match(fixture, /battle-mode[^\n]+value=\\?"conquest\\?"/);
-  assert.match(fixture, /population\?\.textContent === "5 \/ 24"/);
-  assert.match(fixture, /getImageData/);
-  assert.match(fixture, /dataset\.captureState = "ready"/);
-  assert.match(fixture, /getElementById\("pause-button"\)\.click\(\)/);
-  assert.doesNotThrow(() => new vm.Script(fixture, { filename: "tests/fixtures/visual-capture.js" }));
-});
-
-test("Pages allowlist contains runtime only and verifies cleanly", () => {
+test("Pages allowlist contains only the transition shell and its public status documents", () => {
   const staging = require(path.join(ROOT, ".github/scripts/stage-pages.js"));
   const files = staging.verifyRuntimeFiles();
   assert.deepEqual(files, staging.RUNTIME_FILES);
-  for (const relativePath of files) {
-    assert.doesNotMatch(relativePath, /^(?:docs|tests|\.github)\//);
-    assert.doesNotMatch(relativePath, /(?:README|LICENSE|CHANGELOG|VERSION|package\.json)/i);
+  assert.deepEqual(files, [
+    "index.html",
+    "sw.js",
+    "css/status.css",
+    "js/status.js",
+    "docs/REDESIGN.md",
+    "docs/STATUS.md"
+  ]);
+  const staged = files.join("\n");
+  assert.doesNotMatch(staged, /(?:manifest|icon|gameplay|visual-capture|README|LICENSE|CHANGELOG|VERSION|package\.json)/i);
+  assert.doesNotMatch(staged, /(?:css\/(?:tokens|app)\.css|js\/(?:config|core|simulation|ai|render|input|game)\.js)/);
+  assert.doesNotMatch(staged, /^(?:tests|\.github)\//m);
+
+  for (const relativePath of files.filter((entry) => entry.endsWith(".md"))) {
+    for (const match of read(relativePath).matchAll(/!?\[[^\]]*\]\(([^)]+)\)/g)) {
+      const rawTarget = match[1].trim().replace(/^<|>$/g, "");
+      if (!rawTarget || /^(?:https?:|mailto:|#)/i.test(rawTarget)) continue;
+      const target = decodeURIComponent(rawTarget.split("#", 1)[0]);
+      const stagedTarget = path.posix.normalize(path.posix.join(path.posix.dirname(relativePath), target));
+      assert.ok(files.includes(stagedTarget), `${relativePath} links to unstaged ${rawTarget}`);
+    }
   }
 });
 
 test("public status does not present planned multiplayer as shipped", () => {
   const publicText = `${read("README.md")}\n${read("docs/STATUS.md")}`;
   assert.match(publicText, /multiplayer[^\n]*(?:not shipped|planned)/i);
-  assert.match(read("docs/NETCODE.md"), /not a feature of the current vertical slice/i);
+  assert.match(read("docs/NETCODE.md"), /not a feature of the published rejected prototype/i);
 });

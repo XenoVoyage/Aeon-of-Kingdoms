@@ -1,5 +1,7 @@
 # Assets and art direction
 
+> **Prototype-era document:** everything below records the rejected `v2026.8.15` asset set and visual direction. It must not guide the replacement. Phase 1 of [`REDESIGN.md`](REDESIGN.md) will establish original approved art, recorded provenance/licensing, animation, atlas, and size rules before new gameplay rendering begins.
+
 The vertical slice uses procedural Canvas shapes and local interface styling. This keeps unit silhouettes crisp across zoom levels, supports recoloring and animation without sprite duplication, and avoids a runtime download or build pipeline.
 
 ## Current inventory

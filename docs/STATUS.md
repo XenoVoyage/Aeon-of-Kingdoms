@@ -1,57 +1,46 @@
 # Project status
 
-This is the current-state handoff. It records maturity, evidence, and active limits; enduring engineering rules belong in [`AGENTS.md`](../AGENTS.md), player intent in [`GAME_DESIGN.md`](GAME_DESIGN.md), and history in [`CHANGELOG.md`](../CHANGELOG.md).
+This is the current-state handoff. Active redesign phases and acceptance gates belong in [`REDESIGN.md`](REDESIGN.md). Enduring contributor rules remain in `AGENTS.md`, and published history remains in `CHANGELOG.md`, at the repository root; neither file is part of the minimal Pages payload.
 
-## Current state
+## Current truth
 
 | Area | Status |
 | --- | --- |
-| Runtime | Integrated, automated-test-clean local vertical-slice candidate |
-| Canonical version | `v2026.8.15` in `VERSION.txt` |
-| Hosting | Direct `file://` and GitHub Pages repository-subpath targets |
-| Installable shell | Local manifest, icons, and exact-allowlist service worker are present; installed/offline browser evidence is pending |
-| Runtime dependencies | None; no build step |
-| Content | Aeon Convergence, two six-role factions, deterministic AI, local skirmish, and the authored **First Light** campaign setup |
-| Player layouts | Source and setup UI target 2, 4, and 6 local factions; mirrored seats and equal nearest-site opening distances are regression-tested, while hands-on balance remains pending |
-| Multiplayer | Planned architecture only; no WebRTC, signaling, relay, matchmaking, or dedicated server is shipped |
-| Verification | Frozen dependency-free suite passes 57/57 on Node.js 24.19.0; deployed desktop rendering/play is observed, while physical-device evidence remains a separate gate |
+| Canonical source version | `v2026.8.15a` in `VERSION.txt`; this is a transition candidate, not evidence of a tag, release, or deployment |
+| Historical runtime | `v2026.8.15` was observed playable at commit `7f88655` on 2026-08-15, but the product owner rejected its UI, art, map, gameplay feel, terminology, and AI as the future direction |
+| Active phase | Phase 0 — approved; truth-and-cleanup integration in progress |
+| Redesign gameplay implementation | Not started |
+| Current source boundary | Minimal redesign status page plus the approved roadmap/status documents; it contains no playable redesign |
+| GitHub Pages | Last observed serving the rejected prototype at commit `7f88655` on 2026-08-15; the status-page candidate still requires final integration, complete verification, deployment, and live observation |
+| Multiplayer | Not shipped; remains a later phase after the local redesign is approved |
+| Verification | Prototype results are historical only; transition-candidate checks and delivery evidence must be recorded after final integration |
 
-The repository is a first vertical slice, not a production-complete RTS. It demonstrates the intended control/economy/combat loop and establishes the boundaries for later factions, maps, modes, campaign content, and multiplayer.
+Do not describe the current Pages build or the transition page as redesigned gameplay. Do not infer implementation, a deployment, or a release from source files, version text, workflow badges, or the roadmap.
 
-## Candidate scope
+## Approval record
 
-- A local start flow exposes skirmish and the single authored **First Light** campaign preset. Campaign is currently a scenario configuration, not a narrative progression or saved mission system.
-- Players select and command squads, capture Aether and recruitment sites, recruit under a population cap, fight deterministic computer factions, and pursue headquarters or configured objective victory.
-- The map/setup model arranges 2-, 4-, and 6-faction matches with mirrored opposite seats, distance-matched nearest Aether Well and Relay Forge access, and obstacle-clear opening lanes. These geometry invariants are not evidence that every composition, team shape, full route, or device has been balanced.
-- Astral Concord and Gravebound Court each define all six shared roles with faction-specific names. Balance evidence for the full twelve-unit roster remains pending.
-- Canvas presentation, semantic HUD, desktop controls, and touch-oriented interaction are present as source targets. Real browser and physical-device acceptance remain separate gates.
-- GitHub Actions audits source and deploys only the explicit static runtime allowlist after `main` updates.
+On 2026-08-15, the product owner approved Phase 0 and authorized its implementation. That approval locks the phased process and permits the truth-and-cleanup transition; it does not approve Phase 1 visuals, later gameplay implementation, a tag, or publication without their own evidence and gates.
+
+## Owner-locked redesign requirements
+
+- Original design made for Aeon of Kingdoms; Neon Voyage is only an example of restraint and simplicity.
+- Landscape-only gameplay with pan, zoom, and a rotate-device gate in portrait.
+- Illustrated map terrain with meaningful impassable mountains, cliffs, structures, and routes.
+- `Entity` is the authoritative code term; faction-specific names remain player-facing.
+- Exactly three structure categories: faction headquarters, checkpoint, and recruitment structure.
+- Producing structures use authoritative queues, visible progress bars, spawn validation, and rally points.
+- Combat supports explicit entity targeting and autonomous nearby engagement with readable states.
+- Movement is slower, grouped, formation-aware, and non-stacking.
+- AI plans production, defense, objectives, task forces, and attack timing rather than ordering one global pile.
+- Human, AI, replay, campaign, and future networking share one deterministic command boundary.
 
 ## Evidence boundary
 
-| Evidence category | Current record |
-| --- | --- |
-| Source inspection | Integrated runtime, ownership documents, PWA shell, and explicit Pages allowlist reviewed on 2026-08-15 |
-| Automated Node checks | 57/57 passed with Node.js 24.19.0 on 2026-08-15; `git diff --check` clean |
-| Simulated browser delivery | Passed repository-subpath delivery of all 18 staged runtime files on 2026-08-15 |
-| Rendered local browser play | Not yet recorded |
-| Deployed GitHub Pages play | Chrome rendered and advanced the `d4d48df` runtime on 2026-08-15: six-faction Skirmish, order, recruitment, pause/resume, First Light, bounded canvas, and no game-origin console warnings |
-| README gameplay capture | Manual Chrome workflow run `31900358317` produced and validated a 1440×810 six-faction frame; committed derivative is 1200×675 WebP |
-| Physical phone/tablet | Not yet recorded |
-| 2/4/6-player balance | Not yet recorded |
-| Cross-network multiplayer | Not applicable; feature is not shipped |
+Draft Phase 1 menu, battlefield, faction, structure, combat, mobile-control, and production/rally concepts were generated and shown to the product owner during Phase 0. They are unapproved previews: they are not versioned shipping assets, do not close any Phase 1 checklist item, and are not evidence of implemented gameplay. No redesigned map, entity, building, movement, combat, AI, touch, or networking runtime evidence exists yet. The interim status page is a communication surface only. Each phase in [`REDESIGN.md`](REDESIGN.md) defines its own required source, automated, rendered, physical-device, and owner-approval evidence.
 
-Update this table only with observed evidence. A passing static audit does not prove rendered layout, game feel, difficulty, thermals, input comfort, or a successful deployment.
+## Next gate
 
-## Known limits
-
-- Only one battlefield and two opening factions are in scope.
-- First Light is one preset local scenario; there is no mission sequence, narrative persistence, or campaign save.
-- Alternate objective modes and 4–6-player setups need hands-on balance and edge-case review; equal opening-site geometry does not prove whole-match parity.
-- Deterministic regressions cover simultaneous combat, large footprints, living-structure exclusion, and a 48-attacker multi-ring approach; hands-on visual judgment under long dense matches remains pending.
-- No online rooms, join codes, reconnection, host migration, chat, spectators, matchmaking, accounts, cloud saves, or dedicated authority exist.
-- Generated concept art is not shipped as gameplay; the README uses a verified frame from the real Canvas renderer.
-
-## Next task boundary
-
-Complete physical phone/tablet acceptance, longer 2/4/6-player balance passes, dense end-to-end matches, and offline-install verification. Keep those gates separate from the verified desktop Pages slice; multiplayer remains the next architectural milestone only after the local game stays stable under those checks.
+1. Integrate the `v2026.8.15a` transition candidate and run the complete source and staged-delivery verification.
+2. Deploy through the protected Pages workflow, then record the exact commit, live content, console result, navigation, and cache transition actually observed.
+3. Close Phase 0 only after the repository and live site both tell the same truth.
+4. Review the draft Phase 1 concept set, revise it where required, and record explicit approval or rejection; begin gameplay renderer work only after the complete visual gate is approved.
