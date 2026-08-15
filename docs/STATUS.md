@@ -14,7 +14,7 @@ This is the current-state handoff. It records maturity, evidence, and active lim
 | Content | Aeon Convergence, two six-role factions, deterministic AI, local skirmish, and the authored **First Light** campaign setup |
 | Player layouts | Source and setup UI target 2, 4, and 6 local factions; mirrored seats and equal nearest-site opening distances are regression-tested, while hands-on balance remains pending |
 | Multiplayer | Planned architecture only; no WebRTC, signaling, relay, matchmaking, or dedicated server is shipped |
-| Verification | Frozen dependency-free suite passes 55/55 on Node.js 24.19.0; rendered-browser, deployment, and physical-device evidence remain separate gates |
+| Verification | Frozen dependency-free suite passes 56/56 on Node.js 24.19.0; rendered-browser, deployment, and physical-device evidence remain separate gates |
 
 The repository is a first vertical slice, not a production-complete RTS. It demonstrates the intended control/economy/combat loop and establishes the boundaries for later factions, maps, modes, campaign content, and multiplayer.
 
@@ -32,7 +32,7 @@ The repository is a first vertical slice, not a production-complete RTS. It demo
 | Evidence category | Current record |
 | --- | --- |
 | Source inspection | Integrated runtime, ownership documents, PWA shell, and explicit Pages allowlist reviewed on 2026-08-15 |
-| Automated Node checks | 55/55 passed with Node.js 24.19.0 on 2026-08-15; `git diff --check` clean |
+| Automated Node checks | 56/56 passed with Node.js 24.19.0 on 2026-08-15; `git diff --check` clean |
 | Simulated browser delivery | Passed repository-subpath delivery of all 18 staged runtime files on 2026-08-15 |
 | Rendered local browser play | Not yet recorded |
 | Deployed GitHub Pages play | Not yet recorded |

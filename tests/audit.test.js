@@ -4,6 +4,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
+const vm = require("node:vm");
 
 const ROOT = path.resolve(__dirname, "..");
 const read = (relativePath) => fs.readFileSync(path.join(ROOT, relativePath), "utf8");
@@ -39,8 +40,11 @@ const REQUIRED_FILES = [
   "docs/NETCODE.md",
   "docs/STATUS.md",
   "docs/ASSETS.md",
+  "tests/fixtures/visual-capture.html",
+  "tests/fixtures/visual-capture.js",
   ".github/workflows/ci.yml",
   ".github/workflows/pages.yml",
+  ".github/workflows/visual.yml",
   ".github/scripts/stage-pages.js"
 ];
 
@@ -111,6 +115,7 @@ test("local Markdown links resolve", () => {
 test("workflows are bounded, least-privilege, and deploy the staged allowlist", () => {
   const ci = read(".github/workflows/ci.yml");
   const pages = read(".github/workflows/pages.yml");
+  const visual = read(".github/workflows/visual.yml");
   assert.match(ci, /permissions:\s*\n\s+contents: read/);
   assert.match(ci, /timeout-minutes: 10/);
   assert.match(ci, /node tests\/run\.js/);
@@ -122,12 +127,37 @@ test("workflows are bounded, least-privilege, and deploy the staged allowlist", 
   assert.match(pages, /stage-pages\.js _site/);
   assert.match(pages, /path: _site/);
   assert.doesNotMatch(pages, /path: \.\s*$/m, "Pages must not upload the repository root");
-  for (const workflow of [ci, pages]) {
+  assert.match(visual, /^on:\s*\n\s+workflow_dispatch:\s*$/m);
+  assert.doesNotMatch(visual, /^\s+(?:push|pull_request|schedule):/m);
+  assert.match(visual, /permissions:\s*\n\s+contents: read/);
+  assert.match(visual, /timeout-minutes: 5/);
+  assert.match(visual, /node tests\/run\.js/);
+  assert.match(visual, /persist-credentials: false/);
+  assert.match(visual, /--window-size=1440,810/);
+  assert.match(visual, /data-capture-state=\\?"ready\\?"/);
+  assert.match(visual, /name: aeon-six-faction-gameplay-1440x810/);
+  assert.match(visual, /path: artifacts\/aeon-of-kingdoms-six-faction-1440x810\.png/);
+  assert.doesNotMatch(visual, /(?:npm|pnpm|yarn)\s+(?:install|add|ci)/);
+  for (const workflow of [ci, pages, visual]) {
     assert.doesNotMatch(workflow, /uses:\s+[^\s@]+@v\d+/i, "actions must be pinned to immutable commit SHAs");
     for (const action of workflow.matchAll(/uses:\s+([^\s@]+)@([^\s#]+)/g)) {
       assert.match(action[2], /^[a-f0-9]{40}$/, `${action[1]} must use a full commit SHA`);
     }
   }
+});
+
+test("manual visual capture uses a deterministic same-origin six-faction harness", () => {
+  const html = read("tests/fixtures/visual-capture.html");
+  const fixture = read("tests/fixtures/visual-capture.js");
+  assert.match(html, /src=["']\.\.\/\.\.\/index\.html["']/);
+  assert.match(html, /src=["']visual-capture\.js["']/);
+  assert.doesNotMatch(html, /(?:src|href)=["'](?:https?:|\/)/i);
+  assert.match(fixture, /player-count[^\n]+value=\\?"6\\?"/);
+  assert.match(fixture, /battle-mode[^\n]+value=\\?"conquest\\?"/);
+  assert.match(fixture, /battleTime\?\.textContent === "00:02"/);
+  assert.match(fixture, /dataset\.captureState = "ready"/);
+  assert.match(fixture, /getElementById\("pause-button"\)\.click\(\)/);
+  assert.doesNotThrow(() => new vm.Script(fixture, { filename: "tests/fixtures/visual-capture.js" }));
 });
 
 test("Pages allowlist contains runtime only and verifies cleanly", () => {

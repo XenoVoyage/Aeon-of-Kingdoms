@@ -1,0 +1,106 @@
+name: Capture gameplay visual
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    name: six-faction-capture
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Verify source
+        run: node tests/run.js
+      - name: Render deterministic six-faction frame
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          browser_path="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          if [[ -z "$browser_path" ]]; then
+            echo "A preinstalled Chrome or Chromium executable is required." >&2
+            exit 1
+          fi
+
+          capture_directory="$GITHUB_WORKSPACE/artifacts"
+          capture_path="$capture_directory/aeon-of-kingdoms-six-faction-1440x810.png"
+          capture_url="http://127.0.0.1:4173/tests/fixtures/visual-capture.html"
+          mkdir -p "$capture_directory"
+
+          python3 -m http.server 4173 --bind 127.0.0.1 >"$RUNNER_TEMP/aeon-visual-server.log" 2>&1 &
+          server_pid=$!
+          cleanup() {
+            kill "$server_pid" 2>/dev/null || true
+          }
+          trap cleanup EXIT
+
+          for attempt in {1..40}; do
+            if curl --fail --silent --show-error "$capture_url" >/dev/null; then
+              break
+            fi
+            if [[ "$attempt" == 40 ]]; then
+              echo "The local capture server did not become ready." >&2
+              exit 1
+            fi
+            sleep 0.1
+          done
+
+          browser_flags=(
+            --headless=new
+            --no-sandbox
+            --disable-background-networking
+            --disable-default-apps
+            --disable-dev-shm-usage
+            --disable-extensions
+            --disable-sync
+            --force-color-profile=srgb
+            --force-device-scale-factor=1
+            --force-prefers-reduced-motion
+            --hide-scrollbars
+            --run-all-compositor-stages-before-draw
+            --window-size=1440,810
+          )
+
+          readiness_profile="$RUNNER_TEMP/aeon-visual-readiness-profile"
+          readiness_dom="$RUNNER_TEMP/aeon-visual-readiness.html"
+          "$browser_path" "${browser_flags[@]}" \
+            --user-data-dir="$readiness_profile" \
+            --virtual-time-budget=6000 \
+            --dump-dom \
+            "$capture_url" >"$readiness_dom"
+          if ! grep --fixed-strings --quiet 'data-capture-state="ready"' "$readiness_dom"; then
+            echo "The capture harness did not reach its deterministic ready state." >&2
+            sed -n '1,40p' "$readiness_dom" >&2
+            exit 1
+          fi
+
+          screenshot_profile="$RUNNER_TEMP/aeon-visual-screenshot-profile"
+          "$browser_path" "${browser_flags[@]}" \
+            --user-data-dir="$screenshot_profile" \
+            --virtual-time-budget=6000 \
+            --screenshot="$capture_path" \
+            "$capture_url"
+
+          node -e '
+            const fs = require("node:fs");
+            const image = fs.readFileSync(process.argv[1]);
+            const signature = "89504e470d0a1a0a";
+            if (image.subarray(0, 8).toString("hex") !== signature) throw new Error("capture is not a PNG");
+            const width = image.readUInt32BE(16);
+            const height = image.readUInt32BE(20);
+            if (width !== 1440 || height !== 810) throw new Error(`unexpected capture size ${width}x${height}`);
+          ' "$capture_path"
+      - name: Upload gameplay capture
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: aeon-six-faction-gameplay-1440x810
+          path: artifacts/aeon-of-kingdoms-six-faction-1440x810.png
+          if-no-files-found: error
+          retention-days: 7
