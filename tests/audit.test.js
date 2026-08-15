@@ -112,6 +112,24 @@ test("local Markdown links resolve", () => {
   }
 });
 
+test("README uses a bounded verified gameplay capture", () => {
+  const readme = read("README.md");
+  const relativePath = "docs/assets/gameplay.webp";
+  const imagePath = path.join(ROOT, relativePath);
+  assert.match(
+    readme,
+    /!\[[^\]]{40,}\]\(docs\/assets\/gameplay\.webp\)/,
+    "README capture needs meaningful alternative text",
+  );
+  const image = fs.readFileSync(imagePath);
+  assert.ok(image.length <= 100 * 1024, "README capture must remain at or below 100 KiB");
+  assert.equal(image.subarray(0, 4).toString("ascii"), "RIFF");
+  assert.equal(image.subarray(8, 12).toString("ascii"), "WEBP");
+  assert.equal(image.subarray(12, 16).toString("ascii"), "VP8 ");
+  assert.equal(image.readUInt16LE(26) & 0x3fff, 1200);
+  assert.equal(image.readUInt16LE(28) & 0x3fff, 675);
+});
+
 test("workflows are bounded, least-privilege, and deploy the staged allowlist", () => {
   const ci = read(".github/workflows/ci.yml");
   const pages = read(".github/workflows/pages.yml");

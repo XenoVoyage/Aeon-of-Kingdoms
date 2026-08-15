@@ -14,7 +14,7 @@ This is the current-state handoff. It records maturity, evidence, and active lim
 | Content | Aeon Convergence, two six-role factions, deterministic AI, local skirmish, and the authored **First Light** campaign setup |
 | Player layouts | Source and setup UI target 2, 4, and 6 local factions; mirrored seats and equal nearest-site opening distances are regression-tested, while hands-on balance remains pending |
 | Multiplayer | Planned architecture only; no WebRTC, signaling, relay, matchmaking, or dedicated server is shipped |
-| Verification | Frozen dependency-free suite passes 56/56 on Node.js 24.19.0; rendered-browser, deployment, and physical-device evidence remain separate gates |
+| Verification | Frozen dependency-free suite passes 57/57 on Node.js 24.19.0; deployed desktop rendering/play is observed, while physical-device evidence remains a separate gate |
 
 The repository is a first vertical slice, not a production-complete RTS. It demonstrates the intended control/economy/combat loop and establishes the boundaries for later factions, maps, modes, campaign content, and multiplayer.
 
@@ -32,10 +32,11 @@ The repository is a first vertical slice, not a production-complete RTS. It demo
 | Evidence category | Current record |
 | --- | --- |
 | Source inspection | Integrated runtime, ownership documents, PWA shell, and explicit Pages allowlist reviewed on 2026-08-15 |
-| Automated Node checks | 56/56 passed with Node.js 24.19.0 on 2026-08-15; `git diff --check` clean |
+| Automated Node checks | 57/57 passed with Node.js 24.19.0 on 2026-08-15; `git diff --check` clean |
 | Simulated browser delivery | Passed repository-subpath delivery of all 18 staged runtime files on 2026-08-15 |
 | Rendered local browser play | Not yet recorded |
-| Deployed GitHub Pages play | Not yet recorded |
+| Deployed GitHub Pages play | Chrome rendered and advanced the `d4d48df` runtime on 2026-08-15: six-faction Skirmish, order, recruitment, pause/resume, First Light, bounded canvas, and no game-origin console warnings |
+| README gameplay capture | Manual Chrome workflow run `31900358317` produced and validated a 1440×810 six-faction frame; committed derivative is 1200×675 WebP |
 | Physical phone/tablet | Not yet recorded |
 | 2/4/6-player balance | Not yet recorded |
 | Cross-network multiplayer | Not applicable; feature is not shipped |
@@ -49,8 +50,8 @@ Update this table only with observed evidence. A passing static audit does not p
 - Alternate objective modes and 4–6-player setups need hands-on balance and edge-case review; equal opening-site geometry does not prove whole-match parity.
 - Deterministic regressions cover simultaneous combat, large footprints, living-structure exclusion, and a 48-attacker multi-ring approach; hands-on visual judgment under long dense matches remains pending.
 - No online rooms, join codes, reconnection, host migration, chat, spectators, matchmaking, accounts, cloud saves, or dedicated authority exist.
-- Generated concept art is not shipped as gameplay. The README deliberately waits for a real verified capture.
+- Generated concept art is not shipped as gameplay; the README uses a verified frame from the real Canvas renderer.
 
 ## Next task boundary
 
-Perform a real desktop playthrough of skirmish and First Light, inspect representative compact touch layouts, deploy through Pages, and replace the README capture placeholder only with a real gameplay image from the verified renderer. Keep physical phone/tablet acceptance and longer 2/4/6-player balance passes explicitly separate.
+Complete physical phone/tablet acceptance, longer 2/4/6-player balance passes, dense end-to-end matches, and offline-install verification. Keep those gates separate from the verified desktop Pages slice; multiplayer remains the next architectural milestone only after the local game stays stable under those checks.

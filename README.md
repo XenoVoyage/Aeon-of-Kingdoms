@@ -13,7 +13,7 @@
 
 </div>
 
-> **Gameplay capture — pending first deployed build.** This space will be replaced with a real 16:9 capture from the verified game, not concept art presented as gameplay.
+![Six-faction Conquest opening on Aeon Convergence, with selected Astral Concord units, rival armies, capture sites, resources, and recruitment controls](docs/assets/gameplay.webp)
 
 Aeon of Kingdoms is an initial playable RTS vertical slice for desktop and touch devices. Command the Astral Concord or Gravebound Court, claim Aether Wells and forward Relay Forges, respect the population limit, and destroy the enemy Nexus.
 

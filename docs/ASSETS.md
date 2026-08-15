@@ -14,9 +14,9 @@ The vertical slice uses procedural Canvas shapes and local interface styling. Th
 | `icons/icon-maskable-512.png` | Rasterized maskable install icon | Derived locally from `icons/icon-maskable.svg` |
 | `icons/apple-touch-icon.png` | 180×180 home-screen icon | Derived locally from `icons/icon-maskable.svg` |
 | Typography | System font stack | No font asset or third-party request |
-| README gameplay image | Not yet committed | Placeholder prose only; no broken or misleading image reference |
+| `docs/assets/gameplay.webp` | 1200×675 README gameplay capture | Real six-faction renderer output from manual workflow run `31900358317`, compressed from its verified 1440×810 PNG |
 
-The two local SVG sources and their raster install variants use the same geometric Aeon sigil and cyan/violet deep-space palette as the interface. No generated concept image is presented as an in-game screenshot. Once the first deployed build is visually verified, the README placeholder should be replaced with a compressed capture from the real renderer and this inventory updated in the same change.
+The two local SVG sources and their raster install variants use the same geometric Aeon sigil and cyan/violet deep-space palette as the interface. No generated concept image is presented as an in-game screenshot. The README image comes from the real game through the repository's manual, dependency-free Chrome capture workflow.
 
 ## Visual language
 
@@ -68,6 +68,8 @@ Assets may be added when they materially improve the game and remain local, lice
 Third-party assets require a license compatible with the MIT-distributed repository and an attribution record when the license requires one. “Free” or generated does not by itself establish redistribution rights.
 
 ## README capture gate
+
+The current capture passed this gate on 2026-08-15. Future replacements must preserve the same evidence standard.
 
 The first real README capture should:
 
