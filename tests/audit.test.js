@@ -85,7 +85,7 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
   assert.match(read("docs/STATUS.md"), /63\/63 integrated checks passed/);
-  assert.match(read("docs/STATUS.md"), /For `v2026\.8\.15a`, six public files returned `200`/);
+  assert.match(read("docs/STATUS.md"), /all 16 allowlisted public files and both directory entry routes returned `200`/);
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
   assert.match(read("SECURITY.md"), /static non-playable redesign status site/);
   assert.doesNotMatch(read("SECURITY.md"), /current release is a static local browser game/i);

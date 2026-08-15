@@ -17,13 +17,13 @@
 
 </div>
 
-The `v2026.8.16` source candidate adds an unapproved concept-review gallery to the deployed restrained transition page; neither surface is redesigned gameplay. A deployment, tag, or GitHub Release is not claimed by this source change alone. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag and Git history. Prototype-era source also remains temporarily in the working tree for historical regression evidence, but it is not referenced or included in the Pages payload.
+The deployed `v2026.8.16` transition includes the restrained status page and an unapproved concept-review gallery; neither surface is redesigned gameplay. Its exact 16-file Pages payload and both directory entry routes were verified after deployment; no new tag or GitHub Release is claimed. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag and Git history. Prototype-era source also remains temporarily in the working tree for historical regression evidence, but it is not referenced or included in the Pages payload.
 
 ## At a glance
 
 | Detail | Current truth |
 | --- | --- |
-| Candidate Pages payload | Deployed interim status page plus an unapproved review-only concept gallery candidate; neither is redesigned gameplay |
+| Public Pages payload | Deployed interim status page plus an unapproved review-only concept gallery at merge commit `27895cc`; neither is redesigned gameplay |
 | Active work | Phase 0 publication review and an unapproved Phase 1 concept review; redesigned gameplay has not started |
 | Replacement target | One original map, two factions, landscape camera play, three structure categories, production/rally, readable combat, and strategic AI |
 | Replacement runtime principle | Local HTML, CSS, JavaScript, and Canvas unless an approved phase proves another need |

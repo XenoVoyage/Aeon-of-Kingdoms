@@ -14,7 +14,7 @@ Include the affected version, browser or environment, concise reproduction, expe
 
 ## Current boundary
 
-The verified deployment is a static non-playable redesign status site; the current `v2026.8.16` candidate adds a script-free local concept-review gallery. Neither surface is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection.
+The verified `v2026.8.16` deployment is a static non-playable redesign status site with a script-free local concept-review gallery. Neither surface is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection.
 
 Relevant reports include:
 
