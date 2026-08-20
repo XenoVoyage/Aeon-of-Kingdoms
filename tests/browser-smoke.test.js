@@ -18,13 +18,13 @@ test("public shell truthfully presents the phased redesign", () => {
     /name=["']viewport["']/i,
     /id=["']main-content["']/i,
     /id=["']page-title["']/i,
-    /Phase 0 · Truth and cleanup/i,
+    /Phase 1A · Production feasibility/i,
     /Redesign in progress/i,
     /historical work/i,
-    /not the game[\s\S]*we\s+are\s+moving\s+forward\s+with/i,
-    /Design before implementation/i,
+    /tests whether the new map, entities, structures, and motion/i,
+    /Review before implementation/i,
     /aria-current=["']step["']/i,
-    /Status build v2026\.8\.20/i
+    /Status build v2026\.8\.20a/i
   ]) assert.match(html, pattern);
 
   assert.match(html, /href=["']https:\/\/github\.com\/XenoVoyage\/Aeon-of-Kingdoms["']/i);
@@ -72,7 +72,7 @@ test("status styles include compact layouts, visible focus, and reduced motion",
 test("service worker replaces old game caches with only the status shell", () => {
   const worker = read("sw.js");
   const registration = read("js/status.js");
-  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.20/);
+  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.20a/);
   assert.match(worker, /cache: "reload"/, "install requests must bypass a fresh HTTP-cached prototype shell");
   assert.match(worker, /cache\.put\(request, response\)/);
   assert.doesNotMatch(worker, /cache\.addAll\(/);
@@ -104,7 +104,7 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   };
   const caches = {
     open(name) {
-      assert.equal(name, "aok-shell-v2026.8.20");
+      assert.equal(name, "aok-shell-v2026.8.20a");
       return Promise.resolve(cache);
     },
     keys() {
@@ -206,6 +206,14 @@ test("Pages staging contains status and source-of-truth links but no rejected ga
     "concepts/images/minimal-menu.webp",
     "concepts/images/mobile-landscape.webp",
     "concepts/images/production-rally.webp",
+    "concepts/feasibility/index.html",
+    "concepts/feasibility/proof.css",
+    "concepts/feasibility/images/battlefield-scale.webp",
+    "concepts/feasibility/images/astral-roles.webp",
+    "concepts/feasibility/images/gravebound-roles.webp",
+    "concepts/feasibility/images/structure-states.svg",
+    "concepts/feasibility/images/map-layers.svg",
+    "concepts/feasibility/images/animation-proof.svg",
     "docs/REDESIGN.md",
     "docs/STATUS.md"
   ]);
@@ -245,12 +253,14 @@ test("Pages-subpath delivery serves every linked local status resource", async (
     assert.equal(response.status, 200, `failed to load ${reference} from the Pages subpath`);
   }
 
-  const galleryUrl = new URL("concepts/", base);
-  const galleryPage = await fetch(galleryUrl);
-  assert.equal(galleryPage.status, 200);
-  const galleryHtml = await galleryPage.text();
-  for (const reference of staging.localReferences(galleryHtml)) {
-    const response = await fetch(new URL(reference, galleryUrl));
-    assert.equal(response.status, 200, `failed to load gallery resource ${reference} from the Pages subpath`);
+  for (const route of ["concepts/", "concepts/feasibility/"]) {
+    const routeUrl = new URL(route, base);
+    const routePage = await fetch(routeUrl);
+    assert.equal(routePage.status, 200);
+    const routeHtml = await routePage.text();
+    for (const reference of staging.localReferences(routeHtml)) {
+      const response = await fetch(new URL(reference, routeUrl));
+      assert.equal(response.status, 200, `failed to load ${route} resource ${reference} from the Pages subpath`);
+    }
   }
 });

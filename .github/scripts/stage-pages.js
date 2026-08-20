@@ -20,6 +20,14 @@ const RUNTIME_FILES = Object.freeze([
   "concepts/images/minimal-menu.webp",
   "concepts/images/mobile-landscape.webp",
   "concepts/images/production-rally.webp",
+  "concepts/feasibility/index.html",
+  "concepts/feasibility/proof.css",
+  "concepts/feasibility/images/battlefield-scale.webp",
+  "concepts/feasibility/images/astral-roles.webp",
+  "concepts/feasibility/images/gravebound-roles.webp",
+  "concepts/feasibility/images/structure-states.svg",
+  "concepts/feasibility/images/map-layers.svg",
+  "concepts/feasibility/images/animation-proof.svg",
   "docs/REDESIGN.md",
   "docs/STATUS.md"
 ]);

@@ -6,22 +6,24 @@ This is the current-state handoff. Active redesign phases and acceptance gates b
 
 | Area | Status |
 | --- | --- |
-| Canonical source version | `v2026.8.20` in `VERSION.txt`; deployed reviewed-reference and Phase 1A boundary update, with no tag or GitHub Release claimed |
+| Canonical source version | `v2026.8.20a` in `VERSION.txt`; source-verified Phase 1A production-feasibility candidate, not yet deployed, tagged, released, or owner-approved |
 | Historical runtime | `v2026.8.15` was observed playable at commit `7f88655` on 2026-08-15, but the product owner rejected its UI, art, map, gameplay feel, terminology, and AI as the future direction |
-| Active phase | Phase 0 implementation evidence remains open; the Phase 1A production-feasibility brief is owner-approved for reference creation only, while the production visual target remains unapproved |
+| Active phase | Phase 1A production feasibility; the verified source proof awaits publication, full-page rendered and physical-device review, and explicit owner approval |
 | Redesign gameplay implementation | Not started |
-| Current source boundary | Minimal redesign status page, reviewed mood-reference gallery, and the approved roadmap/status documents; they contain no playable redesign |
+| Current source boundary | Minimal redesign status page, mood-reference archive, separate Phase 1A proof gallery, and approved roadmap/status documents; none contains a playable redesign |
 | GitHub Pages | `v2026.8.20` is deployed from merge commit `919cc933a4def3a6688208f3e5a2180cc4d4687e`; main audit run `32347611623` and Pages run `32347611618` completed successfully on 2026-08-20 |
 | Multiplayer | Not shipped; remains a later phase after the local redesign is approved |
-| Verification | For `v2026.8.20`, 63/63 integrated checks passed and the 16-file allowlist is preserved. Both live routes, current boundary text, and all eight local images loaded in a cloud desktop browser with no page-origin warning or error. Exact-byte comparison, responsive/keyboard review, cache migration, and physical-device evidence remain pending |
+| Verification | The frozen `v2026.8.20a` source candidate passes 68/68 integrated checks, including five Phase 1A-specific checks, and stages the exact 24-file Pages allowlist. All three SVGs were rasterized and visually inspected locally. Full-page rendered, deployed, cache-profile, and physical-device observations remain pending. The historical gameplay suites remain historical evidence, not redesign acceptance |
 
-Do not describe the current Pages build or the transition page as redesigned gameplay. The recorded workflows and live browser observation establish this deployment and its loaded public resources. The owner-supplied capture establishes only the visible portrait mobile state described below; neither category establishes a tag, GitHub Release, responsive or keyboard quality, cache migration, physical-device gallery behavior, or redesigned gameplay.
+Phase 0's product-truth gate is complete: the rejected runtime is historical, the public source is non-playable, and the owner authorized Phase 1A. Its remaining cache, responsive, keyboard, physical-device gallery, and rollback observations stay recorded as operational evidence debt. Do not describe the current Pages build or the transition page as redesigned gameplay. The recorded workflows and live browser observation establish this deployment and its loaded public resources. The owner-supplied capture establishes only the visible portrait mobile state described below; neither category establishes a tag, GitHub Release, responsive or keyboard quality, cache migration, physical-device gallery behavior, or redesigned gameplay.
 
 ## Approval record
 
 On 2026-08-15, the product owner approved Phase 0 and authorized its implementation. That approval locks the phased process and permits the truth-and-cleanup transition; it does not approve Phase 1 visuals, later gameplay implementation, a tag, or publication without their own evidence and gates.
 
 On 2026-08-20, the product owner reviewed the published concept set. The battlefield, faction contrast, combat language, and interface were accepted as mood direction. The literal entity detail and realism were rejected as the production target because they do not prove readability on compact screens, consistency across crowded battles, affordable animation, or a sustainable six-faction scope. The owner approved the smaller Phase 1A production-feasibility brief and authorized replacement references, but did not approve final art or gameplay implementation.
+
+The `v2026.8.20a` source candidate implements that brief as a review surface: one crowded battlefield, compact desktop and phone frames, two three-role faction lineups, the exact three structure categories, a six-layer map diagram, a four-family animation pose board, and non-color-only state cues. Source completeness is not owner approval. No full roster, shipping sprite, gameplay renderer, implementation phase, tag, or release is authorized by its existence.
 
 ## Owner-locked redesign requirements
 
@@ -41,7 +43,7 @@ On 2026-08-20, the product owner reviewed the published concept set. The battlef
 
 ## Evidence boundary
 
-The published menu, battlefield, faction, structure, combat, mobile-control, and production/rally frames remain available in the [mood-reference gallery](../concepts/). They are useful composition references, not shipping assets or the Phase 1 production approval target. Exact HTTPS bytes establish publication, not rendered quality, browser interaction, or implementation. No redesigned map, entity, structure, movement, combat, AI, touch, or networking runtime evidence exists yet. The interim status page and gallery are communication surfaces only. Each phase in [`REDESIGN.md`](REDESIGN.md) defines its own source, automated, rendered, physical-device, and owner-approval evidence.
+The published menu, battlefield, faction, structure, combat, mobile-control, and production/rally frames remain available in the [mood-reference gallery](../concepts/). The separate [Phase 1A proof](../concepts/feasibility/) is the new owner-review candidate. Both are communication surfaces, not shipping assets, gameplay screenshots, or implementation evidence. Exact source or HTTPS bytes establish availability, not rendered quality, physical-device readability, interaction, game feel, or owner approval. No redesigned map, entity, structure, movement, combat, AI, touch, or networking runtime evidence exists yet.
 
 ### v2026.8.20 deployment observation
 
@@ -53,8 +55,7 @@ On 2026-08-15 the product owner supplied a 945×2048 portrait mobile-browser scr
 
 ## Next gate
 
-1. Verify replacement of an existing prototype service-worker cache in a previously used browser profile without a stale-cache loop.
-2. Record landscape and desktop/tablet readability, console cleanliness, link navigation, and rollback readiness without converting those observations into gameplay claims.
-3. Close Phase 0 only after the repository, live site, and owner review tell the same truth.
-4. Produce the Phase 1A proof at actual desktop and phone scale: two factions with three representative roles each, the exact three structures, the layered map contract, four core animation families, and non-color-only ownership/readability cues.
-5. Record explicit owner approval or revision of that feasibility proof; do not create gameplay renderer code until the complete Phase 1B visual gate is approved.
+1. Freeze, verify, publish, and inspect the `v2026.8.20a` Phase 1A proof without converting source completeness into visual approval.
+2. Record explicit owner approval, revision, or rejection of that feasibility proof.
+3. If Phase 1A is approved, build one measured representative production-atlas prototype and complete the Phase 1B visual and interaction lock; do not create gameplay renderer code before the complete Phase 1B gate is approved.
+4. Complete the remaining transition cache, responsive/keyboard, physical-device gallery, and rollback observations in parallel without reopening the Phase 0 product decision or blocking visual review.

@@ -2,6 +2,42 @@
 
 This file owns the active reference inventory and preserves the rejected prototype asset record below. Phase 1 of [`REDESIGN.md`](REDESIGN.md) still must establish approved shipping art, provenance/licensing, animation, atlas, and size rules before new gameplay rendering begins.
 
+## Phase 1A production-feasibility candidate
+
+The `v2026.8.20a` source candidate adds a separate owner-review proof. It is not deployed or approved yet, and none of its images is an implemented game screenshot, final sprite, texture atlas, balanced map, or physical-device result.
+
+| File | Dimensions | Bytes | Purpose |
+| --- | ---: | ---: | --- |
+| `concepts/feasibility/images/battlefield-scale.webp` | 1672×941 | 195,564 | Crowded ordinary-zoom battlefield target with two headquarters, one Resource Point, one Production Outpost, small spaced armies, and hard visual blockers |
+| `concepts/feasibility/images/astral-roles.webp` | 1672×941 | 226,066 | Transparent three-role Astral Concord lineup for close, ordinary, minimum, and silhouette reads |
+| `concepts/feasibility/images/gravebound-roles.webp` | 1536×1024 | 195,050 | Transparent three-role Gravebound Court lineup for close, ordinary, minimum, and silhouette reads |
+| `concepts/feasibility/images/structure-states.svg` | 1600×1020 | 7,901 | Exact three-category structure and non-color ownership-state matrix |
+| `concepts/feasibility/images/map-layers.svg` | 1600×1040 | 6,958 | Deterministic six-layer map, navigation, depth-order, and foreground-occlusion diagram |
+| `concepts/feasibility/images/animation-proof.svg` | 1600×980 | 7,681 | Deterministic idle, move, attack, and defeat pose board with stable anchors and contact timing |
+
+Total Phase 1A proof-image payload: **639,220 bytes**.
+
+### Origin, transformation, and distribution
+
+- **Direction:** XenoVoyage.
+- **Raster source method/tool:** project-specific OpenAI image generation through OpenAI Codex, using the earlier project-generated battlefield, Astral Concord, Gravebound Court, and structure frames as mood references only. Prompts explicitly required lower detail, ordinary RTS scale, exactly three representative roles per faction, and no additional structure category.
+- **Raster transformation:** generated PNG outputs were kept outside the repository, metadata was removed, and local FFmpeg `libwebp` encoding produced the committed WebP files at quality 76 for the battlefield and 82 for transparent lineups, compression level 6. The encoded lineups preserve alpha.
+- **Diagram source method/tool:** original SVG authored by OpenAI Codex from the owner-approved Phase 1A structure, map-layer, ownership, and animation contracts. It does not trace or embed a third-party asset.
+- **Distribution decision:** the committed review assets are included as project material under the repository's MIT license. Generated output may not be unique, and approval of the method will not silently promote these references to shipping art.
+- **Delivery:** all six files are local and total 639,220 bytes. They remain outside the four-file offline status-shell cache.
+
+### Candidate shipping pipeline and budget
+
+These values are a reviewable production hypothesis, not an approved atlas or measured runtime result:
+
+- **Master:** one low-detail rigged tactical-miniature master per combat entity, rendered offline to 2D; a controlled layered-vector master remains the fallback. Phase 1B must build and compare one representative atlas before choosing. No 3D engine or art tool ships to the browser.
+- **Directions:** four authored directions with no mirroring by default. Phase 1B may permit mirroring only when weapon, shield, markings, and effects remain semantically correct.
+- **Animation families and frames:** idle 4, move 6, attack or cast 8, and defeat 6 at a 12 fps presentation cadence. Four directions produce 96 frames per combat entity; simulation ticks remain authoritative.
+- **Frame and atlas envelope:** ordinary entities target 72×72 frames in an 864×576 atlas; signature entities target 96×96 frames in a 1152×768 atlas. Stable ground anchors and event metadata are required.
+- **Encoded budget:** at most 256 KiB per ordinary entity and 384 KiB per signature entity. A two-faction six-role opening roster therefore targets at most 3.25 MiB encoded, loaded by participating faction rather than by the future complete faction library.
+- **Decoded budget:** the same opening roster targets at most 26 MiB of decoded entity-atlas pixels before measurement and browser overhead. Terrain, structures, UI, audio, and effects have separate later budgets.
+- **Validation gate:** Phase 1A approval authorizes one representative pipeline prototype in Phase 1B. The atlas dimensions, visual quality, actual bytes, decode cost, frame cadence, directions, and mirroring policy remain unapproved until that prototype is measured on the reference desktop and phone.
+
 ## Reviewed redesign mood references
 
 The deployed `v2026.8.20` gallery includes eight raster references. On 2026-08-20 the product owner retained their battlefield composition, faction contrast, combat language, and restrained interface as mood direction, while rejecting their literal realism and detail as the production target. They are not gameplay screenshots, final production assets, implementation evidence, or proof that their detail survives normal RTS zoom.

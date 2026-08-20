@@ -6,7 +6,7 @@ Read this file in full at the start of every task, before inspecting or changing
 
 The published `v2026.8.15` runtime was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. Read [`docs/REDESIGN.md`](docs/REDESIGN.md) before any task. During the redesign it takes precedence over prototype-era product and architecture descriptions when they conflict.
 
-Phase 0 and the roadmap baseline were approved by the product owner on 2026-08-15. The current non-playable `v2026.8.20` status and mood-reference site is deployed from merge commit `919cc93`; main audit run `32347611623` and Pages run `32347611618` completed successfully. A cloud desktop-browser observation loaded both entry routes, the current boundary text, and all eight local reference images without a page-origin warning or error. This establishes publication and resource loading only; exact-byte comparison, responsive/keyboard review, a previously cached profile, and physical-device evidence remain pending. On 2026-08-20 the owner accepted the eight frames as mood references, rejected their literal detail and realism as the production target, and approved the smaller Phase 1A feasibility brief. That approval authorizes a replacement visual proof only; it does not approve an art lock, gameplay work, a tag, or a release.
+Phase 0 and the roadmap baseline were approved by the product owner on 2026-08-15. The current non-playable `v2026.8.20` status and mood-reference site is deployed from merge commit `919cc93`; main audit run `32347611623` and Pages run `32347611618` completed successfully. A cloud desktop-browser observation loaded both entry routes, the current boundary text, and all eight local reference images without a page-origin warning or error. This establishes publication and resource loading only; exact-byte comparison, responsive/keyboard review, a previously cached profile, and physical-device evidence remain pending as operational evidence rather than reopening the completed truth-and-cleanup product decision. On 2026-08-20 the owner accepted the eight frames as mood references, rejected their literal detail and realism as the production target, and approved the smaller Phase 1A feasibility brief. The source-verified `v2026.8.20a` candidate implements that brief as a separate proof gallery; 68/68 integrated checks pass and the exact 24-file Pages stage is preserved, but it remains undeployed and unapproved. Its existence does not approve an art lock, gameplay work, a tag, or a release.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
@@ -49,9 +49,9 @@ Use `CONTRIBUTING.md` as a public entrypoint, not a substitute for these rules. 
 ## 3. Current product boundary
 
 - The rejected playable prototype remains in the published tag/release `v2026.8.15`, Git history, and temporarily preserved prototype-era source used by historical regression tests. It is not the working-tree product baseline, public entry point, or Pages payload. Treat the published tag and release as immutable by project policy; do not imply that the hosting platform has technically locked them.
-- The current public runtime is a minimal HTML/CSS/JavaScript redesign status page plus a script-free mood-reference gallery with eight local WebP references. It has no gameplay, Canvas renderer, build step, or runtime package dependency.
-- The active implementation deliverable remains Phase 0 in `docs/REDESIGN.md`; the approved Phase 1A brief permits replacement reference creation only. No redesigned gameplay feature is implemented or shipped yet.
-- The status page and `concepts/` gallery must work by opening their HTML entry points directly and from the `/Aeon-of-Kingdoms/` GitHub Pages subpath. The future game inherits that delivery constraint unless an approved phase changes it.
+- The current public runtime is a minimal HTML/CSS/JavaScript redesign status page plus a script-free mood-reference gallery with eight local WebP references. The current source candidate adds a script-free Phase 1A proof with local WebP targets and deterministic SVG diagrams. It has no gameplay, Canvas renderer, build step, or runtime package dependency.
+- The active deliverable is the Phase 1A production-feasibility proof in `docs/REDESIGN.md`. Its approved brief permits replacement reference creation and review only. The proof awaits explicit owner approval, and no redesigned gameplay feature is implemented or shipped yet.
+- The status page, `concepts/` archive, and `concepts/feasibility/` proof must work by opening their HTML entry points directly and from the `/Aeon-of-Kingdoms/` GitHub Pages subpath. The future game inherits that delivery constraint unless an approved phase changes it.
 - Multiplayer, signaling, TURN, matchmaking, accounts, hosted persistence, and a dedicated server are planned, not shipped. GitHub Pages and Actions are never described as a server.
 - The first replacement release targets a proven two-player local slice. Four- and six-player layouts are later scale work and require separate routing, performance, fairness, and play evidence.
 
@@ -81,7 +81,7 @@ Do not expand the slice into an account system, content pipeline, framework migr
 
 ## 6. Ownership map
 
-The Phase 0 entries below own the current transition and review candidate. No gameplay source boundary is approved yet; each later phase must record the smallest actual ownership map when it introduces replacement code. Prototype-era design documents remain historical until explicitly replaced.
+The transition and Phase 1A entries below own the current review candidate. No gameplay source boundary is approved yet; each later phase must record the smallest actual ownership map when it introduces replacement code. Prototype-era design documents remain historical until explicitly replaced.
 
 | Area | Source of truth |
 | --- | --- |
@@ -91,6 +91,9 @@ The Phase 0 entries below own the current transition and review candidate. No ga
 | Reviewed mood-reference content and feasibility boundary | `concepts/index.html` |
 | Mood-reference presentation | `concepts/gallery.css` |
 | Optimized mood-only visual references | `concepts/images/*.webp` |
+| Phase 1A proof content and owner gate | `concepts/feasibility/index.html` |
+| Phase 1A proof presentation | `concepts/feasibility/proof.css` |
+| Optimized proof targets and deterministic diagrams | `concepts/feasibility/images/*.{webp,svg}` |
 | Explicit Pages delivery allowlist | `.github/scripts/stage-pages.js` |
 | Active redesign, phases, and approval gates | `docs/REDESIGN.md` |
 | Intended future experience after its redesign rewrite | `docs/GAME_DESIGN.md` |

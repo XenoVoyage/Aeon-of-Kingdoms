@@ -2,6 +2,27 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.20a] — 2026-08-20 (source-verified candidate; undeployed and untagged)
+
+### Added
+
+- Added a separate Phase 1A owner-review page with one crowded ordinary-zoom battlefield target and compact desktop/phone scale frames.
+- Added simplified Astral Concord and Gravebound Court lineups with melee, ranged, and signature silhouettes, plus non-color-only ownership, selection, and target cues.
+- Added deterministic vector diagrams for the exact three structure categories, six authored map layers, and the four core animation families with stable ground anchors.
+
+### Changed
+
+- Made the Phase 1A proof the primary review route while preserving the eight earlier frames as a clearly labelled mood-reference archive.
+- Advanced the public status sequence from the completed Phase 0 truth baseline to the active Phase 1A review gate.
+- Added the proof's visual target to the README with an explicit non-gameplay caption and recorded its production and asset boundaries.
+
+### Boundaries
+
+- The proof is draft review material, not implemented gameplay, final art, an approved atlas, a balanced map, or physical-device evidence.
+- No runtime dependency, gameplay renderer, simulation rule, networking feature, external request, tag, or GitHub Release is included or claimed.
+- The frozen source candidate passes 68/68 integrated checks, including five Phase 1A-specific checks, and stages the exact 24-file Pages allowlist. The three SVG diagrams were rasterized and inspected locally; full page rendering, deployment, and physical-device review remain separate.
+- The last verified Pages deployment remains `v2026.8.20` from merge commit `919cc933a4def3a6688208f3e5a2180cc4d4687e` until this candidate passes the protected publication path and live verification.
+
 ## [v2026.8.20] — 2026-08-20 (deployed status/reference build; untagged)
 
 ### Changed

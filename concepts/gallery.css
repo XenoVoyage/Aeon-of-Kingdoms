@@ -34,6 +34,7 @@
 }
 
 .review-boundary a,
+.proof-link,
 .back-link {
   display: inline-flex;
   gap: 0.7rem;
@@ -43,6 +44,17 @@
   color: var(--text);
   font-size: 0.82rem;
   text-underline-offset: 0.3em;
+}
+
+.proof-link {
+  margin-right: 1.5rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--line-strong);
+  text-decoration: none;
+}
+
+.proof-link:hover {
+  border-color: var(--accent-soft);
 }
 
 .concept-list {
