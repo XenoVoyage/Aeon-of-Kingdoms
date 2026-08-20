@@ -14,13 +14,13 @@ Include the affected version, browser or environment, concise reproduction, expe
 
 ## Current boundary
 
-The verified `v2026.8.16` deployment is a static non-playable redesign status site with a script-free local concept-review gallery. Neither surface is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection.
+The verified `v2026.8.16` deployment is a static non-playable redesign status site with a script-free local reference gallery. The `v2026.8.20` source candidate changes only its truth and Phase 1A review language; it adds no executable or network boundary. Neither surface is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection.
 
 Relevant reports include:
 
 - script execution or Content Security Policy bypass;
 - unexpected external loading or network communication;
-- unsafe delivery, caching, or rendering of the local status and concept-review resources;
+- unsafe delivery, caching, or rendering of the local status and reference-gallery resources;
 - GitHub Actions, Pages, artifact, branch-protection, or release-integrity weaknesses;
 - a vulnerability in a future networking feature that is actually present on `main`.
 

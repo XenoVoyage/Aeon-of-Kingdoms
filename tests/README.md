@@ -1,6 +1,6 @@
 # Aeon of Kingdoms verification
 
-The active public boundary is a deployed non-playable redesign status page plus an unapproved Phase 1 concept-review gallery. Verification proves that these communication surfaces are truthful, local, bounded, accessible, and staged exactly; exact live bytes establish deployment but do not establish gallery rendering, validate redesigned gameplay, or approve the concepts. The rejected `v2026.8.15` prototype and its old tests remain historical evidence only.
+The active public boundary is a deployed non-playable redesign status page plus a reviewed Phase 1 mood-reference gallery. Verification proves that these communication surfaces are truthful, local, bounded, accessible, and staged exactly; exact live bytes establish deployment but do not establish gallery rendering, validate redesigned gameplay, or approve a production visual target. The rejected `v2026.8.15` prototype and its old tests remain historical evidence only.
 
 Run the complete dependency-free verification from the repository root:
 
@@ -16,7 +16,7 @@ Node.js 20 or newer is used only for local and continuous verification. The suit
 | --- | --- |
 | `audit.test.js` | Required project files, canonical version mirrors, status-page CSP and local resources, documentation truth, zero dependencies, workflow permissions, and the exact Pages allowlist |
 | `browser-smoke.test.js` | Status-page semantics, enhancement safety, responsive/focus/reduced-motion contracts, service-worker lifecycle, and local delivery from the `/Aeon-of-Kingdoms/` Pages subpath |
-| `concept-gallery.test.js` | Draft/approval boundaries, semantic image review, optimized local WebP budgets, gallery CSP, and exclusion from the offline service-worker shell |
+| `concept-gallery.test.js` | Mood/production-target boundaries, Phase 1A feasibility language, semantic image review, optimized local WebP budgets, gallery CSP, and exclusion from the offline service-worker shell |
 
 ## Historical regression suites
 
@@ -44,7 +44,7 @@ The `_site` directory is generated delivery output and must not be committed.
 | Direct-file baseline | Open `index.html` through `file://`; confirm the title, rejected-prototype notice, phase status, roadmap/status links, and repository link remain readable without a failed local resource or console error |
 | Local Pages subpath | Serve the candidate under `/Aeon-of-Kingdoms/`; confirm both documentation links, focus behavior, status enhancement, and service-worker registration use the repository subpath correctly |
 | Responsive status | Inspect representative narrow, wide, portrait, and landscape viewports; confirm the informational page remains readable without claiming that portrait gameplay is supported |
-| Concept review | Follow the visible status-page route; load all eight references; open one full-size image; use the back link; and inspect 320 px reflow, 200% zoom, desktop, phone portrait/landscape, keyboard focus, captions, and image-loading failures without treating the result as gameplay evidence or owner approval |
+| Mood-reference gallery | Follow the visible status-page route; load all eight references; open one full-size image; use the back link; and inspect 320 px reflow, 200% zoom, desktop, phone portrait/landscape, keyboard focus, captions, and image-loading failures without treating the result as gameplay evidence or production-target approval |
 | Accessibility | Navigate every link by keyboard; verify semantic headings, visible focus, sufficient contrast, motion preference, zoom/reflow, and understandable status without color or animation |
 | Offline/cache | After one successful local or deployed load, verify the bounded status shell can reopen offline and activation removes older `aok-shell-*` prototype caches without deleting unrelated origins' caches |
 | Staged delivery | Inspect generated `_site`; verify its exact allowlist and open that staged copy before publication |
