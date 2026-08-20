@@ -2,7 +2,7 @@
 
 Aeon of Kingdoms is undergoing a gated redesign. Contributions must preserve the approved redesign contract and enduring deterministic, accessible, secure browser boundaries; they must not preserve the rejected prototype presentation or gameplay by default.
 
-Phase 0's truth-and-cleanup product gate is complete. The verified `v2026.8.20` public runtime is a non-playable redesign status page plus a mood-reference gallery. The only currently approved creation scope is the verified-source, undeployed `v2026.8.20a` Phase 1A production-feasibility proof; the visual method itself is not yet owner-approved. Redesigned gameplay begins only after the complete Phase 1B visual gate is explicitly approved.
+Phase 0's truth-and-cleanup product gate is complete. The verified `v2026.8.20` public runtime is a non-playable redesign status page plus a mood-reference gallery. The only currently approved creation scope is the source-verified, undeployed `v2026.8.20a` Phase 1A production-feasibility proof; the visual method itself is not yet owner-approved. Redesigned gameplay begins only after the complete Phase 1B visual gate is explicitly approved.
 
 ## Before changing code
 
