@@ -2,7 +2,7 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
-## [v2026.8.20a] — 2026-08-20 (source-verified candidate; undeployed and untagged)
+## [v2026.8.20a] — 2026-08-20 (deployed feasibility-review build; untagged)
 
 ### Added
 
@@ -20,8 +20,10 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 
 - The proof is draft review material, not implemented gameplay, final art, an approved atlas, a balanced map, or physical-device evidence.
 - No runtime dependency, gameplay renderer, simulation rule, networking feature, external request, tag, or GitHub Release is included or claimed.
-- The frozen source candidate passes 68/68 integrated checks, including five Phase 1A-specific checks, and stages the exact 24-file Pages allowlist. The three SVG diagrams were rasterized and inspected locally; full page rendering, deployment, and physical-device review remain separate.
-- The last verified Pages deployment remains `v2026.8.20` from merge commit `919cc933a4def3a6688208f3e5a2180cc4d4687e` until this candidate passes the protected publication path and live verification.
+- The frozen source passes 68/68 integrated checks, including five Phase 1A-specific checks, and stages the exact 24-file Pages allowlist. The three SVG diagrams were rasterized and inspected locally; full proof-page rendered and physical-device review remain separate.
+- Pull request `#8` merged as commit `75ec47c2bca9ea325f5b9508c06d44f3eb1aff1c`; main audit run `32351430376` and Pages run `32351430306` completed successfully.
+- The live status entry, proof entry, proof stylesheet, and all six proof images matched merged source byte for byte over HTTPS. A cloud desktop browser loaded the current status and Phase 1A review route at 1363×936. This does not establish full proof-page rendering, compact-phone quality, cache migration, or physical-device evidence.
+- No `v2026.8.20a` tag or GitHub Release is claimed.
 
 ## [v2026.8.20] — 2026-08-20 (deployed status/reference build; untagged)
 

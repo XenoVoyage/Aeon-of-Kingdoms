@@ -50,7 +50,7 @@ The `_site` directory is generated delivery output and must not be committed.
 | Accessibility | Navigate every link by keyboard; verify semantic headings, visible focus, sufficient contrast, motion preference, zoom/reflow, and understandable status without color or animation |
 | Offline/cache | After one successful local or deployed load, verify the bounded status shell can reopen offline and activation removes older `aok-shell-*` prototype caches without deleting unrelated origins' caches |
 | Staged delivery | Inspect generated `_site`; verify its exact allowlist and open that staged copy before publication |
-| Published transition | After Pages deployment, open the exact URL, record the deployed commit, verify the canonical `VERSION.txt` value, follow the concept and documentation links, inspect the console, and confirm no rejected gameplay shell or stale service-worker view appears |
+| Published transition | After Pages deployment, open the exact URL, record the deployed commit, verify the visible runtime label against the canonical repository `VERSION.txt` value, follow the concept and documentation links, inspect the console, and confirm no rejected gameplay shell or stale service-worker view appears |
 | Rollback readiness | Record the last known-good commit and confirm the protected workflow can redeploy it without moving or deleting the published `v2026.8.15` historical tag, which project policy treats as immutable |
 
 ## Future gameplay evidence

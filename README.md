@@ -19,15 +19,15 @@
 
 [![Phase 1A crowded battlefield target with small spaced armies, hard terrain blockers, two headquarters, a Resource Point, and a Production Outpost.](concepts/feasibility/images/battlefield-scale.webp)](concepts/feasibility/)
 
-The source-verified `v2026.8.20a` candidate adds a separate, explicitly unapproved Phase 1A proof at practical RTS scale: one crowded battlefield, two three-role faction lineups, the exact three structure categories, a six-layer map diagram, and a four-family animation pose board. The painting above is a visual target, not an in-game screenshot. Its 68/68 integrated checks and exact 24-file Pages stage pass locally; publication and owner review remain separate. The last verified Pages deployment is still the non-playable `v2026.8.20` status and mood-reference build from merge commit `919cc93`. No redesigned gameplay, final art lock, physical-device proof, tag, or GitHub Release is claimed. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag and Git history.
+The deployed `v2026.8.20a` review build adds a separate, explicitly unapproved Phase 1A proof at practical RTS scale: one crowded battlefield, two three-role faction lineups, the exact three structure categories, a six-layer map diagram, and a four-family animation pose board. The painting above is a visual target, not an in-game screenshot. Its frozen source passes 68/68 integrated checks and the exact 24-file Pages stage; the live status entry, proof entry, proof stylesheet, and all six proof images match merged source byte for byte. Publication is complete, but owner review remains separate. No redesigned gameplay, final art lock, physical-device proof, tag, or GitHub Release is claimed. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag and Git history.
 
 ## At a glance
 
 | Detail | Current truth |
 | --- | --- |
-| Public Pages payload | Last verified deployment: `v2026.8.20` non-playable status page and eight local mood references at merge commit `919cc93` |
-| Current source candidate | Source-verified `v2026.8.20a` adds the unapproved Phase 1A proof; deployment pending, untagged, and not a GitHub Release |
-| Active work | Publish and review the Phase 1A production method; redesigned gameplay has not started |
+| Public Pages payload | `v2026.8.20a` non-playable status, mood archive, and Phase 1A proof at merge commit `75ec47c`; untagged and not a GitHub Release |
+| Current source | Deployed, source-verified Phase 1A review build; the visual method remains owner-unapproved |
+| Active work | Review the Phase 1A production method; redesigned gameplay has not started |
 | Replacement target | One original layered map, two factions, landscape camera play, unique headquarters, shared Resource Points and Production Outposts, production/rally, readable combat, and strategic AI |
 | Replacement runtime principle | Local HTML, CSS, JavaScript, and Canvas unless an approved phase proves another need |
 | Multiplayer | Later phase after the redesigned local simulation is approved; not shipped |

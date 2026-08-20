@@ -1,6 +1,6 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 product gate complete with residual operational evidence tracked; Phase 1A source proof ready for verification and owner review, visual method not approved**.
+Status: **approved baseline; Phase 0 product gate complete with residual operational evidence tracked; Phase 1A proof deployed for owner review, visual method not approved**.
 
 This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. It does not claim that any redesigned feature is currently implemented.
 
@@ -223,15 +223,16 @@ The eight published frames remain in the [reviewed mood-reference gallery](../co
 #### Phase 1A — Production-feasibility proof
 
 - [x] Owner approved the simplified production-feasibility brief on 2026-08-20; this authorizes reference creation only.
-- [x] The `v2026.8.20a` source candidate shows one crowded battlefield in desktop and compact phone-landscape reference frames, including ordinary and minimum reads rather than poster-sized fighters.
+- [x] The deployed `v2026.8.20a` proof shows one crowded battlefield in desktop and compact phone-landscape reference frames, including ordinary and minimum reads rather than poster-sized fighters.
 - [x] It shows two opening factions with three representative combat-entity roles each: one melee, one ranged, and one large or signature silhouette. This proves the method before expanding to all six permanent roles per faction.
 - [x] It shows exactly two faction-unique headquarters plus one shared Resource Point and one shared Production Outpost in neutral and owned states.
 - [x] It shows the map method with ground, non-blocking detail, navigation/blocker mask, anchors, dynamic ordering, and foreground-occlusion split so visual depth and walkability are not inferred from a painting.
 - [x] It shows one representative entity from each opening faction across idle, move, attack, and defeat poses with stable foot anchors and explicit contact timing.
 - [x] It demonstrates faction, role, player ownership, selection, and hostile target recognition through silhouette, geometric marks, borders, and patterns as well as color.
 - [x] `docs/ASSETS.md` records current proof dimensions and bytes plus the provisional master, atlas, directional, frame-count, 12 fps, encoded, decoded, provenance, license, and transformation envelope.
+- [x] The proof passed the protected publication path at merge commit `75ec47c2bca9ea325f5b9508c06d44f3eb1aff1c`; the live entry, stylesheet, and six proof images match merged source byte for byte.
 
-These checks establish source coverage only. Rendered desktop/phone inspection, physical-device evidence, production-atlas measurement, and explicit owner approval remain open and can revise any visual choice.
+These checks establish source coverage and deployed-byte availability only. Full proof-page rendered desktop/phone inspection, physical-device evidence, production-atlas measurement, and explicit owner approval remain open and can revise any visual choice.
 
 Checkpoint: explicit owner approval that the visual method is readable and realistically producible. It authorizes completion of Phase 1B, not a gameplay renderer.
 
