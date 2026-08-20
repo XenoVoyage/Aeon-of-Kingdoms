@@ -31,6 +31,14 @@ const REQUIRED_FILES = [
   "concepts/images/minimal-menu.webp",
   "concepts/images/mobile-landscape.webp",
   "concepts/images/production-rally.webp",
+  "concepts/feasibility/index.html",
+  "concepts/feasibility/proof.css",
+  "concepts/feasibility/images/battlefield-scale.webp",
+  "concepts/feasibility/images/astral-roles.webp",
+  "concepts/feasibility/images/gravebound-roles.webp",
+  "concepts/feasibility/images/structure-states.svg",
+  "concepts/feasibility/images/map-layers.svg",
+  "concepts/feasibility/images/animation-proof.svg",
   "js/config.js",
   "js/core.js",
   "js/simulation.js",
@@ -54,6 +62,7 @@ const REQUIRED_FILES = [
   "docs/ASSETS.md",
   "tests/fixtures/visual-capture.html",
   "tests/fixtures/visual-capture.js",
+  "tests/feasibility-gallery.test.js",
   ".github/workflows/ci.yml",
   ".github/workflows/pages.yml",
   ".github/workflows/visual.yml",
@@ -70,7 +79,8 @@ test("public documentation identifies the rejected prototype and active redesign
   const readme = read("README.md");
   assert.match(readme, /rejected the `v2026\.8\.15` prototype/);
   assert.match(readme, /docs\/REDESIGN\.md/);
-  assert.match(readme, /neither surface is redesigned gameplay/i);
+  assert.match(readme, /painting above is a visual target, not an in-game screenshot/i);
+  assert.match(readme, /No redesigned gameplay/i);
   assert.match(readme, /historical release `v2026\.8\.15`/);
   assert.doesNotMatch(readme, /Historical prototype controls/);
   assert.doesNotMatch(readme, /docs\/assets\/gameplay\.webp/);
@@ -80,12 +90,12 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/ASSETS.md"), /Reviewed redesign mood references/);
   assert.match(read("docs/ASSETS.md"), /Rejected prototype archive/);
   assert.match(read("docs/ASSETS.md"), /1,253,726 bytes/);
-  assert.match(read("tests/README.md"), /deployed non-playable redesign status page plus a reviewed Phase 1 mood-reference gallery/i);
+  assert.match(read("tests/README.md"), /Phase 1A production-feasibility proof/i);
   assert.match(read("docs/STATUS.md"), /Redesign gameplay implementation \| Not started/);
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
-  assert.match(read("docs/STATUS.md"), /63\/63 integrated checks passed/);
-  assert.match(read("docs/STATUS.md"), /16-file allowlist is preserved/);
+  assert.match(read("docs/STATUS.md"), /68\/68 integrated checks/);
+  assert.match(read("docs/STATUS.md"), /24-file Pages allowlist/i);
   assert.match(read("docs/STATUS.md"), /919cc933a4def3a6688208f3e5a2180cc4d4687e/);
   assert.match(read("docs/STATUS.md"), /main audit run `32347611623` and Pages run `32347611618` completed successfully/);
   assert.match(read("docs/STATUS.md"), /all eight local WebP references at their recorded natural dimensions/);
@@ -176,7 +186,7 @@ test("workflows are bounded, least-privilege, and deploy the staged allowlist", 
   }
 });
 
-test("Pages allowlist contains only the transition shell, mood references, and public status documents", () => {
+test("Pages allowlist contains only review surfaces and public status documents", () => {
   const staging = require(path.join(ROOT, ".github/scripts/stage-pages.js"));
   const files = staging.verifyRuntimeFiles();
   assert.deepEqual(files, staging.RUNTIME_FILES);
@@ -195,6 +205,14 @@ test("Pages allowlist contains only the transition shell, mood references, and p
     "concepts/images/minimal-menu.webp",
     "concepts/images/mobile-landscape.webp",
     "concepts/images/production-rally.webp",
+    "concepts/feasibility/index.html",
+    "concepts/feasibility/proof.css",
+    "concepts/feasibility/images/battlefield-scale.webp",
+    "concepts/feasibility/images/astral-roles.webp",
+    "concepts/feasibility/images/gravebound-roles.webp",
+    "concepts/feasibility/images/structure-states.svg",
+    "concepts/feasibility/images/map-layers.svg",
+    "concepts/feasibility/images/animation-proof.svg",
     "docs/REDESIGN.md",
     "docs/STATUS.md"
   ]);

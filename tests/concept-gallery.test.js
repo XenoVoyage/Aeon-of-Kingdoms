@@ -40,7 +40,7 @@ test("concept gallery presents eight mood references without claiming production
   assert.match(html, /<html\b[^>]*\blang=["']en["']/i);
   assert.match(html, /id=["']reference-gallery["']/i);
   assert.match(html, /Phase 1 · Reviewed visual references/i);
-  assert.match(html, /Mood only · Target pending/i);
+  assert.match(html, /Mood archive · Target superseded/i);
   assert.match(html, /literal detail and realism are not the production target/i);
   assert.match(html, /not the Phase 1 production approval target/i);
   assert.match(html, /four core animation families/i);
@@ -75,6 +75,7 @@ test("concept gallery presents eight mood references without claiming production
   assert.equal((html.match(/class=["']frame-action["']/gi) || []).length, 8);
   assert.doesNotMatch(html, /<a\b[^>]*class=["'][^"']*concept-frame[^"']*["'][^>]*aria-label=/i);
   assert.match(html, /selected Astral headquarters/i);
+  assert.match(html, /href=["']feasibility\/["']/i);
 
   for (const image of EXPECTED_IMAGES) {
     assert.match(html, new RegExp(`href=["']images/${image.replaceAll(".", "\\.")}["']`, "i"));

@@ -14,7 +14,7 @@ Include the affected version, browser or environment, concise reproduction, expe
 
 ## Current boundary
 
-The verified `v2026.8.20` deployment is a static non-playable redesign status site with a script-free local reference gallery. It changes only the project's truth and Phase 1A review language; it adds no executable or network boundary. Neither surface is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection.
+The verified `v2026.8.20` deployment is a static non-playable redesign status site with a script-free local reference gallery. The `v2026.8.20a` source candidate adds another script-free local Phase 1A proof gallery; it introduces no executable or network boundary. None of these surfaces is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection.
 
 Relevant reports include:
 

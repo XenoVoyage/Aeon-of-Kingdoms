@@ -4,28 +4,30 @@
 
 **An original landscape real-time strategy game, being rebuilt one approved phase at a time.**
 
-[![Status build v2026.8.20](https://img.shields.io/badge/status_build-v2026.8.20-6ef3ff)](CHANGELOG.md)
+[![Status build v2026.8.20a](https://img.shields.io/badge/status_build-v2026.8.20a-6ef3ff)](CHANGELOG.md)
 [![Offline audit](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/ci.yml/badge.svg)](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/ci.yml)
 [![GitHub Pages](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/pages.yml/badge.svg)](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/pages.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-cbd5e1)](LICENSE)
 
 > **Active redesign:** the product owner rejected the `v2026.8.15` prototype and approved the phased replacement plan. Its UI, art, map, controls, terminology, gameplay feel, and AI are not the baseline for future work.
 
-## [View the current redesign status](https://xenovoyage.github.io/Aeon-of-Kingdoms/)
+## [Review the Phase 1A production-feasibility proof](https://xenovoyage.github.io/Aeon-of-Kingdoms/concepts/feasibility/)
 
-[Review the eight Phase 1 mood references](https://xenovoyage.github.io/Aeon-of-Kingdoms/concepts/)
+[View the current redesign status](https://xenovoyage.github.io/Aeon-of-Kingdoms/) · [Compare the mood-reference archive](https://xenovoyage.github.io/Aeon-of-Kingdoms/concepts/)
 
 </div>
 
-The deployed `v2026.8.20` status build reclassifies the eight published frames as mood references and records the approved Phase 1A production-feasibility brief. It was published from merge commit `919cc93`; the main audit and Pages workflows completed successfully, and both live entry routes plus all eight local images loaded in a cloud desktop browser without a page-origin warning or error. Neither surface is redesigned gameplay, a final art lock, physical-device proof, a tag, or a GitHub Release. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag and Git history. Prototype-era source also remains temporarily in the working tree for historical regression evidence, but it is not referenced or included in the Pages payload.
+[![Phase 1A crowded battlefield target with small spaced armies, hard terrain blockers, two headquarters, a Resource Point, and a Production Outpost.](concepts/feasibility/images/battlefield-scale.webp)](concepts/feasibility/)
+
+The source-verified `v2026.8.20a` candidate adds a separate, explicitly unapproved Phase 1A proof at practical RTS scale: one crowded battlefield, two three-role faction lineups, the exact three structure categories, a six-layer map diagram, and a four-family animation pose board. The painting above is a visual target, not an in-game screenshot. Its 68/68 integrated checks and exact 24-file Pages stage pass locally; publication and owner review remain separate. The last verified Pages deployment is still the non-playable `v2026.8.20` status and mood-reference build from merge commit `919cc93`. No redesigned gameplay, final art lock, physical-device proof, tag, or GitHub Release is claimed. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag and Git history.
 
 ## At a glance
 
 | Detail | Current truth |
 | --- | --- |
-| Public Pages payload | Verified deployment: `v2026.8.20` non-playable status page and eight local mood references at merge commit `919cc93` |
-| Current source | `v2026.8.20` truth update with the owner-approved Phase 1A feasibility brief; untagged and not a GitHub Release |
-| Active work | Remaining Phase 0 evidence plus a production-scale Phase 1A visual proof; redesigned gameplay has not started |
+| Public Pages payload | Last verified deployment: `v2026.8.20` non-playable status page and eight local mood references at merge commit `919cc93` |
+| Current source candidate | Source-verified `v2026.8.20a` adds the unapproved Phase 1A proof; deployment pending, untagged, and not a GitHub Release |
+| Active work | Publish and review the Phase 1A production method; redesigned gameplay has not started |
 | Replacement target | One original layered map, two factions, landscape camera play, unique headquarters, shared Resource Points and Production Outposts, production/rally, readable combat, and strategic AI |
 | Replacement runtime principle | Local HTML, CSS, JavaScript, and Canvas unless an approved phase proves another need |
 | Multiplayer | Later phase after the redesigned local simulation is approved; not shipped |

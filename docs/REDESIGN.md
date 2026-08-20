@@ -1,6 +1,6 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 deployed with final owner/rendered/cache evidence pending; Phase 1 production-feasibility brief approved, visual target still pending**.
+Status: **approved baseline; Phase 0 product gate complete with residual operational evidence tracked; Phase 1A source proof ready for verification and owner review, visual method not approved**.
 
 This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. It does not claim that any redesigned feature is currently implemented.
 
@@ -209,11 +209,12 @@ Every gate records the exact commit, configuration, seed, viewport/device, comma
 - [x] Integrate a restrained redesign/status-page source candidate after owner approval.
 - [x] Replace the live Pages prototype with that status page through the protected publication path and verify the deployed commit and exact public content.
 - [x] Version the interim page as the `v2026.8.15a` source candidate and record its player-visible intent in the changelog.
-- [ ] Complete the remaining landscape, responsive/keyboard, link-navigation, pre-existing-cache, physical-device gallery, explicit owner-review, and rollback evidence for the interim page; source, staged delivery, deployment, the current live boundary and image-resource load, page-origin console, and one owner-supplied portrait mobile render are complete.
+- [x] Record the owner's review of the transition and authorization to proceed into the Phase 1A proof.
+- [ ] Complete the remaining landscape, responsive/keyboard, link-navigation, pre-existing-cache, physical-device gallery, and rollback observations as operational evidence; source, staged delivery, deployment, the current live boundary and image-resource load, page-origin console, and one owner-supplied portrait mobile render are complete. These observations do not reopen the completed product-truth gate or authorize gameplay.
 - [x] Preserve the published historical tag and release under the project's immutability policy; do not move the tag, force-push, or rewrite history.
 - [x] Approve and version this roadmap baseline and contributor rules before redesigned gameplay work begins.
 
-Gate: the repository and live site tell the same truth, the transition evidence is recorded, and the owner-approved roadmap remains the active contract. Source integration alone does not close the gate.
+Gate: **complete**. The repository and live site tell the same non-gameplay truth, the transition evidence and remaining limitations are recorded, and the owner-approved roadmap is the active contract.
 
 ### Phase 1 — Visual and interaction lock
 
@@ -222,13 +223,15 @@ The eight published frames remain in the [reviewed mood-reference gallery](../co
 #### Phase 1A — Production-feasibility proof
 
 - [x] Owner approved the simplified production-feasibility brief on 2026-08-20; this authorizes reference creation only.
-- [ ] Show one crowded battlefield at actual desktop and compact phone-landscape gameplay scale, including minimum and ordinary zoom reads rather than poster-sized figures.
-- [ ] Show two opening factions with three representative combat-entity roles each: one melee, one ranged, and one large or signature silhouette. This proves the method before expanding to all six permanent roles per faction.
-- [ ] Show exactly two faction-unique headquarters plus one shared Resource Point and one shared Production Outpost in neutral and owned states.
-- [ ] Show the same map art with its navigation/blocker mask, anchors, dynamic ordering, and foreground-occlusion split so visual depth and walkability are not inferred from a painting.
-- [ ] Show one representative entity from each opening faction across the four core animation families: idle, move, attack or cast, and defeat, with stable foot anchors and explicit hit/contact timing.
-- [ ] Demonstrate faction, role, player ownership, selection, and hostile target recognition through silhouette and marks as well as color.
-- [ ] Record the candidate master format, atlas/export method, directional policy, dimensions, bytes, frame rate, asset budget, origin, author/tool, license, and transformations.
+- [x] The `v2026.8.20a` source candidate shows one crowded battlefield in desktop and compact phone-landscape reference frames, including ordinary and minimum reads rather than poster-sized fighters.
+- [x] It shows two opening factions with three representative combat-entity roles each: one melee, one ranged, and one large or signature silhouette. This proves the method before expanding to all six permanent roles per faction.
+- [x] It shows exactly two faction-unique headquarters plus one shared Resource Point and one shared Production Outpost in neutral and owned states.
+- [x] It shows the map method with ground, non-blocking detail, navigation/blocker mask, anchors, dynamic ordering, and foreground-occlusion split so visual depth and walkability are not inferred from a painting.
+- [x] It shows one representative entity from each opening faction across idle, move, attack, and defeat poses with stable foot anchors and explicit contact timing.
+- [x] It demonstrates faction, role, player ownership, selection, and hostile target recognition through silhouette, geometric marks, borders, and patterns as well as color.
+- [x] `docs/ASSETS.md` records current proof dimensions and bytes plus the provisional master, atlas, directional, frame-count, 12 fps, encoded, decoded, provenance, license, and transformation envelope.
+
+These checks establish source coverage only. Rendered desktop/phone inspection, physical-device evidence, production-atlas measurement, and explicit owner approval remain open and can revise any visual choice.
 
 Checkpoint: explicit owner approval that the visual method is readable and realistically producible. It authorizes completion of Phase 1B, not a gameplay renderer.
 

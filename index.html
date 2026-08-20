@@ -26,31 +26,31 @@
       </a>
       <p class="status-label">
         <span class="status-indicator" aria-hidden="true"></span>
-        Redesign in progress
+        Phase 1A review open
       </p>
     </header>
 
     <main id="main-content">
       <section class="hero" aria-labelledby="page-title">
         <div class="hero-copy">
-          <p class="phase-label">Phase 0 · Truth and cleanup</p>
-          <h1 id="page-title">Rebuilding<br>Aeon of Kingdoms.</h1>
+          <p class="phase-label">Phase 1A · Production feasibility</p>
+          <h1 id="page-title">Proving the new<br>battlefield.</h1>
           <p class="lead">
-            The first playable prototype did not meet the project's approved visual or gameplay
-            direction. It is preserved as historical work, but it is not the game we are moving
-            forward with.
+            The rejected prototype is now historical work. Before rebuilding gameplay, this phase
+            tests whether the new map, entities, structures, and motion can stay clear at real RTS
+            scale on desktop and phone.
           </p>
         </div>
 
         <aside class="current-boundary" aria-labelledby="boundary-title">
           <p class="section-label">Current boundary</p>
-          <h2 id="boundary-title">Design before implementation</h2>
+          <h2 id="boundary-title">Review before implementation</h2>
           <p>
-            No gameplay build is being presented as current. The next gate is a production-scale
-            visual proof that remains readable, animatable, and efficient on desktop and touch.
+            No gameplay build is being presented as current. A production-scale visual method is
+            ready for review before the battlefield or entity renderer is built.
           </p>
-          <a class="review-link" href="concepts/">
-            Review the current mood references
+          <a class="review-link" href="concepts/feasibility/">
+            Review the Phase 1A proof
             <span aria-hidden="true">→</span>
           </a>
         </aside>
@@ -63,21 +63,29 @@
         </div>
 
         <ol class="phase-list">
-          <li class="phase-item is-current" aria-current="step">
+          <li class="phase-item">
             <span class="phase-number">00</span>
             <span class="phase-detail">
               <strong>Truth and cleanup</strong>
-              <span>Correct the public record and retire the rejected runtime.</span>
+              <span>Corrected the public record and retired the rejected runtime.</span>
             </span>
-            <span class="phase-state">Active</span>
+            <span class="phase-state">Complete</span>
+          </li>
+          <li class="phase-item is-current" aria-current="step">
+            <span class="phase-number">01A</span>
+            <span class="phase-detail">
+              <strong>Production feasibility</strong>
+              <span>Review practical scale, silhouettes, structures, map layers, and animation method.</span>
+            </span>
+            <span class="phase-state">In review</span>
           </li>
           <li class="phase-item">
-            <span class="phase-number">01</span>
+            <span class="phase-number">01B</span>
             <span class="phase-detail">
               <strong>Visual and interaction lock</strong>
-              <span>Prove production scale, then approve the map, factions, structures, combat language, and landscape controls.</span>
+              <span>Complete the two-faction target and landscape control specification after approval.</span>
             </span>
-            <span class="phase-state">Next</span>
+            <span class="phase-state">After approval</span>
           </li>
           <li class="phase-item">
             <span class="phase-number">02–07</span>
@@ -99,10 +107,11 @@
       </section>
 
       <nav class="project-links" aria-label="Project information">
-        <a class="primary-link" href="concepts/">
-          Review Phase 1 references
+        <a class="primary-link" href="concepts/feasibility/">
+          Review the Phase 1A proof
           <span aria-hidden="true">→</span>
         </a>
+        <a href="concepts/">View the mood-reference archive</a>
         <a href="https://github.com/XenoVoyage/Aeon-of-Kingdoms">View repository <span aria-hidden="true">↗</span></a>
         <a href="docs/REDESIGN.md">Read the redesign roadmap</a>
         <a href="docs/STATUS.md">Read the current status</a>
@@ -114,7 +123,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>Status build v2026.8.20 · No tracking · No external runtime dependencies</p>
+      <p>Status build v2026.8.20a · No tracking · No external runtime dependencies</p>
     </footer>
 
     <script src="js/status.js"></script>
