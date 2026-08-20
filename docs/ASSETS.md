@@ -4,7 +4,7 @@ This file owns the active reference inventory and preserves the rejected prototy
 
 ## Reviewed redesign mood references
 
-The deployed `v2026.8.16` gallery includes eight raster references. On 2026-08-20 the product owner retained their battlefield composition, faction contrast, combat language, and restrained interface as mood direction, while rejecting their literal realism and detail as the production target. They are not gameplay screenshots, final production assets, implementation evidence, or proof that their detail survives normal RTS zoom.
+The deployed `v2026.8.20` gallery includes eight raster references. On 2026-08-20 the product owner retained their battlefield composition, faction contrast, combat language, and restrained interface as mood direction, while rejecting their literal realism and detail as the production target. They are not gameplay screenshots, final production assets, implementation evidence, or proof that their detail survives normal RTS zoom.
 
 | File | Dimensions | Bytes | Review-only purpose |
 | --- | ---: | ---: | --- |

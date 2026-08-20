@@ -17,14 +17,14 @@
 
 </div>
 
-The `v2026.8.20` source candidate reclassifies the eight published frames as mood references and records the approved Phase 1A production-feasibility brief; it is not yet claimed as deployed. The last verified Pages deployment remains `v2026.8.16`, whose exact 16-file payload and both directory entry routes matched source. Neither surface is redesigned gameplay, and no new tag or GitHub Release is claimed. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag and Git history. Prototype-era source also remains temporarily in the working tree for historical regression evidence, but it is not referenced or included in the Pages payload.
+The deployed `v2026.8.20` status build reclassifies the eight published frames as mood references and records the approved Phase 1A production-feasibility brief. It was published from merge commit `919cc93`; the main audit and Pages workflows completed successfully, and both live entry routes plus all eight local images loaded in a cloud desktop browser without a page-origin warning or error. Neither surface is redesigned gameplay, a final art lock, physical-device proof, a tag, or a GitHub Release. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag and Git history. Prototype-era source also remains temporarily in the working tree for historical regression evidence, but it is not referenced or included in the Pages payload.
 
 ## At a glance
 
 | Detail | Current truth |
 | --- | --- |
-| Public Pages payload | Last verified deployment: `v2026.8.16` interim status page and eight local references at merge commit `27895cc`; neither is redesigned gameplay |
-| Current source candidate | `v2026.8.20` truth update: mood-reference classification and the owner-approved Phase 1A feasibility brief; deployment pending |
+| Public Pages payload | Verified deployment: `v2026.8.20` non-playable status page and eight local mood references at merge commit `919cc93` |
+| Current source | `v2026.8.20` truth update with the owner-approved Phase 1A feasibility brief; untagged and not a GitHub Release |
 | Active work | Remaining Phase 0 evidence plus a production-scale Phase 1A visual proof; redesigned gameplay has not started |
 | Replacement target | One original layered map, two factions, landscape camera play, unique headquarters, shared Resource Points and Production Outposts, production/rally, readable combat, and strategic AI |
 | Replacement runtime principle | Local HTML, CSS, JavaScript, and Canvas unless an approved phase proves another need |
