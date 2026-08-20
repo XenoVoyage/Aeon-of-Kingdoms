@@ -97,7 +97,10 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/STATUS.md"), /68\/68 integrated checks/);
   assert.match(read("docs/STATUS.md"), /24-file Pages allowlist/i);
   assert.match(read("docs/STATUS.md"), /919cc933a4def3a6688208f3e5a2180cc4d4687e/);
-  assert.match(read("docs/STATUS.md"), /main audit run `32347611623` and Pages run `32347611618` completed successfully/);
+  assert.match(read("docs/STATUS.md"), /main audit run `32347611623` and Pages run `32347611618` completed successfully/i);
+  assert.match(read("docs/STATUS.md"), /75ec47c2bca9ea325f5b9508c06d44f3eb1aff1c/);
+  assert.match(read("docs/STATUS.md"), /main audit run `32351430376` and Pages run `32351430306` completed successfully/i);
+  assert.match(read("docs/STATUS.md"), /match merged source byte for byte/i);
   assert.match(read("docs/STATUS.md"), /all eight local WebP references at their recorded natural dimensions/);
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
   assert.match(read("docs/REDESIGN.md"), /Phase 1A — Production-feasibility proof/);

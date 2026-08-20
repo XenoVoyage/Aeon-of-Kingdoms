@@ -2,9 +2,9 @@
 
 This file owns the active reference inventory and preserves the rejected prototype asset record below. Phase 1 of [`REDESIGN.md`](REDESIGN.md) still must establish approved shipping art, provenance/licensing, animation, atlas, and size rules before new gameplay rendering begins.
 
-## Phase 1A production-feasibility candidate
+## Phase 1A production-feasibility proof
 
-The `v2026.8.20a` source candidate adds a separate owner-review proof. It is not deployed or approved yet, and none of its images is an implemented game screenshot, final sprite, texture atlas, balanced map, or physical-device result.
+The deployed `v2026.8.20a` review build adds a separate owner-review proof. It is not owner-approved, and none of its images is an implemented game screenshot, final sprite, texture atlas, balanced map, or physical-device result.
 
 | File | Dimensions | Bytes | Purpose |
 | --- | ---: | ---: | --- |
