@@ -1,17 +1,17 @@
 # Assets and art direction
 
-This file owns the active review-reference inventory and preserves the rejected prototype asset record below. Phase 1 of [`REDESIGN.md`](REDESIGN.md) still must establish approved shipping art, provenance/licensing, animation, atlas, and size rules before new gameplay rendering begins.
+This file owns the active reference inventory and preserves the rejected prototype asset record below. Phase 1 of [`REDESIGN.md`](REDESIGN.md) still must establish approved shipping art, provenance/licensing, animation, atlas, and size rules before new gameplay rendering begins.
 
-## Active redesign review references
+## Reviewed redesign mood references
 
-The deployed `v2026.8.16` review gallery includes eight raster references solely so the product owner can accept or revise a coherent visual and interaction direction. They are not gameplay screenshots, final production assets, implementation evidence, or proof that their detail survives normal RTS zoom.
+The deployed `v2026.8.16` gallery includes eight raster references. On 2026-08-20 the product owner retained their battlefield composition, faction contrast, combat language, and restrained interface as mood direction, while rejecting their literal realism and detail as the production target. They are not gameplay screenshots, final production assets, implementation evidence, or proof that their detail survives normal RTS zoom.
 
 | File | Dimensions | Bytes | Review-only purpose |
 | --- | ---: | ---: | --- |
 | `concepts/images/battlefield.webp` | 1672×941 | 244,336 | Battlefield mood, route, blocker, territory, and scale language; not a validated 2/4/6-player layout |
-| `concepts/images/astral-concord.webp` | 1672×941 | 112,798 | Six proposed living-faction combat-entity silhouettes and material language |
-| `concepts/images/gravebound-court.webp` | 1672×941 | 106,914 | Six proposed undead-faction combat-entity silhouettes and material language |
-| `concepts/images/structures.webp` | 1536×1024 | 140,124 | Exactly three structure categories and proposed neutral/captured ownership treatments |
+| `concepts/images/astral-concord.webp` | 1672×941 | 112,798 | Living-faction mood, broad silhouette, weapon, and material language; not a sprite-detail target |
+| `concepts/images/gravebound-court.webp` | 1672×941 | 106,914 | Undead-faction mood, broad silhouette, weapon, and material language; not a sprite-detail target |
+| `concepts/images/structures.webp` | 1536×1024 | 140,124 | Three-category mood reference; only headquarters remain faction-unique in the approved brief |
 | `concepts/images/combat-readability.webp` | 1672×941 | 171,102 | Formation spacing, focused target, range, command, impact, and defeat language |
 | `concepts/images/minimal-menu.webp` | 1672×941 | 85,924 | Original restrained landscape menu direction without a dashboard-card shell |
 | `concepts/images/mobile-landscape.webp` | 1798×875 | 148,910 | Map-dominant landscape touch-control composition without a virtual joystick |
@@ -26,6 +26,19 @@ Total review-image payload: **1,253,726 bytes**.
 - **Transformation:** Original PNG outputs retained their pixel dimensions, had metadata removed with FFmpeg `-map_metadata -1`, and were lossily encoded with FFmpeg's `libwebp` encoder at quality 78 and compression level 6. The PNG outputs are not shipped in Pages or committed to the repository.
 - **Distribution decision:** These review copies are included as project material under the repository's MIT license. This does not approve them as final shipping art; generated output may not be unique, and final asset selection/licensing remains a Phase 1 gate.
 - **Delivery:** Each reference is local, below 300 KiB, linked at full size, and excluded from the four-file offline status-shell cache. Seven below-fold images lazy-load; the first is prioritized.
+
+## Phase 1A production-feasibility rules
+
+The next reference set is intentionally smaller than a full faction asset library. It must prove that one sustainable method works before the project expands it.
+
+- **Visual target:** stylized semi-realistic tactical miniatures viewed from a consistent three-quarter top-down angle. Silhouette, posture, weapon, and one restrained faction motif carry identity; faces, engravings, layered cloth, and portrait-level surface detail do not carry gameplay meaning.
+- **Scale proof:** show ordinary and minimum gameplay zoom on a representative desktop and compact phone-landscape viewport with a crowded fight. Enlarged character sheets alone are insufficient.
+- **Entity proof:** two factions, three representative roles each—one melee, one ranged, and one large or signature form—plus silhouette-only and ownership-state checks. All six permanent role contracts are expanded only after the method is approved.
+- **Structure proof:** two unique headquarters; one shared Resource Point; one shared Production Outpost. The two shared forms show neutral and multiple owned states using flags, banners, lights, patterns, and player marks rather than model replacement or color alone.
+- **Animation proof:** one representative combat entity per opening faction demonstrates idle, move, attack or cast, and defeat with stable foot anchors. Wind-up, contact, and recover timing is annotated inside the attack family. Independently generated AI frames are not accepted as a production sequence.
+- **Map proof:** show ground, non-blocking detail, navigation/blocker mask, anchors, dynamic ordering, and foreground occlusion as separate authored layers. Mountain pixels never become implicit collision.
+- **Pipeline decision:** prefer a controlled layered-vector or tightly authored sprite master exported to a local transparent atlas with small metadata. The proof records master format, exporter, directions, mirroring limits, dimensions, frame rate, bytes, origin, author/tool, license, and transformations before the method is approved.
+- **Runtime budget:** no final atlas or total asset limit is approved yet. The proof must supply measured desktop and phone sizes before Phase 1B closes those budgets.
 
 ## Rejected prototype archive
 

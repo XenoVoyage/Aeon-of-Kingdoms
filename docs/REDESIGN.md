@@ -1,6 +1,6 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 deployed with final owner/rendered/cache evidence pending; later phases require separate gate approval**.
+Status: **approved baseline; Phase 0 deployed with final owner/rendered/cache evidence pending; Phase 1 production-feasibility brief approved, visual target still pending**.
 
 This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. It does not claim that any redesigned feature is currently implemented.
 
@@ -9,6 +9,8 @@ The prototype remains in Git history as evidence. Its menu, battlefield presenta
 ## Approval record
 
 The product owner approved Phase 0 and this roadmap baseline on 2026-08-15 and authorized the truth-and-cleanup implementation. This approval does not claim that the transition candidate is verified, deployed, tagged, or released, and it does not pre-approve Phase 1 visual choices or any gameplay phase.
+
+On 2026-08-20, the product owner reviewed the eight published Phase 1 references. Their battlefield composition, faction contrast, combat language, and restrained interface were accepted as useful mood direction, but their literal realism and entity detail were rejected as the production target because they would not honestly prove small-screen readability, crowded-battle clarity, animation consistency, or a sustainable six-faction asset budget. The owner approved the production-feasibility brief below and authorized a replacement visual proof. This is not an art lock and does not authorize gameplay implementation.
 
 ## Working rules
 
@@ -30,7 +32,7 @@ The product owner approved Phase 0 and this roadmap baseline on 2026-08-15 and a
 - Two visually distinct opening factions, each with unique public entity names, silhouettes, weapons, effects, and animation.
 - Slower armies that move in readable groups and maintain spacing.
 - Explicit focus attacks plus autonomous nearby combat, attack-move, defend, stop, and rally behavior.
-- Exactly three structure categories: faction headquarters, checkpoint, and recruitment structure.
+- Exactly three structure categories: faction headquarters, Resource Point, and Production Outpost.
 - Tick-based production queues, visible progress, bounded queue capacity, cancellation rules, spawn validation, and rally points.
 - Strategic AI that evaluates threats, strength, objectives, economy, attack timing, and defense instead of sending every entity to one target.
 - One deterministic command language shared by human input, AI, replay, campaign scripting, host/client multiplayer, and a possible dedicated server.
@@ -44,7 +46,7 @@ The product owner approved Phase 0 and this roadmap baseline on 2026-08-15 and a
 | --- | --- |
 | Entity | Any authoritative identified world object that can be referenced by a command or rule |
 | Combat entity | A selectable mobile fighter, support character, creature, machine, or future equivalent |
-| Structure entity | A headquarters, checkpoint, or recruitment structure |
+| Structure entity | A headquarters, Resource Point, or Production Outpost |
 | Projectile entity | A bounded authoritative missile only when its travel affects rules |
 | Visual effect | Non-authoritative presentation; not an entity unless gameplay can target or simulate it |
 | Formation | Stable destinations and spacing for a commanded set of combat entities |
@@ -56,11 +58,11 @@ Public UI should prefer each faction's actual names rather than exposing generic
 
 | Structure | Ownership | Core function | Production |
 | --- | --- | --- | --- |
-| Faction headquarters | Begins owned | Faction anchor and elimination condition; capture, economy, and exact production roster close at the Phase 1/4 gates | Producing capability follows the approved roster rule |
-| Checkpoint | Capturable | Territorial control; its exact resource, population, vision, or objective benefit closes at the Phase 1/4 gates | None |
-| Recruitment structure | Capturable unless Phase 1 approves another ownership rule | Forward reinforcement location with clear owner treatment | Produces the current owner's eligible faction entities |
+| Faction headquarters | Begins owned | The only faction-unique structure form; faction anchor and elimination condition | Produces that faction's eligible combat entities through the shared queue rules |
+| Resource Point | Begins neutral and is capturable | Shared world form with a flag or beacon; provides the single spendable resource while owned | None |
+| Production Outpost | Begins neutral and is capturable | Shared world form with owner banners, lights, patterns, and player marks; provides forward reinforcement | Produces the current owner's eligible faction entities through the shared queue rules |
 
-No Aether Well, Relay Forge, Aeon Core, Seal, or fourth disguised structure category survives by default. Any future structure type is a later product decision, not an implementation convenience.
+Only headquarters receive faction-specific structure art. Resource Points and Production Outposts reuse one neutral readable form per category and change explicit ownership treatment after capture. No checkpoint, recruitment building, Aether Well, Relay Forge, Aeon Core, Seal, or fourth disguised structure category survives by default. Any future structure type is a later product decision, not an implementation convenience.
 
 ### Production queue
 
@@ -93,6 +95,18 @@ No Aether Well, Relay Forge, Aeon Core, Seal, or fourth disguised structure cate
 - Walkability, blocker clearance, spawn clearance, capture bounds, formation width, and camera bounds share one authored map definition.
 - The opening map must support fair tested layouts incrementally: approve 2-player play first, then validate 4-player and 6-player layouts rather than assuming that rotational symmetry proves balance.
 
+The first map is data-driven rather than one inseparable painting. Its authored definition owns these layers without introducing a height engine or 3D physics:
+
+1. Ground color and broad terrain.
+2. Roads, decals, territory hints, and other non-blocking detail.
+3. An invisible authoritative navigation grid or mask plus footprint clearance.
+4. Spawn, structure, objective, camera, and blocker anchors.
+5. Dynamic structure and combat entities ordered by their ground contact point.
+6. Foreground and occlusion pieces for ridges, cliffs, ruins, or vegetation.
+7. Non-authoritative selection, command, combat-effect, and interface presentation.
+
+Mountain and ridge footprints block the navigation layer even when their artwork extends beyond it. Tall art is split into back and foreground pieces, or uses an explicit occlusion mask, so an entity can appear behind an edge without entering blocked ground. A selected or targeted entity hidden by foreground art receives a restrained outline or local fade. Maps remain replaceable through local data and local assets; visual pixels never decide walkability.
+
 ## Movement, formations, and animation
 
 - Combat entities move at deliberately readable speeds calibrated through rendered play, not only numeric tests.
@@ -101,7 +115,8 @@ No Aether Well, Relay Forge, Aeon Core, Seal, or fourth disguised structure cate
 - Large entities receive larger footprints and may require wider routes.
 - Melee attackers reserve reachable contact positions; ranged attackers retain appropriate distance; overflow waits or selects another valid ring.
 - No group order, focused attack, rally completion, or spawn may intentionally send every entity to the same coordinate.
-- Presentation exposes at least idle, move, acquire, wind-up, attack or cast, recover, hit, and defeat states where applicable.
+- Authored combat-entity art has four core animation families: idle, move, attack or cast, and defeat. Acquire, wind-up, contact, recover, and hit feedback are bounded phases or cues inside those families rather than mandatory independent frame sequences.
+- The feasibility proof uses a controlled sprite or layered-vector master with stable anchors and directions. Independently generated AI frames are not accepted as a production animation pipeline because visual consistency and contact timing cannot be assumed.
 - Simulation ticks own hit timing. Animation communicates the result without becoming authority.
 
 ## Player command contract
@@ -147,7 +162,7 @@ The AI decision stack is intentionally small:
 6. Issue only the same move, attack, defend, production, and rally commands available to a human.
 7. Re-evaluate on a configured strategic cadence and on bounded urgent events, not every render frame.
 
-Required AI scenarios include defending a threatened headquarters, reinforcing a contested recruitment structure, cancelling a losing assault, exploiting an undefended checkpoint, producing a missing counter-role, splitting pressure between fronts, regrouping after losses, and completing a match without deterministic stalemate.
+Required AI scenarios include defending a threatened headquarters, reinforcing a contested Production Outpost, cancelling a losing assault, exploiting an undefended Resource Point, producing a missing counter-role, splitting pressure between fronts, regrouping after losses, and completing a match without deterministic stalemate.
 
 ## Networking compatibility
 
@@ -202,17 +217,30 @@ Gate: the repository and live site tell the same truth, the transition evidence 
 
 ### Phase 1 — Visual and interaction lock
 
-Eight draft frames cover six visual targets below—the faction target uses two sheets—plus an additional production/rally interaction reference. They are available in the [unapproved concept review gallery](../concepts/) and remain open until the owner accepts or replaces them; publication alone does not check an item or close this gate.
+The eight published frames remain in the [reviewed mood-reference gallery](../concepts/). They are not production approval candidates and cannot close the gate by themselves. Phase 1 now has two ordered checkpoints.
 
-- [ ] Original minimal menu concept.
-- [ ] Full 16:9 opening battlefield concept with blockers, three structure types, armies, and readable routes.
-- [ ] Two complete faction identity and combat-entity sheets.
-- [ ] Structure sheet covering both faction headquarters and neutral/captured states.
-- [ ] Close combat scene showing formations, range, target feedback, and animation direction.
-- [ ] Landscape phone/tablet control mockup.
-- [ ] Local asset format, sprite/atlas, animation, and size budget decision, with origin, author/tool, license, and transformations recorded for every shipped asset.
-- [ ] Explicitly confirm that no rejected prototype or Neon Voyage visual asset/style was reused.
-- [ ] Approve supported landscape aspect range, minimum viewport, safe areas/letterboxing, and the desktop/phone/tablet browser-device matrix.
+#### Phase 1A — Production-feasibility proof
+
+- [x] Owner approved the simplified production-feasibility brief on 2026-08-20; this authorizes reference creation only.
+- [ ] Show one crowded battlefield at actual desktop and compact phone-landscape gameplay scale, including minimum and ordinary zoom reads rather than poster-sized figures.
+- [ ] Show two opening factions with three representative combat-entity roles each: one melee, one ranged, and one large or signature silhouette. This proves the method before expanding to all six permanent roles per faction.
+- [ ] Show exactly two faction-unique headquarters plus one shared Resource Point and one shared Production Outpost in neutral and owned states.
+- [ ] Show the same map art with its navigation/blocker mask, anchors, dynamic ordering, and foreground-occlusion split so visual depth and walkability are not inferred from a painting.
+- [ ] Show one representative entity from each opening faction across the four core animation families: idle, move, attack or cast, and defeat, with stable foot anchors and explicit hit/contact timing.
+- [ ] Demonstrate faction, role, player ownership, selection, and hostile target recognition through silhouette and marks as well as color.
+- [ ] Record the candidate master format, atlas/export method, directional policy, dimensions, bytes, frame rate, asset budget, origin, author/tool, license, and transformations.
+
+Checkpoint: explicit owner approval that the visual method is readable and realistically producible. It authorizes completion of Phase 1B, not a gameplay renderer.
+
+#### Phase 1B — Complete visual and interaction lock
+
+- [ ] Original minimal menu and map-dominant gameplay HUD.
+- [ ] Full opening battlefield target with routes, blockers, the three structure categories, production/rally feedback, and combat readability.
+- [ ] Complete identity language for the two opening factions and all six permanent role contracts, using faction-specific public names.
+- [ ] Landscape phone/tablet control mockups with safe areas, contextual attack, camera movement, zoom, production, and rally interaction.
+- [ ] Final local asset, sprite/atlas, animation, loading-fallback, and size-budget decision.
+- [ ] Explicitly confirm that no rejected prototype or Neon Voyage visual asset, layout, or style was reused.
+- [ ] Approve supported landscape aspect range, minimum viewport, safe areas or letterboxing, and the desktop/phone/tablet browser-device matrix.
 
 Gate: explicit owner approval of the visual target. No gameplay renderer begins before this gate.
 
@@ -239,7 +267,7 @@ Gate: selected armies move naturally without stacking, visual drift, or placehol
 
 ### Phase 4 — Structures, economy, production, and rally
 
-- [ ] Implement only headquarters, checkpoint, and recruitment structure entities.
+- [ ] Implement only headquarters, Resource Point, and Production Outpost structure entities.
 - [ ] Implement capture, ownership treatment, economy/population effects, queue rules, progress UI, spawn validation, and rally commands.
 - [ ] Close and test the refund, blocked-complete, ownership-change, destruction, and invalid/unreachable rally outcomes.
 - [ ] Make production and rally deterministic, replayable, AI-usable, and network-ready.
@@ -298,4 +326,4 @@ Candidates, not commitments: validated 4- and 6-player layouts, additional facti
 
 ## First replacement release definition
 
-The first correct replacement release contains one approved map, two approved factions, a minimal original menu, landscape-only play, camera pan/zoom, the three structure categories, deterministic production/rally, readable formations, complete focused/automatic combat, strategic two-player AI, and verified desktop/physical-touch evidence. Multiplayer, a campaign sequence, public matchmaking, and additional factions are not prerequisites for that release.
+The first correct replacement release contains one approved map, two approved factions, a minimal original menu, landscape-only play, camera pan/zoom, faction-unique headquarters, shared Resource Points and Production Outposts, deterministic production/rally, readable formations, complete focused/automatic combat, strategic two-player AI, and verified desktop/physical-touch evidence. Multiplayer, a campaign sequence, public matchmaking, and additional factions are not prerequisites for that release.

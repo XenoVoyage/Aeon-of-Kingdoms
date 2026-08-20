@@ -70,23 +70,27 @@ test("public documentation identifies the rejected prototype and active redesign
   const readme = read("README.md");
   assert.match(readme, /rejected the `v2026\.8\.15` prototype/);
   assert.match(readme, /docs\/REDESIGN\.md/);
-  assert.match(readme, /neither surface is redesigned gameplay/);
+  assert.match(readme, /neither surface is redesigned gameplay/i);
   assert.match(readme, /historical release `v2026\.8\.15`/);
   assert.doesNotMatch(readme, /Historical prototype controls/);
   assert.doesNotMatch(readme, /docs\/assets\/gameplay\.webp/);
   assert.match(read("AGENTS.md"), /Active redesign override/);
   assert.match(read("AGENTS.md"), /Phase 0 and the roadmap baseline were approved/);
   assert.match(read("CONTRIBUTING.md"), /docs\/REDESIGN\.md/);
-  assert.match(read("docs/ASSETS.md"), /Active redesign review references/);
+  assert.match(read("docs/ASSETS.md"), /Reviewed redesign mood references/);
   assert.match(read("docs/ASSETS.md"), /Rejected prototype archive/);
   assert.match(read("docs/ASSETS.md"), /1,253,726 bytes/);
-  assert.match(read("tests/README.md"), /deployed non-playable redesign status page plus an unapproved Phase 1 concept-review gallery/i);
+  assert.match(read("tests/README.md"), /deployed non-playable redesign status page plus a reviewed Phase 1 mood-reference gallery/i);
   assert.match(read("docs/STATUS.md"), /Redesign gameplay implementation \| Not started/);
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
   assert.match(read("docs/STATUS.md"), /63\/63 integrated checks passed/);
-  assert.match(read("docs/STATUS.md"), /all 16 allowlisted public files and both directory entry routes returned `200`/);
+  assert.match(read("docs/STATUS.md"), /16-file allowlist is preserved/);
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
+  assert.match(read("docs/REDESIGN.md"), /Phase 1A — Production-feasibility proof/);
+  assert.match(read("docs/REDESIGN.md"), /faction headquarters, Resource Point, and Production Outpost/);
+  assert.match(read("docs/REDESIGN.md"), /four core animation families: idle, move, attack or cast, and defeat/i);
+  assert.match(read("docs/REDESIGN.md"), /visual pixels never decide walkability/i);
   assert.match(read("SECURITY.md"), /static non-playable redesign status site/);
   assert.doesNotMatch(read("SECURITY.md"), /current release is a static local browser game/i);
 });
@@ -169,7 +173,7 @@ test("workflows are bounded, least-privilege, and deploy the staged allowlist", 
   }
 });
 
-test("Pages allowlist contains only the transition shell, concept review, and public status documents", () => {
+test("Pages allowlist contains only the transition shell, mood references, and public status documents", () => {
   const staging = require(path.join(ROOT, ".github/scripts/stage-pages.js"));
   const files = staging.verifyRuntimeFiles();
   assert.deepEqual(files, staging.RUNTIME_FILES);

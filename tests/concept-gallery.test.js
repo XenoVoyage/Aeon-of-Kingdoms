@@ -35,17 +35,20 @@ function vp8Dimensions(bytes) {
   return [bytes.readUInt16LE(26) & 0x3fff, bytes.readUInt16LE(28) & 0x3fff];
 }
 
-test("concept gallery presents eight review references without claiming approval or gameplay", () => {
+test("concept gallery presents eight mood references without claiming production approval or gameplay", () => {
   const html = read("concepts/index.html");
   assert.match(html, /<html\b[^>]*\blang=["']en["']/i);
-  assert.match(html, /id=["']concept-review["']/i);
-  assert.match(html, /Phase 1 · Visual and interaction review/i);
-  assert.match(html, /Draft · Not approved/i);
-  assert.match(html, /review material—not\s+final assets, implemented gameplay, or an approved art lock/i);
-  assert.match(html, /approval of this\s+draft set records the intended visual direction/i);
-  assert.match(html, /asset and animation budgets, provenance/i);
+  assert.match(html, /id=["']reference-gallery["']/i);
+  assert.match(html, /Phase 1 · Reviewed visual references/i);
+  assert.match(html, /Mood only · Target pending/i);
+  assert.match(html, /literal detail and realism are not the production target/i);
+  assert.match(html, /not the Phase 1 production approval target/i);
+  assert.match(html, /four core animation families/i);
+  assert.match(html, /no further approval is required for these eight mood\s+references/i);
   assert.match(html, /not a validated final layout for two, four, or six players/i);
-  assert.match(html, /Concepts 01–08 approved as the Phase 1 direction/i);
+  assert.match(html, /only each faction headquarters is visually unique/i);
+  assert.match(html, /Resource Points and Production\s+Outposts share neutral world forms/i);
+  assert.doesNotMatch(html, /Concepts 01–08 approved as the Phase 1 direction/i);
   assert.match(html, /directed by XenoVoyage, generated with OpenAI image\s+generation/i);
   assert.doesNotMatch(html, /<(?:canvas|script|form|dialog)\b/i);
 

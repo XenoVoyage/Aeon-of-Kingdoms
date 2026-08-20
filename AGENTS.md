@@ -6,13 +6,16 @@ Read this file in full at the start of every task, before inspecting or changing
 
 The published `v2026.8.15` runtime was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. Read [`docs/REDESIGN.md`](docs/REDESIGN.md) before any task. During the redesign it takes precedence over prototype-era product and architecture descriptions when they conflict.
 
-Phase 0 and the roadmap baseline were approved by the product owner on 2026-08-15. The non-playable `v2026.8.16` status and explicitly unapproved concept-review site is deployed from merge commit `27895cc`; its exact 16-file payload and both entry routes were verified over HTTPS. One owner-supplied portrait mobile capture proves only the earlier status shell rendered on that load; gallery rendering, landscape, desktop/tablet, keyboard navigation, console, and pre-existing-cache evidence remains pending. That approval authorizes the truth-and-cleanup transition only; it does not approve Phase 1 visuals, later gameplay work, a tag, or a release without their own gates.
+Phase 0 and the roadmap baseline were approved by the product owner on 2026-08-15. The non-playable `v2026.8.16` status and concept-reference site is the last verified deployment from merge commit `27895cc`; its exact 16-file payload and both entry routes were verified over HTTPS. One owner-supplied portrait mobile capture proves only the earlier status shell rendered on that load; gallery rendering, landscape, desktop/tablet, keyboard navigation, console, and pre-existing-cache evidence remains pending. On 2026-08-20 the owner accepted the eight frames as mood references, rejected their literal detail and realism as the production target, and approved the smaller Phase 1A feasibility brief. That approval authorizes a replacement visual proof only; it does not approve an art lock, gameplay work, a tag, or a release.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
-- Use `entity` as the authoritative code term for identified world objects. Mobile fighters are combat entities; headquarters, checkpoints, and recruitment buildings are structure entities. Do not retain prototype `unit*` compatibility names without a real external consumer.
+- Use `entity` as the authoritative code term for identified world objects. Mobile fighters are combat entities; headquarters, Resource Points, and Production Outposts are structure entities. Do not retain prototype `unit*` compatibility names without a real external consumer.
 - Gameplay is landscape-only. Unsupported portrait orientation shows a rotate-device gate; it does not receive a compressed portrait game layout.
-- The initial design has exactly three structure categories: faction headquarters, checkpoint, and recruitment structure.
+- The initial design has exactly three structure categories: a faction-unique headquarters, a shared capturable Resource Point, and a shared capturable Production Outpost.
+- Production art targets stylized semi-realistic tactical miniatures with broad silhouettes and restrained detail that remain readable at the smallest approved gameplay scale. High-detail mood art is not a sprite specification.
+- The authored map separates ground, non-blocking detail, navigation/blocker data, anchors, dynamic entities, and foreground occlusion. Image pixels never decide walkability, and the redesign does not introduce a height engine or 3D physics.
+- Combat-entity art has four core animation families: idle, move, attack or cast, and defeat. Independently generated AI frames are not an acceptable final animation pipeline.
 - Producing structures require bounded tick-based queues, visible progress, deterministic spawn validation, and rally commands that work through the same future network command boundary.
 - Explicit entity targeting, autonomous nearby combat, readable animation states, slow group movement, formation spacing, hard map blockers, and strategic multi-front AI are release requirements.
 - Work one approved phase at a time. Passing automation does not replace rendered evidence, physical-device evidence, game-feel review, or explicit owner approval.
@@ -46,8 +49,8 @@ Use `CONTRIBUTING.md` as a public entrypoint, not a substitute for these rules. 
 ## 3. Current product boundary
 
 - The rejected playable prototype remains in the published tag/release `v2026.8.15`, Git history, and temporarily preserved prototype-era source used by historical regression tests. It is not the working-tree product baseline, public entry point, or Pages payload. Treat the published tag and release as immutable by project policy; do not imply that the hosting platform has technically locked them.
-- The current public runtime is a minimal HTML/CSS/JavaScript redesign status page plus a script-free review gallery with eight local WebP references. It has no gameplay, Canvas renderer, build step, or runtime package dependency.
-- The active deliverable is Phase 0 in `docs/REDESIGN.md`; no redesigned gameplay feature is implemented or shipped yet.
+- The current public runtime is a minimal HTML/CSS/JavaScript redesign status page plus a script-free mood-reference gallery with eight local WebP references. It has no gameplay, Canvas renderer, build step, or runtime package dependency.
+- The active implementation deliverable remains Phase 0 in `docs/REDESIGN.md`; the approved Phase 1A brief permits replacement reference creation only. No redesigned gameplay feature is implemented or shipped yet.
 - The status page and `concepts/` gallery must work by opening their HTML entry points directly and from the `/Aeon-of-Kingdoms/` GitHub Pages subpath. The future game inherits that delivery constraint unless an approved phase changes it.
 - Multiplayer, signaling, TURN, matchmaking, accounts, hosted persistence, and a dedicated server are planned, not shipped. GitHub Pages and Actions are never described as a server.
 - The first replacement release targets a proven two-player local slice. Four- and six-player layouts are later scale work and require separate routing, performance, fairness, and play evidence.
@@ -85,9 +88,9 @@ The Phase 0 entries below own the current transition and review candidate. No ga
 | Interim public content and semantics | `index.html` |
 | Interim presentation | `css/status.css` |
 | Interim enhancement and service-worker registration | `js/status.js` |
-| Unapproved concept-review content and semantics | `concepts/index.html` |
-| Concept-review presentation | `concepts/gallery.css` |
-| Optimized review-only visual references | `concepts/images/*.webp` |
+| Reviewed mood-reference content and feasibility boundary | `concepts/index.html` |
+| Mood-reference presentation | `concepts/gallery.css` |
+| Optimized mood-only visual references | `concepts/images/*.webp` |
 | Explicit Pages delivery allowlist | `.github/scripts/stage-pages.js` |
 | Active redesign, phases, and approval gates | `docs/REDESIGN.md` |
 | Intended future experience after its redesign rewrite | `docs/GAME_DESIGN.md` |
@@ -101,7 +104,7 @@ Put redesign behavior in the smallest approved boundary for that phase. Shared c
 ## 7. Gameplay invariants
 
 - Internal roles are stable engine identifiers; faction-specific public entity names and silhouettes remain free to differ.
-- Checkpoints and recruitment structures use only their approved effects. They do not bypass resource, population, ownership, queue, or spawn validation.
+- Resource Points and Production Outposts use only their approved effects. They do not bypass resource, population, ownership, queue, or spawn validation.
 - Headquarters elimination remains valid in every mode. Alternate modes add objective wins; they do not make headquarters immortal.
 - Group movement uses distributed destinations. Formation slots, separation, attack positions, and large footprints must not send every combat entity to one coordinate.
 - Navigation and local avoidance use stable tie-breaking. A deterministic replay with the same configuration, seed, and commands must reach equivalent authoritative state.

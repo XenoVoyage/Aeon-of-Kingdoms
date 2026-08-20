@@ -24,7 +24,7 @@ test("public shell truthfully presents the phased redesign", () => {
     /not the game[\s\S]*we\s+are\s+moving\s+forward\s+with/i,
     /Design before implementation/i,
     /aria-current=["']step["']/i,
-    /Status build v2026\.8\.16/i
+    /Status build v2026\.8\.20/i
   ]) assert.match(html, pattern);
 
   assert.match(html, /href=["']https:\/\/github\.com\/XenoVoyage\/Aeon-of-Kingdoms["']/i);
@@ -72,7 +72,7 @@ test("status styles include compact layouts, visible focus, and reduced motion",
 test("service worker replaces old game caches with only the status shell", () => {
   const worker = read("sw.js");
   const registration = read("js/status.js");
-  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.16/);
+  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.20/);
   assert.match(worker, /cache: "reload"/, "install requests must bypass a fresh HTTP-cached prototype shell");
   assert.match(worker, /cache\.put\(request, response\)/);
   assert.doesNotMatch(worker, /cache\.addAll\(/);
@@ -104,7 +104,7 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   };
   const caches = {
     open(name) {
-      assert.equal(name, "aok-shell-v2026.8.16");
+      assert.equal(name, "aok-shell-v2026.8.20");
       return Promise.resolve(cache);
     },
     keys() {

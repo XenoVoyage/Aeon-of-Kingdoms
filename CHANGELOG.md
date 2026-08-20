@@ -2,6 +2,20 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.20] — 2026-08-20 (source candidate; undeployed and untagged)
+
+### Changed
+
+- Reclassified the eight published Phase 1 frames as reviewed mood references rather than the production art approval target.
+- Recorded the owner-approved Phase 1A feasibility brief: actual desktop/phone scale, two factions with three representative roles each, exactly three simplified structure forms, layered map/navigation/occlusion evidence, and four core animation families.
+- Replaced the gallery's obsolete “approve all eight” instruction with the smaller production-feasibility gate.
+
+### Boundaries
+
+- No redesigned gameplay, new image, final sprite, animation sequence, map runtime, dependency, network request, or multiplayer feature is included.
+- The last verified Pages deployment remains `v2026.8.16` until this candidate passes the protected publication path and live verification.
+- No `v2026.8.20` tag or GitHub Release is claimed.
+
 ## [v2026.8.16] — 2026-08-16 (deployed status/review build; untagged)
 
 ### Added
