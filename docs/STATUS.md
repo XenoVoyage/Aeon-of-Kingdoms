@@ -6,16 +6,16 @@ This is the current-state handoff. Active redesign phases and acceptance gates b
 
 | Area | Status |
 | --- | --- |
-| Canonical source version | `v2026.8.20` in `VERSION.txt`; source candidate for the reviewed-reference and Phase 1A boundary update, with no deployment, tag, or GitHub Release yet claimed |
+| Canonical source version | `v2026.8.20` in `VERSION.txt`; deployed reviewed-reference and Phase 1A boundary update, with no tag or GitHub Release claimed |
 | Historical runtime | `v2026.8.15` was observed playable at commit `7f88655` on 2026-08-15, but the product owner rejected its UI, art, map, gameplay feel, terminology, and AI as the future direction |
 | Active phase | Phase 0 implementation evidence remains open; the Phase 1A production-feasibility brief is owner-approved for reference creation only, while the production visual target remains unapproved |
 | Redesign gameplay implementation | Not started |
 | Current source boundary | Minimal redesign status page, reviewed mood-reference gallery, and the approved roadmap/status documents; they contain no playable redesign |
-| GitHub Pages | Last verified deployment remains `v2026.8.16` from merge commit `27895cca87c1415183500b176e36a9234f6d4e8a`; main audit run `31912225152` and Pages run `31912225209` succeeded on 2026-08-16 |
+| GitHub Pages | `v2026.8.20` is deployed from merge commit `919cc933a4def3a6688208f3e5a2180cc4d4687e`; main audit run `32347611623` and Pages run `32347611618` completed successfully on 2026-08-20 |
 | Multiplayer | Not shipped; remains a later phase after the local redesign is approved |
-| Verification | For the `v2026.8.20` source candidate, 63/63 integrated checks passed and the 16-file allowlist is preserved; the last deployed `v2026.8.16` payload matched source byte for byte. Rendering, keyboard navigation, console, cache migration, and physical-device evidence remains pending |
+| Verification | For `v2026.8.20`, 63/63 integrated checks passed and the 16-file allowlist is preserved. Both live routes, current boundary text, and all eight local images loaded in a cloud desktop browser with no page-origin warning or error. Exact-byte comparison, responsive/keyboard review, cache migration, and physical-device evidence remain pending |
 
-Do not describe the current Pages build or the transition page as redesigned gameplay. The recorded workflow and exact HTTPS observations establish this deployment. The owner-supplied capture establishes only the visible portrait mobile state described below; neither category establishes a tag, GitHub Release, other viewport/device behavior, cache migration, console cleanliness, or redesigned gameplay.
+Do not describe the current Pages build or the transition page as redesigned gameplay. The recorded workflows and live browser observation establish this deployment and its loaded public resources. The owner-supplied capture establishes only the visible portrait mobile state described below; neither category establishes a tag, GitHub Release, responsive or keyboard quality, cache migration, physical-device gallery behavior, or redesigned gameplay.
 
 ## Approval record
 
@@ -43,6 +43,10 @@ On 2026-08-20, the product owner reviewed the published concept set. The battlef
 
 The published menu, battlefield, faction, structure, combat, mobile-control, and production/rally frames remain available in the [mood-reference gallery](../concepts/). They are useful composition references, not shipping assets or the Phase 1 production approval target. Exact HTTPS bytes establish publication, not rendered quality, browser interaction, or implementation. No redesigned map, entity, structure, movement, combat, AI, touch, or networking runtime evidence exists yet. The interim status page and gallery are communication surfaces only. Each phase in [`REDESIGN.md`](REDESIGN.md) defines its own source, automated, rendered, physical-device, and owner-approval evidence.
 
+### v2026.8.20 deployment observation
+
+On 2026-08-20, protected pull request `#6` merged as `919cc933a4def3a6688208f3e5a2180cc4d4687e`. Main audit run `32347611623` and Pages run `32347611618` completed successfully. A cloud desktop browser then loaded the canonical status and `concepts/` routes, observed the `v2026.8.20` label and revised Phase 1 boundary, and loaded all eight local WebP references at their recorded natural dimensions. No warning or error from the Pages origin appeared in that session. Browser-extension diagnostics were excluded because they are not emitted by the site. This observation does not establish pixel-level visual approval, responsive or keyboard behavior, a pre-existing-cache upgrade, another browser/device, or a physical-device result.
+
 ### Owner-supplied portrait mobile observation
 
 On 2026-08-15 the product owner supplied a 945×2048 portrait mobile-browser screenshot of the live `xenovoyage.github.io` status page. The capture visibly shows the Aeon of Kingdoms wordmark, redesign status, Phase 0 label, rebuilding statement, explanatory copy, and current-boundary section. The content is readable, remains inside the visible browser safe area, and does not show the rejected gameplay shell. The screenshot does not prove the unseen remainder of the page, link activation, landscape behavior, another device or viewport, console state, offline reopening, or migration from an existing prototype service-worker cache.
@@ -52,6 +56,5 @@ On 2026-08-15 the product owner supplied a 945×2048 portrait mobile-browser scr
 1. Verify replacement of an existing prototype service-worker cache in a previously used browser profile without a stale-cache loop.
 2. Record landscape and desktop/tablet readability, console cleanliness, link navigation, and rollback readiness without converting those observations into gameplay claims.
 3. Close Phase 0 only after the repository, live site, and owner review tell the same truth.
-4. Publish and verify the `v2026.8.20` truth update so the live gallery no longer requests approval of the superseded production target.
-5. Produce the Phase 1A proof at actual desktop and phone scale: two factions with three representative roles each, the exact three structures, the layered map contract, four core animation families, and non-color-only ownership/readability cues.
-6. Record explicit owner approval or revision of that feasibility proof; do not create gameplay renderer code until the complete Phase 1B visual gate is approved.
+4. Produce the Phase 1A proof at actual desktop and phone scale: two factions with three representative roles each, the exact three structures, the layered map contract, four core animation families, and non-color-only ownership/readability cues.
+5. Record explicit owner approval or revision of that feasibility proof; do not create gameplay renderer code until the complete Phase 1B visual gate is approved.

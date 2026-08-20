@@ -209,7 +209,7 @@ Every gate records the exact commit, configuration, seed, viewport/device, comma
 - [x] Integrate a restrained redesign/status-page source candidate after owner approval.
 - [x] Replace the live Pages prototype with that status page through the protected publication path and verify the deployed commit and exact public content.
 - [x] Version the interim page as the `v2026.8.15a` source candidate and record its player-visible intent in the changelog.
-- [ ] Complete the remaining landscape, desktop/tablet, link-navigation, pre-existing-cache, console, explicit owner-review, and rollback evidence for the interim page; source, staged delivery, deployment, exact live content, and one owner-supplied portrait mobile render are complete.
+- [ ] Complete the remaining landscape, responsive/keyboard, link-navigation, pre-existing-cache, physical-device gallery, explicit owner-review, and rollback evidence for the interim page; source, staged delivery, deployment, the current live boundary and image-resource load, page-origin console, and one owner-supplied portrait mobile render are complete.
 - [x] Preserve the published historical tag and release under the project's immutability policy; do not move the tag, force-push, or rewrite history.
 - [x] Approve and version this roadmap baseline and contributor rules before redesigned gameplay work begins.
 

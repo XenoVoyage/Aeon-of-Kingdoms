@@ -2,7 +2,7 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
-## [v2026.8.20] — 2026-08-20 (source candidate; undeployed and untagged)
+## [v2026.8.20] — 2026-08-20 (deployed status/reference build; untagged)
 
 ### Changed
 
@@ -13,7 +13,8 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 ### Boundaries
 
 - No redesigned gameplay, new image, final sprite, animation sequence, map runtime, dependency, network request, or multiplayer feature is included.
-- The last verified Pages deployment remains `v2026.8.16` until this candidate passes the protected publication path and live verification.
+- Pull request `#6` merged as commit `919cc933a4def3a6688208f3e5a2180cc4d4687e`; main audit run `32347611623` and Pages run `32347611618` completed successfully.
+- Both live entry routes and all eight local reference images loaded in a cloud desktop browser without a page-origin warning or error. Exact-byte comparison, responsive/keyboard review, cache migration, and physical-device evidence remain separate pending work.
 - No `v2026.8.20` tag or GitHub Release is claimed.
 
 ## [v2026.8.16] — 2026-08-16 (deployed status/review build; untagged)
