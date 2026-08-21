@@ -20,7 +20,7 @@ Later on 2026-08-20, the owner accepted the environment-only battlefield directi
 2. Treat the owner-locked requirements below as fixed. Close the remaining phase-specific choices at each gate before implementing them.
 3. Build the replacement on short-lived branches; do not use `main` as a visual experiment.
 4. Do not merge a phase because tests pass. Source checks, rendered evidence, game feel, and owner approval are independent requirements.
-5. Preserve rejected prototype evidence at commit `7f88655` in normal Git history. The owner authorized retirement of its misleading public release and tag; deletion is pending, and the label must never be recreated or reused after retirement. Never move another tag onto the commit or rewrite shared history.
+5. Preserve rejected prototype evidence at commit `7f88655` in normal Git history. Its misleading public release and tag were retired on 2026-08-21 at the owner's direction; the commit remains reachable, and the retired label must never be recreated or reused. Never move another tag onto the commit or rewrite shared history.
 6. Keep the implementation small and direct. Rebuilding from scratch does not justify a framework, generic engine, ECS library, asset pipeline, or networking abstraction without proven need.
 7. Neon Voyage is evidence of the owner's preference for restraint and clarity only. Aeon of Kingdoms must not copy its layout, styling, structure, assets, or gameplay.
 8. Keep this roadmap as a versioned approved baseline. Later decisions change it explicitly with rationale; “frozen” never means hiding unresolved choices.
@@ -213,7 +213,7 @@ Every gate records the exact commit, configuration, seed, viewport/device, comma
 - [x] Version the interim page as the `v2026.8.15a` source candidate and record its player-visible intent in the changelog.
 - [x] Record the owner's review of the transition and authorization to proceed into the Phase 1A proof.
 - [ ] Complete the remaining landscape, responsive/keyboard, link-navigation, pre-existing-cache, physical-device gallery, and rollback observations as operational evidence; source, staged delivery, deployment, the current live boundary and image-resource load, page-origin console, and one owner-supplied portrait mobile render are complete. These observations do not reopen the completed product-truth gate or authorize gameplay.
-- [ ] Retire the misleading `v2026.8.15` public tag and GitHub Release at the owner's direction while preserving commit `7f88655` and normal Git history; never recreate or reuse the label.
+- [x] Retire the misleading `v2026.8.15` public tag and GitHub Release at the owner's direction while preserving commit `7f88655` and normal Git history; never recreate or reuse the label.
 - [x] Approve and version this roadmap baseline and contributor rules before redesigned gameplay work begins.
 
 Gate: **complete**. The repository and live site tell the same non-gameplay truth, the transition evidence and remaining limitations are recorded, and the owner-approved roadmap is the active contract.
@@ -244,9 +244,9 @@ The eight published frames remain in the [reviewed mood-reference gallery](../co
 - [x] Record explicit owner approval of the complete opening Phase 1A visual set now that all six required representatives use that method.
 - [x] Record actual-scale playback on a named physical device as unobserved and separate evidence debt; Phase 1A closure does not fabricate this evidence category.
 - [x] Merge the approved package and Engineering Standard v1.0 adoption record through protected pull request `#10`.
-- [x] Prepare the bounded approved review as the protected Pages publication candidate without staging raw authoring masters.
+- [x] Publish the bounded approved review through protected pull requests `#11` and `#12` without staging raw authoring masters.
 
-These checks establish the approved production method and the owner-approved corrected Phase 1A package. They do not establish a final runtime atlas, the later full six-role-per-faction roster, gameplay renderer, physical-device quality, publication, tag, or release.
+These checks establish the approved production method, the owner-approved corrected Phase 1A package, and its bounded Pages review. They do not establish a final runtime atlas, the later full six-role-per-faction roster, gameplay renderer, physical-device quality, tag, or release.
 
 Checkpoint: **complete on 2026-08-21**. Direct owner approval of the corrected Aegis Titan and integrated set closed Phase 1A, and pull request `#10` merged the closure record. Phase 1B planning is active; its implementation checklist has not started, and no gameplay renderer begins before the complete Phase 1B gate is approved.
 

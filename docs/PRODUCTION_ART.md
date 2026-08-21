@@ -113,7 +113,7 @@ Automated image checks may prove dimensions, alpha containment, frame counts, ha
 
 ## Phase 1A approved package
 
-The complete owner-approved direct-file package lives at `concepts/feasibility/phase1a/`. Its `README.md` is the human review order and its `manifest.json` is the machine-readable inventory. The optimized Pages publication candidate at `concepts/feasibility/` stages the five approved compositions, six player-color proofs, 24 actual-scale state playbacks, environment plate, and damage proof. Raw atlases, masks, structure masters, and metadata remain repository-only authoring evidence. The review is script-free and does not introduce a second runtime or heavyweight approval application.
+The complete owner-approved direct-file package lives at `concepts/feasibility/phase1a/`. Its `README.md` is the human review order and its `manifest.json` is the machine-readable inventory. The optimized published Pages review at `concepts/feasibility/` stages the five approved compositions, six player-color proofs, 24 actual-scale state playbacks, environment plate, and damage proof. Raw atlases, masks, structure masters, and metadata remain repository-only authoring evidence. The review is script-free and does not introduce a second runtime or heavyweight approval application.
 
 The six Phase 1A representatives are:
 

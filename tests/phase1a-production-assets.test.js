@@ -155,13 +155,18 @@ function listFiles(directory) {
 test("Phase 1A approved inventory is direct-file, explicit, and bounded", () => {
   const manifest = JSON.parse(read("manifest.json"));
   assert.equal(manifest.phase, "1A");
-  assert.equal(manifest.status, "phase1a-approved-publication-candidate");
+  assert.equal(manifest.status, "phase1a-approved-published-review");
   assert.equal(manifest.masterPackagePublication, "repository-only");
   assert.equal(manifest.gameplay, false);
   assert.deepEqual(manifest.publication, {
-    reviewSurfaceState: "authorized-candidate",
+    reviewSurfaceState: "published",
     reviewRoute: "concepts/feasibility/",
-    candidateAssetScope: "five review compositions, six player-color proofs, all 24 actual-scale state playbacks, environment plate, and damage proof",
+    publishedAssetScope: "five review compositions, six player-color proofs, all 24 actual-scale state playbacks, environment plate, and damage proof",
+    publicationPullRequests: [11, 12],
+    publicationMergeCommits: [
+      "b68dad6c611e9885967d866b776af38c776acd75",
+      "d6ca16927e9dfef4551323d66f6d96930e6e2f38"
+    ],
     masterPackagePublished: false
   });
   assert.equal(Object.hasOwn(manifest, "candidateBranch"), false, "merged package must not claim an active candidate branch");

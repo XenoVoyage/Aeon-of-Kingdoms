@@ -8,14 +8,14 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 
 - Advanced the visible project boundary from completed Phase 1A to active Phase 1B planning.
 - Marked only Phase 1B as the current roadmap step while stating that implementation has not started.
-- Prepared the owner-approved Phase 1A review matching the visual GDD to replace the public superseded v5 feasibility page through the protected Pages path.
+- Published the owner-approved Phase 1A review matching the visual GDD in place of the superseded v5 feasibility page through protected pull requests `#11` and `#12`.
 - Staged the five approved compositions, all six player-color proofs, all 24 actual-scale state playbacks, the environment-only plate, and the accepted damage proof; raw masters and metadata remain repository-only.
-- Recorded the owner's authorization to retire the misleading `v2026.8.15` GitHub Release and tag while preserving commit `7f88655` and normal Git history; deletion remains pending until separately verified.
+- Retired the misleading `v2026.8.15` GitHub Release and tag at the owner's direction while preserving commit `7f88655` and normal Git history; the retired label must not be reused.
 
 ### Boundaries
 
 - No gameplay renderer, gameplay rule, Phase 1B asset expansion, dependency, analytics, network request, new tag, new GitHub Release, or physical-device evidence is included or claimed.
-- The Phase 1A publication candidate is a bounded, non-playable visual review—not a runtime atlas, implemented game, or release.
+- The published Phase 1A review is a bounded, non-playable visual review—not a runtime atlas, implemented game, tag, or release.
 - This version string and changelog heading do not independently claim a protected merge, Pages deployment, tag, or GitHub Release; [`docs/STATUS.md`](docs/STATUS.md) owns current publication evidence.
 
 ## [v2026.8.21] — 2026-08-21 (deployed Phase 1A approval and standardization build; untagged)

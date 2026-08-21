@@ -1,6 +1,6 @@
 # Aeon of Kingdoms verification
 
-The active source boundary is a non-playable redesign status page, a reviewed mood-reference archive, an approved Phase 1A Pages publication candidate, an approved production-art contract, repository-only authoring masters, and an archived v5 source record excluded from Pages. Verification proves that these boundaries and files are truthful, local, bounded, and internally consistent; it does not validate redesigned gameplay or replace separately recorded owner, deployment, rendered, and physical-device evidence. The rejected `v2026.8.15` prototype and its old tests remain historical evidence at commit `7f88655`; its public tag and GitHub Release remain pending retirement and must not be reused after deletion.
+The active source boundary is a non-playable redesign status page, a reviewed mood-reference archive, a published approved Phase 1A Pages review, an approved production-art contract, repository-only authoring masters, and an archived v5 source record excluded from Pages. Verification proves that these boundaries and files are truthful, local, bounded, and internally consistent; it does not validate redesigned gameplay or replace separately recorded owner, deployment, rendered, and physical-device evidence. The rejected `v2026.8.15` prototype and its old tests remain historical evidence at commit `7f88655`; its public tag and GitHub Release were retired without rewriting history and must not be recreated.
 
 Run the complete dependency-free verification from the repository root:
 
@@ -17,7 +17,7 @@ Node.js 20 or newer is used only for local and continuous verification. The suit
 | `audit.test.js` | Required project files, canonical version mirrors, memoryless handoff/authority invariants, production-art contract invariants, status-page CSP and local resources, documentation truth, zero dependencies, workflow permissions, and the exact Pages allowlist |
 | `browser-smoke.test.js` | Status-page semantics, enhancement safety, responsive/focus/reduced-motion contracts, service-worker lifecycle, and local delivery from the `/Aeon-of-Kingdoms/` Pages subpath |
 | `concept-gallery.test.js` | Superseded mood/production-target boundaries, semantic image review, optimized local WebP budgets, gallery CSP, and exclusion from the offline service-worker shell |
-| `feasibility-gallery.test.js` | Integrity, staged delivery, accessibility, dimensions, payload, reduced-motion handling, and GDD-aligned content of the optimized approved Phase 1A publication candidate; it does not claim gameplay |
+| `feasibility-gallery.test.js` | Integrity, staged delivery, accessibility, dimensions, payload, reduced-motion handling, and GDD-aligned content of the optimized published Phase 1A review; it does not claim gameplay |
 | `phase1a-production-assets.test.js` | Direct package inventory, 384×384 cell and `(192,354)` root contract, idle/move identity, invariant gait upper bodies, 1/4/6/6 state metadata, atlas transparency, player-mask containment, structure masks, corrected Aegis hash lock, actual-scale preview boundaries, and the 14 MiB review budget |
 
 ## Historical regression suites
