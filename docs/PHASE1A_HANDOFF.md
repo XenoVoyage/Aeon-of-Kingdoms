@@ -8,7 +8,7 @@ Origin branch: `agent/phase1a-unified-production-proof` (automatically deleted a
 
 Merge provenance: pull request `#10`, squash commit `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`
 
-Public transition: **the owner authorized `v2026.8.21a` to replace the superseded v5 page with the optimized approved Phase 1A visual review; raw masters remain repository-only; no tag, GitHub Release, or gameplay is created**
+Public transition: **protected pull requests `#11` and `#12` published the optimized approved Phase 1A visual review as `v2026.8.21a`; raw masters remain repository-only; no new tag, GitHub Release, or gameplay was created; the rejected `v2026.8.15` tag and Release were retired without rewriting history**
 
 This document is the authoritative Phase 1A closure record for a contributor or model with no access to the design conversation. [`STATUS.md`](STATUS.md) owns the current active boundary. The repository must be sufficient by itself; do not ask a future contributor to infer approved intent from chat memory, filenames, old screenshots, or the rejected prototype.
 
@@ -28,13 +28,13 @@ Read these sources in order before changing the project:
 
 ## Executive state
 
-- The product owner rejected the formerly deployed `v2026.8.15` gameplay prototype at commit `7f88655` as the future product baseline and directed retirement of its misleading public tag and GitHub Release without rewriting Git history.
+- The product owner rejected the formerly deployed `v2026.8.15` gameplay prototype at commit `7f88655` as the future product baseline. Its misleading public tag and GitHub Release were retired on 2026-08-21 without rewriting Git history; the commit remains reachable and the label must not be reused.
 - Phase 0 truth/cleanup is complete. The live site truthfully shows a non-playable redesign status surface.
 - Phase 1A produced a complete production-feasibility package for two opening factions, six representative combat entities, three structure categories, a separate environment plate, damage language, six-player ownership treatment, and desktop/phone scale compositions. Pull request `#10` merged it into source.
 - The owner approved the baked full-body directional-sprite method, one-frame idle, four-frame locked-upper-body movement, six-frame action and defeat, exact horizontal mirroring, separate player-color masks, environment-only battlefield, structure taxonomy, structure damage language, and six-player color-plus-symbol principle.
 - On 2026-08-21 the owner judged the complete package ready except that Aegis Titan's movement and action had inconsistent directional anatomy. The candidate replaced those states with a coherent right-facing gait and punch while retaining the approved identity, root, mask, and defeat behavior.
 - After direct review, the owner approved the corrected Aegis Titan and complete integrated package on 2026-08-21. Phase 1A is closed as a non-playable production-feasibility and visual-direction proof.
-- The owner then authorized the standardization and closure change to merge and deploy. Protected pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`; its origin branch was automatically deleted. That deployment intentionally excluded the direct package. The owner later authorized a bounded public review containing the five approved compositions, all 24 actual-scale state playbacks, all six player-color proofs, the environment plate, and the damage proof; raw masters stay repository-only.
+- The owner then authorized the standardization and closure change to merge and deploy. Protected pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`; its origin branch was automatically deleted. That deployment intentionally excluded the direct package. Protected pull requests `#11` and `#12` later published the bounded public review containing the five approved compositions, all 24 actual-scale state playbacks, all six player-color proofs, the environment plate, and the damage proof; raw masters stay repository-only.
 - Phase 1B planning is active. Its implementation checklist, asset expansion, and runtime work have not started.
 - No redesigned gameplay renderer, movement system, combat system, AI, networking, production queue, map implementation, or touch implementation exists yet.
 
@@ -171,11 +171,11 @@ git diff --check
 git status --short
 ```
 
-Inspect the exact staged allowlist and complete branch diff. Pull request `#10` historically passed 72/72 checks on Node.js 20.20.2 and deployed the earlier 31-file allowlist plus `.nojekyll`; the owner-authorized review publication candidate stages 57 allowlisted files plus `.nojekyll`. [`STATUS.md`](STATUS.md) owns final deployment evidence. Do not expand the bounded public subset, tag, release, or begin gameplay merely because checks pass.
+Inspect the exact staged allowlist and complete branch diff. Pull request `#10` historically passed 72/72 checks on Node.js 20.20.2 and deployed the earlier 31-file allowlist plus `.nojekyll`; protected pull requests `#11` and `#12` published the owner-authorized review with 57 allowlisted files plus `.nojekyll`. [`STATUS.md`](STATUS.md) owns final deployment evidence. Do not expand the bounded public subset, tag, release, or begin gameplay merely because checks pass.
 
 ## Closure and next boundary
 
-Phase 1A closed on 2026-08-21 when the product owner directly approved the corrected Aegis Titan and complete integrated set. The standardization and closure record subsequently merged and deployed through pull request `#10`; the owner later authorized the optimized approved review for Pages while keeping authoring masters repository-only. Closure and publication authorization do not authorize a tag, release, gameplay renderer, or later-phase implementation.
+Phase 1A closed on 2026-08-21 when the product owner directly approved the corrected Aegis Titan and complete integrated set. The standardization and closure record subsequently merged and deployed through pull request `#10`; the optimized approved review then published through pull requests `#11` and `#12` while authoring masters remained repository-only. Closure and publication do not authorize a tag, release, gameplay renderer, or later-phase implementation.
 
 Phase 1B planning is now active and must lock:
 

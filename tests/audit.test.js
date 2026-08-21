@@ -94,7 +94,7 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(readme, /image above is a non-gameplay composition built from separate assets/i);
   assert.match(readme, /Phase 1B must lock the complete visual and interaction target before any Phase 2 renderer/i);
   assert.match(readme, /rejected prototype remains available at commit \[`7f88655`/i);
-  assert.match(readme, /owner authorized retirement of its misleading public tag and GitHub Release, but deletion remains pending until verified/i);
+  assert.match(readme, /misleading `v2026\.8\.15` tag and GitHub Release were retired without rewriting history/i);
   assert.doesNotMatch(readme, /releases\/tag\/v2026\.8\.15/i);
   assert.doesNotMatch(readme, /Historical prototype controls/);
   assert.doesNotMatch(readme, /docs\/assets\/gameplay\.webp/);
@@ -109,10 +109,10 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/STATUS.md"), /Redesign gameplay implementation \| Not started/);
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
-  assert.match(read("docs/STATUS.md"), /reproduced its 72\/72 checks on Node\.js 20\.20\.2/i);
-  assert.match(read("docs/STATUS.md"), /Engineering standard \| v1\.0 is `adopting`/i);
+  assert.match(read("docs/STATUS.md"), /reproduced 72\/72 checks on Node\.js 20\.20\.2/i);
+  assert.match(read("docs/STATUS.md"), /Engineering standard \| v1\.0 governs the repository and is structurally applied, but remains `adopting`/i);
   assert.match(read("docs/STATUS.md"), /24-file Pages allowlist/i);
-  assert.match(read("docs/STATUS.md"), /31-file Pages allowlist plus `\.nojekyll`/i);
+  assert.match(read("docs/STATUS.md"), /Pages staged the exact 31-file allowlist plus `\.nojekyll`/i);
   assert.match(read("docs/ASSETS.md"), /2,263,262 bytes/);
   assert.match(read("docs/STATUS.md"), /919cc933a4def3a6688208f3e5a2180cc4d4687e/);
   assert.match(read("docs/STATUS.md"), /main audit run `32347611623` and Pages run `32347611618` completed successfully/i);
@@ -124,6 +124,12 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/STATUS.md"), /main audit run `32496788387` and Pages run `32496788440` completed successfully/i);
   assert.match(read("docs/STATUS.md"), /canonical live index, status, redesign, and production-art documents matched merged source/i);
   assert.match(read("docs/STATUS.md"), /concepts\/feasibility\/phase1a\/.*HTTP 404/i);
+  assert.match(read("docs/STATUS.md"), /b68dad6c611e9885967d866b776af38c776acd75/);
+  assert.match(read("docs/STATUS.md"), /main audit run `32508895280` and Pages run `32508895290` completed successfully/i);
+  assert.match(read("docs/STATUS.md"), /d6ca16927e9dfef4551323d66f6d96930e6e2f38/);
+  assert.match(read("docs/STATUS.md"), /main audit run `32509285741` and Pages run `32509285737` completed successfully/i);
+  assert.match(read("docs/STATUS.md"), /no `refs\/tags\/v2026\.8\.15` ref and no Release for that tag/i);
+  assert.match(read("docs/STATUS.md"), /commit `7f88655f10504f44496fbba2e17871b16a5fe115` still returned successfully and remained an ancestor of `main`/i);
   assert.match(read("docs/STATUS.md"), /Phase 1B planning is active, but its implementation checklist and asset\/runtime work have not started/i);
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
   assert.match(read("docs/REDESIGN.md"), /Phase 1A — Production-feasibility proof/);
@@ -134,8 +140,8 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/REDESIGN.md"), /Phase 1B planning is active; its implementation checklist has not started/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`/i);
-  assert.match(read("concepts/feasibility/phase1a/README.md"), /bounded candidate Pages payload contains the five review compositions, all 24 actual-scale state playbacks, all six player-color proofs/i);
-  assert.match(read("SECURITY.md"), /local approved Phase 1A review candidate are static, non-playable surfaces/i);
+  assert.match(read("concepts/feasibility/phase1a/README.md"), /Pages payload contains the five review compositions, all 24 actual-scale state playbacks, all six player-color proofs/i);
+  assert.match(read("SECURITY.md"), /published approved Phase 1A review are static, non-playable surfaces/i);
   assert.doesNotMatch(read("SECURITY.md"), /current release is a static local browser game/i);
 });
 
@@ -159,6 +165,8 @@ test("approved production-art method survives a cold-start handoff", () => {
   assert.match(handoff, /authoritative Phase 1A closure record/i);
   assert.match(handoff, /owner approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
   assert.match(handoff, /pull request `#10`, squash commit `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`/i);
+  assert.match(handoff, /protected pull requests `#11` and `#12` published the optimized approved Phase 1A visual review/i);
+  assert.match(handoff, /rejected `v2026\.8\.15` tag and Release were retired without rewriting history/i);
   assert.match(handoff, /Phase 1B planning is active/i);
   assert.match(handoff, /No Phase 2 renderer work begins before explicit Phase 1B approval/i);
   assert.match(newChatPrompt, /no assumed memory of earlier conversations/i);

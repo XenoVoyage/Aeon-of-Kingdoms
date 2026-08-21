@@ -64,7 +64,7 @@ function inspectWebP(bytes) {
   return { chunks, dimensions };
 }
 
-test("Phase 1A publication candidate presents the approved package without claiming gameplay", () => {
+test("published Phase 1A review presents the approved package without claiming gameplay", () => {
   const html = read("concepts/feasibility/index.html");
   assert.match(html, /<html\b[^>]*\blang=["']en["']/i);
   assert.match(html, /id=["']production-proof["']/i);
@@ -175,10 +175,10 @@ test("staged Phase 1A review assets are the exact optimized current set", () => 
     }
   }
   assert.equal(totalBytes, 2503564);
-  assert.ok(totalBytes <= 2.5 * 1024 * 1024, "approved review candidate exceeds 2.5 MiB");
+  assert.ok(totalBytes <= 2.5 * 1024 * 1024, "approved published review exceeds 2.5 MiB");
 });
 
-test("Pages candidate stages only the approved review subset and excludes the v5 proof", () => {
+test("Pages stages only the approved published review subset and excludes the v5 proof", () => {
   const files = staging.verifyRuntimeFiles();
   assert.equal(files.length, 57);
   assert.ok(files.includes("concepts/feasibility/index.html"));
