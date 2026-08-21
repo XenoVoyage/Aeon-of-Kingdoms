@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a reproducible gameplay, interface, or delivery defect.
+description: Report a reproducible source, interface, asset, gameplay, or delivery defect.
 title: "[Bug]: "
 labels: [bug]
 body:
@@ -17,7 +17,7 @@ body:
     id: reproduce
     attributes:
       label: Reproduction
-      description: Include exact mode, faction, map/player setup, commands, and timing.
+      description: Include the exact route, file, mode, setup, commands, and timing that apply.
       placeholder: |
         1. Start ...
         2. Select ...
@@ -34,7 +34,7 @@ body:
     id: version
     attributes:
       label: Version or commit
-      placeholder: v2026.8.15 or commit SHA
+      placeholder: Current version label or commit SHA
     validations:
       required: true
   - type: input

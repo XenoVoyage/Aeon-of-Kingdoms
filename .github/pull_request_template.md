@@ -8,6 +8,16 @@
 - Visible behavior:
 - Compatibility, accessibility, performance, or security impact:
 
+## Risk and rollback
+
+- Main risks and affected boundaries:
+- Rollback plan (usually revert the complete change through the protected workflow):
+
+## Deletions and migrations
+
+- Deleted code, assets, dependencies, flags, or documents and proof they were unused:
+- Data, cache, configuration, or compatibility migration required (use **none** when not applicable):
+
 ## Verification
 
 - [ ] Focused checks passed
@@ -24,3 +34,10 @@ Record commands and observed results. Label automated, rendered, local manual, d
 - [ ] No runtime version change is needed, or `VERSION.txt` and every required mirror are synchronized
 - [ ] Asset provenance and licensing are recorded when applicable
 - [ ] Multiplayer remains described honestly if this change does not ship it
+- [ ] Publication, deployment, tag, release, and migration claims match observed evidence
+
+## GitHub readiness
+
+- [ ] Required checks pass on the current head, or unavailable checks are recorded precisely
+- [ ] Review conversations are resolved
+- [ ] Independent approval is obtained when available or required; otherwise its availability is recorded honestly

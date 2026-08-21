@@ -1,21 +1,24 @@
 # Aeon of Kingdoms contributor instructions
 
-Read this file in full at the start of every task, before inspecting or changing the project. Re-read it after changing branches or updating this file. It is the canonical handoff for human and AI contributors who do not have earlier conversation context.
+**Project Engineering Standard:** v1.0
+**Standard Status:** adopting
+
+Read this file in full at the start of every task, before inspecting or changing the project. Re-read it after changing branches or updating this file. It is the canonical engineering contract for human and AI contributors who do not have earlier conversation context. [`docs/STATUS.md`](docs/STATUS.md) is the only owner of the current phase, deployment, evidence, and standard-adoption state.
+
+Keep the standard status `adopting` while any applicable requirement remains failed, deferred, or unavailable. Recording or accepting continuing debt does not permit `verified`; use `verified` only after every applicable requirement passes and non-applicable checks are recorded.
 
 ## Active redesign override
 
-The published `v2026.8.15` runtime was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. Read [`docs/REDESIGN.md`](docs/REDESIGN.md) before any task. During the redesign it takes precedence over prototype-era product and architecture descriptions when they conflict.
-
-Phase 0 and the roadmap baseline were approved by the product owner on 2026-08-15. On 2026-08-20 the owner accepted the eight published frames as mood references, rejected their literal detail and realism as the production target, and approved the smaller Phase 1A feasibility brief. The non-playable `v2026.8.20a` review build implements that brief as a separate proof gallery and is deployed from merge commit `75ec47c2bca9ea325f5b9508c06d44f3eb1aff1c`; main audit run `32351430376` and Pages run `32351430306` completed successfully. The frozen source passes 68/68 integrated checks and the exact 24-file Pages stage. A cloud desktop browser loaded the current status page at 1363×936 with the Phase 1A boundary and review route, and live HTTPS hashes for the status entry, proof entry, proof stylesheet, and all six proof images matched merged source. Full proof-page rendered review, responsive/keyboard review, a previously cached profile, and physical-device evidence remain pending. The proof remains owner-unapproved and does not authorize an art lock, gameplay work, a tag, or a release.
+The published `v2026.8.15` runtime was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
 - Use `entity` as the authoritative code term for identified world objects. Mobile fighters are combat entities; headquarters, Resource Points, and Production Outposts are structure entities. Do not retain prototype `unit*` compatibility names without a real external consumer.
 - Gameplay is landscape-only. Unsupported portrait orientation shows a rotate-device gate; it does not receive a compressed portrait game layout.
 - The initial design has exactly three structure categories: a faction-unique headquarters, a shared capturable Resource Point, and a shared capturable Production Outpost.
-- Production art targets stylized semi-realistic tactical miniatures with broad silhouettes and restrained detail that remain readable at the smallest approved gameplay scale. High-detail mood art is not a sprite specification.
+- Production art targets cartoon-leaning painted 2D tactical miniatures with broad silhouettes and restrained detail that remain readable at the smallest approved gameplay scale. High-detail mood art is not a sprite specification.
 - The authored map separates ground, non-blocking detail, navigation/blocker data, anchors, dynamic entities, and foreground occlusion. Image pixels never decide walkability, and the redesign does not introduce a height engine or 3D physics.
-- Combat-entity art has four core animation families: idle, move, attack or cast, and defeat. Independently generated AI frames are not an acceptable final animation pipeline.
+- Combat-entity art follows `docs/PRODUCTION_ART.md`: one stable idle frame; four movement frames whose upper body and equipment are pixel-identical; six full-body attack/cast and defeat frames; canonical right-facing art; exact X-mirrored left-facing art; and separate player-color masks. Independently assembled limbs, independently redrawn idle frames, and runtime anatomy deformation are prohibited.
 - Producing structures require bounded tick-based queues, visible progress, deterministic spawn validation, and rally commands that work through the same future network command boundary.
 - Explicit entity targeting, autonomous nearby combat, readable animation states, slow group movement, formation spacing, hard map blockers, and strategic multi-front AI are release requirements.
 - Work one approved phase at a time. Passing automation does not replace rendered evidence, physical-device evidence, game-feel review, or explicit owner approval.
@@ -37,20 +40,22 @@ Before editing, inspect `git status`, the connected source path, its tests, and 
 Read in this order:
 
 1. This file in full.
-2. `docs/REDESIGN.md` for the active product contract, phase, and approval gates.
-3. `docs/STATUS.md` for current maturity, evidence, and active boundary.
-4. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their redesign phases replace them.
+2. `docs/STATUS.md` for current maturity, evidence, engineering-standard adoption, and the active boundary.
+3. `docs/REDESIGN.md` for the approved product contract, phase sequence, and gates.
+4. `docs/PRODUCTION_ART.md` before any visual, entity, structure, terrain, animation, atlas, mask, damage, or effect work.
 5. `tests/README.md` for the verification and manual-acceptance map.
-6. `docs/NETCODE.md` only when commands, determinism, networking, lobbies, or servers are involved.
-7. The connected source, tests, issue, pull request, and decision owner.
+6. `docs/PHASE1A_HANDOFF.md` when Phase 1A inputs, approval, direct review paths, or rejected methods are relevant.
+7. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their redesign phases replace them.
+8. `docs/NETCODE.md` only when commands, determinism, networking, lobbies, or servers are involved.
+9. `docs/CONVERSATION_DECISIONS.md` only for historical rationale; it never overrides the files above.
+10. The connected source, tests, issue, pull request, and decision owner.
 
 Use `CONTRIBUTING.md` as a public entrypoint, not a substitute for these rules. Ask before selecting material product direction when the goal or acceptance criteria are absent.
 
-## 3. Current product boundary
+## 3. Product and delivery boundaries
 
 - The rejected playable prototype remains in the published tag/release `v2026.8.15`, Git history, and temporarily preserved prototype-era source used by historical regression tests. It is not the working-tree product baseline, public entry point, or Pages payload. Treat the published tag and release as immutable by project policy; do not imply that the hosting platform has technically locked them.
-- The current public runtime is a minimal HTML/CSS/JavaScript redesign status page, a script-free mood-reference gallery with eight local WebP references, and a script-free Phase 1A proof with local WebP targets and deterministic SVG diagrams. It has no gameplay, Canvas renderer, build step, or runtime package dependency.
-- The active deliverable is the Phase 1A production-feasibility proof in `docs/REDESIGN.md`. Its approved brief permits replacement reference creation and review only. The proof awaits explicit owner approval, and no redesigned gameplay feature is implemented or shipped yet.
+- `docs/STATUS.md` owns the current public runtime, local source boundary, active phase, and observed evidence. Never copy those volatile facts into this file or infer them from a version string.
 - The status page, `concepts/` archive, and `concepts/feasibility/` proof must work by opening their HTML entry points directly and from the `/Aeon-of-Kingdoms/` GitHub Pages subpath. The future game inherits that delivery constraint unless an approved phase changes it.
 - Multiplayer, signaling, TURN, matchmaking, accounts, hosted persistence, and a dedicated server are planned, not shipped. GitHub Pages and Actions are never described as a server.
 - The first replacement release targets a proven two-player local slice. Four- and six-player layouts are later scale work and require separate routing, performance, fairness, and play evidence.
@@ -81,25 +86,30 @@ Do not expand the slice into an account system, content pipeline, framework migr
 
 ## 6. Ownership map
 
-The transition and Phase 1A entries below own the current review candidate. No gameplay source boundary is approved yet; each later phase must record the smallest actual ownership map when it introduces replacement code. Prototype-era design documents remain historical until explicitly replaced.
+Each responsibility has one source of truth. No gameplay source boundary exists until an approved implementation phase introduces it; prototype-era design documents remain historical until explicitly replaced.
 
 | Area | Source of truth |
 | --- | --- |
+| Current phase, evidence, deployment, and engineering-standard adoption | `docs/STATUS.md` |
 | Interim public content and semantics | `index.html` |
 | Interim presentation | `css/status.css` |
 | Interim enhancement and service-worker registration | `js/status.js` |
 | Reviewed mood-reference content and feasibility boundary | `concepts/index.html` |
 | Mood-reference presentation | `concepts/gallery.css` |
 | Optimized mood-only visual references | `concepts/images/*.webp` |
-| Phase 1A proof content and owner gate | `concepts/feasibility/index.html` |
-| Phase 1A proof presentation | `concepts/feasibility/proof.css` |
-| Optimized proof targets and deterministic diagrams | `concepts/feasibility/images/*.{webp,svg}` |
+| Superseded v5 Phase 1A proof record | `concepts/feasibility/index.html`, `concepts/feasibility/proof.css`, and `concepts/feasibility/images/*.webp` |
+| Approved direct-file Phase 1A production-feasibility package | `concepts/feasibility/phase1a/README.md` and `concepts/feasibility/phase1a/manifest.json` |
+| Six representative atlases, masks, metadata, and actual-scale playback | `concepts/feasibility/phase1a/entities/*/` |
+| Accepted environment, structures, damage, ownership, and viewport compositions | `concepts/feasibility/phase1a/{environment,structures,review}/` |
+| Phase 1A closure record and Phase 1B boundary | `docs/PHASE1A_HANDOFF.md` |
+| Historical conversation rationale and rejected-attempt chronology | `docs/CONVERSATION_DECISIONS.md` |
+| Thin cold-start pointer for a new chat | `docs/NEW_CHAT_PROMPT.txt` |
 | Explicit Pages delivery allowlist | `.github/scripts/stage-pages.js` |
 | Active redesign, phases, and approval gates | `docs/REDESIGN.md` |
+| Approved production-art, animation, direction, color, structure, and validation method | `docs/PRODUCTION_ART.md` |
 | Intended future experience after its redesign rewrite | `docs/GAME_DESIGN.md` |
 | Future runtime boundaries after redesign | `docs/ARCHITECTURE.md` |
 | Multiplayer protocol and infrastructure plan | `docs/NETCODE.md` |
-| Current maturity and evidence | `docs/STATUS.md` |
 | Active review-reference inventory and archived prototype asset record | `docs/ASSETS.md` |
 
 Put redesign behavior in the smallest approved boundary for that phase. Shared code must have at least two proven callers or remove a real ownership conflict. Do not restore rejected prototype source from history to accelerate a redesign phase.
@@ -115,7 +125,7 @@ Put redesign behavior in the smallest approved boundary for that phase. Shared c
 - A mode composes objectives around shared simulation rules; it does not fork economy, combat, pathfinding, or capture into a parallel implementation.
 - Essential state is readable outside the Canvas. Color, glow, and animation are never the only indicator of owner, selection, damage, target, or disabled state.
 
-Exact values belong only in `js/config.js`. Product rationale belongs in `docs/GAME_DESIGN.md`.
+The replacement runtime must introduce one obvious configuration owner for exact values. Do not treat the preserved prototype `js/config.js` or prototype-era `docs/GAME_DESIGN.md` as that owner.
 
 ## 8. Networking boundary
 
@@ -131,6 +141,17 @@ Do not weaken deterministic local behavior to make an early transport demo appea
 
 ## 9. Verification
 
+There is no install step, runtime dependency, or build step for the current static source boundary.
+
+| Purpose | Exact command or action |
+| --- | --- |
+| Direct local preview | Open `index.html` in a modern browser |
+| Focused Phase 1A asset check | `node --test tests/phase1a-production-assets.test.js` |
+| Complete automated verification | `node tests/run.js` |
+| Stage the exact Pages payload | `node .github/scripts/stage-pages.js _site` |
+| Diff hygiene | `git diff --check` |
+| Working-tree review | `git status --short --branch` |
+
 - Add a deterministic regression for every fixed defect or changed rule.
 - Use Node.js built-ins only. The verification harness installs no dependency and makes no network request.
 - Run focused checks while iterating, then `node tests/run.js` on the frozen candidate.
@@ -141,24 +162,21 @@ Do not weaken deterministic local behavior to make an early transport demo appea
 
 Never weaken, skip, or delete a test to hide a defect. Never claim a check, deployment, screenshot source, device, player count, or network condition that was not observed.
 
-## 10. Documentation ownership
+### Definition of done
 
-| File | Purpose |
-| --- | --- |
-| `README.md` | Short public introduction, real visuals, controls, local run, links |
-| `CONTRIBUTING.md` | Concise contributor workflow |
-| `docs/REDESIGN.md` | Active redesign contract, phases, gates, and deferred enhancements |
-| `docs/STATUS.md` | Current maturity, evidence, known limits, next boundary |
-| `docs/ARCHITECTURE.md` | Runtime data flow and file ownership |
-| `docs/GAME_DESIGN.md` | Vision, loop, roles, maps, sites, modes, presentation |
-| `docs/NETCODE.md` | Planned protocol, authority, transport, infrastructure and threat boundary |
-| `docs/ASSETS.md` | Inventory, provenance, art rules and capture gate |
-| `tests/README.md` | Stable suite map and manual evidence matrix |
-| `AGENTS.md` | Enduring contributor and publication contracts |
-| `SECURITY.md` | Supported boundary and responsible reporting |
-| `CHANGELOG.md` | Player-visible runtime history |
+- The authorized observable outcome is complete without unrequested product behavior, external writes, dependencies, or speculative layers.
+- Each changed responsibility has one clear owner; affected canonical documents and tested mirrors agree.
+- Focused checks and `node tests/run.js` pass on the frozen candidate; Pages staging and diff hygiene pass when applicable.
+- The complete diff is reviewed for behavior drift, broken references, data loss, security, accessibility, performance, and unnecessary complexity.
+- Automated, rendered, manual, deployed, network, and physical-device evidence are reported separately, with unavailable or non-applicable checks explicit.
+- Remaining risk, rollback, deletion, migration, GitHub, and approval state are recorded honestly.
 
-Update every affected owner in the same coherent change. Do not use durable documents as task logs, duplicate the same status across several files, or turn roadmap text into an implemented claim.
+## 10. Documentation and cleanup discipline
+
+- The ownership map in section 6 is canonical. `README.md` is the short human entrypoint; `CONTRIBUTING.md` is the public workflow; durable documents exist only for a distinct owner.
+- Update every affected owner in the same coherent change. Do not use durable documents as task logs, duplicate volatile status across files, or turn roadmap text into an implemented claim.
+- Search source, tests, templates, styles, configuration, manifests, workflows, documentation, loaders, and delivery paths before deleting. Remove only proven-dead code, assets, flags, dependencies, shims, generated output, and debug residue.
+- Preserve unfamiliar or unrelated work. Historical material belongs in immutable tags or Git history when removal is safe; do not restore rejected material to accelerate the redesign.
 
 ## 11. Versioning and releases
 

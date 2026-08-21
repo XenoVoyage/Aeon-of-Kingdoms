@@ -2,15 +2,17 @@
 
 Aeon of Kingdoms is undergoing a gated redesign. Contributions must preserve the approved redesign contract and enduring deterministic, accessible, secure browser boundaries; they must not preserve the rejected prototype presentation or gameplay by default.
 
-Phase 0's truth-and-cleanup product gate is complete. The deployed `v2026.8.20a` public runtime is a non-playable redesign status page, mood-reference archive, and Phase 1A production-feasibility proof. The proof's publication does not approve its visual method. Redesigned gameplay begins only after Phase 1A is reviewed and the complete Phase 1B visual gate is explicitly approved.
+Phase 1A is approved and closed as a non-playable production-feasibility proof. Phase 1B is the next product boundary, but no gameplay renderer begins before its complete visual and interaction gate is explicitly approved. Read [`docs/STATUS.md`](docs/STATUS.md) for the exact current source, deployment, evidence, and Engineering Standard v1.0 adoption state rather than copying those volatile facts here.
 
 ## Before changing code
 
 1. Read [`AGENTS.md`](AGENTS.md) in full; it is the canonical engineering and GitHub workflow contract.
-2. Read [`docs/REDESIGN.md`](docs/REDESIGN.md) for the active phase, requirements, unresolved decisions, and gate.
-3. Read [`docs/STATUS.md`](docs/STATUS.md) for the implemented boundary and actual evidence.
-4. Treat [`docs/GAME_DESIGN.md`](docs/GAME_DESIGN.md) and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) as prototype-era records until their approved redesign phases replace them. [`docs/ASSETS.md`](docs/ASSETS.md) owns the active review-reference inventory and keeps the old asset record in a clearly marked archive. Use [`tests/README.md`](tests/README.md) for the active verification boundary.
-5. Read [`docs/NETCODE.md`](docs/NETCODE.md) before changing determinism, commands, protocol, transport, lobby, or server behavior.
+2. Read [`docs/STATUS.md`](docs/STATUS.md) for the current boundary, evidence, and standard-adoption state.
+3. Read [`docs/REDESIGN.md`](docs/REDESIGN.md) for the active phase sequence, requirements, unresolved decisions, and gates.
+4. Read [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) before changing visual art, animation, facing, atlases, masks, player color, structures, terrain, damage, or effects.
+5. Read [`docs/PHASE1A_HANDOFF.md`](docs/PHASE1A_HANDOFF.md) when the approved Phase 1A package, rejected methods, or Phase 1B boundary is relevant.
+6. Treat [`docs/GAME_DESIGN.md`](docs/GAME_DESIGN.md) and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) as prototype-era records until their approved redesign phases replace them. [`docs/ASSETS.md`](docs/ASSETS.md) owns the active review-reference inventory and keeps the old asset record in a clearly marked archive. Use [`tests/README.md`](tests/README.md) for the active verification boundary.
+7. Read [`docs/NETCODE.md`](docs/NETCODE.md) before changing determinism, commands, protocol, transport, lobby, or server behavior.
 
 Inspect the connected source, tests, issues, pull requests, and recent changes. Ask before inventing a material design or infrastructure decision.
 
@@ -30,4 +32,4 @@ The transition page and concept gallery need no installation or build. Node.js 2
 
 Use `entity` as the authoritative replacement code term and keep internal categories separate from faction-facing names. Reuse the authoritative command and simulation path across human, AI, campaign, replay, and future remote players. Do not fork rules by mode or mutate state from presentation code.
 
-When adding art or audio, update [`docs/ASSETS.md`](docs/ASSETS.md) with provenance, license, purpose, and optimization details. When changing player-visible behavior, update the changelog and every affected canonical document in the same change.
+When adding art, follow [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) and update [`docs/ASSETS.md`](docs/ASSETS.md) with provenance, license, purpose, validation, and optimization details. When adding audio, record the same inventory details in `docs/ASSETS.md`. When changing player-visible behavior, update the changelog and every affected canonical document in the same change.

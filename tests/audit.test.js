@@ -33,12 +33,19 @@ const REQUIRED_FILES = [
   "concepts/images/production-rally.webp",
   "concepts/feasibility/index.html",
   "concepts/feasibility/proof.css",
-  "concepts/feasibility/images/battlefield-scale.webp",
-  "concepts/feasibility/images/astral-roles.webp",
-  "concepts/feasibility/images/gravebound-roles.webp",
-  "concepts/feasibility/images/structure-states.svg",
-  "concepts/feasibility/images/map-layers.svg",
-  "concepts/feasibility/images/animation-proof.svg",
+  "concepts/feasibility/images/production-battlefield-environment-v4.webp",
+  "concepts/feasibility/images/structure-atlas-v2.webp",
+  "concepts/feasibility/images/entity-team-color-v4.webp",
+  "concepts/feasibility/images/structure-damage-v3.webp",
+  "concepts/feasibility/images/entity-directional-method-v5.webp",
+  "concepts/feasibility/images/astral-baked-motion-v5.webp",
+  "concepts/feasibility/images/gravebound-baked-motion-v5.webp",
+  "concepts/feasibility/images/astral-baked-motion-static-v5.webp",
+  "concepts/feasibility/images/gravebound-baked-motion-static-v5.webp",
+  "concepts/feasibility/images/astral-baked-motion-audit-v5.webp",
+  "concepts/feasibility/images/gravebound-baked-motion-audit-v5.webp",
+  "concepts/feasibility/phase1a/README.md",
+  "concepts/feasibility/phase1a/manifest.json",
   "js/config.js",
   "js/core.js",
   "js/simulation.js",
@@ -58,11 +65,16 @@ const REQUIRED_FILES = [
   "docs/ARCHITECTURE.md",
   "docs/NETCODE.md",
   "docs/REDESIGN.md",
+  "docs/PRODUCTION_ART.md",
+  "docs/PHASE1A_HANDOFF.md",
+  "docs/CONVERSATION_DECISIONS.md",
+  "docs/NEW_CHAT_PROMPT.txt",
   "docs/STATUS.md",
   "docs/ASSETS.md",
   "tests/fixtures/visual-capture.html",
   "tests/fixtures/visual-capture.js",
   "tests/feasibility-gallery.test.js",
+  "tests/phase1a-production-assets.test.js",
   ".github/workflows/ci.yml",
   ".github/workflows/pages.yml",
   ".github/workflows/visual.yml",
@@ -79,23 +91,26 @@ test("public documentation identifies the rejected prototype and active redesign
   const readme = read("README.md");
   assert.match(readme, /rejected the `v2026\.8\.15` prototype/);
   assert.match(readme, /docs\/REDESIGN\.md/);
-  assert.match(readme, /painting above is a visual target, not an in-game screenshot/i);
-  assert.match(readme, /No redesigned gameplay/i);
+  assert.match(readme, /image above is a non-gameplay composition built from separate assets/i);
+  assert.match(readme, /Phase 1B must lock the complete visual and interaction target before any Phase 2 renderer/i);
   assert.match(readme, /historical release `v2026\.8\.15`/);
   assert.doesNotMatch(readme, /Historical prototype controls/);
   assert.doesNotMatch(readme, /docs\/assets\/gameplay\.webp/);
   assert.match(read("AGENTS.md"), /Active redesign override/);
-  assert.match(read("AGENTS.md"), /Phase 0 and the roadmap baseline were approved/);
+  assert.match(read("AGENTS.md"), /\*\*Project Engineering Standard:\*\* v1\.0/);
+  assert.match(read("AGENTS.md"), /\*\*Standard Status:\*\* adopting/);
   assert.match(read("CONTRIBUTING.md"), /docs\/REDESIGN\.md/);
   assert.match(read("docs/ASSETS.md"), /Reviewed redesign mood references/);
   assert.match(read("docs/ASSETS.md"), /Rejected prototype archive/);
   assert.match(read("docs/ASSETS.md"), /1,253,726 bytes/);
-  assert.match(read("tests/README.md"), /Phase 1A production-feasibility proof/i);
+  assert.match(read("tests/README.md"), /approved production-art contract/i);
   assert.match(read("docs/STATUS.md"), /Redesign gameplay implementation \| Not started/);
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
-  assert.match(read("docs/STATUS.md"), /68\/68 integrated checks/);
+  assert.match(read("docs/STATUS.md"), /pre-standardization baseline and final post-change working tree each pass 72\/72 integrated checks/i);
+  assert.match(read("docs/STATUS.md"), /Engineering standard \| v1\.0 is `adopting`/i);
   assert.match(read("docs/STATUS.md"), /24-file Pages allowlist/i);
+  assert.match(read("docs/ASSETS.md"), /2,263,262 bytes/);
   assert.match(read("docs/STATUS.md"), /919cc933a4def3a6688208f3e5a2180cc4d4687e/);
   assert.match(read("docs/STATUS.md"), /main audit run `32347611623` and Pages run `32347611618` completed successfully/i);
   assert.match(read("docs/STATUS.md"), /75ec47c2bca9ea325f5b9508c06d44f3eb1aff1c/);
@@ -105,10 +120,67 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
   assert.match(read("docs/REDESIGN.md"), /Phase 1A — Production-feasibility proof/);
   assert.match(read("docs/REDESIGN.md"), /faction headquarters, Resource Point, and Production Outpost/);
-  assert.match(read("docs/REDESIGN.md"), /four core animation families: idle, move, attack or cast, and defeat/i);
+  assert.match(read("docs/REDESIGN.md"), /one stable idle frame; four right-facing movement frames/i);
   assert.match(read("docs/REDESIGN.md"), /visual pixels never decide walkability/i);
-  assert.match(read("SECURITY.md"), /static non-playable redesign status site/);
+  assert.match(read("docs/REDESIGN.md"), /Checkpoint: \*\*complete on 2026-08-21\*\*/i);
+  assert.match(read("concepts/feasibility/phase1a/README.md"), /product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
+  assert.match(read("SECURITY.md"), /static non-playable redesign and direct-file review surfaces/);
   assert.doesNotMatch(read("SECURITY.md"), /current release is a static local browser game/i);
+});
+
+test("approved production-art method survives a cold-start handoff", () => {
+  const agents = read("AGENTS.md");
+  const contributing = read("CONTRIBUTING.md");
+  const productionArt = read("docs/PRODUCTION_ART.md");
+  const handoff = read("docs/PHASE1A_HANDOFF.md");
+  const newChatPrompt = read("docs/NEW_CHAT_PROMPT.txt");
+  const decisionRecord = read("docs/CONVERSATION_DECISIONS.md");
+  const redesign = read("docs/REDESIGN.md");
+  const assets = read("docs/ASSETS.md");
+
+  assert.match(agents, /docs\/PRODUCTION_ART\.md/);
+  assert.match(contributing, /docs\/PRODUCTION_ART\.md/);
+  assert.match(redesign, /PRODUCTION_ART\.md/);
+  assert.match(assets, /PRODUCTION_ART\.md/);
+  assert.match(agents, /docs\/PHASE1A_HANDOFF\.md/);
+  assert.match(contributing, /docs\/PHASE1A_HANDOFF\.md/);
+
+  assert.match(handoff, /authoritative Phase 1A closure record/i);
+  assert.match(handoff, /owner approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
+  assert.match(handoff, /No Phase 2 renderer work begins before explicit Phase 1B approval/i);
+  assert.match(newChatPrompt, /no assumed memory of earlier conversations/i);
+  assert.match(newChatPrompt, /Do not edit until that cold-start report is complete/i);
+  assert.match(newChatPrompt, /read `AGENTS\.md` completely/i);
+  assert.match(newChatPrompt, /read `docs\/STATUS\.md` for current phase, evidence, deployment, and Engineering Standard state/i);
+  assert.doesNotMatch(newChatPrompt, /agent\/phase1a|Aegis Titan|v2026|Phase 1A|Public deployment/i);
+  assert.match(decisionRecord, /not a verbatim transcript/i);
+  assert.match(decisionRecord, /raw transcript would mix obsolete instructions with approved rules/i);
+
+  assert.match(productionArt, /canonical \*\*right-facing\*\* sequence/i);
+  assert.match(productionArt, /exact horizontal X mirror/i);
+  assert.match(productionArt, /\| Idle \| 1 canonical frame \| Held \|/i);
+  assert.match(productionArt, /\| Move \| 4 authored gait frames at the reference cadence of 8 FPS \| Yes \|/i);
+  assert.match(productionArt, /upper body remain pixel-identical across the four movement frames/i);
+  assert.match(productionArt, /\| Attack or cast \| 6 authored full-body frames at the reference cadence of 12 FPS \| No \|/i);
+  assert.match(productionArt, /\| Defeat \| 6 authored full-body frames at the reference cadence of 10 FPS \| No \|/i);
+  assert.match(productionArt, /separate, frame-aligned player-color mask/i);
+  assert.match(productionArt, /up to six players/i);
+  assert.match(productionArt, /Ownership may never rely on hue alone/i);
+  assert.match(productionArt, /There are exactly three initial structure categories/i);
+  assert.match(productionArt, /environment-only/i);
+  assert.match(productionArt, /browser does not assemble limbs, run a full-body bone rig, or deform anatomy/i);
+  assert.match(productionArt, /Simulation ticks—not animation frames—own movement distance/i);
+  assert.match(productionArt, /Astral Guardian established the approved entity method/i);
+  assert.match(productionArt, /Phase 1A package applies that exact contract to the Gravebound Reaver, Starbow, Hollow String, Aegis Titan, and Ossuary Colossus/i);
+  assert.match(productionArt, /crystal head, torso, hips, knees, feet, and attack travel all agree on canonical screen-right/i);
+
+  assert.match(agents, /\| Complete automated verification \| `node tests\/run\.js` \|/i);
+  assert.match(agents, /\| Stage the exact Pages payload \| `node \.github\/scripts\/stage-pages\.js _site` \|/i);
+  assert.match(agents, /### Definition of done/i);
+  assert.match(agents, /use `verified` only after every applicable requirement passes/i);
+  assert.match(read(".github/pull_request_template.md"), /## Risk and rollback/i);
+  assert.match(read(".github/pull_request_template.md"), /## Deletions and migrations/i);
+  assert.match(read(".github/pull_request_template.md"), /## GitHub readiness/i);
 });
 
 test("VERSION.txt is canonical and required public mirrors match", () => {
@@ -210,14 +282,21 @@ test("Pages allowlist contains only review surfaces and public status documents"
     "concepts/images/production-rally.webp",
     "concepts/feasibility/index.html",
     "concepts/feasibility/proof.css",
-    "concepts/feasibility/images/battlefield-scale.webp",
-    "concepts/feasibility/images/astral-roles.webp",
-    "concepts/feasibility/images/gravebound-roles.webp",
-    "concepts/feasibility/images/structure-states.svg",
-    "concepts/feasibility/images/map-layers.svg",
-    "concepts/feasibility/images/animation-proof.svg",
+    "concepts/feasibility/images/production-battlefield-environment-v4.webp",
+    "concepts/feasibility/images/structure-atlas-v2.webp",
+    "concepts/feasibility/images/entity-team-color-v4.webp",
+    "concepts/feasibility/images/structure-damage-v3.webp",
+    "concepts/feasibility/images/entity-directional-method-v5.webp",
+    "concepts/feasibility/images/astral-baked-motion-v5.webp",
+    "concepts/feasibility/images/gravebound-baked-motion-v5.webp",
+    "concepts/feasibility/images/astral-baked-motion-static-v5.webp",
+    "concepts/feasibility/images/gravebound-baked-motion-static-v5.webp",
+    "concepts/feasibility/images/astral-baked-motion-audit-v5.webp",
+    "concepts/feasibility/images/gravebound-baked-motion-audit-v5.webp",
     "docs/REDESIGN.md",
-    "docs/STATUS.md"
+    "docs/PRODUCTION_ART.md",
+    "docs/STATUS.md",
+    "docs/ASSETS.md"
   ]);
   const staged = files.join("\n");
   assert.doesNotMatch(staged, /(?:manifest|icon|gameplay|visual-capture|README|LICENSE|CHANGELOG|VERSION|package\.json)/i);

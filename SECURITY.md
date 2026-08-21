@@ -14,7 +14,7 @@ Include the affected version, browser or environment, concise reproduction, expe
 
 ## Current boundary
 
-The deployed `v2026.8.20a` boundary is a static non-playable redesign status site, script-free mood-reference archive, and script-free local Phase 1A proof gallery. The proof introduces no executable or network boundary. None of these surfaces is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection.
+The deployed status boundary and approved but unpublished Phase 1A package are static non-playable redesign and direct-file review surfaces. The package contains only local images, JSON metadata, and Markdown; it adds no executable or network boundary. None of these surfaces is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current version and deployment evidence.
 
 Relevant reports include:
 

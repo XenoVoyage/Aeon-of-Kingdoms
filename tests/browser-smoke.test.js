@@ -18,14 +18,16 @@ test("public shell truthfully presents the phased redesign", () => {
     /name=["']viewport["']/i,
     /id=["']main-content["']/i,
     /id=["']page-title["']/i,
-    /Phase 1A · Production feasibility/i,
+    /Phase 1A · Complete/i,
     /Redesign in progress/i,
-    /historical work/i,
-    /tests whether the new map, entities, structures, and motion/i,
-    /Review before implementation/i,
-    /aria-current=["']step["']/i,
-    /Status build v2026\.8\.20a/i
+    /production-art method is approved/i,
+    /All\s+six opening representatives now prove that same standard/i,
+    /owner approved the\s+complete integrated set/i,
+    /No gameplay yet/i,
+    /Status build v2026\.8\.21/i
   ]) assert.match(html, pattern);
+
+  assert.doesNotMatch(html, /aria-current=["']step["']/i, "no not-yet-started product phase may be marked current");
 
   assert.match(html, /href=["']https:\/\/github\.com\/XenoVoyage\/Aeon-of-Kingdoms["']/i);
   assert.match(html, /href=["']concepts\/["']/i);
@@ -72,7 +74,7 @@ test("status styles include compact layouts, visible focus, and reduced motion",
 test("service worker replaces old game caches with only the status shell", () => {
   const worker = read("sw.js");
   const registration = read("js/status.js");
-  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.20a/);
+  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.21/);
   assert.match(worker, /cache: "reload"/, "install requests must bypass a fresh HTTP-cached prototype shell");
   assert.match(worker, /cache\.put\(request, response\)/);
   assert.doesNotMatch(worker, /cache\.addAll\(/);
@@ -104,7 +106,7 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   };
   const caches = {
     open(name) {
-      assert.equal(name, "aok-shell-v2026.8.20a");
+      assert.equal(name, "aok-shell-v2026.8.21");
       return Promise.resolve(cache);
     },
     keys() {
@@ -208,14 +210,21 @@ test("Pages staging contains status and source-of-truth links but no rejected ga
     "concepts/images/production-rally.webp",
     "concepts/feasibility/index.html",
     "concepts/feasibility/proof.css",
-    "concepts/feasibility/images/battlefield-scale.webp",
-    "concepts/feasibility/images/astral-roles.webp",
-    "concepts/feasibility/images/gravebound-roles.webp",
-    "concepts/feasibility/images/structure-states.svg",
-    "concepts/feasibility/images/map-layers.svg",
-    "concepts/feasibility/images/animation-proof.svg",
+    "concepts/feasibility/images/production-battlefield-environment-v4.webp",
+    "concepts/feasibility/images/structure-atlas-v2.webp",
+    "concepts/feasibility/images/entity-team-color-v4.webp",
+    "concepts/feasibility/images/structure-damage-v3.webp",
+    "concepts/feasibility/images/entity-directional-method-v5.webp",
+    "concepts/feasibility/images/astral-baked-motion-v5.webp",
+    "concepts/feasibility/images/gravebound-baked-motion-v5.webp",
+    "concepts/feasibility/images/astral-baked-motion-static-v5.webp",
+    "concepts/feasibility/images/gravebound-baked-motion-static-v5.webp",
+    "concepts/feasibility/images/astral-baked-motion-audit-v5.webp",
+    "concepts/feasibility/images/gravebound-baked-motion-audit-v5.webp",
     "docs/REDESIGN.md",
-    "docs/STATUS.md"
+    "docs/PRODUCTION_ART.md",
+    "docs/STATUS.md",
+    "docs/ASSETS.md"
   ]);
   for (const relativePath of staging.RUNTIME_FILES) {
     assert.doesNotMatch(relativePath, /^(?:manifest\.webmanifest|icons\/|css\/(?:tokens|app)\.css|js\/(?:config|core|simulation|ai|render|input|game)\.js|docs\/assets\/)/);

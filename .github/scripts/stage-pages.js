@@ -22,14 +22,21 @@ const RUNTIME_FILES = Object.freeze([
   "concepts/images/production-rally.webp",
   "concepts/feasibility/index.html",
   "concepts/feasibility/proof.css",
-  "concepts/feasibility/images/battlefield-scale.webp",
-  "concepts/feasibility/images/astral-roles.webp",
-  "concepts/feasibility/images/gravebound-roles.webp",
-  "concepts/feasibility/images/structure-states.svg",
-  "concepts/feasibility/images/map-layers.svg",
-  "concepts/feasibility/images/animation-proof.svg",
+  "concepts/feasibility/images/production-battlefield-environment-v4.webp",
+  "concepts/feasibility/images/structure-atlas-v2.webp",
+  "concepts/feasibility/images/entity-team-color-v4.webp",
+  "concepts/feasibility/images/structure-damage-v3.webp",
+  "concepts/feasibility/images/entity-directional-method-v5.webp",
+  "concepts/feasibility/images/astral-baked-motion-v5.webp",
+  "concepts/feasibility/images/gravebound-baked-motion-v5.webp",
+  "concepts/feasibility/images/astral-baked-motion-static-v5.webp",
+  "concepts/feasibility/images/gravebound-baked-motion-static-v5.webp",
+  "concepts/feasibility/images/astral-baked-motion-audit-v5.webp",
+  "concepts/feasibility/images/gravebound-baked-motion-audit-v5.webp",
   "docs/REDESIGN.md",
-  "docs/STATUS.md"
+  "docs/PRODUCTION_ART.md",
+  "docs/STATUS.md",
+  "docs/ASSETS.md"
 ]);
 const EXPECTED_SHELL_ASSETS = Object.freeze([
   "./",
@@ -54,7 +61,7 @@ const REJECTED_PROTOTYPE_PATHS = Object.freeze([
 
 function localReferences(source) {
   const references = [];
-  for (const match of source.matchAll(/\b(?:src|href)\s*=\s*["']([^"']+)["']/gi)) {
+  for (const match of source.matchAll(/\b(?:src|href|srcset)\s*=\s*["']([^"']+)["']/gi)) {
     const value = match[1].trim();
     if (!value || value.startsWith("#") || /^(?:https?:|data:|mailto:|tel:)/i.test(value)) continue;
     references.push(value.split(/[?#]/, 1)[0]);

@@ -1,0 +1,298 @@
+{
+  "cell": [
+    384,
+    384
+  ],
+  "canonicalFacing": "right",
+  "mirrorFacing": "left",
+  "groundAnchor": [
+    192,
+    354
+  ],
+  "animations": {
+    "idle": {
+      "row": 0,
+      "frames": 1,
+      "sourceFrames": [
+        0
+      ],
+      "fps": 1,
+      "loop": true,
+      "stabilization": "none",
+      "validation": [
+        {
+          "frame": 0,
+          "bounds": [
+            138,
+            158,
+            282,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        }
+      ]
+    },
+    "move": {
+      "row": 1,
+      "frames": 4,
+      "sourceFrames": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fps": 8,
+      "loop": true,
+      "stabilization": "x",
+      "validation": [
+        {
+          "frame": 0,
+          "bounds": [
+            138,
+            158,
+            282,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 1,
+          "bounds": [
+            127,
+            158,
+            282,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            127,
+            158,
+            282,
+            355
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            123,
+            158,
+            282,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        }
+      ]
+    },
+    "attack": {
+      "row": 2,
+      "frames": 6,
+      "sourceFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "fps": 12,
+      "loop": false,
+      "stabilization": "none",
+      "validation": [
+        {
+          "frame": 0,
+          "bounds": [
+            127,
+            158,
+            292,
+            353
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 1,
+          "bounds": [
+            128,
+            164,
+            287,
+            353
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            128,
+            140,
+            311,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            130,
+            134,
+            326,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 4,
+          "bounds": [
+            131,
+            138,
+            301,
+            353
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 5,
+          "bounds": [
+            129,
+            160,
+            286,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        }
+      ]
+    },
+    "defeat": {
+      "row": 3,
+      "frames": 6,
+      "sourceFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "fps": 10,
+      "loop": false,
+      "stabilization": "none",
+      "validation": [
+        {
+          "frame": 0,
+          "bounds": [
+            122,
+            158,
+            286,
+            353
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 1,
+          "bounds": [
+            111,
+            178,
+            291,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            120,
+            227,
+            288,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            81,
+            204,
+            267,
+            353
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 4,
+          "bounds": [
+            74,
+            233,
+            270,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 5,
+          "bounds": [
+            72,
+            261,
+            293,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        }
+      ]
+    }
+  },
+  "entity": "hollow-string",
+  "playerColorSource": "violet"
+}

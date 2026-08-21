@@ -42,9 +42,10 @@ test("concept gallery presents eight mood references without claiming production
   assert.match(html, /Phase 1 · Reviewed visual references/i);
   assert.match(html, /Mood archive · Target superseded/i);
   assert.match(html, /literal detail and realism are not the production target/i);
-  assert.match(html, /not the Phase 1 production approval target/i);
+  assert.match(html, /not the approved Phase 1 production target/i);
   assert.match(html, /four core animation families/i);
   assert.match(html, /no further approval is required for these eight mood\s+references/i);
+  assert.match(html, /owner approved the separate corrected production-feasibility package/i);
   assert.match(html, /not a validated final layout for two, four, or six players/i);
   assert.match(html, /only each faction headquarters is visually unique/i);
   assert.match(html, /Resource Points and Production\s+Outposts share neutral world forms/i);

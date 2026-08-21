@@ -1,0 +1,15 @@
+Continue work on Aeon of Kingdoms with no assumed memory of earlier conversations.
+
+Repository: https://github.com/XenoVoyage/Aeon-of-Kingdoms
+
+Before editing:
+
+1. Run `git status --short --branch` and `git log -5 --oneline --decorate`.
+2. Read `AGENTS.md` completely, then follow its current required-reading and authority order.
+3. Read `docs/STATUS.md` for current phase, evidence, deployment, and Engineering Standard state; read `docs/REDESIGN.md` for product gates.
+4. Inspect the relevant source, tests, pull request, review files, and decision owner.
+5. Run the focused checks named by the affected owner, then `node tests/run.js` before calling a candidate complete.
+
+Your first response must report the checked-out branch and commit, working-tree state, current boundary and pending gate, evidence actually inspected, and the smallest proposed change. Do not infer product intent from general RTS conventions, filenames, rejected prototypes, or historical conversation notes.
+
+Do not edit until that cold-start report is complete. Preserve unrelated work. Do not commit, push, merge, deploy, tag, release, or begin a later phase without the authority required by `AGENTS.md` and the user's current request.
