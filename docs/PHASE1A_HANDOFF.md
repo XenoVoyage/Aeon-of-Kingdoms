@@ -21,8 +21,9 @@ Read these sources in order before changing the project:
 3. [`REDESIGN.md`](REDESIGN.md) - active product contract and ordered phase gates.
 4. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) - binding art, facing, animation, mask, structure, and validation rules.
 5. This handoff - exact Phase 1A closure, review paths, rejected approaches, and next boundary.
-6. [`../concepts/feasibility/phase1a/README.md`](../concepts/feasibility/phase1a/README.md) and [`manifest.json`](../concepts/feasibility/phase1a/manifest.json) - direct review order and machine-readable inventory.
-7. [`CONVERSATION_DECISIONS.md`](CONVERSATION_DECISIONS.md) - historical rationale only; it never overrides the files above.
+6. [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) - the later complete non-playable Phase 1B candidate and exact pending owner gate.
+7. [`../concepts/feasibility/phase1a/README.md`](../concepts/feasibility/phase1a/README.md) and [`manifest.json`](../concepts/feasibility/phase1a/manifest.json) - direct review order and machine-readable inventory.
+8. [`CONVERSATION_DECISIONS.md`](CONVERSATION_DECISIONS.md) - historical rationale only; it never overrides the files above.
 
 `GAME_DESIGN.md` and `ARCHITECTURE.md` are explicitly prototype-era historical documents until later redesign phases replace them. Do not restore their rejected names, structure taxonomy, tuning, UI, runtime layout, or art direction.
 
@@ -35,7 +36,7 @@ Read these sources in order before changing the project:
 - On 2026-08-21 the owner judged the complete package ready except that Aegis Titan's movement and action had inconsistent directional anatomy. The candidate replaced those states with a coherent right-facing gait and punch while retaining the approved identity, root, mask, and defeat behavior.
 - After direct review, the owner approved the corrected Aegis Titan and complete integrated package on 2026-08-21. Phase 1A is closed as a non-playable production-feasibility and visual-direction proof.
 - The owner then authorized the standardization and closure change to merge and deploy. Protected pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`; its origin branch was automatically deleted. That deployment intentionally excluded the direct package. Protected pull requests `#11` and `#12` later published the bounded public review containing the five approved compositions, all 24 actual-scale state playbacks, all six player-color proofs, the environment plate, and the damage proof; raw masters stay repository-only.
-- Phase 1B planning is active. Its implementation checklist, asset expansion, and runtime work have not started.
+- The later script-free Phase 1B visual-lock candidate is prepared for explicit owner review. It proposes the complete menu/HUD, twelve identities, landscape controls, viewport policy, and measured runtime-art envelope without creating shipping atlases or a gameplay implementation.
 - No redesigned gameplay renderer, movement system, combat system, AI, networking, production queue, map implementation, or touch implementation exists yet.
 
 ## Game being built
@@ -177,7 +178,7 @@ Inspect the exact staged allowlist and complete branch diff. Pull request `#10` 
 
 Phase 1A closed on 2026-08-21 when the product owner directly approved the corrected Aegis Titan and complete integrated set. The standardization and closure record subsequently merged and deployed through pull request `#10`; the optimized approved review then published through pull requests `#11` and `#12` while authoring masters remained repository-only. Closure and publication do not authorize a tag, release, gameplay renderer, or later-phase implementation.
 
-Phase 1B planning is now active and must lock:
+The later candidate in [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) and [`concepts/phase1b/`](../concepts/phase1b/) presents all seven required Phase 1B decisions for explicit owner review:
 
 1. original minimal menu and map-dominant gameplay HUD;
 2. complete battlefield target with routes, blockers, structures, production/rally feedback, and combat readability;
@@ -187,7 +188,7 @@ Phase 1B planning is now active and must lock:
 6. supported landscape aspect range, minimum viewport, letterboxing/safe-area rules, and test matrix;
 7. explicit confirmation that rejected prototype and Neon Voyage assets/layouts were not reused.
 
-Every Phase 1B implementation checklist item remains open. No Phase 2 renderer work begins before explicit Phase 1B approval.
+Every Phase 1B checklist item remains open until the owner approves the combined candidate. Automated, rendered, and deployed evidence cannot self-approve it. No Phase 2 renderer work begins before explicit Phase 1B approval.
 
 ## Cold-start procedure
 

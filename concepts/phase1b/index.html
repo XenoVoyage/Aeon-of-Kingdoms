@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#080a12">
+    <meta name="color-scheme" content="dark">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self'; connect-src 'none'; worker-src 'none'; manifest-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    >
+    <meta
+      name="description"
+      content="Non-playable Phase 1B visual and landscape-interaction lock candidate for Aeon of Kingdoms."
+    >
+    <title>Phase 1B visual lock candidate — Aeon of Kingdoms</title>
+    <link rel="stylesheet" href="../../css/status.css">
+    <link rel="stylesheet" href="visual-lock.css?v=2026.8.21b">
+  </head>
+  <body class="lock-page">
+    <a class="skip-link" href="#phase1b-review">Skip to the Phase 1B review</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="../../" aria-label="Back to Aeon of Kingdoms project status">
+        <span class="wordmark-symbol" aria-hidden="true"></span>
+        <span>Aeon of Kingdoms</span>
+      </a>
+      <p class="status-label">
+        <span class="status-indicator" aria-hidden="true"></span>
+        Phase 1B candidate · Owner gate open
+      </p>
+    </header>
+
+    <main id="phase1b-review">
+      <section class="lock-hero" id="gate" aria-labelledby="lock-title">
+        <div class="lock-hero-copy">
+          <p class="phase-label">Phase 1B · Visual and interaction lock</p>
+          <h1 id="lock-title">One visual target.<br>Zero gameplay claims.</h1>
+          <p class="lead">
+            This static candidate joins the retained main menu, approved Phase 1A production art,
+            complete two-faction identity language, map-dominant HUD, landscape controls, and a
+            measured runtime-asset envelope. It is a review specification—not a renderer, match,
+            balance pass, shipping atlas, tag, or release.
+          </p>
+        </div>
+
+        <aside class="gate-card" aria-labelledby="gate-title" data-gate="owner-approval">
+          <p class="section-label">Exact pending gate</p>
+          <h2 id="gate-title">Owner approval of this complete target</h2>
+          <p>
+            Phase 1A remains closed. Phase 2 stays blocked until the owner accepts this candidate as
+            one coherent menu, battlefield, roster, control, viewport, and runtime-art direction.
+          </p>
+          <dl>
+            <div><dt>Candidate</dt><dd>Prepared for review</dd></div>
+            <div><dt>Gameplay</dt><dd>Not started</dd></div>
+            <div><dt>Phase 2</dt><dd>Blocked</dd></div>
+          </dl>
+        </aside>
+      </section>
+
+      <nav class="review-map" aria-label="Phase 1B review sections">
+        <a href="#menu-hud"><span>01</span> Menu + HUD</a>
+        <a href="#battlefield"><span>02</span> Battlefield</a>
+        <a href="#factions"><span>03</span> Factions</a>
+        <a href="#interaction"><span>04</span> Interaction</a>
+        <a href="#runtime-envelope"><span>05</span> Runtime art</a>
+        <a href="#evidence"><span>06</span> Support matrix</a>
+        <a href="#provenance"><span>07</span> Provenance</a>
+      </nav>
+
+      <section class="review-section" id="menu-hud" aria-labelledby="menu-hud-title">
+        <header class="section-heading">
+          <p class="section-index">01 · Entry and command layer</p>
+          <h2 id="menu-hud-title">Keep the quiet menu. Let the map own play.</h2>
+          <p>
+            The owner-retained menu remains the entry target. During play, interface chrome stays at
+            the edges and expands only for the selected entity or producing structure.
+          </p>
+        </header>
+
+        <figure class="menu-lock">
+          <img
+            src="../images/minimal-menu.webp"
+            width="1672"
+            height="941"
+            alt="Owner-retained minimal Aeon of Kingdoms menu: a dark illustrated landscape, title, Begin and Settings actions, and restrained audio and fullscreen controls."
+            fetchpriority="high"
+            decoding="async"
+          >
+          <figcaption>
+            <span>Owner-retained direction</span>
+            Full-bleed landscape · title and two primary actions · no dashboard-card shell
+          </figcaption>
+        </figure>
+
+        <div class="hud-review-grid">
+          <figure class="battle-mockup battle-mockup-desktop">
+            <div class="mockup-screen">
+              <img
+                src="../feasibility/phase1a/review/battlefield-desktop.webp"
+                width="1536"
+                height="1024"
+                alt="Approved Phase 1A battlefield composition beneath a static Phase 1B desktop HUD specification."
+                loading="lazy"
+                decoding="async"
+              >
+              <span class="safe-outline" aria-hidden="true"></span>
+              <span class="selection-cue" aria-hidden="true">◆</span>
+              <span class="target-cue" aria-hidden="true">×</span>
+              <span class="rally-line" aria-hidden="true"></span>
+              <span class="rally-destination" aria-hidden="true">◇</span>
+              <span class="hud-top" aria-hidden="true">
+                <span>Resource <strong>240</strong></span>
+                <span>Population <strong>18 / 40</strong></span>
+                <span>Objective <strong>2 / 3</strong></span>
+              </span>
+              <span class="selection-panel" aria-hidden="true">
+                <strong>Astral Guardian</strong>
+                <small>Selected · formation ready</small>
+              </span>
+              <span class="command-panel" aria-hidden="true">
+                <span>Move</span><span>Focus target</span><span>Defend</span><span>Stop</span>
+              </span>
+              <span class="queue-panel" aria-hidden="true">
+                <strong>Production</strong>
+                <span class="queue-progress"><i></i></span>
+                <small>Active · 2 queued · rally set</small>
+              </span>
+            </div>
+            <figcaption>Static desktop composition · UI hierarchy and placeholder counts only · not running gameplay</figcaption>
+          </figure>
+
+          <div class="hud-contract">
+            <h3>HUD contract</h3>
+            <ol>
+              <li><span>01</span><strong>Persistent edge strip</strong><small>Resource, population, and objective state stay compact and readable without covering routes.</small></li>
+              <li><span>02</span><strong>Selection-owned detail</strong><small>Identity, health/state, and commands appear only for the current selection.</small></li>
+              <li><span>03</span><strong>Explicit intent</strong><small>Selection, hostile target, group destination, queue state, and rally use shape plus text—not hue alone.</small></li>
+              <li><span>04</span><strong>Producer context</strong><small>A bounded queue exposes progress, order, blocked completion, cancellation feedback, and rally state.</small></li>
+              <li><span>05</span><strong>No virtual joystick</strong><small>Pointer, keyboard, tap, drag, two-finger pan, and focus-centred zoom preserve battlefield space.</small></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="review-section" id="battlefield" aria-labelledby="battlefield-title">
+        <header class="section-heading">
+          <p class="section-index">02 · World composition</p>
+          <h2 id="battlefield-title">Routes read first. Effects remain bounded.</h2>
+          <p>
+            The approved environment-only plate remains immutable scenery. Structures, combat
+            entities, ownership, navigation, selection, targets, effects, and foreground occlusion
+            are separate runtime concerns even when this static composition shows them together.
+          </p>
+        </header>
+
+        <figure class="annotated-field">
+          <div class="field-image">
+            <img
+              src="../feasibility/phase1a/review/battlefield-desktop.webp"
+              width="1536"
+              height="1024"
+              alt="Approved battlefield composition annotated for authored routes, hard blockers, three structure categories, production and rally feedback, and readable combat space."
+              loading="lazy"
+              decoding="async"
+            >
+            <span class="field-marker field-marker-route" aria-hidden="true">1</span>
+            <span class="field-marker field-marker-blocker" aria-hidden="true">2</span>
+            <span class="field-marker field-marker-hq" aria-hidden="true">3</span>
+            <span class="field-marker field-marker-resource" aria-hidden="true">4</span>
+            <span class="field-marker field-marker-outpost" aria-hidden="true">5</span>
+            <span class="field-marker field-marker-combat" aria-hidden="true">6</span>
+          </div>
+          <figcaption>
+            <ol class="field-legend">
+              <li><span>1</span><strong>Authored routes</strong> multiple readable approaches and regrouping space</li>
+              <li><span>2</span><strong>Hard blockers</strong> mountains and water follow explicit navigation data</li>
+              <li><span>3</span><strong>Faction headquarters</strong> unique form, elimination anchor, producer</li>
+              <li><span>4</span><strong>Shared Resource Point</strong> neutral form, capturable income, owner mark</li>
+              <li><span>5</span><strong>Shared Production Outpost</strong> neutral form, queue, spawn, rally</li>
+              <li><span>6</span><strong>Combat read</strong> formation spacing, explicit target, restrained impacts, defeat</li>
+            </ol>
+          </figcaption>
+        </figure>
+
+        <div class="world-contracts">
+          <article aria-labelledby="structure-contract-title">
+            <h3 class="section-label" id="structure-contract-title">Exactly three structure categories</h3>
+            <ol class="structure-list">
+              <li data-structure-category="headquarters"><span>HQ</span><strong>Faction headquarters</strong><small>Faction-unique form · starts owned</small></li>
+              <li data-structure-category="resource-point"><span>RP</span><strong>Shared Resource Point</strong><small>One neutral form · capturable</small></li>
+              <li data-structure-category="production-outpost"><span>PO</span><strong>Shared Production Outpost</strong><small>One neutral form · capturable producer</small></li>
+            </ol>
+          </article>
+          <article aria-labelledby="layer-contract-title">
+            <h3 class="section-label" id="layer-contract-title">Six authored layers</h3>
+            <ol class="layer-stack">
+              <li><span>06</span>Foreground occlusion</li>
+              <li><span>05</span>Dynamic entities and effects</li>
+              <li><span>04</span>Structure and objective anchors</li>
+              <li><span>03</span>Navigation and blocker data</li>
+              <li><span>02</span>Non-blocking detail</li>
+              <li><span>01</span>Environment-only ground</li>
+            </ol>
+          </article>
+          <article aria-labelledby="authority-contract-title">
+            <h3 class="section-label" id="authority-contract-title">Authoritative feedback boundary</h3>
+            <ul class="feedback-list">
+              <li>Simulation ticks own production, contact, damage, capture, defeat, and outcomes.</li>
+              <li>Animation and effects communicate the current result; they never decide it.</li>
+              <li>Every player receives one stable color plus one stable symbol or edge pattern.</li>
+              <li>Selection, target, damage, disabled, capture, and queue states stay distinct from owner color.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="review-section" id="factions" aria-labelledby="factions-title">
+        <header class="section-heading">
+          <p class="section-index">03 · Two opening factions</p>
+          <h2 id="factions-title">Six permanent identity contracts per faction.</h2>
+          <p>
+            The three approved Phase 1A representatives per faction stay intact. Six additional
+            public identities are proposed from the accepted lancer, mystic, champion,
+            sword-and-shield, necromancer, and sovereign mood language. These are silhouette and fight-read
+            contracts—not stats, abilities, balance, or shipping atlases.
+          </p>
+        </header>
+
+        <div class="faction-columns">
+          <section class="faction faction-astral" aria-labelledby="astral-title">
+            <header>
+              <p>Astral Concord</p>
+              <h3 id="astral-title">Ivory mass, gold edges, disciplined blue-white energy</h3>
+            </header>
+            <div class="role-list">
+              <article class="role-card is-proven" data-faction="astral" data-contract="melee">
+                <div><span>Melee · Proven</span><h4>Astral Guardian</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Compact armored knight</dd></div><div><dt>Equipment</dt><dd>Oversized sword and round shield</dd></div><div><dt>Effect</dt><dd>Restrained blue slash</dd></div><div><dt>Fight read</dt><dd>Close-contact line fighter</dd></div></dl>
+              </article>
+              <article class="role-card is-proven" data-faction="astral" data-contract="ranged">
+                <div><span>Ranged · Proven</span><h4>Starbow</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Upright hooded archer</dd></div><div><dt>Equipment</dt><dd>One large bow and clear quiver</dd></div><div><dt>Effect</dt><dd>Clean blue-white arrow trace</dd></div><div><dt>Fight read</dt><dd>Readable distance fighter</dd></div></dl>
+              </article>
+              <article class="role-card is-proven" data-faction="astral" data-contract="signature">
+                <div><span>Signature · Proven</span><h4>Aegis Titan</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Very broad stone-and-crystal brawler</dd></div><div><dt>Equipment</dt><dd>Oversized fists; no detached weapon</dd></div><div><dt>Effect</dt><dd>Compact crystal impact</dd></div><div><dt>Fight read</dt><dd>Massive signature presence</dd></div></dl>
+              </article>
+              <article class="role-card is-candidate" data-faction="astral" data-contract="line-control">
+                <div><span>Line control · Candidate</span><h4>Comet Lancer</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Tall, narrow, forward-pointing stance</dd></div><div><dt>Equipment</dt><dd>Oversized star-headed lance</dd></div><div><dt>Effect</dt><dd>Short cyan comet-line trail</dd></div><div><dt>Fight read</dt><dd>Contests an approach by reach</dd></div></dl>
+              </article>
+              <article class="role-card is-candidate" data-faction="astral" data-contract="support">
+                <div><span>Support · Candidate</span><h4>Radiant Cantor</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Open robes and a clear circular halo</dd></div><div><dt>Equipment</dt><dd>Halo staff held away from the body</dd></div><div><dt>Effect</dt><dd>Bounded cyan star-lattice pulse</dd></div><div><dt>Fight read</dt><dd>Visible formation support</dd></div></dl>
+              </article>
+              <article class="role-card is-candidate" data-faction="astral" data-contract="champion">
+                <div><span>Champion · Candidate</span><h4>Concord Exemplar</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Tall human-scale plate and vertical crest</dd></div><div><dt>Equipment</dt><dd>Two-handed crystal blade</dd></div><div><dt>Effect</dt><dd>Short blue-white flare arc</dd></div><div><dt>Fight read</dt><dd>Close-range formation focal point</dd></div></dl>
+              </article>
+            </div>
+          </section>
+
+          <section class="faction faction-gravebound" aria-labelledby="gravebound-title">
+            <header>
+              <p>Gravebound Court</p>
+              <h3 id="gravebound-title">Bone breaks, charcoal mass, restrained violet ritual energy</h3>
+            </header>
+            <div class="role-list">
+              <article class="role-card is-proven" data-faction="gravebound" data-contract="melee">
+                <div><span>Melee · Proven</span><h4>Gravebound Reaver</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Lean fractured skeletal fighter</dd></div><div><dt>Equipment</dt><dd>Oversized attached scythe</dd></div><div><dt>Effect</dt><dd>Restrained violet crescent sweep</dd></div><div><dt>Fight read</dt><dd>Close-contact line fighter</dd></div></dl>
+              </article>
+              <article class="role-card is-proven" data-faction="gravebound" data-contract="ranged">
+                <div><span>Ranged · Proven</span><h4>Hollow String</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Ragged hooded skeletal archer</dd></div><div><dt>Equipment</dt><dd>One large bow and clear quiver</dd></div><div><dt>Effect</dt><dd>Thin violet and ash arrow trace</dd></div><div><dt>Fight read</dt><dd>Readable distance fighter</dd></div></dl>
+              </article>
+              <article class="role-card is-proven" data-faction="gravebound" data-contract="signature">
+                <div><span>Signature · Proven</span><h4>Ossuary Colossus</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Massive bone-and-charcoal heavy</dd></div><div><dt>Equipment</dt><dd>Attached tower shield and free fist</dd></div><div><dt>Effect</dt><dd>Bounded bone-dust impact</dd></div><div><dt>Fight read</dt><dd>Massive signature presence</dd></div></dl>
+              </article>
+              <article class="role-card is-candidate" data-faction="gravebound" data-contract="line-control">
+                <div><span>Line control · Candidate</span><h4>Barrow Warden</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Low, wide skeletal guard posture</dd></div><div><dt>Equipment</dt><dd>Ribbed round shield and hooked blade</dd></div><div><dt>Effect</dt><dd>Brief violet shield-edge dust</dd></div><div><dt>Fight read</dt><dd>Arrests an approach by guard posture</dd></div></dl>
+              </article>
+              <article class="role-card is-candidate" data-faction="gravebound" data-contract="support">
+                <div><span>Support · Candidate</span><h4>Dirge Oracle</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Ragged hood and trailing cloth gaps</dd></div><div><dt>Equipment</dt><dd>Crooked reliquary staff</dd></div><div><dt>Effect</dt><dd>Bounded violet grave-sigil wisps</dd></div><div><dt>Fight read</dt><dd>Visible formation support and control</dd></div></dl>
+              </article>
+              <article class="role-card is-candidate" data-faction="gravebound" data-contract="champion">
+                <div><span>Champion · Candidate</span><h4>Sepulchral Regent</h4></div>
+                <dl><div><dt>Silhouette</dt><dd>Crowned skeleton and long split mantle</dd></div><div><dt>Equipment</dt><dd>Two-handed black-bone blade</dd></div><div><dt>Effect</dt><dd>Short violet crescent and ground dust</dd></div><div><dt>Fight read</dt><dd>Close-range formation focal point</dd></div></dl>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <p class="candidate-note">
+          <strong>Candidate boundary:</strong> “line control” pairs Astral reach with Gravebound guard
+          posture; “champion” describes a visible fight role, not command authority or an aura rule.
+          Effects remain bounded and non-authoritative. Every accepted entity still requires a
+          separate frame-aligned player-color mask and a non-color owner cue.
+        </p>
+      </section>
+
+      <section class="review-section" id="interaction" aria-labelledby="interaction-title">
+        <header class="section-heading">
+          <p class="section-index">04 · Landscape interaction</p>
+          <h2 id="interaction-title">The same intent, fitted to each landscape.</h2>
+          <p>
+            Controls change by input capability, not by inventing another game. Every view keeps
+            selection, explicit focus attack, camera pan and focus-centred zoom, producing-structure
+            context, queue feedback, and rally placement legible.
+          </p>
+        </header>
+
+        <div class="viewport-grid">
+          <article class="viewport-card viewport-desktop" data-viewport="desktop-landscape" aria-labelledby="desktop-viewport-title">
+            <header><span>Desktop</span><h3 id="desktop-viewport-title">16:9 reference</h3></header>
+            <div class="viewport-screen">
+              <img src="../feasibility/phase1a/review/battlefield-desktop.webp" width="1536" height="1024" alt="Desktop landscape interaction mockup using the approved battlefield composition without cropping the authored scene." loading="lazy" decoding="async">
+              <span class="mini-top" aria-hidden="true">Resource · Population · Objective</span>
+              <span class="mini-select" aria-hidden="true">◆</span>
+              <span class="mini-target" aria-hidden="true">×</span>
+              <span class="mini-bottom" aria-hidden="true">Selection · Focus target · Production · Rally</span>
+            </div>
+            <ul><li>Pointer select and group box</li><li>Keyboard/edge/drag pan candidate</li><li>Wheel zoom around pointer</li><li>Context-right-click attack or rally</li></ul>
+          </article>
+
+          <article class="viewport-card viewport-tablet" data-viewport="tablet-landscape" aria-labelledby="tablet-viewport-title">
+            <header><span>Tablet</span><h3 id="tablet-viewport-title">4:3 landscape</h3></header>
+            <div class="viewport-screen">
+              <img src="../feasibility/phase1a/review/battlefield-desktop.webp" width="1536" height="1024" alt="Tablet landscape interaction mockup using the approved battlefield composition." loading="lazy" decoding="async">
+              <span class="mini-safe" aria-hidden="true"></span>
+              <span class="mini-top" aria-hidden="true">Resource · Population · Objective</span>
+              <span class="mini-select" aria-hidden="true">◆</span>
+              <span class="mini-target" aria-hidden="true">×</span>
+              <span class="mini-bottom" aria-hidden="true">Attack · Queue · Cancel · Rally</span>
+            </div>
+            <ul><li>Tap selection and explicit Attack mode</li><li>Two-finger camera pan</li><li>Pinch zoom around finger focus</li><li>Producer tray and rally mode</li></ul>
+          </article>
+
+          <article class="viewport-card viewport-phone" data-viewport="phone-landscape" aria-labelledby="phone-viewport-title">
+            <header><span>Phone</span><h3 id="phone-viewport-title">844 × 390 reference</h3></header>
+            <div class="viewport-screen">
+              <img src="../feasibility/phase1a/review/battlefield-phone.webp" width="844" height="390" alt="Compact phone-landscape interaction mockup using the approved battlefield composition." loading="lazy" decoding="async">
+              <span class="mini-safe" aria-hidden="true"></span>
+              <span class="mini-top" aria-hidden="true">Resource · Population</span>
+              <span class="mini-select" aria-hidden="true">◆</span>
+              <span class="mini-target" aria-hidden="true">×</span>
+              <span class="mini-bottom" aria-hidden="true">Select · Attack · Queue · Rally</span>
+            </div>
+            <ul><li>Safe-area insets protect edge controls</li><li>Context tray replaces persistent panels</li><li>Two-finger pan and pinch zoom</li><li>No joystick; map remains dominant</li></ul>
+          </article>
+
+          <article class="viewport-card viewport-portrait" data-viewport="portrait-gate" aria-labelledby="portrait-viewport-title">
+            <header><span>Portrait</span><h3 id="portrait-viewport-title">Rotate gate only</h3></header>
+            <div class="portrait-screen" role="img" aria-label="Portrait orientation gate asking the player to rotate the device; gameplay remains paused and is not rearranged into portrait.">
+              <span class="rotate-device" aria-hidden="true"><i></i></span>
+              <strong>Rotate to landscape</strong>
+              <small>Match paused · transient input cleared</small>
+            </div>
+            <ul><li>No portrait gameplay layout</li><li>Best-effort orientation lock after gesture</li><li>Safe pause and resume</li><li>No hidden command continues</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="review-section" id="runtime-envelope" aria-labelledby="runtime-title">
+        <header class="section-heading">
+          <p class="section-index">05 · Local runtime-art envelope</p>
+          <h2 id="runtime-title">Small delivery atlases. Masters stay untouched.</h2>
+          <p>
+            The 384-pixel Phase 1A sources remain repository-only authoring masters. The selected
+            candidate packs the 16 unique authored frames into primary and compact local tiers
+            without changing facing, logical animation counts, ownership masks, or simulation timing.
+          </p>
+        </header>
+
+        <div class="runtime-grid">
+          <dl class="runtime-facts">
+            <div><dt>Authoring master</dt><dd>384 × 384 cell · root (192, 354) · repository-only</dd></div>
+            <div><dt>Primary tier</dt><dd>128 × 128 cell · root (64, 118) · 512 × 512 sheet</dd></div>
+            <div><dt>Compact tier</dt><dd>96 × 96 cell · rational root (48, 88.5) · 384 × 384 sheet</dd></div>
+            <div><dt>Packing</dt><dd>4 × 4 grid · 16 unique frames · idle aliases movement frame zero</dd></div>
+            <div><dt>Files</dt><dd>Lossless WebP base plus separate lossless WebP player-color mask</dd></div>
+            <div><dt>Facing</dt><dd>Canonical right only; left is exact runtime <code>scaleX(-1)</code></dd></div>
+            <div><dt>Animation</dt><dd>Logical 1 idle · 4 move · 6 action/cast · 6 defeat</dd></div>
+            <div><dt>Authority</dt><dd>Simulation selects state/contact/outcome; animation only presents it</dd></div>
+            <div><dt>Loading</dt><dd>Default to 128; use 96 only when Compact art is selected in Settings before battle; load participating factions only</dd></div>
+            <div><dt>Fallback</dt><dd>Show a text-only local preload error and block battle start if a required atlas or mask fails</dd></div>
+            <div><dt>Structures</dt><dd>384-pixel maximum edge · separate lossless base/mask · 0.601 MiB measured encoded</dd></div>
+            <div><dt>Environment</dt><dd>Current 1672 × 941 plate is review evidence; the final layered map keeps a separate Phase 2 budget</dd></div>
+          </dl>
+
+          <div class="budget-card">
+            <p class="section-label">Measured candidate budget</p>
+            <div class="budget-number"><strong>1.31 MiB</strong><span>projected 128-tier encoded roster</span></div>
+            <div class="budget-number"><strong>24 MiB</strong><span>primary-tier decoded RGBA pixels</span></div>
+            <div class="budget-number"><strong>13.5 MiB</strong><span>compact-tier decoded RGBA pixels</span></div>
+            <p>
+              Six approved representative base/mask pairs were exported locally with ImageMagick
+              6.9.12-98 and libwebp 1.3.2 as corrected per-frame lossless WebP sheets. The measured six
+              pairs total 688,988 bytes at 128 and 431,220 bytes at 96; doubling those complete samples
+              projects 1,377,976 and 862,440 bytes for twelve contracts. Both tiers remain below the
+              existing 3.25 MiB hard cap even when shipped together, but only one may be decoded for a match.
+            </p>
+            <p class="formula"><code>512² × 4 × 2 × 12 = 24 MiB · 384² × 4 × 2 × 12 = 13.5 MiB</code></p>
+          </div>
+        </div>
+
+        <section class="runtime-samples" aria-labelledby="runtime-samples-title">
+          <header>
+            <p class="section-label">Exact browser-decode sample</p>
+            <h3 id="runtime-samples-title">One representative, both selected tiers.</h3>
+            <p>
+              These four lossless WebP files are bounded review evidence, not shipping atlases.
+              Together they expose the Astral Guardian base and aligned ownership mask at 96 and
+              128 pixels per cell so the published candidate can verify real browser loading.
+            </p>
+          </header>
+          <div class="sample-grid">
+            <figure data-runtime-sample="96-base">
+              <img src="runtime/astral-guardian-96-base.webp" width="384" height="384" alt="Astral Guardian 96-pixel runtime-envelope base atlas sample arranged in a four-by-four frame grid." loading="lazy" decoding="async">
+              <figcaption><strong>96 · Base</strong><span>384 × 384 · 60,272 bytes</span></figcaption>
+            </figure>
+            <figure class="is-mask" data-runtime-sample="96-mask">
+              <img src="runtime/astral-guardian-96-mask.webp" width="384" height="384" alt="Astral Guardian 96-pixel frame-aligned player-color mask sample arranged in a four-by-four frame grid." loading="lazy" decoding="async">
+              <figcaption><strong>96 · Mask</strong><span>384 × 384 · 9,958 bytes</span></figcaption>
+            </figure>
+            <figure data-runtime-sample="128-base">
+              <img src="runtime/astral-guardian-128-base.webp" width="512" height="512" alt="Astral Guardian 128-pixel runtime-envelope base atlas sample arranged in a four-by-four frame grid." loading="lazy" decoding="async">
+              <figcaption><strong>128 · Base</strong><span>512 × 512 · 98,546 bytes</span></figcaption>
+            </figure>
+            <figure class="is-mask" data-runtime-sample="128-mask">
+              <img src="runtime/astral-guardian-128-mask.webp" width="512" height="512" alt="Astral Guardian 128-pixel frame-aligned player-color mask sample arranged in a four-by-four frame grid." loading="lazy" decoding="async">
+              <figcaption><strong>128 · Mask</strong><span>512 × 512 · 14,798 bytes</span></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <div class="runtime-boundaries">
+          <article><h3>Load failure</h3><p>No geometric body substitute, rig, wrong-facing art, or missing-mask color fallback. Show a stable text-only local preload error, do not instantiate the entity, and prevent battle start.</p></article>
+          <article><h3>Ownership</h3><p>Base faction materials never recolor. Only restrained mask surfaces receive one of six stable player colors, paired with the same symbol or edge pattern everywhere.</p></article>
+          <article><h3>Effects</h3><p>Effects use separate local assets and budgets. They do not enter the entity atlas, alter contact timing, hide selection/target cues, or become authoritative.</p></article>
+        </div>
+      </section>
+
+      <section class="review-section" id="evidence" aria-labelledby="evidence-title">
+        <header class="section-heading">
+          <p class="section-index">06 · Viewports and evidence</p>
+          <h2 id="evidence-title">A support promise with honest evidence labels.</h2>
+          <p>
+            Cloud viewport inspection is rendered browser evidence, not a physical device. This
+            candidate names the intended matrix now so implementation cannot redefine support after
+            problems appear.
+          </p>
+        </header>
+
+        <div class="matrix-wrap" tabindex="0" role="region" aria-label="Landscape and safe-area contract; horizontally scrollable when needed">
+          <table>
+            <caption>Landscape and safe-area contract</caption>
+            <thead><tr><th>Boundary</th><th>Candidate decision</th><th>Review evidence</th></tr></thead>
+            <tbody>
+              <tr><th>Supported aspect range</th><td>4:3 through 21:9 landscape</td><td>Static 4:3, 16:9, and 844:390 mockups</td></tr>
+              <tr><th>Minimum gameplay viewport</th><td>640 × 360 CSS pixels</td><td>Source contract; live reflow check pending</td></tr>
+              <tr><th>Outside range</th><td>Deliberate letterbox; essential HUD stays inside the supported safe frame</td><td>Specification only</td></tr>
+              <tr><th>Display cutouts</th><td><code>env(safe-area-inset-*)</code> plus a 12 CSS pixel inner control margin</td><td>CSS inset rule and static safe outline; emulation pending</td></tr>
+              <tr><th>Portrait</th><td>Rotate gate, authoritative pause, transient-input clear, safe resume</td><td>Static gate and source check</td></tr>
+              <tr><th>Zoom and reflow</th><td>Review page remains usable at 200%; gameplay remains a landscape canvas in Phase 2</td><td>Source reflow audit; rendered check pending</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="matrix-wrap" tabindex="0" role="region" aria-label="Target browser and device matrix; horizontally scrollable when needed">
+          <table>
+            <caption>Target browser/device matrix</caption>
+            <thead><tr><th>Class</th><th>Target</th><th>Current evidence</th></tr></thead>
+            <tbody>
+              <tr><th>Desktop Chromium</th><td>Chrome and Edge, current and previous major</td><td>Live cloud inspection pending publication</td></tr>
+              <tr><th>Desktop Firefox</th><td>Firefox, current and previous major</td><td>Pending implementation matrix</td></tr>
+              <tr><th>Desktop Safari</th><td>Safari on macOS, current and previous major</td><td>Pending physical/browser matrix</td></tr>
+              <tr><th>Android phone/tablet</th><td>Chrome, current and previous major</td><td>Static layout only; emulation and physical pending</td></tr>
+              <tr><th>iPhone/iPad</th><td>Safari on current and previous iOS/iPadOS</td><td>Static layout only; emulation and physical pending</td></tr>
+              <tr><th>Reduced motion</th><td>All supported classes</td><td>Static page and CSS contract</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <ul class="evidence-strip">
+          <li><span>Automated</span><strong>Required before merge</strong></li>
+          <li><span>Rendered</span><strong>Required on live Pages</strong></li>
+          <li><span>Deployed</span><strong>Required before handoff</strong></li>
+          <li><span>Physical device</span><strong>Pending; not fabricated</strong></li>
+          <li><span>Owner gate</span><strong>Pending explicit approval</strong></li>
+        </ul>
+      </section>
+
+      <section class="review-section provenance" id="provenance" aria-labelledby="provenance-title">
+        <header class="section-heading">
+          <p class="section-index">07 · Provenance and non-reuse</p>
+          <h2 id="provenance-title">Only approved project evidence enters this candidate.</h2>
+        </header>
+        <div class="provenance-grid">
+          <article>
+            <h3>Used</h3>
+            <ul>
+              <li>The owner-retained Aeon of Kingdoms minimal-menu reference.</li>
+              <li>The approved Phase 1A battlefield and phone compositions.</li>
+              <li>The six approved representative names and production-art contract.</li>
+              <li>New Phase 1B CSS/HTML annotations and six candidate public identities authored for this review.</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Explicitly not reused</h3>
+            <ul>
+              <li>The rejected <code>v2026.8.15</code> prototype UI, map, renderer, terminology, art, or gameplay.</li>
+              <li>The mixed <code>v2026.8.20a</code> proof, v5 directional/motion images, limb atlases, or bone rigs.</li>
+              <li>Neon Voyage assets, layout, styling, structure, or gameplay.</li>
+              <li>Independent left/right art, independently redrawn idle/move upper bodies, color-only ownership, or a fourth structure category.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="final-boundary">
+          This review can be approved as the Phase 1B target without claiming an implemented renderer,
+          runtime interaction, physical-device result, tag, GitHub Release, or gameplay. After explicit
+          owner approval, Phase 2 may begin with the empty landscape battlefield and camera foundation.
+        </p>
+        <nav class="review-links" aria-label="Related project evidence">
+          <a href="../feasibility/">Approved Phase 1A review <span aria-hidden="true">→</span></a>
+          <a href="../../docs/PHASE1B_VISUAL_LOCK.md">Exact candidate specification <span aria-hidden="true">→</span></a>
+          <a href="../../docs/REDESIGN.md">Roadmap and gates <span aria-hidden="true">→</span></a>
+          <a href="../../docs/STATUS.md">Current evidence <span aria-hidden="true">→</span></a>
+          <a href="../../">Project status <span aria-hidden="true">→</span></a>
+        </nav>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Phase 1B review candidate · Non-playable · Owner approval pending · No tracking</p>
+    </footer>
+  </body>
+</html>
