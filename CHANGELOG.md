@@ -15,6 +15,12 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 - Added a focused Phase 1B verification suite and an exact candidate specification at `docs/PHASE1B_VISUAL_LOCK.md`.
 - Kept full battlefield compositions visible with non-cropping image treatment, raised small-text contrast, made wide evidence tables keyboard-scrollable, and implemented safe-area-plus-12-pixel inset rules in the review CSS.
 
+### Verified
+
+- Protected pull request `#14` squash-merged as `618d3498c302e08068be99eb7aa585a9a3d162d8`; Offline audit run `32516391298` and Pages run `32516391299` completed successfully with 77/77 integrated checks and 64 allowlisted files plus `.nojekyll`.
+- A live cloud Chrome review at 1348×936 rendered the retained menu, battlefield, twelve identities, all four embedded viewport compositions, and all ten local images without horizontal overflow or a page-origin warning/error. The four runtime samples completed at their exact 384×384 and 512×512 natural dimensions.
+- Exact cloud-browser version/timing data, compact live-page reflow, 200% rendered zoom, display-cutout emulation, broad browser coverage, and physical-device behavior remain explicitly unverified.
+
 ### Boundaries
 
 - This source version is an owner-review candidate. Phase 1B remains open until explicit owner approval, and Phase 2 gameplay renderer work remains blocked.

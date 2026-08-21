@@ -220,6 +220,14 @@ test("Phase 1B review is local, responsive, safe-area aware, and exactly staged"
   assert.match(spec, /4:3 through 21:9/i);
   assert.match(spec, /640[×x]360 CSS pixels/i);
   assert.match(spec, /Cloud emulation is rendered evidence only; named physical-device observations remain separately pending/i);
+  assert.match(html, /5\/5 focused · 77\/77 integrated/i);
+  assert.match(html, /PR #14 · Pages run 32516391299/i);
+  assert.match(html, /Cloud Chrome at 1348×936; exact version not exposed/i);
+  const status = read("docs/STATUS.md");
+  assert.match(status, /pull request `#14` squash-merged the candidate as `618d3498c302e08068be99eb7aa585a9a3d162d8`/i);
+  assert.match(status, /Offline audit run `32516391298` and Pages run `32516391299` completed successfully/i);
+  assert.match(status, /All ten local images completed with their recorded natural dimensions/i);
+  assert.match(status, /actual compact-page reflow, 200% rendered zoom, display-cutout emulation, and physical devices remain pending/i);
 
   const files = staging.verifyRuntimeFiles();
   assert.ok(files.includes(PAGE));

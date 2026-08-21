@@ -114,7 +114,7 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/STATUS.md"), /Redesign gameplay implementation \| Not started/);
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
-  assert.match(read("docs/STATUS.md"), /reproduced 72\/72 checks on Node\.js 20\.20\.2/i);
+  assert.match(read("docs/STATUS.md"), /reproduced the latest 77\/77 checks/i);
   assert.match(read("docs/STATUS.md"), /Engineering standard \| v1\.0 governs the repository and is structurally applied, but remains `adopting`/i);
   assert.match(read("docs/STATUS.md"), /24-file Pages allowlist/i);
   assert.match(read("docs/STATUS.md"), /Pages staged the exact 31-file allowlist plus `\.nojekyll`/i);
