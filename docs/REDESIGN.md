@@ -1,6 +1,6 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 product gate complete with residual operational evidence tracked; Phase 1A proof deployed for owner review, visual method not approved**.
+Status: **approved baseline; Phase 0 complete; Phase 1A feature-branch candidate complete with corrected Aegis Titan awaiting direct final owner confirmation**.
 
 This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. It does not claim that any redesigned feature is currently implemented.
 
@@ -11,6 +11,8 @@ The prototype remains in Git history as evidence. Its menu, battlefield presenta
 The product owner approved Phase 0 and this roadmap baseline on 2026-08-15 and authorized the truth-and-cleanup implementation. This approval does not claim that the transition candidate is verified, deployed, tagged, or released, and it does not pre-approve Phase 1 visual choices or any gameplay phase.
 
 On 2026-08-20, the product owner reviewed the eight published Phase 1 references. Their battlefield composition, faction contrast, combat language, and restrained interface were accepted as useful mood direction, but their literal realism and entity detail were rejected as the production target because they would not honestly prove small-screen readability, crowded-battle clarity, animation consistency, or a sustainable six-faction asset budget. The owner approved the production-feasibility brief below and authorized a replacement visual proof. This is not an art lock and does not authorize gameplay implementation.
+
+Later on 2026-08-20, the owner accepted the environment-only battlefield direction, the three-structure taxonomy and damage language, and recolorable ownership surfaces. After rejecting mixed art styles, bone/limb rigs, misassembled anatomy, undersized equipment, independently redrawn motion, and drifting frame roots, the owner approved the narrower combat-entity production method recorded in [`PRODUCTION_ART.md`](PRODUCTION_ART.md). That approval locked the method—not every candidate file or the complete roster—and authorized applying it to the remaining opening representatives. On 2026-08-21 the complete Phase 1A candidate was assembled under that method. The owner judged the integrated set ready except for Aegis Titan's nearly front-facing gait and punch; the current feature-branch package corrects both to canonical screen-right. Direct confirmation of that correction remains the Phase 1A gate and does not authorize a gameplay renderer, merge, deployment, tag, or release.
 
 ## Working rules
 
@@ -115,8 +117,8 @@ Mountain and ridge footprints block the navigation layer even when their artwork
 - Large entities receive larger footprints and may require wider routes.
 - Melee attackers reserve reachable contact positions; ranged attackers retain appropriate distance; overflow waits or selects another valid ring.
 - No group order, focused attack, rally completion, or spawn may intentionally send every entity to the same coordinate.
-- Authored combat-entity art has four core animation families: idle, move, attack or cast, and defeat. Acquire, wind-up, contact, recover, and hit feedback are bounded phases or cues inside those families rather than mandatory independent frame sequences.
-- The feasibility proof uses a controlled sprite or layered-vector master with stable anchors and directions. Independently generated AI frames are not accepted as a production animation pipeline because visual consistency and contact timing cannot be assumed.
+- Authored combat-entity art follows [`PRODUCTION_ART.md`](PRODUCTION_ART.md): one stable idle frame; four right-facing movement frames whose upper body, equipment, scale, and root remain invariant; six full-body attack/cast frames; and six full-body defeat frames. Left-facing playback is the exact horizontal X mirror of the canonical right-facing frames.
+- Every player-controlled entity and ownable structure has a separate player-color mask. Independently assembled limbs, runtime anatomy deformation, independently redrawn idle frames, and unrelated generated motion frames are not an acceptable production pipeline.
 - Simulation ticks own hit timing. Animation communicates the result without becoming authority.
 
 ## Player command contract
@@ -223,18 +225,27 @@ The eight published frames remain in the [reviewed mood-reference gallery](../co
 #### Phase 1A — Production-feasibility proof
 
 - [x] Owner approved the simplified production-feasibility brief on 2026-08-20; this authorizes reference creation only.
-- [x] The deployed `v2026.8.20a` proof shows one crowded battlefield in desktop and compact phone-landscape reference frames, including ordinary and minimum reads rather than poster-sized fighters.
-- [x] It shows two opening factions with three representative combat-entity roles each: one melee, one ranged, and one large or signature silhouette. This proves the method before expanding to all six permanent roles per faction.
-- [x] It shows exactly two faction-unique headquarters plus one shared Resource Point and one shared Production Outpost in neutral and owned states.
-- [x] It shows the map method with ground, non-blocking detail, navigation/blocker mask, anchors, dynamic ordering, and foreground-occlusion split so visual depth and walkability are not inferred from a painting.
-- [x] It shows one representative entity from each opening faction across idle, move, attack, and defeat poses with stable foot anchors and explicit contact timing.
-- [x] It demonstrates faction, role, player ownership, selection, and hostile target recognition through silhouette, geometric marks, borders, and patterns as well as color.
-- [x] `docs/ASSETS.md` records current proof dimensions and bytes plus the provisional master, atlas, directional, frame-count, 12 fps, encoded, decoded, provenance, license, and transformation envelope.
-- [x] The proof passed the protected publication path at merge commit `75ec47c2bca9ea325f5b9508c06d44f3eb1aff1c`; the live entry, stylesheet, and six proof images match merged source byte for byte.
+- [x] The first deployed proof at `v2026.8.20a` established practical scale and technical contracts but was superseded as an approval surface after the owner found its mixture of painted and geometric styles ambiguous.
+- [x] Local `v2026.8.21` replaces it with one cartoon-leaning painted 2D direction while keeping the environment plate, representative entities, player-color masks, and exactly two faction-unique headquarters plus one shared Resource Point and one shared Production Outpost as separate assets. Its rejected v5 entity motion remains evidence, not the approved animation specification.
+- [x] Desktop and compact phone-landscape frames show the same ordinary battlefield target without claiming that a rendered game or physical-device session exists.
+- [x] The Astral Guardian establishes the approved method: coherent baked full-body frames with oversized attached equipment, one stable idle frame, four lower-body-only movement frames, six action frames, six defeat frames, one canonical right facing, and an exact X-mirrored left facing.
+- [x] Apply that exact method to the Gravebound Reaver, Starbow, Hollow String, Aegis Titan, and Ossuary Colossus so both opening factions prove melee, ranged, and signature behavior.
+- [x] Player color is a separate mask on every player-controlled entity and ownable structure; cloth, shield fields, flags, crests, restrained trim, and ownership lights may recolor while faction body, armor, bone, weapon, and architectural identity stay fixed.
+- [x] Prove the six-player color-plus-symbol system across the completed opening entity and structure set; hue alone is never sufficient.
+- [x] The battlefield proof is an environment-only plate. Entities, headquarters, Resource Points, Production Outposts, flags, capture state, damage, selection, and interface remain separate runtime layers.
+- [x] The neutral shared Production Outpost shows one fixed structure at intact, scorched-and-burning, and collapsed health states; fire is reserved for damage rather than decoration on the healthy state.
+- [x] Map navigation, blocker, anchor, dynamic-order, and foreground-occlusion layers remain binding technical data contracts but are no longer presented as the visible art style.
+- [x] `docs/ASSETS.md` records exact candidate dimensions, bytes, provenance, transformations, scope, and provisional runtime envelopes.
+- [x] The local candidate remains covered by the integrated repository suite and an exact Pages allowlist without adding gameplay, runtime dependencies, tracking, or external requests.
+- [x] Inspect the direct master atlases, masks, animation rows, six-player ownership sheet, and separate desktop/phone compositions without creating another heavyweight HTML review surface.
+- [x] Replace Aegis Titan's rejected nearly front-facing gait and punch with one coherent canonical-right movement/action source while preserving its root, mask, identity, and accepted defeat behavior.
+- [ ] Complete product-owner review of the direct files, including actual-scale playback on the owner's device; automation and workspace inspection do not substitute for this observation.
+- [x] Record explicit owner approval of the baked directional-sprite and player-color method in [`PRODUCTION_ART.md`](PRODUCTION_ART.md).
+- [ ] Record explicit owner approval of the complete opening Phase 1A visual set now that all six required representatives use that method.
 
-These checks establish source coverage and deployed-byte availability only. Full proof-page rendered desktop/phone inspection, physical-device evidence, production-atlas measurement, and explicit owner approval remain open and can revise any visual choice.
+These checks establish an approved production method and a complete corrected feature-branch candidate. They do not establish the owner's direct confirmation of the corrected Aegis Titan, a final runtime atlas, the later full six-role-per-faction roster, gameplay renderer, physical-device quality, publication, tag, or release.
 
-Checkpoint: explicit owner approval that the visual method is readable and realistically producible. It authorizes completion of Phase 1B, not a gameplay renderer.
+Checkpoint: obtain direct owner confirmation of corrected Aegis Titan movement/action and then record complete Phase 1A approval. Method approval and passing automation do not authorize a gameplay renderer.
 
 #### Phase 1B — Complete visual and interaction lock
 

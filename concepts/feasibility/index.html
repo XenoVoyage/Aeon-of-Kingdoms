@@ -11,14 +11,14 @@
     >
     <meta
       name="description"
-      content="Review the Phase 1A production-feasibility proof for Aeon of Kingdoms at real RTS scale."
+      content="Inspect the superseded v5 Phase 1A review proof for Aeon of Kingdoms."
     >
-    <title>Phase 1A feasibility proof — Aeon of Kingdoms</title>
+    <title>Superseded Phase 1A proof — Aeon of Kingdoms</title>
     <link rel="stylesheet" href="../../css/status.css">
     <link rel="stylesheet" href="proof.css">
   </head>
   <body class="feasibility-page">
-    <a class="skip-link" href="#feasibility-proof">Skip to feasibility proof</a>
+    <a class="skip-link" href="#production-proof">Skip to the archived proof</a>
 
     <header class="site-header">
       <a class="wordmark" href="../../" aria-label="Back to Aeon of Kingdoms project status">
@@ -27,324 +27,266 @@
       </a>
       <p class="status-label">
         <span class="status-indicator" aria-hidden="true"></span>
-        Draft · Owner review needed
+        Phase 1A · Superseded v5 proof
       </p>
     </header>
 
-    <main id="feasibility-proof">
+    <main id="production-proof">
       <section class="proof-hero" aria-labelledby="proof-title">
         <div>
-          <p class="phase-label">Phase 1A · Production feasibility</p>
-          <h1 id="proof-title">Smaller. Clearer. Buildable.</h1>
+          <p class="phase-label">Phase 1A · Historical review record</p>
+          <h1 id="proof-title">Useful direction. Superseded motion.</h1>
           <p class="lead">
-            This replacement proof translates the approved mood into practical RTS scale. It tests
-            one crowded map, two factions with three representative roles each, exactly three
-            structure categories, an authored layer model, and four animation families before a
-            renderer or full roster is built.
+            The environment, structures, damage, and player-color boundaries informed the approved
+            direction. The v5 entity frames below do not define current facing, timing, roots, or animation.
           </p>
         </div>
-
-        <aside class="proof-boundary" aria-labelledby="proof-boundary-title">
-          <p class="section-label">Decision boundary</p>
-          <h2 id="proof-boundary-title">Approve the method, not final assets</h2>
+        <aside class="approval-boundary" aria-labelledby="approval-title">
+          <p class="section-label">Historical boundary</p>
+          <h2 id="approval-title">Do not approve this motion</h2>
           <p>
-            Generated paintings establish scale, silhouette, and faction language—not sprite-level
-            surface detail. Vector diagrams establish production rules. Neither is implemented
-            gameplay or a shipping sprite atlas.
+            The current method uses a right-facing canonical source, exact mirrored left facing,
+            one stable idle frame, four invariant-upper-body movement frames, and six action and defeat frames.
           </p>
-          <a href="#owner-decision">Go to owner decision <span aria-hidden="true">↓</span></a>
+          <a href="#decision">See the recorded outcome <span aria-hidden="true">↓</span></a>
         </aside>
       </section>
 
-      <nav class="proof-index" aria-label="Feasibility proof sections">
-        <a href="#scale"><span>01</span> Scale</a>
-        <a href="#entities"><span>02</span> Entities</a>
-        <a href="#structures"><span>03</span> Structures</a>
-        <a href="#map-layers"><span>04</span> Map layers</a>
-        <a href="#animation"><span>05</span> Animation</a>
+      <nav class="proof-index" aria-label="Production proof sections">
+        <a href="#battlefield"><span>01</span> Battlefield</a>
+        <a href="#assets"><span>02</span> Accepted inputs</a>
+        <a href="#direction"><span>03</span> Superseded direction</a>
+        <a href="#motion"><span>04</span> Superseded motion</a>
       </nav>
 
-      <section class="proof-section" id="scale" aria-labelledby="scale-title">
+      <section class="proof-section" id="battlefield" aria-labelledby="battlefield-title">
         <header class="proof-heading">
-          <p><span>01</span> Actual gameplay scale</p>
-          <h2 id="scale-title">The battlefield stays primary.</h2>
-          <div>
-            <p>
-              Ordinary fighters remain deliberately small. Formation, weapon profile, faction
-              massing, and compact ownership marks do the reading; faces and costume engraving do
-              not. Ridges divide routes without becoming a painted collision guess.
-            </p>
-            <p class="evidence-note">Visual target only · not a map layout balance claim</p>
-          </div>
+          <p><span>01</span> Battlefield</p>
+          <h2 id="battlefield-title">One world. One style.</h2>
+          <p>
+            This is the immutable environment plate only: hand-painted 2D terrain, hard mountain
+            routes, river, roads, open formation space, and no baked-in entity or structure.
+          </p>
         </header>
 
-        <figure class="battlefield-proof">
-          <div class="battlefield-stage">
+        <figure class="hero-art">
+          <a href="images/production-battlefield-environment-v4.webp">
             <img
-              src="images/battlefield-scale.webp"
+              src="images/production-battlefield-environment-v4.webp"
               width="1672"
               height="941"
-              alt="High three-quarter view of a dark blue fantasy RTS battlefield with two small spaced armies, two faction headquarters, a central Resource Point, a low Production Outpost, mountain and cliff blockers, and multiple routes."
+              alt="Environment-only stylized two-dimensional fantasy RTS battlefield viewed from high three-quarter perspective, with mountain blockers, a river, roads, and open formation areas but no entities, structures, flags, ownership marks, or interface."
               fetchpriority="high"
               decoding="async"
             >
-            <span class="owner-mark owner-mark-a" aria-hidden="true"><i>◆</i><b>1</b></span>
-            <span class="owner-mark owner-mark-b" aria-hidden="true"><i>×</i><b>2</b></span>
-            <span class="selection-ring" aria-hidden="true"></span>
-            <span class="target-bracket" aria-hidden="true"></span>
-          </div>
-          <figcaption>
-            <span>Desktop reference · 1672×941 source</span>
-            <span>Approx. 48 combat entities · 4 visible structures · no stacking</span>
-          </figcaption>
+            <span>Open full size <span aria-hidden="true">→</span></span>
+          </a>
+          <figcaption>Environment layer only · entities and all structures are placed separately at runtime</figcaption>
         </figure>
 
-        <div class="viewport-pair">
+        <div class="viewport-pair" aria-label="Desktop and phone-landscape scale comparison">
           <figure class="viewport-card">
-            <header><strong>Desktop ordinary zoom</strong><span>16:9 map view</span></header>
+            <div class="viewport-label"><strong>Desktop</strong><span>16:9 ordinary view</span></div>
             <div class="viewport-screen desktop-screen">
               <img
-                src="images/battlefield-scale.webp"
+                src="images/production-battlefield-environment-v4.webp"
                 width="1672"
                 height="941"
-                alt="The same battlefield reduced inside a desktop gameplay viewport to test ordinary entity and route readability."
+                alt="The environment-only battlefield fitted inside a desktop gameplay frame."
                 loading="lazy"
                 decoding="async"
               >
-              <span class="compact-hud" aria-hidden="true"><i>◇ 420</i><i>38 / 60</i></span>
             </div>
-            <figcaption>Reference layout: 1280×720 CSS pixels before device scaling.</figcaption>
           </figure>
-
-          <figure class="viewport-card phone-card">
-            <header><strong>Compact phone landscape</strong><span>camera crop, same art</span></header>
+          <figure class="viewport-card is-phone">
+            <div class="viewport-label"><strong>Phone landscape</strong><span>same art, smaller view</span></div>
             <div class="viewport-screen phone-screen">
               <img
-                src="images/battlefield-scale.webp"
+                src="images/production-battlefield-environment-v4.webp"
                 width="1672"
                 height="941"
-                alt="Central battlefield crop inside a compact phone-landscape viewport with minimal edge controls and most of the display reserved for the map."
+                alt="The same environment-only battlefield fitted inside a compact landscape-phone gameplay frame."
                 loading="lazy"
                 decoding="async"
               >
-              <span class="compact-hud" aria-hidden="true"><i>◇ 420</i><i>38 / 60</i></span>
-              <span class="touch-strip" aria-hidden="true"><i>SELECT</i><i>MOVE</i><i>ATTACK</i></span>
             </div>
-            <figcaption>Reference layout: 932×430 CSS pixels, browser chrome excluded.</figcaption>
           </figure>
         </div>
       </section>
 
-      <section class="proof-section" id="entities" aria-labelledby="entities-title">
+      <section class="proof-section" id="assets" aria-labelledby="assets-title">
         <header class="proof-heading">
-          <p><span>02</span> Entity method</p>
-          <h2 id="entities-title">Three silhouettes prove the roster method.</h2>
-          <div>
-            <p>
-              The full six-role factions wait for Phase 1B. Here, melee, ranged, and signature
-              bodies test the expensive part first: shape, production detail, ownership, and the
-              ability to survive ordinary and minimum zoom.
-            </p>
-            <p class="evidence-note">Faction names are public; role names remain internal contracts</p>
-          </div>
+          <p><span>02</span> Accepted input language</p>
+          <h2 id="assets-title">Large equipment. Clear identity.</h2>
+          <p>
+            The Guardian reads through shield, diamond, helmet, and mass. The Reaver reads through
+            bone mask, oversized crescent blade, posture, and negative space. Player color changes
+            only the marked fabric and identity accents—not anatomy, equipment, or body materials.
+          </p>
         </header>
 
-        <div class="faction-grid">
-          <article class="faction-proof astral-proof">
-            <header>
-              <p>Opening faction A</p>
-              <h3>Astral Concord</h3>
-              <span class="faction-mark"><i aria-hidden="true">◆</i> Diamond owner mark</span>
-            </header>
-            <div class="lineup-stage">
+        <div class="asset-grid single-asset-grid">
+          <figure class="asset-card structure-card">
+            <a href="images/structure-atlas-v2.webp">
               <img
-                src="images/astral-roles.webp"
-                width="1672"
-                height="941"
-                alt="Three simplified Astral Concord entities in a high three-quarter view: a shield-and-sword guardian, a long-bow scout, and a large crystal sentinel."
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <ol class="role-labels">
-              <li><span>MELEE</span><strong>Dawn Guard</strong></li>
-              <li><span>RANGED</span><strong>Starbow</strong></li>
-              <li><span>SIGNATURE</span><strong>Aegis Titan</strong></li>
-            </ol>
-            <div class="miniature-check">
-              <div>
-                <span>Ordinary zoom</span>
-                <img src="images/astral-roles.webp" width="1672" height="941" alt="Astral lineup reduced to ordinary gameplay size." loading="lazy" decoding="async">
-              </div>
-              <div class="silhouette-check">
-                <span>Minimum silhouette</span>
-                <img src="images/astral-roles.webp" width="1672" height="941" alt="Astral lineup reduced and converted to silhouette to test role recognition without surface color." loading="lazy" decoding="async">
-              </div>
-            </div>
-          </article>
-
-          <article class="faction-proof grave-proof">
-            <header>
-              <p>Opening faction B</p>
-              <h3>Gravebound Court</h3>
-              <span class="faction-mark"><i aria-hidden="true">×</i> Crossed owner mark</span>
-            </header>
-            <div class="lineup-stage">
-              <img
-                src="images/gravebound-roles.webp"
+                src="images/structure-atlas-v2.webp"
                 width="1536"
                 height="1024"
-                alt="Three simplified Gravebound Court entities in a high three-quarter view: a hooked-blade reaver, a hooded bone archer, and a large rib-shield colossus."
+                alt="Painted structure set showing an Astral headquarters, Gravebound headquarters, shared circular Resource Point, and shared rectangular Production Outpost in the same style as the battlefield."
                 loading="lazy"
                 decoding="async"
               >
-            </div>
-            <ol class="role-labels">
-              <li><span>MELEE</span><strong>Grave Reaver</strong></li>
-              <li><span>RANGED</span><strong>Hollow String</strong></li>
-              <li><span>SIGNATURE</span><strong>Ossuary Colossus</strong></li>
-            </ol>
-            <div class="miniature-check">
-              <div>
-                <span>Ordinary zoom</span>
-                <img src="images/gravebound-roles.webp" width="1536" height="1024" alt="Gravebound lineup reduced to ordinary gameplay size." loading="lazy" decoding="async">
-              </div>
-              <div class="silhouette-check">
-                <span>Minimum silhouette</span>
-                <img src="images/gravebound-roles.webp" width="1536" height="1024" alt="Gravebound lineup reduced and converted to silhouette to test role recognition without surface color." loading="lazy" decoding="async">
-              </div>
-            </div>
-          </article>
+              <span>Open structure set <span aria-hidden="true">→</span></span>
+            </a>
+            <figcaption>
+              <strong>Exactly three structure categories</strong>
+              <span>Two HQ forms · one Resource Point · one Production Outpost</span>
+            </figcaption>
+          </figure>
         </div>
 
-        <div class="cue-strip" aria-label="Non-color-only state cues">
-          <p>State cues do not rely on hue:</p>
-          <span class="cue is-owned-a"><i aria-hidden="true">◆</i> Player 1</span>
-          <span class="cue is-owned-b"><i aria-hidden="true">×</i> Player 2</span>
-          <span class="cue is-selected"><i aria-hidden="true">◎</i> Selected</span>
-          <span class="cue is-targeted"><i aria-hidden="true">⌁</i> Focus target</span>
-        </div>
-      </section>
+        <figure class="hero-art">
+          <a href="images/entity-team-color-v4.webp">
+            <img
+              src="images/entity-team-color-v4.webp"
+              width="1800"
+              height="900"
+              alt="Exact neutral reconstructions of the Astral Guardian and Gravebound Reaver beside coral and emerald player-color variants where fabric and small identity accents change but armor, bone, and body materials stay fixed."
+              loading="lazy"
+              decoding="async"
+            >
+            <span>Open player-color proof <span aria-hidden="true">→</span></span>
+          </a>
+          <figcaption>Separate player-color mask · fabric and identity accents change · body materials stay fixed</figcaption>
+        </figure>
 
-      <section class="proof-section" id="structures" aria-labelledby="structures-title">
-        <header class="proof-heading">
-          <p><span>03</span> Structure taxonomy</p>
-          <h2 id="structures-title">Only headquarters change form.</h2>
-          <div>
-            <p>
-              Resource Points and Production Outposts keep one shared world silhouette. Capture
-              changes flag, geometric mark, edge treatment, and directional pattern—not the model
-              or the category.
-            </p>
-            <p class="evidence-note">Exactly three categories · no disguised fourth structure</p>
-          </div>
-        </header>
-        <figure class="diagram-frame">
-          <img
-            src="images/structure-states.svg"
-            width="1600"
-            height="1020"
-            alt="Diagram showing two faction-unique headquarters and shared Resource Point and Production Outpost forms in neutral, Astral, and Gravebound ownership states using marks and patterns as well as color."
-            loading="lazy"
-            decoding="async"
-          >
-          <figcaption>Deterministic vector diagram · ownership overlays remain separate from base structure art.</figcaption>
+        <figure class="hero-art damage-art">
+          <a href="images/structure-damage-v3.webp">
+            <img
+              src="images/structure-damage-v3.webp"
+              width="1800"
+              height="638"
+              alt="The same neutral shared Production Outpost at full health, low health with dark scorch shading and two small fires, and zero health as a compact collapsed ruin."
+              loading="lazy"
+              decoding="async"
+            >
+            <span>Open damage progression <span aria-hidden="true">→</span></span>
+          </a>
+          <figcaption>Shared Production Outpost · intact → scorched and burning → collapsed ruin</figcaption>
         </figure>
       </section>
 
-      <section class="proof-section" id="map-layers" aria-labelledby="map-layers-title">
+      <section class="proof-section" id="direction" aria-labelledby="direction-title">
         <header class="proof-heading">
-          <p><span>04</span> Map and occlusion</p>
-          <h2 id="map-layers-title">Depth is authored, not simulated.</h2>
-          <div>
-            <p>
-              The same map excerpt separates quiet ground, decoration, navigation, anchors,
-              dynamic depth order, and foreground art. A ridge can hide part of an entity without
-              making its painted pixels authoritative.
-            </p>
-            <p class="evidence-note">Invisible grid or mask owns walkability · no height engine</p>
-          </div>
+          <p><span>03</span> Superseded baked-direction proof</p>
+          <h2 id="direction-title">No limb rig—but the facing rule changed.</h2>
+          <p>
+            Each visible key pose is a complete, visually audited body with its large weapon and
+            shield already attached. The v5 authored sequence faces left; the right-facing sequence is
+            its exact horizontal mirror. Production now authors right and mirrors left.
+          </p>
         </header>
-        <figure class="diagram-frame">
-          <img
-            src="images/map-layers.svg"
-            width="1600"
-            height="1040"
-            alt="Six-panel map-authoring diagram separating ground, nonblocking detail, navigation blockers, anchors, dynamic entity order, and foreground occlusion with a selected entity outline."
-            loading="lazy"
-            decoding="async"
-          >
-          <figcaption>One local map definition owns every layer, including camera and blocker anchors.</figcaption>
+
+        <figure class="hero-art">
+          <a href="images/entity-directional-method-v5.webp">
+            <img
+              src="images/entity-directional-method-v5.webp"
+              width="1800"
+              height="1080"
+              alt="Complete Astral Guardian and Gravebound Reaver base and strike poses facing left beside their exact horizontally mirrored right-facing versions, with oversized readable weapons and coherent anatomy."
+              loading="lazy"
+              decoding="async"
+            >
+            <span>Open directional method <span aria-hidden="true">→</span></span>
+          </a>
+          <figcaption>Complete baked poses · exact X mirror · large equipment · stable ground contact</figcaption>
         </figure>
-      </section>
 
-      <section class="proof-section" id="animation" aria-labelledby="animation-title">
-        <header class="proof-heading">
-          <p><span>05</span> Animation feasibility</p>
-          <h2 id="animation-title">Four families, one contact truth.</h2>
-          <div>
-            <p>
-              Idle, move, attack or cast, and defeat are enough for the first playable slice.
-              Wind-up, contact, and recover live inside attack. Every pose retains the same ground
-              anchor, while the simulation tick—not the picture—decides when a hit happens.
-            </p>
-            <p class="evidence-note">Pose method only · generated frames are not a shipping animation sequence</p>
-          </div>
-        </header>
-        <figure class="diagram-frame">
-          <img
-            src="images/animation-proof.svg"
-            width="1600"
-            height="980"
-            alt="Two-row animation pose board showing Astral and Gravebound representatives in idle, move, attack, and defeat states with stable foot anchors and a marked attack contact point."
-            loading="lazy"
-            decoding="async"
-          >
-          <figcaption>Controlled vector pose board · final atlas method remains a Phase 1B decision.</figcaption>
-        </figure>
-      </section>
-
-      <section class="pipeline" aria-labelledby="pipeline-title">
-        <p class="section-label">Proposed production boundary</p>
-        <h2 id="pipeline-title">The browser receives small 2D atlases, not an art toolchain.</h2>
-        <dl>
-          <div><dt>Current proof</dt><dd>Three optimized WebP targets plus three deterministic SVG diagrams</dd></div>
-          <div><dt>Candidate master</dt><dd>One low-detail rigged tactical miniature rendered offline to 2D; controlled layered vector remains the fallback</dd></div>
-          <div><dt>Runtime output</dt><dd>Local transparent WebP atlases and small metadata; no runtime art dependency or external request</dd></div>
-          <div><dt>Directions</dt><dd>Four authored directions, with no mirroring by default; Phase 1B may allow only semantically safe exceptions</dd></div>
-          <div><dt>Motion</dt><dd>Idle 4 · move 6 · attack/cast 8 · defeat 6 at 12 fps: 96 frames per entity across four directions</dd></div>
-          <div><dt>Atlas target</dt><dd>Ordinary 72×72 in 864×576 · signature 96×96 in 1152×768, both with stable anchors</dd></div>
-          <div><dt>Budget target</dt><dd>≤256 KiB ordinary · ≤384 KiB signature · ≤3.25 MiB encoded and ≤26 MiB decoded for the two-faction opening roster</dd></div>
-          <div><dt>Validation</dt><dd>All numbers remain provisional until one representative Phase 1B atlas is measured on desktop and phone</dd></div>
-          <div><dt>Authority</dt><dd>Simulation ticks own movement, contact, damage, defeat, and networking state</dd></div>
-        </dl>
-      </section>
-
-      <section class="owner-decision" id="owner-decision" aria-labelledby="owner-decision-title">
-        <p class="section-label">Owner decision required</p>
-        <h2 id="owner-decision-title">Approve, revise, or reject this method.</h2>
-        <p>
-          Approval closes Phase 1A only. It authorizes the complete Phase 1B visual and interaction
-          lock; it does not authorize gameplay implementation, a final sprite atlas, multiplayer,
-          a tag, or a release.
+        <p class="rig-note">
+          <strong>Invariant:</strong> the browser never rotates or substitutes an arm, leg, weapon,
+          or shield. Player color is a separate mask, and simulation contact remains independent of
+          the visible animation frame.
         </p>
+      </section>
+
+      <section class="proof-section" id="motion" aria-labelledby="motion-title">
+        <header class="proof-heading">
+          <p><span>04</span> Superseded v5 motion</p>
+          <h2 id="motion-title">The state names survived. This timing did not.</h2>
+          <p>
+            Idle, move, attack, and defeat remain the four families, but equal six-frame timing and
+            whole-sprite transforms caused visible drift and unnatural movement. These files are
+            preserved for audit, not replication.
+          </p>
+        </header>
+
+        <div class="asset-grid motion-proof-grid">
+          <figure class="asset-card">
+            <a href="images/astral-baked-motion-v5.webp">
+              <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcset="images/astral-baked-motion-static-v5.webp">
+                <img
+                  src="images/astral-baked-motion-v5.webp"
+                  width="1800"
+                  height="1000"
+                  alt="Animated six-frame Astral Guardian baked-sprite proof showing idle, walking, a large-sword attack, and non-gory defeat in exact left- and right-facing rows."
+                  loading="lazy"
+                  decoding="async"
+                >
+              </picture>
+              <span>Open Astral motion <span aria-hidden="true">→</span></span>
+            </a>
+            <figcaption><strong>Astral Guardian</strong><span>idle · move · attack · defeat</span></figcaption>
+          </figure>
+
+          <figure class="asset-card">
+            <a href="images/gravebound-baked-motion-v5.webp">
+              <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcset="images/gravebound-baked-motion-static-v5.webp">
+                <img
+                  src="images/gravebound-baked-motion-v5.webp"
+                  width="1800"
+                  height="1000"
+                  alt="Animated six-frame Gravebound Reaver baked-sprite proof showing idle, walking, an oversized-scythe attack, and non-gory defeat in exact left- and right-facing rows."
+                  loading="lazy"
+                  decoding="async"
+                >
+              </picture>
+              <span>Open Gravebound motion <span aria-hidden="true">→</span></span>
+            </a>
+            <figcaption><strong>Gravebound Reaver</strong><span>idle · move · attack · defeat</span></figcaption>
+          </figure>
+        </div>
+
+        <p class="motion-note">
+          Historical scope: one authored left-facing sequence, one exact mirrored right-facing
+          sequence, and six timing frames per family. Current scope: right-authored, left-mirrored,
+          idle 1, move 4, action 6, defeat 6. Simulation ticks—not animation frames—remain authoritative.
+        </p>
+        <div class="decision-links" aria-label="Frame-by-frame motion audits">
+          <a href="images/astral-baked-motion-audit-v5.webp">Inspect all Astral frames</a>
+          <a href="images/gravebound-baked-motion-audit-v5.webp">Inspect all Gravebound frames</a>
+        </div>
+      </section>
+
+      <section class="owner-decision" id="decision" aria-labelledby="decision-title">
+        <p class="section-label">Recorded owner decision</p>
+        <h2 id="decision-title">Keep the useful layers. Replace the motion.</h2>
         <ol>
-          <li><span>01</span><strong>Scale:</strong> small entities and crowded formations remain readable.</li>
-          <li><span>02</span><strong>Style:</strong> the simplified tactical miniatures preserve enough identity.</li>
-          <li><span>03</span><strong>Structures:</strong> two unique HQs plus two shared capturable forms are correct.</li>
-          <li><span>04</span><strong>Map:</strong> layered blockers and foreground occlusion are understandable.</li>
-          <li><span>05</span><strong>Motion:</strong> four animation families and stable anchors are sufficient.</li>
-          <li><span>06</span><strong>Cues:</strong> ownership, selection, and targeting read without color alone.</li>
+          <li><span>01</span> Accepted: environment-only battlefield and runtime placement</li>
+          <li><span>02</span> Accepted: player-color boundary and oversized readable equipment</li>
+          <li><span>03</span> Accepted: structure language and health-state damage progression</li>
+          <li><span>04</span> Superseded: v5 facing, equal frame counts, roots, and motion</li>
         </ol>
         <div class="decision-links">
-          <a class="primary-link" href="../">Compare the mood references <span aria-hidden="true">→</span></a>
+          <a class="primary-link" href="../">Compare the mood archive <span aria-hidden="true">→</span></a>
           <a href="../../">Back to project status</a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Phase 1A draft · Not approved · No gameplay · No tracking</p>
+      <p>Phase 1A v5 proof · Superseded · No gameplay · No tracking</p>
     </footer>
   </body>
 </html>

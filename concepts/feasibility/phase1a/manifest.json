@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "phase": "1A",
+  "status": "complete-candidate-aegis-corrected-awaiting-final-owner-confirmation",
+  "published": false,
+  "gameplay": false,
+  "candidateBranch": "agent/phase1a-unified-production-proof",
+  "ownerReview": {
+    "productionMethod": "approved-2026-08-20",
+    "integratedSet": "conditionally-accepted-except-aegis-direction",
+    "aegisDirectionCorrection": "implemented-awaiting-direct-confirmation"
+  },
+  "review": {
+    "openingEntities": "review/opening-entities.webp",
+    "ownership": "review/six-player-ownership.webp",
+    "desktopBattlefield": "review/battlefield-desktop.webp",
+    "phoneBattlefield": "review/battlefield-phone.webp",
+    "atlasAudit": "review/entity-atlas-audit.jpg"
+  },
+  "environment": {
+    "source": "environment/battlefield-environment.webp",
+    "environmentOnly": true
+  },
+  "entityProfile": {
+    "cell": [384, 384],
+    "groundAnchor": [192, 354],
+    "canonicalFacing": "right",
+    "mirrorFacing": "left",
+    "animations": {
+      "idle": { "frames": 1, "fps": 1, "loop": true },
+      "move": { "frames": 4, "fps": 8, "loop": true },
+      "attack": { "frames": 6, "fps": 12, "loop": false },
+      "defeat": { "frames": 6, "fps": 10, "loop": false }
+    }
+  },
+  "entities": [
+    { "id": "astral-guardian", "faction": "astral-concord", "role": "melee" },
+    { "id": "starbow", "faction": "astral-concord", "role": "ranged" },
+    { "id": "aegis-titan", "faction": "astral-concord", "role": "signature" },
+    { "id": "gravebound-reaver", "faction": "gravebound-court", "role": "melee" },
+    { "id": "hollow-string", "faction": "gravebound-court", "role": "ranged" },
+    { "id": "ossuary-colossus", "faction": "gravebound-court", "role": "signature" }
+  ],
+  "structures": [
+    { "id": "astral-headquarters", "category": "headquarters", "architecture": "astral-concord", "base": "structures/astral-headquarters.png", "playerMask": "structures/astral-headquarters-player-mask.png" },
+    { "id": "gravebound-headquarters", "category": "headquarters", "architecture": "gravebound-court", "base": "structures/gravebound-headquarters.png", "playerMask": "structures/gravebound-headquarters-player-mask.png" },
+    { "id": "resource-point", "category": "resource-point", "architecture": "shared-neutral", "base": "structures/resource-point.png", "playerMask": "structures/resource-point-player-mask.png" },
+    { "id": "production-outpost", "category": "production-outpost", "architecture": "shared-neutral", "base": "structures/production-outpost.png", "playerMask": "structures/production-outpost-player-mask.png", "damageProof": "structures/production-outpost-damage.webp" }
+  ],
+  "players": [
+    { "id": 1, "name": "Azure", "rgb": [47, 169, 255], "symbol": "diamond" },
+    { "id": 2, "name": "Violet", "rgb": [165, 92, 255], "symbol": "cross" },
+    { "id": 3, "name": "Coral", "rgb": [229, 83, 74], "symbol": "triangle" },
+    { "id": 4, "name": "Emerald", "rgb": [38, 190, 124], "symbol": "circle" },
+    { "id": 5, "name": "Amber", "rgb": [236, 169, 47], "symbol": "bars" },
+    { "id": 6, "name": "Magenta", "rgb": [222, 78, 174], "symbol": "chevron" }
+  ]
+}

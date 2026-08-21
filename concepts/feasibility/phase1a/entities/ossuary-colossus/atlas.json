@@ -1,0 +1,298 @@
+{
+  "cell": [
+    384,
+    384
+  ],
+  "canonicalFacing": "right",
+  "mirrorFacing": "left",
+  "groundAnchor": [
+    192,
+    354
+  ],
+  "animations": {
+    "idle": {
+      "row": 0,
+      "frames": 1,
+      "sourceFrames": [
+        0
+      ],
+      "fps": 1,
+      "loop": true,
+      "stabilization": "none",
+      "validation": [
+        {
+          "frame": 0,
+          "bounds": [
+            79,
+            134,
+            283,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        }
+      ]
+    },
+    "move": {
+      "row": 1,
+      "frames": 4,
+      "sourceFrames": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fps": 8,
+      "loop": true,
+      "stabilization": "x",
+      "validation": [
+        {
+          "frame": 0,
+          "bounds": [
+            79,
+            134,
+            283,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 1,
+          "bounds": [
+            79,
+            134,
+            285,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            79,
+            134,
+            283,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            79,
+            134,
+            312,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        }
+      ]
+    },
+    "attack": {
+      "row": 2,
+      "frames": 6,
+      "sourceFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "fps": 12,
+      "loop": false,
+      "stabilization": "none",
+      "validation": [
+        {
+          "frame": 0,
+          "bounds": [
+            83,
+            133,
+            291,
+            353
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 1,
+          "bounds": [
+            98,
+            142,
+            300,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            85,
+            144,
+            288,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            90,
+            149,
+            319,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 4,
+          "bounds": [
+            99,
+            152,
+            336,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 5,
+          "bounds": [
+            82,
+            136,
+            290,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        }
+      ]
+    },
+    "defeat": {
+      "row": 3,
+      "frames": 6,
+      "sourceFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "fps": 10,
+      "loop": false,
+      "stabilization": "none",
+      "validation": [
+        {
+          "frame": 0,
+          "bounds": [
+            90,
+            133,
+            288,
+            353
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 1,
+          "bounds": [
+            53,
+            135,
+            259,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            87,
+            172,
+            292,
+            353
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            73,
+            187,
+            298,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 4,
+          "bounds": [
+            49,
+            227,
+            296,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        },
+        {
+          "frame": 5,
+          "bounds": [
+            71,
+            260,
+            326,
+            354
+          ],
+          "root": [
+            192,
+            354
+          ]
+        }
+      ]
+    }
+  },
+  "entity": "ossuary-colossus",
+  "playerColorSource": "violet"
+}

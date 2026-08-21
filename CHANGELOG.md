@@ -2,6 +2,37 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.21] — 2026-08-21 (complete Phase 1A feature-branch candidate; unpublished)
+
+### Changed
+
+- Replaced the visually mixed Phase 1A proof with one cartoon-leaning painted 2D language while separating the immutable environment, runtime structures, entities, player-color layer, and directional animation frames.
+- Replaced geometric entity and structure drawings with visible-result artwork; the map-layer contract remains documentation rather than a proposed game appearance.
+- Replaced the rejected limb rig and incorrect bone overlay with coherent baked full-body base, stride, and strike poses; runtime selects state and facing without deforming anatomy.
+- Enlarged the Guardian sword and shield and the Reaver scythe so equipment remains the primary gameplay-scale silhouette cue.
+- Recorded the owner's rejection of the v5 equal-six-frame timing, left-authored facing, whole-sprite idle/move transforms, and unstable roots; those files remain superseded evidence rather than a production template.
+- Added the approved production-art contract: canonical right-facing frames with an exact mirrored left facing, one stable idle frame, four lower-body gait frames with invariant upper body and equipment, six-frame action and defeat sequences, shared roots, and direct playback review.
+- Added a separate fabric-and-accent mask with default, coral, and emerald ownership proofs while preserving faction materials.
+- Required frame-aligned player-color masks for every player-controlled entity and ownable structure, plus non-color ownership cues for up to six players.
+- Removed every baked-in entity, headquarters, outpost, capture point, flag, and ownership mark from the battlefield plate; runtime layers will place them later.
+- Added intact, scorched-and-burning, and collapsed states for the shared Production Outpost; the healthy state no longer uses decorative fire that could conflict with damage feedback.
+- Reclassified the local review page and v5 motion assets as a script-free superseded proof record; new entity review uses direct exported images and playback.
+- Added a cold-start regression check so contributor instructions, the roadmap, asset inventory, and canonical production-art contract cannot silently diverge.
+- Applied the approved method consistently to six opening representatives: Astral Guardian, Starbow, Aegis Titan, Gravebound Reaver, Hollow String, and Ossuary Colossus.
+- Added one atlas, aligned player-color mask, machine-readable metadata file, four actual-scale state previews, and a color-boundary proof for every representative.
+- Made idle and movement frame zero byte-identical, locked every movement upper body above the approved gait cutoff, and recorded action/defeat as non-looping states.
+- Added neutral shared structure bases, faction-specific headquarters, narrowed ownership masks that exclude cool masonry shadows, a six-player color-plus-symbol proof, and separate desktop/phone battlefield compositions.
+- Added a direct-file Phase 1A review package and machine-readable manifest without creating another heavyweight HTML review surface.
+- Rebuilt Aegis Titan movement and action so head, torso, hips, knees, feet, and punch consistently face canonical screen-right before exact mirroring; its accepted defeat and player-color behavior remain intact.
+- Added a memoryless cold-start handoff, reconstructed decision record, and copy-ready new-chat prompt so the project no longer depends on conversation history.
+- Verified the current working tree with 72/72 integrated checks, including exact atlas, mask, frame, anchor, payload, structure, and viewport checks. The unchanged Pages candidate still stages an exact 31-file allowlist plus `.nojekyll`; neither result substitutes for owner approval.
+
+### Boundaries
+
+- The production method is owner-approved and the corrected Phase 1A visual candidate is assembled; direct owner confirmation of corrected Aegis Titan movement/action, merge, publication, tag, and GitHub Release are not claimed.
+- The six representatives prove melee, ranged, and signature production behavior for each opening faction. They do not expand the later permanent role roster or establish final runtime atlas dimensions.
+- No gameplay, simulation, AI, networking, dependency, analytics, or external runtime request is added.
+
 ## [v2026.8.20a] — 2026-08-20 (deployed feasibility-review build; untagged)
 
 ### Added
