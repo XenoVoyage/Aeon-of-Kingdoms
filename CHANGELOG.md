@@ -21,7 +21,9 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 ### Evidence and boundaries
 
 - The frozen source passes 4/4 Phase 1A asset checks, 18/18 combined Phase 1B/Phase 2 focused checks, 90/90 integrated checks, exact staging of 72 allowlisted files plus `.nojekyll`, and `git diff --check`.
-- Rendered desktop/tablet/phone/aspect/portrait evidence, protected merge, deployment, and live review remain pending and must not be inferred from source automation.
+- Protected pull request `#16` squash-merged as `d17e8c9b4cc00a4beebf03aea443fd514197d608`; pull-request audit `32526124805`, main audit `32526203611`, and Pages `32526203607` completed successfully.
+- Eleven sampled deployed files matched source byte for byte. Cloud Chrome at 1363×936 rendered the unchanged menu, six-layer battlefield, repaired Astral samples, camera controls, navigation debug, pause/resume, and menu recovery without horizontal overflow or a page-origin warning/error.
+- Compact/tablet/phone/aspect/portrait live reflow, 200% zoom, exact browser version, broad browsers, physical devices, subjective camera feel, and explicit Phase 2 owner approval remain pending.
 - The Phase 1B approval does not convert the four browser samples into shipping atlases. The Phase 2 surface does not add combat entities, selection, pathfinding, movement, economy, capture, production, combat, AI, networking, a fourth structure category, or a replacement release.
 - The approved main-menu direction remains unchanged. The retired `v2026.8.15` tag and GitHub Release remain absent and must not be recreated.
 - `v2026.8.21c` is a source-candidate label only. No tag or GitHub Release is created or authorized by this change.
