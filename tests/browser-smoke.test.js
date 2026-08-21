@@ -18,16 +18,22 @@ test("public shell truthfully presents the phased redesign", () => {
     /name=["']viewport["']/i,
     /id=["']main-content["']/i,
     /id=["']page-title["']/i,
-    /Phase 1A · Complete/i,
+    /Phase 1B · Planning active/i,
     /Redesign in progress/i,
-    /production-art method is approved/i,
-    /All\s+six opening representatives now prove that same standard/i,
-    /owner approved the\s+complete integrated set/i,
+    /Phase 1A is complete and approved/i,
+    /six-entity, non-playable production-art review is\s+ready for direct inspection/i,
+    /Inspect the approved Phase 1A art/i,
+    /implementation has not started/i,
     /No gameplay yet/i,
-    /Status build v2026\.8\.21/i
+    /Status build v2026\.8\.21a/i
   ]) assert.match(html, pattern);
 
-  assert.doesNotMatch(html, /aria-current=["']step["']/i, "no not-yet-started product phase may be marked current");
+  const phaseItems = html.match(/<li class=["']phase-item["'][^>]*>[\s\S]*?<\/li>/gi) ?? [];
+  const currentPhaseItems = phaseItems.filter((item) => /aria-current=["']step["']/i.test(item));
+  assert.equal((html.match(/aria-current=["']step["']/gi) ?? []).length, 1, "exactly one current step is required");
+  assert.equal(currentPhaseItems.length, 1, "aria-current must belong to one phase-list item");
+  assert.match(currentPhaseItems[0], /<span class=["']phase-number["']>01B<\/span>/i);
+  assert.match(currentPhaseItems[0], /Planning · implementation not started/i);
 
   assert.match(html, /href=["']https:\/\/github\.com\/XenoVoyage\/Aeon-of-Kingdoms["']/i);
   assert.match(html, /href=["']concepts\/["']/i);
@@ -74,7 +80,7 @@ test("status styles include compact layouts, visible focus, and reduced motion",
 test("service worker replaces old game caches with only the status shell", () => {
   const worker = read("sw.js");
   const registration = read("js/status.js");
-  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.21/);
+  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.21a/);
   assert.match(worker, /cache: "reload"/, "install requests must bypass a fresh HTTP-cached prototype shell");
   assert.match(worker, /cache\.put\(request, response\)/);
   assert.doesNotMatch(worker, /cache\.addAll\(/);
@@ -106,7 +112,7 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   };
   const caches = {
     open(name) {
-      assert.equal(name, "aok-shell-v2026.8.21");
+      assert.equal(name, "aok-shell-v2026.8.21a");
       return Promise.resolve(cache);
     },
     keys() {
@@ -193,7 +199,8 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
 });
 
 test("Pages staging contains status and source-of-truth links but no rejected game runtime", () => {
-  assert.deepEqual(staging.verifyRuntimeFiles(), [
+  const files = staging.verifyRuntimeFiles();
+  assert.deepEqual(files.slice(0, 16), [
     "index.html",
     "sw.js",
     "css/status.css",
@@ -209,23 +216,12 @@ test("Pages staging contains status and source-of-truth links but no rejected ga
     "concepts/images/mobile-landscape.webp",
     "concepts/images/production-rally.webp",
     "concepts/feasibility/index.html",
-    "concepts/feasibility/proof.css",
-    "concepts/feasibility/images/production-battlefield-environment-v4.webp",
-    "concepts/feasibility/images/structure-atlas-v2.webp",
-    "concepts/feasibility/images/entity-team-color-v4.webp",
-    "concepts/feasibility/images/structure-damage-v3.webp",
-    "concepts/feasibility/images/entity-directional-method-v5.webp",
-    "concepts/feasibility/images/astral-baked-motion-v5.webp",
-    "concepts/feasibility/images/gravebound-baked-motion-v5.webp",
-    "concepts/feasibility/images/astral-baked-motion-static-v5.webp",
-    "concepts/feasibility/images/gravebound-baked-motion-static-v5.webp",
-    "concepts/feasibility/images/astral-baked-motion-audit-v5.webp",
-    "concepts/feasibility/images/gravebound-baked-motion-audit-v5.webp",
-    "docs/REDESIGN.md",
-    "docs/PRODUCTION_ART.md",
-    "docs/STATUS.md",
-    "docs/ASSETS.md"
+    "concepts/feasibility/proof.css"
   ]);
+  assert.equal(files.length, 57);
+  assert.equal(files.filter((entry) => /concepts\/feasibility\/phase1a\//.test(entry)).length, 37);
+  assert.deepEqual(files.slice(-4), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/STATUS.md", "docs/ASSETS.md"]);
+  assert.doesNotMatch(files.join("\n"), /concepts\/feasibility\/images\//i);
   for (const relativePath of staging.RUNTIME_FILES) {
     assert.doesNotMatch(relativePath, /^(?:manifest\.webmanifest|icons\/|css\/(?:tokens|app)\.css|js\/(?:config|core|simulation|ai|render|input|game)\.js|docs\/assets\/)/);
   }

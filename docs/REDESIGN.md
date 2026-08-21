@@ -1,6 +1,6 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 complete; Phase 1A approved and closed on 2026-08-21; Phase 1B is next and has not started**.
+Status: **approved baseline; Phase 0 complete; Phase 1A approved and closed on 2026-08-21; Phase 1B planning is active, with implementation not started**.
 
 This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. It does not claim that any redesigned feature is currently implemented.
 
@@ -12,7 +12,7 @@ The product owner approved Phase 0 and this roadmap baseline on 2026-08-15 and a
 
 On 2026-08-20, the product owner reviewed the eight published Phase 1 references. Their battlefield composition, faction contrast, combat language, and restrained interface were accepted as useful mood direction, but their literal realism and entity detail were rejected as the production target because they would not honestly prove small-screen readability, crowded-battle clarity, animation consistency, or a sustainable six-faction asset budget. The owner approved the production-feasibility brief below and authorized a replacement visual proof. This is not an art lock and does not authorize gameplay implementation.
 
-Later on 2026-08-20, the owner accepted the environment-only battlefield direction, the three-structure taxonomy and damage language, and recolorable ownership surfaces. After rejecting mixed art styles, bone/limb rigs, misassembled anatomy, undersized equipment, independently redrawn motion, and drifting frame roots, the owner approved the narrower combat-entity production method recorded in [`PRODUCTION_ART.md`](PRODUCTION_ART.md). That approval locked the method—not every candidate file or the complete roster—and authorized applying it to the remaining opening representatives. On 2026-08-21 the complete Phase 1A candidate was assembled under that method. The owner judged the integrated set ready except for Aegis Titan's nearly front-facing gait and punch; the feature-branch package corrected both to canonical screen-right. After direct review, the owner approved the corrected Aegis Titan and complete integrated set on 2026-08-21, closing Phase 1A. This does not authorize a gameplay renderer, merge, deployment, tag, or release.
+Later on 2026-08-20, the owner accepted the environment-only battlefield direction, the three-structure taxonomy and damage language, and recolorable ownership surfaces. After rejecting mixed art styles, bone/limb rigs, misassembled anatomy, undersized equipment, independently redrawn motion, and drifting frame roots, the owner approved the narrower combat-entity production method recorded in [`PRODUCTION_ART.md`](PRODUCTION_ART.md). That approval locked the method—not every candidate file or the complete roster—and authorized applying it to the remaining opening representatives. On 2026-08-21 the complete Phase 1A candidate was assembled under that method. The owner judged the integrated set ready except for Aegis Titan's nearly front-facing gait and punch; the feature-branch package corrected both to canonical screen-right. After direct review, the owner approved the corrected Aegis Titan and complete integrated set on 2026-08-21, closing Phase 1A. The owner then authorized the standardization and closure change to merge and deploy; protected pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`. The owner subsequently authorized a bounded Pages review of the approved compositions and actual-scale playback, while raw masters remain repository-only. Phase 1B planning is active, but this does not authorize its implementation, a Phase 2 gameplay renderer, a tag, or a release.
 
 ## Working rules
 
@@ -20,7 +20,7 @@ Later on 2026-08-20, the owner accepted the environment-only battlefield directi
 2. Treat the owner-locked requirements below as fixed. Close the remaining phase-specific choices at each gate before implementing them.
 3. Build the replacement on short-lived branches; do not use `main` as a visual experiment.
 4. Do not merge a phase because tests pass. Source checks, rendered evidence, game feel, and owner approval are independent requirements.
-5. Preserve the old release and tag as immutable project history; correct the project through new commits rather than rewriting published history. This is a project policy, not a claim that GitHub has technically locked the release.
+5. Preserve rejected prototype evidence at commit `7f88655` in normal Git history. The owner authorized retirement of its misleading public release and tag; deletion is pending, and the label must never be recreated or reused after retirement. Never move another tag onto the commit or rewrite shared history.
 6. Keep the implementation small and direct. Rebuilding from scratch does not justify a framework, generic engine, ECS library, asset pipeline, or networking abstraction without proven need.
 7. Neon Voyage is evidence of the owner's preference for restraint and clarity only. Aeon of Kingdoms must not copy its layout, styling, structure, assets, or gameplay.
 8. Keep this roadmap as a versioned approved baseline. Later decisions change it explicitly with rationale; “frozen” never means hiding unresolved choices.
@@ -213,7 +213,7 @@ Every gate records the exact commit, configuration, seed, viewport/device, comma
 - [x] Version the interim page as the `v2026.8.15a` source candidate and record its player-visible intent in the changelog.
 - [x] Record the owner's review of the transition and authorization to proceed into the Phase 1A proof.
 - [ ] Complete the remaining landscape, responsive/keyboard, link-navigation, pre-existing-cache, physical-device gallery, and rollback observations as operational evidence; source, staged delivery, deployment, the current live boundary and image-resource load, page-origin console, and one owner-supplied portrait mobile render are complete. These observations do not reopen the completed product-truth gate or authorize gameplay.
-- [x] Preserve the published historical tag and release under the project's immutability policy; do not move the tag, force-push, or rewrite history.
+- [ ] Retire the misleading `v2026.8.15` public tag and GitHub Release at the owner's direction while preserving commit `7f88655` and normal Git history; never recreate or reuse the label.
 - [x] Approve and version this roadmap baseline and contributor rules before redesigned gameplay work begins.
 
 Gate: **complete**. The repository and live site tell the same non-gameplay truth, the transition evidence and remaining limitations are recorded, and the owner-approved roadmap is the active contract.
@@ -226,7 +226,7 @@ The eight published frames remain in the [reviewed mood-reference gallery](../co
 
 - [x] Owner approved the simplified production-feasibility brief on 2026-08-20; this authorizes reference creation only.
 - [x] The first deployed proof at `v2026.8.20a` established practical scale and technical contracts but was superseded as an approval surface after the owner found its mixture of painted and geometric styles ambiguous.
-- [x] Local `v2026.8.21` replaces it with one cartoon-leaning painted 2D direction while keeping the environment plate, representative entities, player-color masks, and exactly two faction-unique headquarters plus one shared Resource Point and one shared Production Outpost as separate assets. Its rejected v5 entity motion remains evidence, not the approved animation specification.
+- [x] Merged `v2026.8.21` source replaces it with one cartoon-leaning painted 2D direction while keeping the environment plate, representative entities, player-color masks, and exactly two faction-unique headquarters plus one shared Resource Point and one shared Production Outpost as separate assets. Its rejected v5 entity motion remains evidence, not the approved animation specification.
 - [x] Desktop and compact phone-landscape frames show the same ordinary battlefield target without claiming that a rendered game or physical-device session exists.
 - [x] The Astral Guardian establishes the approved method: coherent baked full-body frames with oversized attached equipment, one stable idle frame, four lower-body-only movement frames, six action frames, six defeat frames, one canonical right facing, and an exact X-mirrored left facing.
 - [x] Apply that exact method to the Gravebound Reaver, Starbow, Hollow String, Aegis Titan, and Ossuary Colossus so both opening factions prove melee, ranged, and signature behavior.
@@ -236,19 +236,23 @@ The eight published frames remain in the [reviewed mood-reference gallery](../co
 - [x] The neutral shared Production Outpost shows one fixed structure at intact, scorched-and-burning, and collapsed health states; fire is reserved for damage rather than decoration on the healthy state.
 - [x] Map navigation, blocker, anchor, dynamic-order, and foreground-occlusion layers remain binding technical data contracts but are no longer presented as the visible art style.
 - [x] `docs/ASSETS.md` records exact candidate dimensions, bytes, provenance, transformations, scope, and provisional runtime envelopes.
-- [x] The local candidate remains covered by the integrated repository suite and an exact Pages allowlist without adding gameplay, runtime dependencies, tracking, or external requests.
+- [x] The merged candidate passed the integrated repository suite and exact Pages allowlist without adding gameplay, runtime dependencies, tracking, or external requests; the owner later authorized the optimized approved review subset for Pages while raw masters remain repository-only.
 - [x] Inspect the direct master atlases, masks, animation rows, six-player ownership sheet, and separate desktop/phone compositions without creating another heavyweight HTML review surface.
 - [x] Replace Aegis Titan's rejected nearly front-facing gait and punch with one coherent canonical-right movement/action source while preserving its root, mask, identity, and accepted defeat behavior.
 - [x] Complete direct product-owner review of the corrected Aegis Titan and integrated files; automation and workspace inspection did not substitute for this approval.
 - [x] Record explicit owner approval of the baked directional-sprite and player-color method in [`PRODUCTION_ART.md`](PRODUCTION_ART.md).
 - [x] Record explicit owner approval of the complete opening Phase 1A visual set now that all six required representatives use that method.
 - [x] Record actual-scale playback on a named physical device as unobserved and separate evidence debt; Phase 1A closure does not fabricate this evidence category.
+- [x] Merge the approved package and Engineering Standard v1.0 adoption record through protected pull request `#10`.
+- [x] Prepare the bounded approved review as the protected Pages publication candidate without staging raw authoring masters.
 
 These checks establish the approved production method and the owner-approved corrected Phase 1A package. They do not establish a final runtime atlas, the later full six-role-per-faction roster, gameplay renderer, physical-device quality, publication, tag, or release.
 
-Checkpoint: **complete on 2026-08-21**. Direct owner approval of the corrected Aegis Titan and integrated set closed Phase 1A. Phase 1B is next; no gameplay renderer begins before the complete Phase 1B gate is approved.
+Checkpoint: **complete on 2026-08-21**. Direct owner approval of the corrected Aegis Titan and integrated set closed Phase 1A, and pull request `#10` merged the closure record. Phase 1B planning is active; its implementation checklist has not started, and no gameplay renderer begins before the complete Phase 1B gate is approved.
 
 #### Phase 1B — Complete visual and interaction lock
+
+Planning is active. Every implementation checkbox below remains open; no Phase 1B asset expansion or runtime work has started.
 
 - [ ] Original minimal menu and map-dominant gameplay HUD.
 - [ ] Full opening battlefield target with routes, blockers, the three structure categories, production/rally feedback, and combat readability.

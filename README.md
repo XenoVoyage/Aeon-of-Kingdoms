@@ -4,26 +4,26 @@
 
 **An original landscape real-time strategy game, being rebuilt one approved phase at a time.**
 
-[![Status build v2026.8.21](https://img.shields.io/badge/status_build-v2026.8.21-6ef3ff)](CHANGELOG.md)
+[![Status build v2026.8.21a](https://img.shields.io/badge/status_build-v2026.8.21a-6ef3ff)](CHANGELOG.md)
 [![Offline audit](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/ci.yml/badge.svg)](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/ci.yml)
 [![GitHub Pages](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/pages.yml/badge.svg)](https://github.com/XenoVoyage/Aeon-of-Kingdoms/actions/workflows/pages.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-cbd5e1)](LICENSE)
 
 > **Active redesign:** the product owner rejected the `v2026.8.15` prototype and approved the phased replacement plan. Its UI, art, map, controls, terminology, gameplay feel, and AI are not the baseline for future work.
 
-## Phase 1A production direction — approved
+## Phase 1B visual and interaction lock — planning active
 
-[View the current redesign status](https://xenovoyage.github.io/Aeon-of-Kingdoms/) · [Inspect the direct Phase 1A package](concepts/feasibility/phase1a/) · [Read the Phase 1A closure handoff](docs/PHASE1A_HANDOFF.md)
+[View the current redesign status](https://xenovoyage.github.io/Aeon-of-Kingdoms/) · [Inspect the approved Phase 1A review](https://xenovoyage.github.io/Aeon-of-Kingdoms/concepts/feasibility/) · [Read the Phase 1A closure handoff](docs/PHASE1A_HANDOFF.md)
 
 </div>
 
 [![Phase 1A desktop battlefield composition showing separate cartoon-leaning painted environment, structure, entity, and ownership layers.](concepts/feasibility/phase1a/review/battlefield-desktop.webp)](concepts/feasibility/phase1a/review/battlefield-desktop.webp)
 
-The owner approved the production method in [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md): cartoon-leaning baked full-body sprites, canonical right-facing art with an exact X-mirrored left facing, one stable idle frame, four movement frames with invariant upper bodies and equipment, six-frame action and defeat sequences, and separate player-color masks for every player-controlled entity and ownable structure. On 2026-08-21 the owner also approved the corrected Aegis Titan and complete six-entity, three-structure-category, environment, damage, ownership, and viewport package, closing Phase 1A. The image above is a non-gameplay composition built from separate assets. Approval does not make the package gameplay or authorize publication, merge, tag, or release. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current source, deployment, evidence, and next-boundary state. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag, and Git history.
+The owner approved the production method in [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md): cartoon-leaning baked full-body sprites, canonical right-facing art with an exact X-mirrored left facing, one stable idle frame, four movement frames with invariant upper bodies and equipment, six-frame action and defeat sequences, and separate player-color masks for every player-controlled entity and ownable structure. On 2026-08-21 the owner also approved the corrected Aegis Titan and complete six-entity, three-structure-category, environment, damage, ownership, and viewport package, closing Phase 1A. The image above is a non-gameplay composition built from separate assets. Its optimized visual review is the authorized Pages publication candidate, while raw atlases, masks, structure masters, and metadata remain repository-only authoring evidence. Publication will not make the package gameplay, a tag, or a release. Phase 1B planning is active, but implementation has not started. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current source, deployment, evidence, and next-boundary state. The rejected prototype remains available at commit [`7f88655`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/commit/7f88655f10504f44496fbba2e17871b16a5fe115) in Git history; the owner authorized retirement of its misleading public tag and GitHub Release, but deletion remains pending until verified.
 
 ## Replacement target
 
-The first replacement release remains one original layered landscape battlefield, two factions, faction-specific headquarters, shared Resource Points and Production Outposts, production and rally commands, readable formation combat, and strategic AI. The local simulation is proved before multiplayer. Phase 1B must lock the complete visual and interaction target before any Phase 2 renderer work begins.
+The first replacement release remains one original layered landscape battlefield, two factions, faction-specific headquarters, shared Resource Points and Production Outposts, production and rally commands, readable formation combat, and strategic AI. The local simulation is proved before multiplayer. Phase 1B must lock the complete visual and interaction target before any Phase 2 renderer work begins; the current work is planning, not gameplay implementation.
 
 ## Preview the transition page locally
 

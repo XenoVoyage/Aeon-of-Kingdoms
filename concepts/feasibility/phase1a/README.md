@@ -1,6 +1,6 @@
 # Phase 1A approved production-feasibility package
 
-Status: **approved by the product owner on 2026-08-21; unpublished, unmerged, non-playable, and not a runtime atlas**.
+Status: **approved by the product owner on 2026-08-21; merged into source through pull request `#10`; optimized visual review selected as the authorized Pages publication candidate; non-playable and not a runtime atlas**.
 
 This directory is the direct-file Phase 1A closure package. It intentionally has no HTML review application. Start with the five files in [`review/`](review/), then inspect the actual-scale animated WebP files in each entity directory. These are production-art and composition proofs, not gameplay screenshots.
 
@@ -48,4 +48,6 @@ Player color never owns anatomy, armor material, bone, leather, weapon metal, or
 
 ## Boundary
 
-The product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21, closing Phase 1A and locking this visible production direction and asset method. That approval does not approve gameplay, balance, the eventual full six-role-per-faction roster, final runtime atlas dimensions, controls, UI, AI, networking, a merge, deployment, tag, or release. Those remain later gated work.
+The product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21, closing Phase 1A and locking this visible production direction and asset method. The owner then authorized the standardization and closure change to merge and deploy. Protected pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`, and its origin branch `agent/phase1a-unified-production-proof` was automatically deleted.
+
+The owner subsequently authorized publication of the approved visual review at `concepts/feasibility/`. Its bounded candidate Pages payload contains the five review compositions, all 24 actual-scale state playbacks, all six player-color proofs, the environment plate, and the damage proof. Raw atlas, mask, structure-master, and metadata files remain repository-only authoring evidence. Publication does not turn any asset into gameplay or approve balance, the eventual full six-role-per-faction roster, final runtime atlas dimensions, controls, UI, AI, networking, a tag, or a release. Phase 1B planning is active, but its implementation checklist and asset/runtime work have not started.

@@ -155,10 +155,22 @@ function listFiles(directory) {
 test("Phase 1A approved inventory is direct-file, explicit, and bounded", () => {
   const manifest = JSON.parse(read("manifest.json"));
   assert.equal(manifest.phase, "1A");
-  assert.equal(manifest.status, "phase1a-approved-unpublished");
-  assert.equal(manifest.published, false);
+  assert.equal(manifest.status, "phase1a-approved-publication-candidate");
+  assert.equal(manifest.masterPackagePublication, "repository-only");
   assert.equal(manifest.gameplay, false);
-  assert.equal(manifest.candidateBranch, "agent/phase1a-unified-production-proof");
+  assert.deepEqual(manifest.publication, {
+    reviewSurfaceState: "authorized-candidate",
+    reviewRoute: "concepts/feasibility/",
+    candidateAssetScope: "five review compositions, six player-color proofs, all 24 actual-scale state playbacks, environment plate, and damage proof",
+    masterPackagePublished: false
+  });
+  assert.equal(Object.hasOwn(manifest, "candidateBranch"), false, "merged package must not claim an active candidate branch");
+  assert.deepEqual(manifest.provenance, {
+    originBranch: "agent/phase1a-unified-production-proof",
+    pullRequest: 10,
+    mergeCommit: "0d74dd9174f0db873c1c9ea8cfc824c1ea231660",
+    sourceBranchDeletedAfterMerge: true
+  });
   assert.deepEqual(manifest.ownerReview, {
     productionMethod: "approved-2026-08-20",
     integratedSet: "approved-2026-08-21",

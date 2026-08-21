@@ -14,7 +14,7 @@ Include the affected version, browser or environment, concise reproduction, expe
 
 ## Current boundary
 
-The deployed status boundary and approved but unpublished Phase 1A package are static non-playable redesign and direct-file review surfaces. The package contains only local images, JSON metadata, and Markdown; it adds no executable or network boundary. None of these surfaces is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current version and deployment evidence.
+The deployed status boundary and local approved Phase 1A review candidate are static, non-playable surfaces. The bounded review contains only local images and HTML/CSS; repository-only masters add no executable or network boundary. None of these surfaces is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current version and deployment evidence.
 
 Relevant reports include:
 

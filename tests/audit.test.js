@@ -93,7 +93,9 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(readme, /docs\/REDESIGN\.md/);
   assert.match(readme, /image above is a non-gameplay composition built from separate assets/i);
   assert.match(readme, /Phase 1B must lock the complete visual and interaction target before any Phase 2 renderer/i);
-  assert.match(readme, /historical release `v2026\.8\.15`/);
+  assert.match(readme, /rejected prototype remains available at commit \[`7f88655`/i);
+  assert.match(readme, /owner authorized retirement of its misleading public tag and GitHub Release, but deletion remains pending until verified/i);
+  assert.doesNotMatch(readme, /releases\/tag\/v2026\.8\.15/i);
   assert.doesNotMatch(readme, /Historical prototype controls/);
   assert.doesNotMatch(readme, /docs\/assets\/gameplay\.webp/);
   assert.match(read("AGENTS.md"), /Active redesign override/);
@@ -107,9 +109,10 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/STATUS.md"), /Redesign gameplay implementation \| Not started/);
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
-  assert.match(read("docs/STATUS.md"), /pre-standardization baseline and final post-change working tree each pass 72\/72 integrated checks/i);
+  assert.match(read("docs/STATUS.md"), /reproduced its 72\/72 checks on Node\.js 20\.20\.2/i);
   assert.match(read("docs/STATUS.md"), /Engineering standard \| v1\.0 is `adopting`/i);
   assert.match(read("docs/STATUS.md"), /24-file Pages allowlist/i);
+  assert.match(read("docs/STATUS.md"), /31-file Pages allowlist plus `\.nojekyll`/i);
   assert.match(read("docs/ASSETS.md"), /2,263,262 bytes/);
   assert.match(read("docs/STATUS.md"), /919cc933a4def3a6688208f3e5a2180cc4d4687e/);
   assert.match(read("docs/STATUS.md"), /main audit run `32347611623` and Pages run `32347611618` completed successfully/i);
@@ -117,14 +120,22 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/STATUS.md"), /main audit run `32351430376` and Pages run `32351430306` completed successfully/i);
   assert.match(read("docs/STATUS.md"), /match merged source byte for byte/i);
   assert.match(read("docs/STATUS.md"), /all eight local WebP references at their recorded natural dimensions/);
+  assert.match(read("docs/STATUS.md"), /0d74dd9174f0db873c1c9ea8cfc824c1ea231660/);
+  assert.match(read("docs/STATUS.md"), /main audit run `32496788387` and Pages run `32496788440` completed successfully/i);
+  assert.match(read("docs/STATUS.md"), /canonical live index, status, redesign, and production-art documents matched merged source/i);
+  assert.match(read("docs/STATUS.md"), /concepts\/feasibility\/phase1a\/.*HTTP 404/i);
+  assert.match(read("docs/STATUS.md"), /Phase 1B planning is active, but its implementation checklist and asset\/runtime work have not started/i);
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
   assert.match(read("docs/REDESIGN.md"), /Phase 1A — Production-feasibility proof/);
   assert.match(read("docs/REDESIGN.md"), /faction headquarters, Resource Point, and Production Outpost/);
   assert.match(read("docs/REDESIGN.md"), /one stable idle frame; four right-facing movement frames/i);
   assert.match(read("docs/REDESIGN.md"), /visual pixels never decide walkability/i);
   assert.match(read("docs/REDESIGN.md"), /Checkpoint: \*\*complete on 2026-08-21\*\*/i);
+  assert.match(read("docs/REDESIGN.md"), /Phase 1B planning is active; its implementation checklist has not started/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
-  assert.match(read("SECURITY.md"), /static non-playable redesign and direct-file review surfaces/);
+  assert.match(read("concepts/feasibility/phase1a/README.md"), /pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`/i);
+  assert.match(read("concepts/feasibility/phase1a/README.md"), /bounded candidate Pages payload contains the five review compositions, all 24 actual-scale state playbacks, all six player-color proofs/i);
+  assert.match(read("SECURITY.md"), /local approved Phase 1A review candidate are static, non-playable surfaces/i);
   assert.doesNotMatch(read("SECURITY.md"), /current release is a static local browser game/i);
 });
 
@@ -147,6 +158,8 @@ test("approved production-art method survives a cold-start handoff", () => {
 
   assert.match(handoff, /authoritative Phase 1A closure record/i);
   assert.match(handoff, /owner approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
+  assert.match(handoff, /pull request `#10`, squash commit `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`/i);
+  assert.match(handoff, /Phase 1B planning is active/i);
   assert.match(handoff, /No Phase 2 renderer work begins before explicit Phase 1B approval/i);
   assert.match(newChatPrompt, /no assumed memory of earlier conversations/i);
   assert.match(newChatPrompt, /Do not edit until that cold-start report is complete/i);
@@ -265,7 +278,7 @@ test("Pages allowlist contains only review surfaces and public status documents"
   const staging = require(path.join(ROOT, ".github/scripts/stage-pages.js"));
   const files = staging.verifyRuntimeFiles();
   assert.deepEqual(files, staging.RUNTIME_FILES);
-  assert.deepEqual(files, [
+  assert.deepEqual(files.slice(0, 16), [
     "index.html",
     "sw.js",
     "css/status.css",
@@ -281,27 +294,17 @@ test("Pages allowlist contains only review surfaces and public status documents"
     "concepts/images/mobile-landscape.webp",
     "concepts/images/production-rally.webp",
     "concepts/feasibility/index.html",
-    "concepts/feasibility/proof.css",
-    "concepts/feasibility/images/production-battlefield-environment-v4.webp",
-    "concepts/feasibility/images/structure-atlas-v2.webp",
-    "concepts/feasibility/images/entity-team-color-v4.webp",
-    "concepts/feasibility/images/structure-damage-v3.webp",
-    "concepts/feasibility/images/entity-directional-method-v5.webp",
-    "concepts/feasibility/images/astral-baked-motion-v5.webp",
-    "concepts/feasibility/images/gravebound-baked-motion-v5.webp",
-    "concepts/feasibility/images/astral-baked-motion-static-v5.webp",
-    "concepts/feasibility/images/gravebound-baked-motion-static-v5.webp",
-    "concepts/feasibility/images/astral-baked-motion-audit-v5.webp",
-    "concepts/feasibility/images/gravebound-baked-motion-audit-v5.webp",
-    "docs/REDESIGN.md",
-    "docs/PRODUCTION_ART.md",
-    "docs/STATUS.md",
-    "docs/ASSETS.md"
+    "concepts/feasibility/proof.css"
   ]);
+  assert.equal(files.length, 57);
+  assert.equal(files.filter((entry) => /concepts\/feasibility\/phase1a\//.test(entry)).length, 37);
+  assert.deepEqual(files.slice(-4), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/STATUS.md", "docs/ASSETS.md"]);
   const staged = files.join("\n");
   assert.doesNotMatch(staged, /(?:manifest|icon|gameplay|visual-capture|README|LICENSE|CHANGELOG|VERSION|package\.json)/i);
   assert.doesNotMatch(staged, /(?:css\/(?:tokens|app)\.css|js\/(?:config|core|simulation|ai|render|input|game)\.js)/);
   assert.doesNotMatch(staged, /^(?:tests|\.github)\//m);
+  assert.doesNotMatch(staged, /concepts\/feasibility\/images\//, "superseded v5 proof must not remain public");
+  assert.doesNotMatch(staged, /\/phase1a\/(?:entities\/[^/]+\/(?:atlas\.png|atlas\.json|player-mask\.png)|structures\/[^/]+\.png)/i, "raw Phase 1A masters must remain repository-only");
 
   for (const relativePath of files.filter((entry) => entry.endsWith(".md"))) {
     for (const match of read(relativePath).matchAll(/!?\[[^\]]*\]\(([^)]+)\)/g)) {
