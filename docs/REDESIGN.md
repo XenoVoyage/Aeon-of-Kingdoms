@@ -1,6 +1,6 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 complete; Phase 1A feature-branch candidate complete with corrected Aegis Titan awaiting direct final owner confirmation**.
+Status: **approved baseline; Phase 0 complete; Phase 1A approved and closed on 2026-08-21; Phase 1B is next and has not started**.
 
 This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. It does not claim that any redesigned feature is currently implemented.
 
@@ -12,7 +12,7 @@ The product owner approved Phase 0 and this roadmap baseline on 2026-08-15 and a
 
 On 2026-08-20, the product owner reviewed the eight published Phase 1 references. Their battlefield composition, faction contrast, combat language, and restrained interface were accepted as useful mood direction, but their literal realism and entity detail were rejected as the production target because they would not honestly prove small-screen readability, crowded-battle clarity, animation consistency, or a sustainable six-faction asset budget. The owner approved the production-feasibility brief below and authorized a replacement visual proof. This is not an art lock and does not authorize gameplay implementation.
 
-Later on 2026-08-20, the owner accepted the environment-only battlefield direction, the three-structure taxonomy and damage language, and recolorable ownership surfaces. After rejecting mixed art styles, bone/limb rigs, misassembled anatomy, undersized equipment, independently redrawn motion, and drifting frame roots, the owner approved the narrower combat-entity production method recorded in [`PRODUCTION_ART.md`](PRODUCTION_ART.md). That approval locked the method—not every candidate file or the complete roster—and authorized applying it to the remaining opening representatives. On 2026-08-21 the complete Phase 1A candidate was assembled under that method. The owner judged the integrated set ready except for Aegis Titan's nearly front-facing gait and punch; the current feature-branch package corrects both to canonical screen-right. Direct confirmation of that correction remains the Phase 1A gate and does not authorize a gameplay renderer, merge, deployment, tag, or release.
+Later on 2026-08-20, the owner accepted the environment-only battlefield direction, the three-structure taxonomy and damage language, and recolorable ownership surfaces. After rejecting mixed art styles, bone/limb rigs, misassembled anatomy, undersized equipment, independently redrawn motion, and drifting frame roots, the owner approved the narrower combat-entity production method recorded in [`PRODUCTION_ART.md`](PRODUCTION_ART.md). That approval locked the method—not every candidate file or the complete roster—and authorized applying it to the remaining opening representatives. On 2026-08-21 the complete Phase 1A candidate was assembled under that method. The owner judged the integrated set ready except for Aegis Titan's nearly front-facing gait and punch; the feature-branch package corrected both to canonical screen-right. After direct review, the owner approved the corrected Aegis Titan and complete integrated set on 2026-08-21, closing Phase 1A. This does not authorize a gameplay renderer, merge, deployment, tag, or release.
 
 ## Working rules
 
@@ -239,13 +239,14 @@ The eight published frames remain in the [reviewed mood-reference gallery](../co
 - [x] The local candidate remains covered by the integrated repository suite and an exact Pages allowlist without adding gameplay, runtime dependencies, tracking, or external requests.
 - [x] Inspect the direct master atlases, masks, animation rows, six-player ownership sheet, and separate desktop/phone compositions without creating another heavyweight HTML review surface.
 - [x] Replace Aegis Titan's rejected nearly front-facing gait and punch with one coherent canonical-right movement/action source while preserving its root, mask, identity, and accepted defeat behavior.
-- [ ] Complete product-owner review of the direct files, including actual-scale playback on the owner's device; automation and workspace inspection do not substitute for this observation.
+- [x] Complete direct product-owner review of the corrected Aegis Titan and integrated files; automation and workspace inspection did not substitute for this approval.
 - [x] Record explicit owner approval of the baked directional-sprite and player-color method in [`PRODUCTION_ART.md`](PRODUCTION_ART.md).
-- [ ] Record explicit owner approval of the complete opening Phase 1A visual set now that all six required representatives use that method.
+- [x] Record explicit owner approval of the complete opening Phase 1A visual set now that all six required representatives use that method.
+- [x] Record actual-scale playback on a named physical device as unobserved and separate evidence debt; Phase 1A closure does not fabricate this evidence category.
 
-These checks establish an approved production method and a complete corrected feature-branch candidate. They do not establish the owner's direct confirmation of the corrected Aegis Titan, a final runtime atlas, the later full six-role-per-faction roster, gameplay renderer, physical-device quality, publication, tag, or release.
+These checks establish the approved production method and the owner-approved corrected Phase 1A package. They do not establish a final runtime atlas, the later full six-role-per-faction roster, gameplay renderer, physical-device quality, publication, tag, or release.
 
-Checkpoint: obtain direct owner confirmation of corrected Aegis Titan movement/action and then record complete Phase 1A approval. Method approval and passing automation do not authorize a gameplay renderer.
+Checkpoint: **complete on 2026-08-21**. Direct owner approval of the corrected Aegis Titan and integrated set closed Phase 1A. Phase 1B is next; no gameplay renderer begins before the complete Phase 1B gate is approved.
 
 #### Phase 1B — Complete visual and interaction lock
 

@@ -92,12 +92,13 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(readme, /rejected the `v2026\.8\.15` prototype/);
   assert.match(readme, /docs\/REDESIGN\.md/);
   assert.match(readme, /image above is a non-gameplay composition built from separate assets/i);
-  assert.match(readme, /No redesigned gameplay/i);
+  assert.match(readme, /Phase 1B must lock the complete visual and interaction target before any Phase 2 renderer/i);
   assert.match(readme, /historical release `v2026\.8\.15`/);
   assert.doesNotMatch(readme, /Historical prototype controls/);
   assert.doesNotMatch(readme, /docs\/assets\/gameplay\.webp/);
   assert.match(read("AGENTS.md"), /Active redesign override/);
-  assert.match(read("AGENTS.md"), /Phase 0 and the roadmap baseline were approved/);
+  assert.match(read("AGENTS.md"), /\*\*Project Engineering Standard:\*\* v1\.0/);
+  assert.match(read("AGENTS.md"), /\*\*Standard Status:\*\* adopting/);
   assert.match(read("CONTRIBUTING.md"), /docs\/REDESIGN\.md/);
   assert.match(read("docs/ASSETS.md"), /Reviewed redesign mood references/);
   assert.match(read("docs/ASSETS.md"), /Rejected prototype archive/);
@@ -106,7 +107,8 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/STATUS.md"), /Redesign gameplay implementation \| Not started/);
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
-  assert.match(read("docs/STATUS.md"), /current working tree passes 72\/72 integrated checks/i);
+  assert.match(read("docs/STATUS.md"), /pre-standardization baseline and final post-change working tree each pass 72\/72 integrated checks/i);
+  assert.match(read("docs/STATUS.md"), /Engineering standard \| v1\.0 is `adopting`/i);
   assert.match(read("docs/STATUS.md"), /24-file Pages allowlist/i);
   assert.match(read("docs/ASSETS.md"), /2,263,262 bytes/);
   assert.match(read("docs/STATUS.md"), /919cc933a4def3a6688208f3e5a2180cc4d4687e/);
@@ -120,9 +122,9 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/REDESIGN.md"), /faction headquarters, Resource Point, and Production Outpost/);
   assert.match(read("docs/REDESIGN.md"), /one stable idle frame; four right-facing movement frames/i);
   assert.match(read("docs/REDESIGN.md"), /visual pixels never decide walkability/i);
-  assert.match(read("docs/REDESIGN.md"), /complete Phase 1A candidate/i);
-  assert.match(read("concepts/feasibility/phase1a/README.md"), /corrected Aegis Titan awaits direct product-owner confirmation/i);
-  assert.match(read("SECURITY.md"), /static non-playable redesign status sites/);
+  assert.match(read("docs/REDESIGN.md"), /Checkpoint: \*\*complete on 2026-08-21\*\*/i);
+  assert.match(read("concepts/feasibility/phase1a/README.md"), /product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
+  assert.match(read("SECURITY.md"), /static non-playable redesign and direct-file review surfaces/);
   assert.doesNotMatch(read("SECURITY.md"), /current release is a static local browser game/i);
 });
 
@@ -143,12 +145,14 @@ test("approved production-art method survives a cold-start handoff", () => {
   assert.match(agents, /docs\/PHASE1A_HANDOFF\.md/);
   assert.match(contributing, /docs\/PHASE1A_HANDOFF\.md/);
 
-  assert.match(handoff, /authoritative cold-start handoff/i);
-  assert.match(handoff, /corrected Aegis Titan and final integrated package still require the owner's direct final confirmation/i);
+  assert.match(handoff, /authoritative Phase 1A closure record/i);
+  assert.match(handoff, /owner approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
   assert.match(handoff, /No Phase 2 renderer work begins before explicit Phase 1B approval/i);
-  assert.match(newChatPrompt, /Assume you have zero memory/i);
+  assert.match(newChatPrompt, /no assumed memory of earlier conversations/i);
   assert.match(newChatPrompt, /Do not edit until that cold-start report is complete/i);
-  assert.match(newChatPrompt, /Required branch: agent\/phase1a-unified-production-proof/i);
+  assert.match(newChatPrompt, /read `AGENTS\.md` completely/i);
+  assert.match(newChatPrompt, /read `docs\/STATUS\.md` for current phase, evidence, deployment, and Engineering Standard state/i);
+  assert.doesNotMatch(newChatPrompt, /agent\/phase1a|Aegis Titan|v2026|Phase 1A|Public deployment/i);
   assert.match(decisionRecord, /not a verbatim transcript/i);
   assert.match(decisionRecord, /raw transcript would mix obsolete instructions with approved rules/i);
 
@@ -166,9 +170,17 @@ test("approved production-art method survives a cold-start handoff", () => {
   assert.match(productionArt, /environment-only/i);
   assert.match(productionArt, /browser does not assemble limbs, run a full-body bone rig, or deform anatomy/i);
   assert.match(productionArt, /Simulation ticks—not animation frames—own movement distance/i);
-  assert.match(productionArt, /Astral Guardian establishes the approved entity method/i);
-  assert.match(productionArt, /closing candidate now applies that exact contract to the Gravebound Reaver, Starbow, Hollow String, Aegis Titan, and Ossuary Colossus/i);
+  assert.match(productionArt, /Astral Guardian established the approved entity method/i);
+  assert.match(productionArt, /Phase 1A package applies that exact contract to the Gravebound Reaver, Starbow, Hollow String, Aegis Titan, and Ossuary Colossus/i);
   assert.match(productionArt, /crystal head, torso, hips, knees, feet, and attack travel all agree on canonical screen-right/i);
+
+  assert.match(agents, /\| Complete automated verification \| `node tests\/run\.js` \|/i);
+  assert.match(agents, /\| Stage the exact Pages payload \| `node \.github\/scripts\/stage-pages\.js _site` \|/i);
+  assert.match(agents, /### Definition of done/i);
+  assert.match(agents, /use `verified` only after every applicable requirement passes/i);
+  assert.match(read(".github/pull_request_template.md"), /## Risk and rollback/i);
+  assert.match(read(".github/pull_request_template.md"), /## Deletions and migrations/i);
+  assert.match(read(".github/pull_request_template.md"), /## GitHub readiness/i);
 });
 
 test("VERSION.txt is canonical and required public mirrors match", () => {

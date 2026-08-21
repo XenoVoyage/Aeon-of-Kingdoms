@@ -1,4 +1,4 @@
-# Phase 1A cold-start handoff
+# Phase 1A closure handoff
 
 Status date: **2026-08-21 (Europe/Zagreb)**
 
@@ -8,17 +8,17 @@ Working branch: `agent/phase1a-unified-production-proof`
 
 Public deployment: **still `v2026.8.20a`; this Phase 1A package is not deployed, tagged, released, or gameplay**
 
-This document is the authoritative cold-start handoff for a contributor or model with no access to the design conversation. The repository must be sufficient by itself. Do not ask a future contributor to infer approved intent from chat memory, filenames, old screenshots, or the rejected prototype.
+This document is the authoritative Phase 1A closure record for a contributor or model with no access to the design conversation. [`STATUS.md`](STATUS.md) owns the current active boundary. The repository must be sufficient by itself; do not ask a future contributor to infer approved intent from chat memory, filenames, old screenshots, or the rejected prototype.
 
 ## Authority and required reading
 
 Read these sources in order before changing the project:
 
 1. [`../AGENTS.md`](../AGENTS.md) - enduring contributor, evidence, Git, and publication rules.
-2. This handoff - exact Phase 1A state, review paths, rejected approaches, and next boundary.
+2. [`STATUS.md`](STATUS.md) - current maturity, evidence boundary, and engineering-standard adoption state.
 3. [`REDESIGN.md`](REDESIGN.md) - active product contract and ordered phase gates.
 4. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) - binding art, facing, animation, mask, structure, and validation rules.
-5. [`STATUS.md`](STATUS.md) - current maturity and evidence boundary.
+5. This handoff - exact Phase 1A closure, review paths, rejected approaches, and next boundary.
 6. [`../concepts/feasibility/phase1a/README.md`](../concepts/feasibility/phase1a/README.md) and [`manifest.json`](../concepts/feasibility/phase1a/manifest.json) - direct review order and machine-readable inventory.
 7. [`CONVERSATION_DECISIONS.md`](CONVERSATION_DECISIONS.md) - historical rationale only; it never overrides the files above.
 
@@ -30,8 +30,8 @@ Read these sources in order before changing the project:
 - Phase 0 truth/cleanup is complete. The live site truthfully shows a non-playable redesign status surface.
 - Phase 1A has produced a complete local production-feasibility package for two opening factions, six representative combat entities, three structure categories, a separate environment plate, damage language, six-player ownership treatment, and desktop/phone scale compositions.
 - The owner approved the baked full-body directional-sprite method, one-frame idle, four-frame locked-upper-body movement, six-frame action and defeat, exact horizontal mirroring, separate player-color masks, environment-only battlefield, structure taxonomy, structure damage language, and six-player color-plus-symbol principle.
-- On 2026-08-21 the owner judged the complete package ready except that Aegis Titan's movement and action had inconsistent directional anatomy. The current candidate replaces those states with a coherent right-facing gait and punch while retaining the approved identity, root, mask, and defeat behavior.
-- The corrected Aegis Titan and final integrated package still require the owner's direct final confirmation. Automated and workspace visual review cannot supply that approval.
+- On 2026-08-21 the owner judged the complete package ready except that Aegis Titan's movement and action had inconsistent directional anatomy. The candidate replaced those states with a coherent right-facing gait and punch while retaining the approved identity, root, mask, and defeat behavior.
+- After direct review, the owner approved the corrected Aegis Titan and complete integrated package on 2026-08-21. Phase 1A is closed as a non-playable, unpublished production-feasibility and visual-direction proof.
 - No redesigned gameplay renderer, movement system, combat system, AI, networking, production queue, map implementation, or touch implementation exists yet.
 
 ## Game being built
@@ -156,7 +156,7 @@ Do not reintroduce any of the following:
 
 ## Evidence boundary
 
-The repository's pixel tests can prove file inventory, dimensions, cell transparency, frame counts, root metadata, idle/move identity, movement upper-body identity, mask containment, structure-mask alignment, and package budgets. Manual workspace inspection can establish that the rendered files were looked at. Neither category is product-owner approval or physical-device evidence.
+The repository's pixel tests can prove file inventory, dimensions, cell transparency, frame counts, root metadata, idle/move identity, movement upper-body identity, mask containment, structure-mask alignment, and package budgets. Manual workspace inspection establishes only that the rendered files were inspected. The product owner's direct approval is separately recorded above; it does not imply physical-device evidence, gameplay quality, publication, or runtime validation.
 
 Before publishing or merging this candidate, run from the repository root:
 
@@ -169,11 +169,11 @@ git status --short
 
 Inspect the exact staged allowlist and complete branch diff. Do not publish, tag, release, or begin gameplay merely because checks pass.
 
-## Current gate and next work
+## Closure and next boundary
 
-The only remaining Phase 1A product observation is direct owner confirmation of the corrected Aegis Titan and therefore the complete integrated set. Once recorded, Phase 1A closes as a production-feasibility and visual-direction proof. It still does not authorize a gameplay renderer.
+Phase 1A closed on 2026-08-21 when the product owner directly approved the corrected Aegis Titan and complete integrated set. The package remains unpublished and non-playable. Closure does not authorize a merge, deployment, tag, release, or gameplay renderer.
 
-Phase 1B is next and must lock:
+After the Engineering Standard v1.0 adoption checkpoint is reviewed, Phase 1B is next and must lock:
 
 1. original minimal menu and map-dominant gameplay HUD;
 2. complete battlefield target with routes, blockers, structures, production/rally feedback, and combat readability;
@@ -195,4 +195,4 @@ git log -5 --oneline --decorate
 node --test tests/phase1a-production-assets.test.js
 ```
 
-Then read the authority chain above, inspect the direct review files, and report its understanding of the active phase, locked constraints, pending evidence, and intended next change before editing. If the checked-out branch differs from `agent/phase1a-unified-production-proof`, locate the remote branch or the reviewed pull request rather than recreating assets from memory.
+Then read the authority chain above, inspect the direct review files, and report its understanding of the active boundary, locked constraints, pending evidence, and intended next change before editing. If the checked-out branch differs from `agent/phase1a-unified-production-proof`, locate the recorded branch or pull request rather than recreating assets from memory.

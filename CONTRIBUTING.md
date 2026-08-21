@@ -2,15 +2,15 @@
 
 Aeon of Kingdoms is undergoing a gated redesign. Contributions must preserve the approved redesign contract and enduring deterministic, accessible, secure browser boundaries; they must not preserve the rejected prototype presentation or gameplay by default.
 
-Phase 0's truth-and-cleanup product gate is complete. Public Pages remains the non-playable `v2026.8.20a` status, mood archive, and superseded Phase 1A proof. The production-art method in [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) is approved, and the complete feature-branch Phase 1A candidate is assembled under [`concepts/feasibility/phase1a/`](concepts/feasibility/phase1a/). The corrected Aegis Titan is the remaining direct owner confirmation; the set remains unpublished and unmerged. Redesigned gameplay begins only after Phase 1A and the complete Phase 1B gate are explicitly approved.
+Phase 1A is approved and closed as a non-playable production-feasibility proof. Phase 1B is the next product boundary, but no gameplay renderer begins before its complete visual and interaction gate is explicitly approved. Read [`docs/STATUS.md`](docs/STATUS.md) for the exact current source, deployment, evidence, and Engineering Standard v1.0 adoption state rather than copying those volatile facts here.
 
 ## Before changing code
 
 1. Read [`AGENTS.md`](AGENTS.md) in full; it is the canonical engineering and GitHub workflow contract.
-2. Read [`docs/PHASE1A_HANDOFF.md`](docs/PHASE1A_HANDOFF.md) for the exact current candidate, remaining gate, rejected methods, and next boundary.
-3. Read [`docs/REDESIGN.md`](docs/REDESIGN.md) for the active phase, requirements, unresolved decisions, and gate.
+2. Read [`docs/STATUS.md`](docs/STATUS.md) for the current boundary, evidence, and standard-adoption state.
+3. Read [`docs/REDESIGN.md`](docs/REDESIGN.md) for the active phase sequence, requirements, unresolved decisions, and gates.
 4. Read [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) before changing visual art, animation, facing, atlases, masks, player color, structures, terrain, damage, or effects.
-5. Read [`docs/STATUS.md`](docs/STATUS.md) for the implemented boundary and actual evidence.
+5. Read [`docs/PHASE1A_HANDOFF.md`](docs/PHASE1A_HANDOFF.md) when the approved Phase 1A package, rejected methods, or Phase 1B boundary is relevant.
 6. Treat [`docs/GAME_DESIGN.md`](docs/GAME_DESIGN.md) and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) as prototype-era records until their approved redesign phases replace them. [`docs/ASSETS.md`](docs/ASSETS.md) owns the active review-reference inventory and keeps the old asset record in a clearly marked archive. Use [`tests/README.md`](tests/README.md) for the active verification boundary.
 7. Read [`docs/NETCODE.md`](docs/NETCODE.md) before changing determinism, commands, protocol, transport, lobby, or server behavior.
 

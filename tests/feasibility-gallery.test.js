@@ -145,6 +145,11 @@ test("superseded Phase 1A v5 proof remains local, semantic, responsive, animated
 });
 
 test("Phase 1A production-look rasters retain exact dimensions and a bounded local payload", () => {
+  assert.deepEqual(
+    fs.readdirSync(PROOF_DIRECTORY).sort(),
+    [...EXPECTED_ASSETS].sort(),
+    "superseded proof directory contains untracked residue or is missing a recorded asset"
+  );
   let totalBytes = 0;
   for (const [name, expected] of Object.entries(RASTER_ASSETS)) {
     const bytes = fs.readFileSync(path.join(PROOF_DIRECTORY, name));
@@ -168,12 +173,6 @@ test("Phase 1A proof stages only the active production-look assets and excludes 
   assert.ok(files.includes("concepts/feasibility/proof.css"));
   for (const asset of EXPECTED_ASSETS) assert.ok(files.includes(`concepts/feasibility/images/${asset}`));
   for (const obsolete of [
-    "battlefield-scale.webp",
-    "astral-roles.webp",
-    "gravebound-roles.webp",
-    "structure-states.svg",
-    "map-layers.svg",
-    "animation-proof.svg",
     "entity-masters-v2.webp",
     "astral-rig-parts-v2.webp",
     "astral-cutout-rig-v2.webp",

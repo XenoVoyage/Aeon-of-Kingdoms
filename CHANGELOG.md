@@ -2,7 +2,7 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
-## [v2026.8.21] — 2026-08-21 (complete Phase 1A feature-branch candidate; unpublished)
+## [v2026.8.21] — 2026-08-21 (Phase 1A approved; unpublished)
 
 ### Changed
 
@@ -24,12 +24,14 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 - Added neutral shared structure bases, faction-specific headquarters, narrowed ownership masks that exclude cool masonry shadows, a six-player color-plus-symbol proof, and separate desktop/phone battlefield compositions.
 - Added a direct-file Phase 1A review package and machine-readable manifest without creating another heavyweight HTML review surface.
 - Rebuilt Aegis Titan movement and action so head, torso, hips, knees, feet, and punch consistently face canonical screen-right before exact mirroring; its accepted defeat and player-color behavior remain intact.
-- Added a memoryless cold-start handoff, reconstructed decision record, and copy-ready new-chat prompt so the project no longer depends on conversation history.
-- Verified the current working tree with 72/72 integrated checks, including exact atlas, mask, frame, anchor, payload, structure, and viewport checks. The unchanged Pages candidate still stages an exact 31-file allowlist plus `.nojekyll`; neither result substitutes for owner approval.
+- Added a memoryless closure handoff and reconstructed decision record, then reduced the new-chat bootstrap to a thin pointer so the project no longer depends on conversation history or duplicates volatile status.
+- Recorded the owner's direct approval of the corrected Aegis Titan and complete integrated set, closing Phase 1A without claiming gameplay or publication.
+- Began Project Engineering Standard v1.0 adoption across the contributor contract, current-status ownership, definition of done, pull-request evidence fields, repository audit, and consistency checks.
+- Verified the Phase 1A source boundary with exact atlas, mask, frame, anchor, payload, structure, and viewport checks. Automation and owner approval remain separately recorded evidence categories.
 
 ### Boundaries
 
-- The production method is owner-approved and the corrected Phase 1A visual candidate is assembled; direct owner confirmation of corrected Aegis Titan movement/action, merge, publication, tag, and GitHub Release are not claimed.
+- The production method, corrected Aegis Titan, and complete Phase 1A visual package are owner-approved. Merge, publication, physical-device evidence, gameplay implementation, tag, and GitHub Release are not claimed.
 - The six representatives prove melee, ranged, and signature production behavior for each opening faction. They do not expand the later permanent role roster or establish final runtime atlas dimensions.
 - No gameplay, simulation, AI, networking, dependency, analytics, or external runtime request is added.
 

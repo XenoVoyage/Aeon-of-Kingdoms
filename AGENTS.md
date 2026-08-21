@@ -1,12 +1,15 @@
 # Aeon of Kingdoms contributor instructions
 
-Read this file in full at the start of every task, before inspecting or changing the project. Re-read it after changing branches or updating this file. It is the canonical handoff for human and AI contributors who do not have earlier conversation context.
+**Project Engineering Standard:** v1.0
+**Standard Status:** adopting
+
+Read this file in full at the start of every task, before inspecting or changing the project. Re-read it after changing branches or updating this file. It is the canonical engineering contract for human and AI contributors who do not have earlier conversation context. [`docs/STATUS.md`](docs/STATUS.md) is the only owner of the current phase, deployment, evidence, and standard-adoption state.
+
+Keep the standard status `adopting` while any applicable requirement remains failed, deferred, or unavailable. Recording or accepting continuing debt does not permit `verified`; use `verified` only after every applicable requirement passes and non-applicable checks are recorded.
 
 ## Active redesign override
 
-The published `v2026.8.15` runtime was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. Read [`docs/REDESIGN.md`](docs/REDESIGN.md) before any task. During the redesign it takes precedence over prototype-era product and architecture descriptions when they conflict.
-
-Phase 0 and the roadmap baseline were approved by the product owner on 2026-08-15. On 2026-08-20 the owner accepted the eight published frames as mood references, rejected their literal detail and realism as the production target, and approved the smaller Phase 1A feasibility brief. The non-playable `v2026.8.20a` review build implemented that brief and remains deployed from merge commit `75ec47c2bca9ea325f5b9508c06d44f3eb1aff1c`; its recorded deployment evidence remains valid for that version only. The owner then rejected mixed painted/geometric proofs, misassembled cutouts, a flawed bone overlay, independently redrawn idle/movement frames, and runtime limb deformation. The owner approved the production method in [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md): cartoon-leaning baked full-body sprites, one stable idle frame, four lower-body movement frames with an invariant upper body, six-frame action and defeat sequences, canonical right-facing art with an exact X-mirrored left facing, and separate player-color masks. On 2026-08-21 that method was applied to six opening representatives and combined with the accepted environment, three structure categories, damage language, six-player color-plus-symbol system, and desktop/phone compositions in [`concepts/feasibility/phase1a/`](concepts/feasibility/phase1a/). The owner judged that integrated set ready except for Aegis Titan's inconsistent movement/action direction; the current candidate contains the corrected right-facing gait and punch. Direct owner confirmation of that last correction remains the Phase 1A gate. Read [`docs/PHASE1A_HANDOFF.md`](docs/PHASE1A_HANDOFF.md) for the exact cold-start state. No gameplay work, merge, deployment, tag, or release follows automatically.
+The published `v2026.8.15` runtime was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
@@ -37,23 +40,22 @@ Before editing, inspect `git status`, the connected source path, its tests, and 
 Read in this order:
 
 1. This file in full.
-2. `docs/PHASE1A_HANDOFF.md` for the exact current candidate, owner gate, direct review paths, rejected methods, and next boundary.
-3. `docs/REDESIGN.md` for the active product contract, phase, and approval gates.
+2. `docs/STATUS.md` for current maturity, evidence, engineering-standard adoption, and the active boundary.
+3. `docs/REDESIGN.md` for the approved product contract, phase sequence, and gates.
 4. `docs/PRODUCTION_ART.md` before any visual, entity, structure, terrain, animation, atlas, mask, damage, or effect work.
-5. `docs/STATUS.md` for current maturity, evidence, and active boundary.
-6. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their redesign phases replace them.
-7. `tests/README.md` for the verification and manual-acceptance map.
+5. `tests/README.md` for the verification and manual-acceptance map.
+6. `docs/PHASE1A_HANDOFF.md` when Phase 1A inputs, approval, direct review paths, or rejected methods are relevant.
+7. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their redesign phases replace them.
 8. `docs/NETCODE.md` only when commands, determinism, networking, lobbies, or servers are involved.
 9. `docs/CONVERSATION_DECISIONS.md` only for historical rationale; it never overrides the files above.
 10. The connected source, tests, issue, pull request, and decision owner.
 
 Use `CONTRIBUTING.md` as a public entrypoint, not a substitute for these rules. Ask before selecting material product direction when the goal or acceptance criteria are absent.
 
-## 3. Current product boundary
+## 3. Product and delivery boundaries
 
 - The rejected playable prototype remains in the published tag/release `v2026.8.15`, Git history, and temporarily preserved prototype-era source used by historical regression tests. It is not the working-tree product baseline, public entry point, or Pages payload. Treat the published tag and release as immutable by project policy; do not imply that the hosting platform has technically locked them.
-- The current public runtime remains `v2026.8.20a`: a minimal HTML/CSS/JavaScript redesign status page, a script-free mood-reference gallery, and the superseded Phase 1A proof. It has no gameplay, Canvas renderer, build step, or runtime package dependency.
-- The active local boundary is the complete unpublished Phase 1A candidate in `concepts/feasibility/phase1a/`, `docs/PHASE1A_HANDOFF.md`, `docs/REDESIGN.md`, and `docs/PRODUCTION_ART.md`. Six representative entity packages, the environment-only battlefield, three structure categories, damage direction, six-player ownership system, and desktop/phone compositions are assembled; Aegis Titan's corrected right-facing movement/action is the final direct owner confirmation. No redesigned gameplay feature is implemented or shipped yet.
+- `docs/STATUS.md` owns the current public runtime, local source boundary, active phase, and observed evidence. Never copy those volatile facts into this file or infer them from a version string.
 - The status page, `concepts/` archive, and `concepts/feasibility/` proof must work by opening their HTML entry points directly and from the `/Aeon-of-Kingdoms/` GitHub Pages subpath. The future game inherits that delivery constraint unless an approved phase changes it.
 - Multiplayer, signaling, TURN, matchmaking, accounts, hosted persistence, and a dedicated server are planned, not shipped. GitHub Pages and Actions are never described as a server.
 - The first replacement release targets a proven two-player local slice. Four- and six-player layouts are later scale work and require separate routing, performance, fairness, and play evidence.
@@ -84,10 +86,11 @@ Do not expand the slice into an account system, content pipeline, framework migr
 
 ## 6. Ownership map
 
-The transition and Phase 1A entries below own the current review candidate. No gameplay source boundary is approved yet; each later phase must record the smallest actual ownership map when it introduces replacement code. Prototype-era design documents remain historical until explicitly replaced.
+Each responsibility has one source of truth. No gameplay source boundary exists until an approved implementation phase introduces it; prototype-era design documents remain historical until explicitly replaced.
 
 | Area | Source of truth |
 | --- | --- |
+| Current phase, evidence, deployment, and engineering-standard adoption | `docs/STATUS.md` |
 | Interim public content and semantics | `index.html` |
 | Interim presentation | `css/status.css` |
 | Interim enhancement and service-worker registration | `js/status.js` |
@@ -95,19 +98,18 @@ The transition and Phase 1A entries below own the current review candidate. No g
 | Mood-reference presentation | `concepts/gallery.css` |
 | Optimized mood-only visual references | `concepts/images/*.webp` |
 | Superseded v5 Phase 1A proof record | `concepts/feasibility/index.html`, `concepts/feasibility/proof.css`, and `concepts/feasibility/images/*.webp` |
-| Complete direct-file Phase 1A closing candidate and owner gate | `concepts/feasibility/phase1a/README.md` and `concepts/feasibility/phase1a/manifest.json` |
+| Approved direct-file Phase 1A production-feasibility package | `concepts/feasibility/phase1a/README.md` and `concepts/feasibility/phase1a/manifest.json` |
 | Six representative atlases, masks, metadata, and actual-scale playback | `concepts/feasibility/phase1a/entities/*/` |
 | Accepted environment, structures, damage, ownership, and viewport compositions | `concepts/feasibility/phase1a/{environment,structures,review}/` |
-| Memoryless Phase 1A continuation state and next gate | `docs/PHASE1A_HANDOFF.md` |
+| Phase 1A closure record and Phase 1B boundary | `docs/PHASE1A_HANDOFF.md` |
 | Historical conversation rationale and rejected-attempt chronology | `docs/CONVERSATION_DECISIONS.md` |
-| Copy-ready cold-start instructions for a new chat | `docs/NEW_CHAT_PROMPT.txt` |
+| Thin cold-start pointer for a new chat | `docs/NEW_CHAT_PROMPT.txt` |
 | Explicit Pages delivery allowlist | `.github/scripts/stage-pages.js` |
 | Active redesign, phases, and approval gates | `docs/REDESIGN.md` |
 | Approved production-art, animation, direction, color, structure, and validation method | `docs/PRODUCTION_ART.md` |
 | Intended future experience after its redesign rewrite | `docs/GAME_DESIGN.md` |
 | Future runtime boundaries after redesign | `docs/ARCHITECTURE.md` |
 | Multiplayer protocol and infrastructure plan | `docs/NETCODE.md` |
-| Current maturity and evidence | `docs/STATUS.md` |
 | Active review-reference inventory and archived prototype asset record | `docs/ASSETS.md` |
 
 Put redesign behavior in the smallest approved boundary for that phase. Shared code must have at least two proven callers or remove a real ownership conflict. Do not restore rejected prototype source from history to accelerate a redesign phase.
@@ -123,7 +125,7 @@ Put redesign behavior in the smallest approved boundary for that phase. Shared c
 - A mode composes objectives around shared simulation rules; it does not fork economy, combat, pathfinding, or capture into a parallel implementation.
 - Essential state is readable outside the Canvas. Color, glow, and animation are never the only indicator of owner, selection, damage, target, or disabled state.
 
-Exact values belong only in `js/config.js`. Product rationale belongs in `docs/GAME_DESIGN.md`.
+The replacement runtime must introduce one obvious configuration owner for exact values. Do not treat the preserved prototype `js/config.js` or prototype-era `docs/GAME_DESIGN.md` as that owner.
 
 ## 8. Networking boundary
 
@@ -139,6 +141,17 @@ Do not weaken deterministic local behavior to make an early transport demo appea
 
 ## 9. Verification
 
+There is no install step, runtime dependency, or build step for the current static source boundary.
+
+| Purpose | Exact command or action |
+| --- | --- |
+| Direct local preview | Open `index.html` in a modern browser |
+| Focused Phase 1A asset check | `node --test tests/phase1a-production-assets.test.js` |
+| Complete automated verification | `node tests/run.js` |
+| Stage the exact Pages payload | `node .github/scripts/stage-pages.js _site` |
+| Diff hygiene | `git diff --check` |
+| Working-tree review | `git status --short --branch` |
+
 - Add a deterministic regression for every fixed defect or changed rule.
 - Use Node.js built-ins only. The verification harness installs no dependency and makes no network request.
 - Run focused checks while iterating, then `node tests/run.js` on the frozen candidate.
@@ -149,28 +162,21 @@ Do not weaken deterministic local behavior to make an early transport demo appea
 
 Never weaken, skip, or delete a test to hide a defect. Never claim a check, deployment, screenshot source, device, player count, or network condition that was not observed.
 
-## 10. Documentation ownership
+### Definition of done
 
-| File | Purpose |
-| --- | --- |
-| `README.md` | Short public introduction, real visuals, controls, local run, links |
-| `CONTRIBUTING.md` | Concise contributor workflow |
-| `docs/REDESIGN.md` | Active redesign contract, phases, gates, and deferred enhancements |
-| `docs/STATUS.md` | Current maturity, evidence, known limits, next boundary |
-| `docs/ARCHITECTURE.md` | Runtime data flow and file ownership |
-| `docs/GAME_DESIGN.md` | Vision, loop, roles, maps, sites, modes, presentation |
-| `docs/NETCODE.md` | Planned protocol, authority, transport, infrastructure and threat boundary |
-| `docs/ASSETS.md` | Inventory, provenance, art rules and capture gate |
-| `docs/PRODUCTION_ART.md` | Approved entity, structure, player-color, damage, facing, animation, and asset-validation contract |
-| `docs/PHASE1A_HANDOFF.md` | Exact cold-start Phase 1A candidate, direct review paths, remaining owner gate, rejected methods, and Phase 1B boundary |
-| `docs/CONVERSATION_DECISIONS.md` | Non-authoritative reconstructed decision history and failure lessons for memoryless contributors |
-| `docs/NEW_CHAT_PROMPT.txt` | Copy-ready new-chat bootstrap that enforces the authority and verification order |
-| `tests/README.md` | Stable suite map and manual evidence matrix |
-| `AGENTS.md` | Enduring contributor and publication contracts |
-| `SECURITY.md` | Supported boundary and responsible reporting |
-| `CHANGELOG.md` | Player-visible runtime history |
+- The authorized observable outcome is complete without unrequested product behavior, external writes, dependencies, or speculative layers.
+- Each changed responsibility has one clear owner; affected canonical documents and tested mirrors agree.
+- Focused checks and `node tests/run.js` pass on the frozen candidate; Pages staging and diff hygiene pass when applicable.
+- The complete diff is reviewed for behavior drift, broken references, data loss, security, accessibility, performance, and unnecessary complexity.
+- Automated, rendered, manual, deployed, network, and physical-device evidence are reported separately, with unavailable or non-applicable checks explicit.
+- Remaining risk, rollback, deletion, migration, GitHub, and approval state are recorded honestly.
 
-Update every affected owner in the same coherent change. Do not use durable documents as task logs, duplicate the same status across several files, or turn roadmap text into an implemented claim.
+## 10. Documentation and cleanup discipline
+
+- The ownership map in section 6 is canonical. `README.md` is the short human entrypoint; `CONTRIBUTING.md` is the public workflow; durable documents exist only for a distinct owner.
+- Update every affected owner in the same coherent change. Do not use durable documents as task logs, duplicate volatile status across files, or turn roadmap text into an implemented claim.
+- Search source, tests, templates, styles, configuration, manifests, workflows, documentation, loaders, and delivery paths before deleting. Remove only proven-dead code, assets, flags, dependencies, shims, generated output, and debug residue.
+- Preserve unfamiliar or unrelated work. Historical material belongs in immutable tags or Git history when removal is safe; do not restore rejected material to accelerate the redesign.
 
 ## 11. Versioning and releases
 

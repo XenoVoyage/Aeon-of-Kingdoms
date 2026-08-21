@@ -1,8 +1,8 @@
-# Phase 1A closing candidate
+# Phase 1A approved production-feasibility package
 
-Status: **complete feature-branch review candidate; the corrected Aegis Titan awaits direct product-owner confirmation; unpublished and unmerged**.
+Status: **approved by the product owner on 2026-08-21; unpublished, unmerged, non-playable, and not a runtime atlas**.
 
-This directory is the direct-file Phase 1A handoff. It intentionally has no HTML review application. Start with the four files in [`review/`](review/), then inspect the actual-scale animated WebP files in each entity directory. These are production-art and composition proofs, not gameplay screenshots.
+This directory is the direct-file Phase 1A closure package. It intentionally has no HTML review application. Start with the five files in [`review/`](review/), then inspect the actual-scale animated WebP files in each entity directory. These are production-art and composition proofs, not gameplay screenshots.
 
 The canonical contract is [`docs/PRODUCTION_ART.md`](../../../docs/PRODUCTION_ART.md). The machine-readable inventory is [`manifest.json`](manifest.json).
 
@@ -48,4 +48,4 @@ Player color never owns anatomy, armor material, bone, leather, weapon metal, or
 
 ## Boundary
 
-Direct confirmation of the corrected Aegis Titan would close the remaining Phase 1A owner gate and lock this visible production direction and asset method. It would not approve gameplay, balance, the eventual full six-role-per-faction roster, final runtime atlas dimensions, controls, UI, AI, networking, a merge, deployment, tag, or release. Those remain later gated work.
+The product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21, closing Phase 1A and locking this visible production direction and asset method. That approval does not approve gameplay, balance, the eventual full six-role-per-faction roster, final runtime atlas dimensions, controls, UI, AI, networking, a merge, deployment, tag, or release. Those remain later gated work.

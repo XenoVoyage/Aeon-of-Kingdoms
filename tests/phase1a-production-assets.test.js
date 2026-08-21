@@ -152,17 +152,17 @@ function listFiles(directory) {
   });
 }
 
-test("Phase 1A closing inventory is direct-file, explicit, and bounded", () => {
+test("Phase 1A approved inventory is direct-file, explicit, and bounded", () => {
   const manifest = JSON.parse(read("manifest.json"));
   assert.equal(manifest.phase, "1A");
-  assert.equal(manifest.status, "complete-candidate-aegis-corrected-awaiting-final-owner-confirmation");
+  assert.equal(manifest.status, "phase1a-approved-unpublished");
   assert.equal(manifest.published, false);
   assert.equal(manifest.gameplay, false);
   assert.equal(manifest.candidateBranch, "agent/phase1a-unified-production-proof");
   assert.deepEqual(manifest.ownerReview, {
     productionMethod: "approved-2026-08-20",
-    integratedSet: "conditionally-accepted-except-aegis-direction",
-    aegisDirectionCorrection: "implemented-awaiting-direct-confirmation"
+    integratedSet: "approved-2026-08-21",
+    aegisDirectionCorrection: "approved-2026-08-21"
   });
   assert.deepEqual(manifest.entityProfile.cell, [384, 384]);
   assert.deepEqual(manifest.entityProfile.groundAnchor, [192, 354]);
@@ -176,7 +176,7 @@ test("Phase 1A closing inventory is direct-file, explicit, and bounded", () => {
   assert.equal(files.filter((name) => /\/(?:idle|move|attack|defeat)\.webp$/.test(name)).length, 24);
   assert.equal(files.filter((name) => /\.(?:html|css|js)$/.test(name)).length, 0, "direct review must not ship an app shell");
   const totalBytes = files.reduce((total, name) => total + fs.statSync(path.join(ASSET_ROOT, name)).size, 0);
-  assert.ok(totalBytes <= 14 * 1024 * 1024, `Phase 1A closing payload exceeds 14 MiB: ${totalBytes}`);
+  assert.ok(totalBytes <= 14 * 1024 * 1024, `Phase 1A approved payload exceeds 14 MiB: ${totalBytes}`);
 
   const correctedAegisHashes = {
     "entities/aegis-titan/atlas.png": "634a43b6282c238acfae1f6df8d797e3c3c6abc1aeb51eef10894f05f14ba6ad",

@@ -1,6 +1,6 @@
 # Production art contract
 
-Status: **entity method approved by the product owner on 2026-08-20; complete Phase 1A candidate assembled on 2026-08-21; corrected Aegis Titan awaits direct final confirmation**.
+Status: **entity method approved by the product owner on 2026-08-20; corrected Aegis Titan and complete Phase 1A package approved on 2026-08-21; Phase 1A closed**.
 
 This file is the canonical production-art contract for Aeon of Kingdoms. Read it before creating, editing, exporting, reviewing, loading, recoloring, or animating an entity, structure, terrain plate, foreground occluder, or effect. It is written for contributors and agents that have no conversation history. When another document or an older proof conflicts with this file, this file owns the production-art method; [`REDESIGN.md`](REDESIGN.md) still owns phase scope and approval gates, and [`ASSETS.md`](ASSETS.md) owns the asset inventory and provenance record.
 
@@ -111,9 +111,9 @@ For every structure:
 
 Automated image checks may prove dimensions, alpha containment, frame counts, hashes, mirror identity, and payload limits. They cannot prove animation quality, readability, game feel, or owner approval. Record those categories separately.
 
-## Phase 1A closing candidate
+## Phase 1A approved package
 
-The complete unpublished direct-file candidate lives at `concepts/feasibility/phase1a/`. Its `README.md` is the human review order and its `manifest.json` is the machine-readable inventory. These paths remain plain text in the staged public contract until owner approval authorizes publication. The package intentionally adds no HTML review application.
+The complete owner-approved but unpublished direct-file package lives at `concepts/feasibility/phase1a/`. Its `README.md` is the human review order and its `manifest.json` is the machine-readable inventory. These paths remain outside the staged public allowlist until a separate publication step is explicitly authorized. The package intentionally adds no HTML review application.
 
 The six Phase 1A representatives are:
 
@@ -126,12 +126,12 @@ Each package includes a canonical-right atlas, aligned player mask, metadata, on
 
 The integrated suite verifies all six atlases at pixel level: idle equals movement frame zero; the approved upper-body region is identical across movement frames; unused cells and cell edges remain transparent; masks stay inside visible alpha; state counts, cadence, facing, roots, and loop metadata match this contract; structure masks remain bounded; and the complete direct package remains below its 14 MiB review budget. Those checks do not visually approve the set.
 
-The final Aegis Titan export replaces a rejected nearly front-facing gait and punch. In the current package, crystal head, torso, hips, knees, feet, and attack travel all agree on canonical screen-right before exact mirroring. Its accepted defeat source and player-color boundary remain intact. `docs/PHASE1A_HANDOFF.md` owns the exact remaining owner gate and cold-start state.
+The final Aegis Titan export replaces a rejected nearly front-facing gait and punch. In the approved package, crystal head, torso, hips, knees, feet, and attack travel all agree on canonical screen-right before exact mirroring. Its accepted defeat source and player-color boundary remain intact. `docs/PHASE1A_HANDOFF.md` owns the exact closure record and Phase 1B boundary.
 
 ## Review workflow and phase boundary
 
 - Produce and approve one representative at a time before multiplying a flawed method across a roster.
 - Provide direct raster, atlas, and animated-preview links for owner review. Do not create a heavyweight HTML preview unless explicitly requested.
 - Do not merge, deploy, tag, or describe a review artifact as gameplay merely because its checks pass.
-- The Astral Guardian establishes the approved entity method. The Phase 1A closing candidate now applies that exact contract to the Gravebound Reaver, Starbow, Hollow String, Aegis Titan, and Ossuary Colossus.
-- Phase 1A closes only after the owner directly confirms the corrected Aegis movement/action and therefore the complete entity, player-color, structure, damage, and desktop/phone set. Gameplay renderer work begins only at its later approved gate.
+- The Astral Guardian established the approved entity method. The Phase 1A package applies that exact contract to the Gravebound Reaver, Starbow, Hollow String, Aegis Titan, and Ossuary Colossus.
+- The owner directly approved the corrected Aegis movement/action and complete entity, player-color, structure, damage, and desktop/phone set on 2026-08-21. Phase 1A is closed; gameplay renderer work begins only at its later approved gate.

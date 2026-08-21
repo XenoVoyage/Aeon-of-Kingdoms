@@ -1,6 +1,6 @@
 # Assets and art direction
 
-This file owns the active reference inventory, provenance record, and rejected proof archive. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) owns the approved visible, facing, animation, player-color, structure-damage, and validation method; [`REDESIGN.md`](REDESIGN.md) owns phase scope and approval gates. Final atlas dimensions, loading, licensing, and measured runtime budgets remain Phase 1 decisions before gameplay rendering begins.
+This file owns the active reference inventory, provenance record, and rejected proof archive. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) owns the approved visible, facing, animation, player-color, structure-damage, and validation method; [`REDESIGN.md`](REDESIGN.md) owns phase scope and approval gates. Final atlas dimensions, loading, licensing, and measured runtime budgets remain Phase 1B decisions before gameplay rendering begins.
 
 ## Approved production method
 
@@ -16,11 +16,11 @@ The product owner approved the following opening-production baseline on 2026-08-
 | Defeat | Six authored full-body frames at the reference 10 FPS with an authored collapse |
 | Ownership | Separate frame-aligned player-color masks on all player-controlled entities and ownable structures; color plus a non-color cue for up to six players |
 
-The Astral Guardian approved this method, not a final runtime atlas. The same contract has now been applied to all six Phase 1A representatives. Exact acceptance and automated/manual validation requirements are in [`PRODUCTION_ART.md`](PRODUCTION_ART.md).
+The owner's Astral Guardian review approved this method, not a final runtime atlas. The same contract has now been applied to all six Phase 1A representatives. Exact acceptance and automated/manual validation requirements are in [`PRODUCTION_ART.md`](PRODUCTION_ART.md).
 
-## Complete Phase 1A closing candidate
+## Approved Phase 1A package
 
-The direct review package is stored at `concepts/feasibility/phase1a/`. It is a complete **feature-branch candidate** whose corrected Aegis Titan still awaits direct owner confirmation, not gameplay, a final runtime atlas, a published Pages payload, a tag, or a release. Its human review order is in the package `README.md`, and its machine-readable inventory is `manifest.json`. These unpublished paths remain plain text in the staged public asset record until owner approval authorizes publication.
+The direct review package is stored at `concepts/feasibility/phase1a/`. It is the complete **owner-approved Phase 1A production-feasibility package**, not gameplay, a final runtime atlas, a published Pages payload, a tag, or a release. Its human review order is in the package `README.md`, and its machine-readable inventory is `manifest.json`. These unpublished paths remain outside the staged public asset record until a separate publication step is explicitly authorized.
 
 ### Review inventory
 
@@ -119,7 +119,7 @@ These values are a reviewable production hypothesis, not an approved atlas or me
 - **Frame and atlas envelope:** the current proof master uses 384×384 cells with root `(192, 354)`. Final gameplay-scale cells and atlas dimensions remain measured Phase 1B decisions; every state and mask must preserve the shared root.
 - **Encoded budget:** at most 256 KiB per ordinary entity and 384 KiB per signature entity. A two-faction six-role opening roster therefore targets at most 3.25 MiB encoded, loaded by participating faction rather than by the future complete faction library.
 - **Decoded budget:** the same opening roster provisionally targets at most 14 MiB of decoded entity-atlas pixels before measurement and browser overhead. Terrain, structures, UI, audio, and effects have separate later budgets.
-- **Validation gate:** the closing candidate proves the exact contract across all six representatives. It does not approve the complete set, a final runtime loading strategy, gameplay renderer, later permanent roster, tag, or release; those retain their own measured gates.
+- **Validation gate:** the approved Phase 1A package proves the exact contract across all six representatives. Its approval does not choose a final runtime loading strategy, authorize a gameplay renderer, define the later permanent roster, publish a tag, or create a release; those retain their own measured gates.
 
 ## Reviewed redesign mood references
 
@@ -146,13 +146,13 @@ Total review-image payload: **1,253,726 bytes**.
 - **Distribution decision:** These review copies are included as project material under the repository's MIT license. This does not approve them as final shipping art; generated output may not be unique, and final asset selection/licensing remains a Phase 1 gate.
 - **Delivery:** Each reference is local, below 300 KiB, linked at full size, and excluded from the four-file offline status-shell cache. Seven below-fold images lazy-load; the first is prioritized.
 
-## Phase 1A closing rules
+## Phase 1A locked rules
 
 The closing set is intentionally smaller than the later six-role-per-faction library. It proves one sustainable method across melee, ranged, and signature representatives before Phase 1B expands the permanent role contracts.
 
 - **Visual target:** cartoon-leaning, hand-painted 2D fantasy viewed from a consistent three-quarter top-down angle. Silhouette, posture, weapon, and one restrained faction motif carry identity; faces, engravings, layered cloth, and portrait-level surface detail do not carry gameplay meaning.
 - **Scale proof:** show ordinary and minimum gameplay zoom on a representative desktop and compact phone-landscape viewport with a crowded fight. Enlarged character sheets alone are insufficient.
-- **Entity proof:** melee, ranged, and signature representatives from both opening factions prove faction contrast and the same baked full-body directional method. The remaining permanent six-role contracts expand only after this complete Phase 1A set is approved.
+- **Entity proof:** melee, ranged, and signature representatives from both opening factions prove faction contrast and the same baked full-body directional method. The remaining permanent six-role contracts belong to Phase 1B and have not been expanded by Phase 1A approval.
 - **Structure proof:** two unique headquarters; one shared Resource Point; one shared Production Outpost. The two shared forms show neutral and multiple owned states using flags, banners, lights, patterns, and player marks rather than model replacement or color alone.
 - **Animation proof:** each representative demonstrates one stable idle frame, four lower-body-only movement frames, six full-body attack/cast frames, and six full-body defeat frames. Art is authored facing right and mirrored exactly for left gameplay; every state keeps coherent anatomy, oversized attached equipment, and one shared root. Runtime limb deformation, independently assembled body parts, and independently redrawn idle/movement upper bodies are not accepted.
 - **Map proof:** the visible battlefield stays painted and coherent. Ground, non-blocking detail, navigation/blocker mask, anchors, dynamic ordering, and foreground occlusion remain separate map data; mountain pixels never become implicit collision, and technical layer diagrams are not presented as game art.

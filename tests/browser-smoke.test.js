@@ -18,14 +18,16 @@ test("public shell truthfully presents the phased redesign", () => {
     /name=["']viewport["']/i,
     /id=["']main-content["']/i,
     /id=["']page-title["']/i,
-    /Phase 1A · Closing review/i,
+    /Phase 1A · Complete/i,
     /Redesign in progress/i,
     /production-art method is approved/i,
-    /all six opening representatives now prove that same standard/i,
+    /All\s+six opening representatives now prove that same standard/i,
+    /owner approved the\s+complete integrated set/i,
     /No gameplay yet/i,
-    /aria-current=["']step["']/i,
     /Status build v2026\.8\.21/i
   ]) assert.match(html, pattern);
+
+  assert.doesNotMatch(html, /aria-current=["']step["']/i, "no not-yet-started product phase may be marked current");
 
   assert.match(html, /href=["']https:\/\/github\.com\/XenoVoyage\/Aeon-of-Kingdoms["']/i);
   assert.match(html, /href=["']concepts\/["']/i);

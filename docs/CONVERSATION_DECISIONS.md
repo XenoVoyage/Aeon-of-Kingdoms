@@ -143,7 +143,7 @@ Every representative received the same atlas, mask, metadata, playback, and play
 
 The owner judged the package complete except that Aegis Titan's movement and action mixed a nearly front-facing body with lateral feet and attack direction. This made mirroring semantically wrong even though the static model looked attractive.
 
-The current candidate rebuilds Aegis movement and punch so crystal head, torso, hips, knees, feet, and attack direction agree on screen-right. Movement retains a pixel-locked upper body, left remains an exact mirror, and the ownership mask remains separate. The corrected files are the last required direct owner confirmation before Phase 1A can be recorded closed.
+The candidate rebuilt Aegis movement and punch so crystal head, torso, hips, knees, feet, and attack direction agree on screen-right. Movement retains a pixel-locked upper body, left remains an exact mirror, and the ownership mask remains separate. After direct review, the owner approved the corrected Aegis Titan and integrated set on 2026-08-21, closing Phase 1A. This historical approval did not authorize publication or gameplay implementation.
 
 ## Rejected-attempt reference table
 

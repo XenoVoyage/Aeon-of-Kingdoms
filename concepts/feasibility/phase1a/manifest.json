@@ -1,14 +1,14 @@
 {
   "schema": 1,
   "phase": "1A",
-  "status": "complete-candidate-aegis-corrected-awaiting-final-owner-confirmation",
+  "status": "phase1a-approved-unpublished",
   "published": false,
   "gameplay": false,
   "candidateBranch": "agent/phase1a-unified-production-proof",
   "ownerReview": {
     "productionMethod": "approved-2026-08-20",
-    "integratedSet": "conditionally-accepted-except-aegis-direction",
-    "aegisDirectionCorrection": "implemented-awaiting-direct-confirmation"
+    "integratedSet": "approved-2026-08-21",
+    "aegisDirectionCorrection": "approved-2026-08-21"
   },
   "review": {
     "openingEntities": "review/opening-entities.webp",

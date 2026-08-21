@@ -1,65 +1,15 @@
-Continue the Aeon of Kingdoms redesign from the frozen Phase 1A handoff. Assume you have zero memory of any earlier chat and do not infer project intent from general RTS conventions.
+Continue work on Aeon of Kingdoms with no assumed memory of earlier conversations.
 
 Repository: https://github.com/XenoVoyage/Aeon-of-Kingdoms
-Required branch: agent/phase1a-unified-production-proof
 
-Before editing anything:
+Before editing:
+
 1. Run `git status --short --branch` and `git log -5 --oneline --decorate`.
-2. Read these files completely, in order:
-   - AGENTS.md
-   - docs/PHASE1A_HANDOFF.md
-   - docs/REDESIGN.md
-   - docs/PRODUCTION_ART.md
-   - docs/STATUS.md
-   - concepts/feasibility/phase1a/README.md
-   - concepts/feasibility/phase1a/manifest.json
-   - docs/CONVERSATION_DECISIONS.md (historical rationale only)
-3. Inspect the five files in `concepts/feasibility/phase1a/review/` and the actual-scale playback in all six entity directories.
-4. Run `node --test tests/phase1a-production-assets.test.js`.
+2. Read `AGENTS.md` completely, then follow its current required-reading and authority order.
+3. Read `docs/STATUS.md` for current phase, evidence, deployment, and Engineering Standard state; read `docs/REDESIGN.md` for product gates.
+4. Inspect the relevant source, tests, pull request, review files, and decision owner.
+5. Run the focused checks named by the affected owner, then `node tests/run.js` before calling a candidate complete.
 
-Authority order:
-1. Current Git source and tests
-2. AGENTS.md
-3. docs/PHASE1A_HANDOFF.md
-4. docs/REDESIGN.md
-5. docs/PRODUCTION_ART.md
-6. docs/STATUS.md and the Phase 1A manifest
-7. The visual GDD PDF
-8. docs/CONVERSATION_DECISIONS.md
+Your first response must report the checked-out branch and commit, working-tree state, current boundary and pending gate, evidence actually inspected, and the smallest proposed change. Do not infer product intent from general RTS conventions, filenames, rejected prototypes, or historical conversation notes.
 
-Current boundary:
-- Phase 0 is complete.
-- Phase 1A is a complete, non-playable, unpublished production-feasibility candidate.
-- The baked full-body directional sprite method, separate player-color masks, environment-only battlefield, three structure categories, damage language, and six-player color-plus-symbol principle are locked.
-- Aegis Titan movement/action were rebuilt last so the entire body faces canonical screen-right and the opposite direction is an exact X mirror.
-- Final owner confirmation of the corrected Aegis Titan and integrated set must be recorded before Phase 1A is declared closed.
-- Phase 1B is the next implementation/planning boundary. Do not start a gameplay renderer or Phase 2.
-
-Non-negotiable entity standard:
-- coherent baked full-body frames; no limb rig or runtime anatomy deformation;
-- canonical right-facing art; left is exact `scaleX(-1)`;
-- one stable idle frame;
-- four movement frames with idle equal to frame zero and a pixel-identical upper body/equipment region;
-- six action/cast frames and six defeat frames;
-- one shared ground root;
-- a frame-aligned player-color mask that recolors restrained ownership surfaces only.
-
-Non-negotiable world standard:
-- landscape-only gameplay;
-- separate ground/detail/navigation/anchor/dynamic/foreground layers;
-- environment plate contains no baked entities or structures;
-- exactly three structure categories: faction headquarters, shared Resource Point, shared Production Outpost;
-- structures and entities support player color plus a non-color ownership cue;
-- simulation, not animation, owns authoritative timing and outcomes.
-
-Do not revive the rejected v2026.8.15 prototype, the mixed v2026.8.20a visual proof, generated limb atlases, bone rigs, independent left/right art, independently redrawn idle/move upper bodies, color-only ownership, a fourth structure category, or a heavyweight HTML approval page.
-
-Your first response must report:
-- checked-out branch and commit;
-- whether the working tree is clean;
-- the active phase and exact pending owner gate;
-- the locked entity/structure/environment/player-color rules in your own words;
-- the tests and review files you actually inspected;
-- the smallest proposed next step.
-
-Do not edit until that cold-start report is complete. Preserve unrelated work and do not merge, deploy, tag, or release without explicit authorization.
+Do not edit until that cold-start report is complete. Preserve unrelated work. Do not commit, push, merge, deploy, tag, release, or begin a later phase without the authority required by `AGENTS.md` and the user's current request.

@@ -11,26 +11,19 @@
 
 > **Active redesign:** the product owner rejected the `v2026.8.15` prototype and approved the phased replacement plan. Its UI, art, map, controls, terminology, gameplay feel, and AI are not the baseline for future work.
 
-## Phase 1A closing candidate — ready for review
+## Phase 1A production direction — approved
 
-[View the current redesign status](https://xenovoyage.github.io/Aeon-of-Kingdoms/) · [Inspect the direct Phase 1A package](concepts/feasibility/phase1a/) · [Read the cold-start handoff](docs/PHASE1A_HANDOFF.md)
+[View the current redesign status](https://xenovoyage.github.io/Aeon-of-Kingdoms/) · [Inspect the direct Phase 1A package](concepts/feasibility/phase1a/) · [Read the Phase 1A closure handoff](docs/PHASE1A_HANDOFF.md)
 
 </div>
 
 [![Phase 1A desktop battlefield composition showing separate cartoon-leaning painted environment, structure, entity, and ownership layers.](concepts/feasibility/phase1a/review/battlefield-desktop.webp)](concepts/feasibility/phase1a/review/battlefield-desktop.webp)
 
-The owner approved the production method in [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md): cartoon-leaning baked full-body sprites, canonical right-facing art with an exact X-mirrored left facing, one stable idle frame, four movement frames with invariant upper bodies and equipment, six-frame action and defeat sequences, and separate player-color masks for every player-controlled entity and ownable structure. The complete Phase 1A candidate applies that method to six opening representatives, the three structure categories, six player color-plus-symbol identities, and desktop/phone battlefield compositions. The last reported defect—Aegis Titan's inconsistent movement/action direction—has been rebuilt in the feature-branch candidate and awaits direct owner confirmation. The image above is a non-gameplay composition built from separate assets. Public Pages remains the deployed `v2026.8.20a` proof until a separately authorized publication step succeeds. No redesigned gameplay has begun, and no merge, complete Phase 1A approval, tag, or GitHub Release is claimed. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag and Git history.
+The owner approved the production method in [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md): cartoon-leaning baked full-body sprites, canonical right-facing art with an exact X-mirrored left facing, one stable idle frame, four movement frames with invariant upper bodies and equipment, six-frame action and defeat sequences, and separate player-color masks for every player-controlled entity and ownable structure. On 2026-08-21 the owner also approved the corrected Aegis Titan and complete six-entity, three-structure-category, environment, damage, ownership, and viewport package, closing Phase 1A. The image above is a non-gameplay composition built from separate assets. Approval does not make the package gameplay or authorize publication, merge, tag, or release. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current source, deployment, evidence, and next-boundary state. The rejected prototype remains available through the published [historical release `v2026.8.15`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/releases/tag/v2026.8.15), its tag, and Git history.
 
-## At a glance
+## Replacement target
 
-| Detail | Current truth |
-| --- | --- |
-| Public Pages payload | `v2026.8.20a` non-playable status, mood archive, and Phase 1A proof at merge commit `75ec47c`; untagged and not a GitHub Release |
-| Current source | Unpublished, unmerged Phase 1A feature-branch candidate; six representative entity packages, four structure forms across three categories, environment, damage, ownership, and viewport proofs are complete |
-| Active work | Direct owner confirmation of corrected Aegis Titan movement/action; redesigned gameplay has not started |
-| Replacement target | One original layered map, two factions, landscape camera play, unique headquarters, shared Resource Points and Production Outposts, production/rally, readable combat, and strategic AI |
-| Replacement runtime principle | Local HTML, CSS, JavaScript, and Canvas unless an approved phase proves another need |
-| Multiplayer | Later phase after the redesigned local simulation is approved; not shipped |
+The first replacement release remains one original layered landscape battlefield, two factions, faction-specific headquarters, shared Resource Points and Production Outposts, production and rally commands, readable formation combat, and strategic AI. The local simulation is proved before multiplayer. Phase 1B must lock the complete visual and interaction target before any Phase 2 renderer work begins.
 
 ## Preview the transition page locally
 
@@ -43,7 +36,7 @@ node tests/run.js
 ## Project documentation
 
 - [Active redesign roadmap](docs/REDESIGN.md)
-- [Memoryless Phase 1A handoff](docs/PHASE1A_HANDOFF.md)
+- [Phase 1A closure handoff](docs/PHASE1A_HANDOFF.md)
 - [Approved production-art contract](docs/PRODUCTION_ART.md)
 - [Current status](docs/STATUS.md)
 - [Prototype-era game design](docs/GAME_DESIGN.md)
