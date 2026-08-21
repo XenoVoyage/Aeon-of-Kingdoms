@@ -116,6 +116,7 @@ test("approved review remains local, semantic, responsive, and reduced-motion sa
   assert.match(html, /style-src 'self'/i);
   assert.match(html, /img-src 'self'/i);
   assert.match(html, /connect-src 'none'/i);
+  assert.match(html, /href=["']proof\.css\?v=2026\.8\.21a["']/i, "changed proof CSS must bypass the superseded cached stylesheet");
   assert.doesNotMatch(html, /unsafe-(?:inline|eval)/i);
   assert.doesNotMatch(html, /<(?:img|link|source)\b[^>]+(?:src|href|srcset)=["'](?:https?:|\/)/i);
 
