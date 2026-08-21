@@ -463,7 +463,7 @@
             <thead><tr><th>Boundary</th><th>Candidate decision</th><th>Review evidence</th></tr></thead>
             <tbody>
               <tr><th>Supported aspect range</th><td>4:3 through 21:9 landscape</td><td>Static 4:3, 16:9, and 844:390 mockups</td></tr>
-              <tr><th>Minimum gameplay viewport</th><td>640 × 360 CSS pixels</td><td>Source contract; live reflow check pending</td></tr>
+              <tr><th>Minimum gameplay viewport</th><td>640 × 360 CSS pixels</td><td>Source contract; compact live reflow pending</td></tr>
               <tr><th>Outside range</th><td>Deliberate letterbox; essential HUD stays inside the supported safe frame</td><td>Specification only</td></tr>
               <tr><th>Display cutouts</th><td><code>env(safe-area-inset-*)</code> plus a 12 CSS pixel inner control margin</td><td>CSS inset rule and static safe outline; emulation pending</td></tr>
               <tr><th>Portrait</th><td>Rotate gate, authoritative pause, transient-input clear, safe resume</td><td>Static gate and source check</td></tr>
@@ -477,7 +477,7 @@
             <caption>Target browser/device matrix</caption>
             <thead><tr><th>Class</th><th>Target</th><th>Current evidence</th></tr></thead>
             <tbody>
-              <tr><th>Desktop Chromium</th><td>Chrome and Edge, current and previous major</td><td>Live cloud inspection pending publication</td></tr>
+              <tr><th>Desktop Chromium</th><td>Chrome and Edge, current and previous major</td><td>Cloud Chrome at 1348×936; exact version not exposed</td></tr>
               <tr><th>Desktop Firefox</th><td>Firefox, current and previous major</td><td>Pending implementation matrix</td></tr>
               <tr><th>Desktop Safari</th><td>Safari on macOS, current and previous major</td><td>Pending physical/browser matrix</td></tr>
               <tr><th>Android phone/tablet</th><td>Chrome, current and previous major</td><td>Static layout only; emulation and physical pending</td></tr>
@@ -488,9 +488,9 @@
         </div>
 
         <ul class="evidence-strip">
-          <li><span>Automated</span><strong>Required before merge</strong></li>
-          <li><span>Rendered</span><strong>Required on live Pages</strong></li>
-          <li><span>Deployed</span><strong>Required before handoff</strong></li>
+          <li><span>Automated</span><strong>5/5 focused · 77/77 integrated</strong></li>
+          <li><span>Rendered</span><strong>Cloud desktop + four embedded layouts</strong></li>
+          <li><span>Deployed</span><strong>PR #14 · Pages run 32516391299</strong></li>
           <li><span>Physical device</span><strong>Pending; not fabricated</strong></li>
           <li><span>Owner gate</span><strong>Pending explicit approval</strong></li>
         </ul>
