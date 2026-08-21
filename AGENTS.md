@@ -9,7 +9,7 @@ Keep the standard status `adopting` while any applicable requirement remains fai
 
 ## Active redesign override
 
-The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the complete non-playable Phase 1B candidate until its explicit owner gate. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
+The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the approved complete Phase 1B visual/interaction contract; and [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) owns the landscape-foundation implementation contract and evidence gate. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
@@ -45,10 +45,12 @@ Read in this order:
 4. `docs/PRODUCTION_ART.md` before any visual, entity, structure, terrain, animation, atlas, mask, damage, or effect work.
 5. `tests/README.md` for the verification and manual-acceptance map.
 6. `docs/PHASE1A_HANDOFF.md` when Phase 1A inputs, approval, direct review paths, or rejected methods are relevant.
-7. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their redesign phases replace them.
-8. `docs/NETCODE.md` only when commands, determinism, networking, lobbies, or servers are involved.
-9. `docs/CONVERSATION_DECISIONS.md` only for historical rationale; it never overrides the files above.
-10. The connected source, tests, issue, pull request, and decision owner.
+7. `docs/PHASE1B_VISUAL_LOCK.md` for the approved menu/HUD, identities, controls, viewport, and runtime-art envelope.
+8. `docs/PHASE2_FOUNDATION.md` before changing the Phase 2 shell, camera, viewport/orientation behavior, map schema, terrain renderer, navigation debug, or Phase 2 evidence.
+9. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their later redesign replacements exist.
+10. `docs/NETCODE.md` only when commands, determinism, networking, lobbies, or servers are involved.
+11. `docs/CONVERSATION_DECISIONS.md` only for historical rationale; it never overrides the files above.
+12. The connected source, tests, issue, pull request, and decision owner.
 
 Use `CONTRIBUTING.md` as a public entrypoint, not a substitute for these rules. Ask before selecting material product direction when the goal or acceptance criteria are absent.
 
@@ -86,7 +88,7 @@ Do not expand the slice into an account system, content pipeline, framework migr
 
 ## 6. Ownership map
 
-Each responsibility has one source of truth. No gameplay source boundary exists until an approved implementation phase introduces it; prototype-era design documents remain historical until explicitly replaced.
+Each responsibility has one source of truth. Phase 2 introduces only the non-authoritative landscape shell, camera, map data, and layered renderer; no authoritative gameplay simulation source exists yet. Prototype-era design documents remain historical until explicitly replaced.
 
 | Area | Source of truth |
 | --- | --- |
@@ -103,15 +105,20 @@ Each responsibility has one source of truth. No gameplay source boundary exists 
 | Six representative atlases, masks, metadata, and actual-scale playback | `concepts/feasibility/phase1a/entities/*/` |
 | Accepted environment, structures, damage, ownership, and viewport compositions | `concepts/feasibility/phase1a/{environment,structures,review}/` |
 | Phase 1A closure record and Phase 1B boundary | `docs/PHASE1A_HANDOFF.md` |
-| Complete Phase 1B visual/interaction/runtime-envelope candidate | `docs/PHASE1B_VISUAL_LOCK.md` |
-| Published Phase 1B candidate review and presentation | `concepts/phase1b/index.html` and `concepts/phase1b/visual-lock.css` |
+| Approved complete Phase 1B visual/interaction/runtime-envelope contract | `docs/PHASE1B_VISUAL_LOCK.md` |
+| Published Phase 1B review and presentation | `concepts/phase1b/index.html` and `concepts/phase1b/visual-lock.css` |
+| Phase 2 landscape-foundation contract and evidence | `docs/PHASE2_FOUNDATION.md` |
+| Phase 2 semantic shell and lifecycle orchestration | `phase2/index.html` and `phase2/app.js` |
+| Phase 2 presentation and safe-area/orientation layout | `phase2/phase2.css` |
+| Phase 2 bounded camera-input translation and transient cleanup | `phase2/input.js` |
+| Phase 2 camera, map, and layered rendering | `phase2/camera.js`, `phase2/map.js`, and `phase2/renderer.js` |
 | Historical conversation rationale and rejected-attempt chronology | `docs/CONVERSATION_DECISIONS.md` |
 | Thin cold-start pointer for a new chat | `docs/NEW_CHAT_PROMPT.txt` |
 | Explicit Pages delivery allowlist | `.github/scripts/stage-pages.js` |
 | Active redesign, phases, and approval gates | `docs/REDESIGN.md` |
 | Approved production-art, animation, direction, color, structure, and validation method | `docs/PRODUCTION_ART.md` |
 | Intended future experience after its redesign rewrite | `docs/GAME_DESIGN.md` |
-| Future runtime boundaries after redesign | `docs/ARCHITECTURE.md` |
+| Rejected prototype runtime-boundary archive | `docs/ARCHITECTURE.md` |
 | Multiplayer protocol and infrastructure plan | `docs/NETCODE.md` |
 | Active review-reference inventory and archived prototype asset record | `docs/ASSETS.md` |
 
@@ -151,6 +158,7 @@ There is no install step, runtime dependency, or build step for the current stat
 | Direct local preview | Open `index.html` in a modern browser |
 | Focused Phase 1A asset check | `node --test tests/phase1a-production-assets.test.js` |
 | Focused Phase 1B visual-lock check | `node --test tests/phase1b-visual-lock.test.js` |
+| Focused Phase 2 foundation check | `node --test tests/phase2-foundation.test.js` |
 | Complete automated verification | `node tests/run.js` |
 | Stage the exact Pages payload | `node .github/scripts/stage-pages.js _site` |
 | Diff hygiene | `git diff --check` |

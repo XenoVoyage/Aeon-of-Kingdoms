@@ -2,7 +2,7 @@
 
 Aeon of Kingdoms is undergoing a gated redesign. Contributions must preserve the approved redesign contract and enduring deterministic, accessible, secure browser boundaries; they must not preserve the rejected prototype presentation or gameplay by default.
 
-Phase 1A is approved and closed as a non-playable production-feasibility proof. The complete non-playable Phase 1B visual-lock candidate is prepared for explicit owner review; no gameplay renderer begins before that combined visual and interaction gate is approved. Read [`docs/STATUS.md`](docs/STATUS.md) for the exact current source, deployment, evidence, and Engineering Standard v1.0 adoption state rather than copying those volatile facts here.
+Phase 1A and the complete non-playable Phase 1B visual/interaction target are approved and closed. Phase 2 is active only for the semantic landscape shell, viewport/orientation gate, bounded camera, six-layer two-player map, terrain, blockers, anchors, and navigation debug presentation; its owner gate remains pending, and Phase 3 is blocked. Read [`docs/STATUS.md`](docs/STATUS.md) for the exact current source, deployment, evidence, and Engineering Standard v1.0 adoption state rather than copying those volatile facts here.
 
 ## Before changing code
 
@@ -11,9 +11,10 @@ Phase 1A is approved and closed as a non-playable production-feasibility proof. 
 3. Read [`docs/REDESIGN.md`](docs/REDESIGN.md) for the active phase sequence, requirements, unresolved decisions, and gates.
 4. Read [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) before changing visual art, animation, facing, atlases, masks, player color, structures, terrain, damage, or effects.
 5. Read [`docs/PHASE1A_HANDOFF.md`](docs/PHASE1A_HANDOFF.md) when the approved Phase 1A package or rejected methods are relevant.
-6. Read [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) before changing the candidate menu/HUD, battlefield, opening identity contracts, landscape controls, viewport support, runtime-art envelope, or Phase 1B gate.
-7. Treat [`docs/GAME_DESIGN.md`](docs/GAME_DESIGN.md) and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) as prototype-era records until their approved redesign phases replace them. [`docs/ASSETS.md`](docs/ASSETS.md) owns the active review-reference inventory and keeps the old asset record in a clearly marked archive. Use [`tests/README.md`](tests/README.md) for the active verification boundary.
-8. Read [`docs/NETCODE.md`](docs/NETCODE.md) before changing determinism, commands, protocol, transport, lobby, or server behavior.
+6. Read [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) before changing the approved menu/HUD, battlefield, opening identity contracts, landscape controls, viewport support, or runtime-art envelope.
+7. Read [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) before changing the active Phase 2 shell, camera, viewport/orientation behavior, map schema, terrain renderer, blockers, navigation debug view, or evidence gate.
+8. Treat [`docs/GAME_DESIGN.md`](docs/GAME_DESIGN.md) and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) as prototype-era records until their approved redesign replacements exist. [`docs/ASSETS.md`](docs/ASSETS.md) owns the active review-reference inventory and keeps the old asset record in a clearly marked archive. Use [`tests/README.md`](tests/README.md) for the active verification boundary.
+9. Read [`docs/NETCODE.md`](docs/NETCODE.md) before changing determinism, commands, protocol, transport, lobby, or server behavior.
 
 Inspect the connected source, tests, issues, pull requests, and recent changes. Ask before inventing a material design or infrastructure decision.
 
@@ -27,7 +28,7 @@ Inspect the connected source, tests, issues, pull requests, and recent changes. 
 - Complete the applicable manual rows in [`tests/README.md`](tests/README.md) and label simulated, rendered, deployed, network, and physical-device observations separately.
 - Run `git diff --check`, review the complete branch diff, and open a draft pull request with the repository template.
 
-The transition page and concept gallery need no installation or build. Node.js 20 or newer is used only for local and continuous verification. A successful local check does not establish a Pages deployment or release.
+The transition page, concept reviews, and Phase 2 candidate need no installation or build. Node.js 20 or newer is used only for local and continuous verification. A successful local check does not establish rendered quality, a Pages deployment, phase approval, or a release.
 
 ## Product changes
 

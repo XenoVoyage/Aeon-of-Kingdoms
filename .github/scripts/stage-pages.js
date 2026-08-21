@@ -65,9 +65,17 @@ const RUNTIME_FILES = Object.freeze([
   "concepts/phase1b/runtime/astral-guardian-96-mask.webp",
   "concepts/phase1b/runtime/astral-guardian-128-base.webp",
   "concepts/phase1b/runtime/astral-guardian-128-mask.webp",
+  "phase2/index.html",
+  "phase2/phase2.css",
+  "phase2/map.js",
+  "phase2/camera.js",
+  "phase2/renderer.js",
+  "phase2/input.js",
+  "phase2/app.js",
   "docs/REDESIGN.md",
   "docs/PRODUCTION_ART.md",
   "docs/PHASE1B_VISUAL_LOCK.md",
+  "docs/PHASE2_FOUNDATION.md",
   "docs/STATUS.md",
   "docs/ASSETS.md"
 ]);

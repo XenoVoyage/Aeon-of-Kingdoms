@@ -42,26 +42,32 @@ const GRAVEBOUND_NAMES = Object.freeze([
 const CONTRACTS = Object.freeze(["melee", "ranged", "signature", "line-control", "support", "champion"]);
 const RUNTIME_SAMPLES = Object.freeze({
   "concepts/phase1b/runtime/astral-guardian-96-base.webp": Object.freeze({
-    bytes: 60272,
+    bytes: 63868,
     dimensions: Object.freeze([384, 384]),
-    sha256: "80bf808947f09e1e0c3da38cb7fbb94a9f0b51dbb851fa14047dc17e0280b030"
+    sha256: "274eedf06c79735ecde0d03e9fec91129a9ffb63ed42be6a80494c88e6bac52a"
   }),
   "concepts/phase1b/runtime/astral-guardian-96-mask.webp": Object.freeze({
-    bytes: 9958,
+    bytes: 10284,
     dimensions: Object.freeze([384, 384]),
-    sha256: "314b62010a2e0c8cee27af14404882edf08dc33de46374020268869b29ffa923"
+    sha256: "50164172236c283a887e1d3d81905118b11db08687706e665748176e74c2712c"
   }),
   "concepts/phase1b/runtime/astral-guardian-128-base.webp": Object.freeze({
-    bytes: 98546,
+    bytes: 103164,
     dimensions: Object.freeze([512, 512]),
-    sha256: "fa298045f5e1697146e8294015c53e55abdffd236233c62e86ffd4173d1f2d7c"
+    sha256: "d69451b611fcfb9e0aaafa36333a5a2b752d08157dd8b3002acbb390df36e038"
   }),
   "concepts/phase1b/runtime/astral-guardian-128-mask.webp": Object.freeze({
-    bytes: 14798,
+    bytes: 15232,
     dimensions: Object.freeze([512, 512]),
-    sha256: "ed8c9b03d6a3cf693ee8bcfc18a203386ea076ed7e7867bd956aec67c3044c77"
+    sha256: "cc5c4c78bbe52cda91b3c760e83c92d650c5728891c1d8ccd06b3070d5eda976"
   })
 });
+const RETIRED_TRUNCATED_SAMPLE_HASHES = new Set([
+  "80bf808947f09e1e0c3da38cb7fbb94a9f0b51dbb851fa14047dc17e0280b030",
+  "314b62010a2e0c8cee27af14404882edf08dc33de46374020268869b29ffa923",
+  "fa298045f5e1697146e8294015c53e55abdffd236233c62e86ffd4173d1f2d7c",
+  "ed8c9b03d6a3cf693ee8bcfc18a203386ea076ed7e7867bd956aec67c3044c77"
+]);
 
 function attribute(tag, name) {
   return tag.match(new RegExp(`\\b${name}=["']([^"']+)["']`, "i"))?.[1];
@@ -93,13 +99,15 @@ function inspectWebP(bytes) {
   return dimensions;
 }
 
-test("Phase 1B page presents one non-playable owner-gated visual target", () => {
+test("Phase 1B page records the approved and closed non-playable visual target", () => {
   const html = read(PAGE);
   assert.match(html, /<html\b[^>]*\blang=["']en["']/i);
   assert.match(html, /Phase 1B · Visual and interaction lock/i);
   assert.match(html, /One visual target\.\s*<br>Zero gameplay claims/i);
-  assert.match(html, /explicit owner approval pending|Owner approval of this complete target/i);
-  assert.match(html, /Phase 2 stays blocked/i);
+  assert.match(html, /owner approved[^\n]*2026-08-21|approved by the product owner[^\n]*2026-08-21/i);
+  assert.match(html, /Phase 1B[^\n]*(?:closed|complete)/i);
+  assert.match(html, /Phase 2[^\n]*(?:active|authorized|began|started)/i);
+  assert.doesNotMatch(html, /owner approval pending|Phase 2 stays blocked/i);
   assert.match(html, /not a renderer, match,\s+balance pass, shipping atlas, tag, or release/i);
   assert.match(html, /not running gameplay/i);
   for (const id of SECTION_IDS) assert.match(html, new RegExp(`id=["']${id}["']`, "i"), `missing ${id}`);
@@ -162,10 +170,11 @@ test("runtime envelope preserves the production-art contract and measured local 
     /scaleX\(-1\)/i,
     /Logical 1 idle · 4 move · 6 action\/cast · 6 defeat/i,
     /lossless WebP base plus separate[^\n]*player-color mask/i,
-    /688,988 bytes/i,
-    /431,220 bytes/i,
-    /1,377,976/i,
-    /862,440/i,
+    /694,040 bytes/i,
+    /435,142 bytes/i,
+    /1,388,080/i,
+    /870,284/i,
+    /2,258,364/i,
     /24 MiB/i,
     /13\.5 MiB/i,
     /ImageMagick 6\.9\.12-98/i,
@@ -193,7 +202,7 @@ test("Phase 1B review is local, responsive, safe-area aware, and exactly staged"
   assert.match(html, /connect-src 'none'/i);
   assert.doesNotMatch(html, /unsafe-(?:inline|eval)/i);
   assert.doesNotMatch(html, /<(?:img|link|source)\b[^>]+(?:src|href|srcset)=["'](?:https?:|\/)/i);
-  assert.match(html, /visual-lock\.css\?v=2026\.8\.21b/i);
+  assert.match(html, /visual-lock\.css\?v=2026\.8\.21c/i);
 
   const imageTags = Array.from(html.matchAll(/<img\b[^>]*>/gi), (match) => match[0]);
   assert.equal(imageTags.length, 10);
@@ -239,10 +248,35 @@ test("Phase 1B review is local, responsive, safe-area aware, and exactly staged"
     const bytes = fs.readFileSync(path.join(ROOT, relativePath));
     assert.equal(bytes.length, expected.bytes, `${relativePath} byte size changed`);
     assert.deepEqual(inspectWebP(bytes), expected.dimensions, `${relativePath} dimensions changed`);
-    assert.equal(crypto.createHash("sha256").update(bytes).digest("hex"), expected.sha256, `${relativePath} hash changed`);
+    const hash = crypto.createHash("sha256").update(bytes).digest("hex");
+    assert.equal(hash, expected.sha256, `${relativePath} hash changed`);
+    assert.equal(RETIRED_TRUNCATED_SAMPLE_HASHES.has(hash), false, `${relativePath} reverted to the truncated-leg sample`);
+    const pageReference = relativePath.replace(/^concepts\/phase1b\//, "");
+    assert.match(
+      html,
+      new RegExp(`${pageReference.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\?v=2026\\.8\\.21c`, "i"),
+      `${relativePath} needs a cache-busting reference after its bounded repair`
+    );
   }
+  assert.equal(
+    Object.values(RUNTIME_SAMPLES).reduce((total, sample) => total + sample.bytes, 0),
+    192548,
+    "the four repaired browser-decode samples must stay within their frozen envelope"
+  );
   assert.deepEqual(staging.EXPECTED_SHELL_ASSETS, ["./", "index.html", "css/status.css", "js/status.js"]);
   assert.doesNotMatch(read("sw.js"), /concepts\/phase1b/i);
+});
+
+test("Astral Guardian browser samples record the bounded lower-body repair honestly", () => {
+  const provenance = `${read(SPEC)}\n${read("docs/ASSETS.md")}\n${read("docs/STATUS.md")}`;
+  assert.match(provenance, /Astral Guardian/i);
+  assert.match(provenance, /(?:missing|truncated)[- ](?:leg|lower-body)|(?:leg|lower-body)[^\n]*(?:restore|repair)/i);
+  assert.match(provenance, /movement frames? (?:1(?:[–-]3| through 3)|one through three)/i);
+  assert.match(provenance, /upper (?:body|region|rows?)[^\n]*(?:unchanged|preserv)/i);
+  assert.match(provenance, /Sharp 0\.35\.3/i);
+  assert.match(provenance, /libvips 8\.18\.3/i);
+  assert.match(provenance, /libwebp 1\.6\.0/i);
+  assert.match(provenance, /192,548 bytes/i);
 });
 
 test("Phase 1B candidate explicitly rejects superseded and unrelated visual sources", () => {

@@ -18,26 +18,26 @@ test("public shell truthfully presents the phased redesign", () => {
     /name=["']viewport["']/i,
     /id=["']main-content["']/i,
     /id=["']page-title["']/i,
-    /Phase 1B · Candidate ready/i,
+    /Phase 2 · Foundation active/i,
     /Redesign in progress/i,
-    /Phase 1A is complete and approved/i,
-    /non-playable Phase 1B candidate now joins/i,
-    /Review the Phase 1B candidate/i,
-    /owner approval pending/i,
-    /No gameplay yet/i,
-    /Status build v2026\.8\.21b/i
+    /Phase 1A and the complete Phase 1B visual and interaction target are approved/i,
+    /Open the Phase 2 candidate/i,
+    /owner gate pending/i,
+    /Foundation only\. No armies yet/i,
+    /Status build v2026\.8\.21c/i
   ]) assert.match(html, pattern);
 
   const phaseItems = html.match(/<li class=["'][^"']*\bphase-item\b[^"']*["'][^>]*>[\s\S]*?<\/li>/gi) ?? [];
   const currentPhaseItems = phaseItems.filter((item) => /aria-current=["']step["']/i.test(item));
   assert.equal((html.match(/aria-current=["']step["']/gi) ?? []).length, 1, "exactly one current step is required");
   assert.equal(currentPhaseItems.length, 1, "aria-current must belong to one phase-list item");
-  assert.match(currentPhaseItems[0], /<span class=["']phase-number["']>01B<\/span>/i);
-  assert.match(currentPhaseItems[0], /Candidate ready · owner approval pending/i);
+  assert.match(currentPhaseItems[0], /<span class=["']phase-number["']>02<\/span>/i);
+  assert.match(currentPhaseItems[0], /Active · owner gate pending/i);
 
   assert.match(html, /href=["']https:\/\/github\.com\/XenoVoyage\/Aeon-of-Kingdoms["']/i);
   assert.match(html, /href=["']concepts\/["']/i);
   assert.match(html, /href=["']concepts\/phase1b\/["']/i);
+  assert.match(html, /href=["']phase2\/["']/i);
   assert.match(html, /href=["']docs\/REDESIGN\.md["']/i);
   assert.match(html, /href=["']docs\/STATUS\.md["']/i);
   assert.match(html, /<script\b[^>]*src=["']js\/status\.js["']/i);
@@ -81,7 +81,7 @@ test("status styles include compact layouts, visible focus, and reduced motion",
 test("service worker replaces old game caches with only the status shell", () => {
   const worker = read("sw.js");
   const registration = read("js/status.js");
-  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.21b/);
+  assert.match(worker, /\$\{CACHE_PREFIX\}v2026\.8\.21c/);
   assert.match(worker, /cache: "reload"/, "install requests must bypass a fresh HTTP-cached prototype shell");
   assert.match(worker, /cache\.put\(request, response\)/);
   assert.doesNotMatch(worker, /cache\.addAll\(/);
@@ -113,7 +113,7 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   };
   const caches = {
     open(name) {
-      assert.equal(name, "aok-shell-v2026.8.21b");
+      assert.equal(name, "aok-shell-v2026.8.21c");
       return Promise.resolve(cache);
     },
     keys() {
@@ -219,9 +219,9 @@ test("Pages staging contains status and source-of-truth links but no rejected ga
     "concepts/feasibility/index.html",
     "concepts/feasibility/proof.css"
   ]);
-  assert.equal(files.length, 64);
+  assert.equal(files.length, 72);
   assert.equal(files.filter((entry) => /concepts\/feasibility\/phase1a\//.test(entry)).length, 37);
-  assert.deepEqual(files.slice(-5), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/STATUS.md", "docs/ASSETS.md"]);
+  assert.deepEqual(files.slice(-6), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/PHASE2_FOUNDATION.md", "docs/STATUS.md", "docs/ASSETS.md"]);
   assert.doesNotMatch(files.join("\n"), /concepts\/feasibility\/images\//i);
   for (const relativePath of staging.RUNTIME_FILES) {
     assert.doesNotMatch(relativePath, /^(?:manifest\.webmanifest|icons\/|css\/(?:tokens|app)\.css|js\/(?:config|core|simulation|ai|render|input|game)\.js|docs\/assets\/)/);

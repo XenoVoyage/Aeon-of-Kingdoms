@@ -1,6 +1,6 @@
 # Production art contract
 
-Status: **entity method approved by the product owner on 2026-08-20; corrected Aegis Titan and complete Phase 1A package approved on 2026-08-21; Phase 1A closed**.
+Status: **entity method approved on 2026-08-20; corrected Aegis Titan and complete Phase 1A package approved on 2026-08-21; complete Phase 1B visual/interaction and runtime-envelope target approved on 2026-08-21**.
 
 This file is the canonical production-art contract for Aeon of Kingdoms. Read it before creating, editing, exporting, reviewing, loading, recoloring, or animating an entity, structure, terrain plate, foreground occluder, or effect. It is written for contributors and agents that have no conversation history. When another document or an older proof conflicts with this file, this file owns the production-art method; [`REDESIGN.md`](REDESIGN.md) still owns phase scope and approval gates, and [`ASSETS.md`](ASSETS.md) owns the asset inventory and provenance record.
 
@@ -25,7 +25,7 @@ Each combat entity uses coherent baked full-body raster frames. A visible frame 
 - Every state uses one shared transparent cell size and one shared ground/root anchor for that entity.
 - World movement changes the entity's world coordinates. Animation frames never translate the entity across their cells.
 - A frame may change pose, silhouette, and occupied bounds, but it must not change the character's apparent scale, identity, equipment hand, or ground convention.
-- The current high-resolution proof uses a 384×384 master cell with root `(192, 354)`. This is a repository-only authoring profile, not a permanent runtime atlas size. The measured 128-pixel primary and 96-pixel compact 4×4 runtime-tier candidate is owned by [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md); it remains pending the combined Phase 1B owner gate and cannot weaken the shared-anchor rule.
+- The current high-resolution proof uses a 384×384 master cell with root `(192, 354)`. This is a repository-only authoring profile, not a permanent runtime atlas size. The approved measured 128-pixel primary and 96-pixel compact 4×4 runtime-tier profile is owned by [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md); its approval does not make the four review samples shipping atlases and cannot weaken the shared-anchor rule.
 
 ## Approved animation baseline
 
@@ -36,7 +36,7 @@ Each combat entity uses coherent baked full-body raster frames. A visible frame 
 | Attack or cast | 6 authored full-body frames at the reference cadence of 12 FPS | No | Readable ready, wind-up, travel, contact, follow-through, and recovery; equipment stays attached and the contact frame is explicit metadata. |
 | Defeat | 6 authored full-body frames at the reference cadence of 10 FPS | No | Readable loss of balance and collapse; hold the final state as required by presentation, while simulation determines defeat and cleanup. |
 
-These are the approved opening-production defaults, not permission to pad every state to the same frame count. A signature action may request a measured exception during Phase 1B, but it must preserve the same identity, facing, anchor, recolor, and validation rules and receive explicit review.
+These are the approved opening-production defaults, not permission to pad every state to the same frame count. A later signature-action exception must preserve the same identity, facing, anchor, recolor, and validation rules and receive explicit phase-scoped review; Phase 1B closure does not grant one implicitly.
 
 The one-frame idle is intentional. A later animated idle is allowed only when it is authored from the same controlled master, keeps the root and equipment invariant, passes actual-scale playback review, and receives explicit owner approval. Do not synthesize an idle by cycling independently redrawn full-body images.
 
@@ -126,7 +126,7 @@ Each package includes a canonical-right atlas, aligned player mask, metadata, on
 
 The integrated suite verifies all six atlases at pixel level: idle equals movement frame zero; the approved upper-body region is identical across movement frames; unused cells and cell edges remain transparent; masks stay inside visible alpha; state counts, cadence, facing, roots, and loop metadata match this contract; structure masks remain bounded; and the complete direct package remains below its 14 MiB review budget. Those checks do not visually approve the set.
 
-The final Aegis Titan export replaces a rejected nearly front-facing gait and punch. In the approved package, crystal head, torso, hips, knees, feet, and attack travel all agree on canonical screen-right before exact mirroring. Its accepted defeat source and player-color boundary remain intact. `docs/PHASE1A_HANDOFF.md` owns the exact Phase 1A closure record; [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) owns the later complete visual-lock candidate.
+The final Aegis Titan export replaces a rejected nearly front-facing gait and punch. In the approved package, crystal head, torso, hips, knees, feet, and attack travel all agree on canonical screen-right before exact mirroring. Its accepted defeat source and player-color boundary remain intact. `docs/PHASE1A_HANDOFF.md` owns the exact Phase 1A closure record; [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) owns the later approved complete visual and interaction lock.
 
 ## Review workflow and phase boundary
 

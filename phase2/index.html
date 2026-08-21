@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#060914">
+    <meta name="color-scheme" content="dark">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; worker-src 'none'; manifest-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    >
+    <meta
+      name="description"
+      content="Phase 2 empty-battlefield foundation candidate for Aeon of Kingdoms."
+    >
+    <title>Phase 2 battlefield foundation — Aeon of Kingdoms</title>
+    <link rel="stylesheet" href="phase2.css?v=2026.8.21c">
+  </head>
+  <body>
+    <a class="skip-link" href="#phase2-experience">Skip to the Phase 2 experience</a>
+
+    <div class="app-shell" id="app-shell" data-stage="menu">
+      <main id="phase2-experience" aria-label="Aeon of Kingdoms Phase 2 foundation">
+        <section class="menu-screen" id="menu-screen" aria-labelledby="menu-title">
+          <h1 class="visually-hidden" id="menu-title">Aeon of Kingdoms</h1>
+          <img
+            id="menu-art"
+            data-src="../concepts/images/minimal-menu.webp"
+            width="1672"
+            height="941"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          >
+          <p class="menu-fallback" id="menu-fallback" hidden>
+            The approved menu artwork could not be loaded. The semantic controls remain available.
+          </p>
+          <button class="menu-hit menu-hit-begin" id="begin-button" type="button">
+            <span class="visually-hidden">Begin Phase 2 battlefield review</span>
+          </button>
+          <button class="menu-hit menu-hit-settings" id="settings-button" type="button">
+            <span class="visually-hidden">Open display settings</span>
+          </button>
+          <button class="menu-hit menu-hit-audio" type="button" disabled aria-disabled="true" title="Audio begins in a later phase">
+            <span class="visually-hidden">Audio unavailable in Phase 2</span>
+          </button>
+          <button class="menu-hit menu-hit-fullscreen" id="menu-fullscreen-button" type="button">
+            <span class="visually-hidden">Enter fullscreen</span>
+          </button>
+          <a class="menu-status-link" href="../">Project status</a>
+        </section>
+
+        <section class="battlefield-screen" id="battlefield-screen" aria-labelledby="battlefield-title" hidden>
+          <h1 class="visually-hidden" id="battlefield-title">Moonfall Crossing empty battlefield</h1>
+          <div
+            class="play-frame"
+            id="play-frame"
+            tabindex="0"
+            role="application"
+            aria-describedby="control-help world-status"
+            aria-label="Empty landscape battlefield. Pan with arrow keys or WASD, Space-drag or middle-drag. Zoom with the wheel or controls."
+          >
+            <canvas data-layer="ground" aria-hidden="true"></canvas>
+            <canvas data-layer="detail" aria-hidden="true"></canvas>
+            <canvas data-layer="navigation" aria-hidden="true"></canvas>
+            <canvas data-layer="anchors" aria-hidden="true"></canvas>
+            <canvas data-layer="dynamic" aria-hidden="true"></canvas>
+            <canvas data-layer="foreground" aria-hidden="true"></canvas>
+
+            <div class="battlefield-ui">
+              <div class="phase-badge">
+                <span>Phase 2 candidate</span>
+                <strong>Empty battlefield</strong>
+              </div>
+              <div class="camera-controls" aria-label="Camera controls">
+                <button id="zoom-out-button" type="button" aria-label="Zoom out">−</button>
+                <button id="zoom-in-button" type="button" aria-label="Zoom in">+</button>
+                <button id="reset-camera-button" type="button">Home</button>
+              </div>
+              <div class="review-controls" aria-label="Review controls">
+                <button id="navigation-button" type="button" aria-pressed="false">Navigation debug</button>
+                <button id="pause-button" type="button" aria-pressed="false">Pause</button>
+                <button id="battlefield-fullscreen-button" type="button">Fullscreen</button>
+                <button id="menu-button" type="button">Menu</button>
+              </div>
+              <p class="control-help" id="control-help">
+                WASD / arrows · Space or middle-button drag · wheel zoom · two-finger pan and pinch
+              </p>
+              <p class="world-status" id="world-status" role="status" aria-live="polite">Preparing local terrain…</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="viewport-gate" id="orientation-gate" role="status" aria-labelledby="orientation-title" hidden>
+          <span class="rotate-mark" aria-hidden="true">↻</span>
+          <p class="eyebrow">Landscape required</p>
+          <h1 id="orientation-title">Rotate your device.</h1>
+          <p>Aeon of Kingdoms keeps the battlefield in landscape instead of compressing play into portrait.</p>
+        </section>
+
+        <section class="viewport-gate" id="size-gate" role="status" aria-labelledby="size-title" hidden>
+          <span class="frame-mark" aria-hidden="true">▭</span>
+          <p class="eyebrow">Viewport too small</p>
+          <h1 id="size-title">Give the battlefield more room.</h1>
+          <p>The supported landscape frame begins at 640 × 360 CSS pixels.</p>
+        </section>
+
+        <section class="load-error" id="load-error" role="alert" hidden>
+          <p class="eyebrow">Local terrain unavailable</p>
+          <h1>The battlefield could not be opened.</h1>
+          <p>No entity or simulation was started. Reload the page or return to the menu.</p>
+          <button id="error-menu-button" type="button">Return to menu</button>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="settings-dialog" aria-labelledby="settings-title">
+      <form method="dialog">
+        <p class="eyebrow">Display settings</p>
+        <h2 id="settings-title">Battlefield presentation</h2>
+        <label>
+          <input id="fullscreen-on-begin" type="checkbox">
+          Request fullscreen after Begin
+        </label>
+        <p>Orientation lock and fullscreen are best-effort browser requests. Declining either does not block supported landscape play.</p>
+        <button value="close">Done</button>
+      </form>
+    </dialog>
+
+    <noscript>
+      <section class="noscript-gate">
+        <h1>JavaScript is required for the Phase 2 camera review.</h1>
+        <p><a href="../">Return to the project status.</a></p>
+      </section>
+    </noscript>
+
+    <script src="map.js"></script>
+    <script src="camera.js"></script>
+    <script src="renderer.js"></script>
+    <script src="input.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

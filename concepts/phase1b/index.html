@@ -11,11 +11,11 @@
     >
     <meta
       name="description"
-      content="Non-playable Phase 1B visual and landscape-interaction lock candidate for Aeon of Kingdoms."
+      content="Owner-approved Phase 1B visual and landscape-interaction lock for Aeon of Kingdoms."
     >
-    <title>Phase 1B visual lock candidate — Aeon of Kingdoms</title>
+    <title>Approved Phase 1B visual lock — Aeon of Kingdoms</title>
     <link rel="stylesheet" href="../../css/status.css">
-    <link rel="stylesheet" href="visual-lock.css?v=2026.8.21b">
+    <link rel="stylesheet" href="visual-lock.css?v=2026.8.21c">
   </head>
   <body class="lock-page">
     <a class="skip-link" href="#phase1b-review">Skip to the Phase 1B review</a>
@@ -27,7 +27,7 @@
       </a>
       <p class="status-label">
         <span class="status-indicator" aria-hidden="true"></span>
-        Phase 1B candidate · Owner gate open
+        Phase 1B · Approved and closed
       </p>
     </header>
 
@@ -44,17 +44,17 @@
           </p>
         </div>
 
-        <aside class="gate-card" aria-labelledby="gate-title" data-gate="owner-approval">
-          <p class="section-label">Exact pending gate</p>
-          <h2 id="gate-title">Owner approval of this complete target</h2>
+        <aside class="gate-card" aria-labelledby="gate-title" data-gate="owner-approved">
+          <p class="section-label">Owner decision · 2026-08-21</p>
+          <h2 id="gate-title">Complete target approved</h2>
           <p>
-            Phase 1A remains closed. Phase 2 stays blocked until the owner accepts this candidate as
-            one coherent menu, battlefield, roster, control, viewport, and runtime-art direction.
+            The owner accepted this as one coherent menu, battlefield, roster, control, viewport,
+            and runtime-art direction. Phase 1B is closed and Phase 2 is now active.
           </p>
           <dl>
-            <div><dt>Candidate</dt><dd>Prepared for review</dd></div>
-            <div><dt>Gameplay</dt><dd>Not started</dd></div>
-            <div><dt>Phase 2</dt><dd>Blocked</dd></div>
+            <div><dt>Phase 1B</dt><dd>Approved and closed</dd></div>
+            <div><dt>Gameplay</dt><dd>Phase 2 foundation only</dd></div>
+            <div><dt>Phase 2</dt><dd>Active candidate</dd></div>
           </dl>
         </aside>
       </section>
@@ -417,24 +417,27 @@
               These four lossless WebP files are bounded review evidence, not shipping atlases.
               Together they expose the Astral Guardian base and aligned ownership mask at 96 and
               128 pixels per cell so the published candidate can verify real browser loading.
+              On 2026-08-21 the lower rows of movement frames 1–3 were restored deterministically
+              from the approved master after the owner identified the incomplete-leg export; the
+              locked upper regions remain unchanged and the repaired masks remain base-contained.
             </p>
           </header>
           <div class="sample-grid">
             <figure data-runtime-sample="96-base">
-              <img src="runtime/astral-guardian-96-base.webp" width="384" height="384" alt="Astral Guardian 96-pixel runtime-envelope base atlas sample arranged in a four-by-four frame grid." loading="lazy" decoding="async">
-              <figcaption><strong>96 · Base</strong><span>384 × 384 · 60,272 bytes</span></figcaption>
+              <img src="runtime/astral-guardian-96-base.webp?v=2026.8.21c" width="384" height="384" alt="Repaired Astral Guardian 96-pixel runtime-envelope base atlas sample arranged in a four-by-four frame grid, with complete legs in every movement pose." loading="lazy" decoding="async">
+              <figcaption><strong>96 · Base</strong><span>384 × 384 · 63,868 bytes</span></figcaption>
             </figure>
             <figure class="is-mask" data-runtime-sample="96-mask">
-              <img src="runtime/astral-guardian-96-mask.webp" width="384" height="384" alt="Astral Guardian 96-pixel frame-aligned player-color mask sample arranged in a four-by-four frame grid." loading="lazy" decoding="async">
-              <figcaption><strong>96 · Mask</strong><span>384 × 384 · 9,958 bytes</span></figcaption>
+              <img src="runtime/astral-guardian-96-mask.webp?v=2026.8.21c" width="384" height="384" alt="Repaired Astral Guardian 96-pixel frame-aligned player-color mask sample arranged in a four-by-four frame grid." loading="lazy" decoding="async">
+              <figcaption><strong>96 · Mask</strong><span>384 × 384 · 10,284 bytes</span></figcaption>
             </figure>
             <figure data-runtime-sample="128-base">
-              <img src="runtime/astral-guardian-128-base.webp" width="512" height="512" alt="Astral Guardian 128-pixel runtime-envelope base atlas sample arranged in a four-by-four frame grid." loading="lazy" decoding="async">
-              <figcaption><strong>128 · Base</strong><span>512 × 512 · 98,546 bytes</span></figcaption>
+              <img src="runtime/astral-guardian-128-base.webp?v=2026.8.21c" width="512" height="512" alt="Repaired Astral Guardian 128-pixel runtime-envelope base atlas sample arranged in a four-by-four frame grid, with complete legs in every movement pose." loading="lazy" decoding="async">
+              <figcaption><strong>128 · Base</strong><span>512 × 512 · 103,164 bytes</span></figcaption>
             </figure>
             <figure class="is-mask" data-runtime-sample="128-mask">
-              <img src="runtime/astral-guardian-128-mask.webp" width="512" height="512" alt="Astral Guardian 128-pixel frame-aligned player-color mask sample arranged in a four-by-four frame grid." loading="lazy" decoding="async">
-              <figcaption><strong>128 · Mask</strong><span>512 × 512 · 14,798 bytes</span></figcaption>
+              <img src="runtime/astral-guardian-128-mask.webp?v=2026.8.21c" width="512" height="512" alt="Repaired Astral Guardian 128-pixel frame-aligned player-color mask sample arranged in a four-by-four frame grid." loading="lazy" decoding="async">
+              <figcaption><strong>128 · Mask</strong><span>512 × 512 · 15,232 bytes</span></figcaption>
             </figure>
           </div>
         </section>
@@ -451,9 +454,8 @@
           <p class="section-index">06 · Viewports and evidence</p>
           <h2 id="evidence-title">A support promise with honest evidence labels.</h2>
           <p>
-            Cloud viewport inspection is rendered browser evidence, not a physical device. This
-            candidate names the intended matrix now so implementation cannot redefine support after
-            problems appear.
+            Cloud viewport inspection is rendered browser evidence, not a physical device. The
+            approved matrix remains visible so implementation cannot redefine support after problems appear.
           </p>
         </header>
 
@@ -492,7 +494,7 @@
           <li><span>Rendered</span><strong>Cloud desktop + four embedded layouts</strong></li>
           <li><span>Deployed</span><strong>PR #14 · Pages run 32516391299</strong></li>
           <li><span>Physical device</span><strong>Pending; not fabricated</strong></li>
-          <li><span>Owner gate</span><strong>Pending explicit approval</strong></li>
+          <li><span>Owner gate</span><strong>Approved and closed · 2026-08-21</strong></li>
         </ul>
       </section>
 
@@ -522,22 +524,23 @@
           </article>
         </div>
         <p class="final-boundary">
-          This review can be approved as the Phase 1B target without claiming an implemented renderer,
-          runtime interaction, physical-device result, tag, GitHub Release, or gameplay. After explicit
-          owner approval, Phase 2 may begin with the empty landscape battlefield and camera foundation.
+          The owner approved this Phase 1B target on 2026-08-21 without turning its static evidence into
+          a physical-device, release, or gameplay claim. Phase 2 has begun with a separate empty landscape
+          battlefield and camera foundation; Phase 3 remains blocked by the Phase 2 owner gate.
         </p>
         <nav class="review-links" aria-label="Related project evidence">
           <a href="../feasibility/">Approved Phase 1A review <span aria-hidden="true">→</span></a>
           <a href="../../docs/PHASE1B_VISUAL_LOCK.md">Exact candidate specification <span aria-hidden="true">→</span></a>
           <a href="../../docs/REDESIGN.md">Roadmap and gates <span aria-hidden="true">→</span></a>
           <a href="../../docs/STATUS.md">Current evidence <span aria-hidden="true">→</span></a>
+          <a href="../../phase2/">Open the Phase 2 foundation <span aria-hidden="true">→</span></a>
           <a href="../../">Project status <span aria-hidden="true">→</span></a>
         </nav>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Phase 1B review candidate · Non-playable · Owner approval pending · No tracking</p>
+      <p>Phase 1B · Owner-approved and closed 2026-08-21 · No tag or GitHub Release</p>
     </footer>
   </body>
 </html>

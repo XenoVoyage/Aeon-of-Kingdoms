@@ -1,10 +1,10 @@
-# Phase 1B visual and interaction lock candidate
+# Phase 1B visual and interaction lock
 
-Status: **non-playable review candidate; explicit owner approval pending; Phase 2 blocked**
+Status: **complete non-playable target approved by the product owner on 2026-08-21; Phase 1B closed; Phase 2 authorized**
 
-This document owns the exact Phase 1B candidate decisions. The static Pages review at [`concepts/phase1b/`](../concepts/phase1b/) presents the same target visually. [`STATUS.md`](STATUS.md) owns current merge, deployment, browser, physical-device, and owner-gate evidence. [`REDESIGN.md`](REDESIGN.md) owns the phase sequence and acceptance gate. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) remains authoritative for the approved baked-frame method.
+This document owns the exact approved Phase 1B decisions and closure record. The static Pages review at [`concepts/phase1b/`](../concepts/phase1b/) presents the same target visually. [`STATUS.md`](STATUS.md) owns current merge, deployment, browser, physical-device, and later owner-gate evidence. [`REDESIGN.md`](REDESIGN.md) owns the phase sequence and acceptance gates. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) remains authoritative for the approved baked-frame method, and [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the authorized next implementation boundary.
 
-The candidate defines appearance and interaction intent only. It does not add a gameplay renderer, simulation rule, balance value, shipping or runtime-loaded atlas set, external dependency, tag, GitHub Release, or Phase 2 implementation. Four bounded atlas files exist only as published review/browser-decode samples.
+The approved lock defines appearance and interaction intent only. It does not itself add a gameplay renderer, simulation rule, balance value, shipping or runtime-loaded atlas set, external dependency, tag, GitHub Release, or Phase 2 approval. Four bounded atlas files exist only as published review/browser-decode samples. The owner explicitly approved the complete target on 2026-08-21 and authorized Phase 2 to begin; that approval is not permission to begin Phase 3.
 
 ## Inherited locks
 
@@ -74,7 +74,7 @@ The target browser/device matrix is current and previous major Chrome/Edge and F
 
 ## Runtime asset envelope
 
-### Selected candidate profile
+### Selected approved profile
 
 | Field | Decision |
 | --- | --- |
@@ -92,21 +92,25 @@ The target browser/device matrix is current and previous major Chrome/Edge and F
 
 The 128-pixel scale preserves the approved root exactly because 384→128 maps `(192,354)` to integer `(64,118)`. The compact tier records the exact normalized root `(0.5,59/64)`, which maps to `(48,88.5)` at 96 pixels; it must not silently round differently per frame. Packing 16 unique frames preserves the logical `1/4/6/6` contract because idle and movement frame zero are already byte-identical and reference the same atlas rectangle.
 
-### Reproducible measurement
+### Reproducible measurement and sample correction
 
-On 2026-08-21, the six approved Phase 1A base/mask masters were sampled with **ImageMagick 6.9.12-98 Q16** and **libwebp 1.3.2**. The corrected procedure crops each of the 16 unique 384×384 cells before resizing, resizes each cell independently, reapplies the scaled movement-frame-zero upper region to movement frames one through three, packs a 4×4 sheet, resizes the mask through the same cell path, clamps final mask alpha to final base alpha, and writes lossless WebP. It produced zero movement upper-region differences, zero mask escape pixels, and zero lossless round-trip pixel differences. Resizing the already-packed master as one bitmap is rejected because cross-cell sampling can break the movement upper-body invariant. Four Astral Guardian base/mask samples—one aligned pair at each selected tier—are committed and staged only as bounded review/browser-decode evidence; they are not the shipping runtime set.
+On 2026-08-21, the six approved Phase 1A base/mask masters were first sampled with **ImageMagick 6.9.12-98 Q16** and **libwebp 1.3.2**. The per-cell procedure crops each of the 16 unique 384×384 cells before resizing, resizes each cell independently, reapplies the scaled movement-frame-zero upper region to movement frames one through three, packs a 4×4 sheet, processes the mask through the same cell path, clamps final mask alpha to final base alpha, and writes lossless WebP. It produced zero movement upper-region differences, zero mask escape pixels, and zero lossless round-trip pixel differences. Resizing the already-packed master as one bitmap remains rejected because cross-cell sampling can break the movement upper-body invariant.
+
+After the owner-approved Phase 1B review was published, direct visual inspection found that the three derived Astral Guardian movement cells after frame zero had lost their lower-body pixels in both tiers. The approved 384-pixel authoring atlas and mask retained the complete legs, so this was a bounded derivative/export defect rather than missing source art or a change to the approved animation. The four browser samples were repaired deterministically with **Sharp 0.35.3**, **libvips 8.18.3**, and **libwebp 1.6.0**: keep rows `0–73` at the 96-pixel tier and `0–97` at the 128-pixel tier byte-for-byte, restore only the lower region of movement cells one through three from the approved master through independent Lanczos3 cell resizing, apply the same operation to the aligned mask, clamp mask alpha to base alpha, and encode lossless WebP. Direct image inspection confirms complete lower bodies at both tiers; invariant upper regions remained unchanged, mask escapes remain zero, and unaffected pixels remain unchanged. This correction does not promote the files into shipping atlases.
 
 | Approved representative | 96-pixel pair bytes | 128-pixel pair bytes |
 | --- | ---: | ---: |
-| Astral Guardian | 70,230 | 113,344 |
+| Astral Guardian | 74,152 | 118,396 |
 | Starbow | 67,418 | 106,870 |
 | Aegis Titan | 78,284 | 124,878 |
 | Gravebound Reaver | 59,740 | 93,574 |
 | Hollow String | 64,932 | 103,048 |
 | Ossuary Colossus | 90,616 | 147,274 |
-| **Measured six-pair total** | **431,220** | **688,988** |
-| **Twelve-contract projection** | **862,440** | **1,377,976** |
-| **Both-tier projection** | — | **2,240,416** |
+| **Measured six-pair total** | **435,142** | **694,040** |
+| **Twelve-contract projection** | **870,284** | **1,388,080** |
+| **Both-tier projection** | — | **2,258,364** |
+
+The corrected measured totals are **435,142 bytes** at 96 and **694,040 bytes** at 128. Doubling those six-pair totals projects **870,284 bytes** and **1,388,080 bytes** for twelve identities; both tiers together project **2,258,364 bytes**.
 
 The projection doubles the complete six-representative sample rather than inventing unseen candidate-art compression results. Every eventual accepted atlas must still pass its own exact encoded ceiling, transparency, mask containment, frame/root, normal/minimum zoom, and browser-load measurements.
 
@@ -126,4 +130,4 @@ The published sample gate requires the browser family, exposed version (or an ex
 
 Before protected publication, the source candidate must pass the focused Phase 1B source test, full dependency-free suite, exact Pages allowlist, diff hygiene, and direct-file review. After protected merge, the live Pages route, version, local resources, page-origin console, representative atlas rendering, and all four embedded desktop/tablet/phone/portrait compositions must be checked before the candidate is handed to the owner. Actual compact-page reflow, zoom, emulation, and physical-device observations remain separate named evidence. A failed live check requires a corrective protected pull request; it is not waived by a successful deployment.
 
-These checks can establish a verified and deployed **candidate**. They cannot establish physical-device quality, gameplay interaction, performance, balance, a release, or owner approval. Physical-device evidence remains pending and named. Phase 1B closes only after the owner explicitly approves the complete candidate; until then, every Phase 2 gameplay-renderer task remains blocked.
+These checks established a verified and deployed **candidate**, not physical-device quality, gameplay interaction, performance, balance, a tag, or a release. Physical-device evidence remains pending and named. The product owner explicitly approved the complete candidate on 2026-08-21, closing Phase 1B and authorizing the bounded Phase 2 work in [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md). The later lower-body repair corrects only four derived review/browser-decode samples from the intact approved master; its automation, Pages staging, deployed-byte, and live-browser evidence remain pending until the Phase 2 candidate is frozen and published. Phase 2 still requires its own evidence and owner approval, and Phase 3 remains blocked.
