@@ -14,17 +14,18 @@ Include the affected version, browser or environment, concise reproduction, expe
 
 ## Current boundary
 
-The deployed status boundary, published approved Phase 1A review, and script-free Phase 1B visual-lock candidate are static, non-playable surfaces. The bounded reviews contain only local images and HTML/CSS; repository-only masters and four staged runtime-envelope browser samples add no executable or network boundary. None of these surfaces is gameplay. They have no account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current version and deployment evidence.
+The deployed status boundary and published approved Phase 1A/Phase 1B reviews are static, non-playable surfaces. The bounded reviews contain only local images and HTML/CSS; repository-only masters and four staged runtime-envelope browser samples add no executable or network boundary. The active Phase 2 source candidate introduces local classic JavaScript and Canvas only for a non-authoritative landscape shell, camera, map, and layered presentation. It contains no simulation, account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current version and deployment evidence.
 
 Relevant reports include:
 
 - script execution or Content Security Policy bypass;
 - unexpected external loading or network communication;
 - unsafe delivery, caching, or rendering of the local status and reference-gallery resources;
+- unbounded or unsafe Phase 2 pointer/touch/keyboard/lifecycle handling, local-resource loading, Canvas sizing, or map-data processing;
 - GitHub Actions, Pages, artifact, branch-protection, or release-integrity weaknesses;
 - a vulnerability in a future networking feature that is actually present on `main`.
 
-Editing the preserved rejected prototype's local game state, AI behavior visible in historical source, host cheating in a future explicitly host-authoritative P2P match, browser-extension injection, and unsupported-browser defects are not security boundaries for the current static communication surfaces.
+Editing the preserved rejected prototype's local game state, AI behavior visible in historical source, camera feel or map composition without a security impact, host cheating in a future explicitly host-authoritative P2P match, browser-extension injection, and unsupported-browser defects are not security boundaries for the current candidate.
 
 ## Future multiplayer
 

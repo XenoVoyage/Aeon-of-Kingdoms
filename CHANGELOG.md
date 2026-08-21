@@ -2,6 +2,30 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.21c] — 2026-08-21 (Phase 2 landscape-foundation source candidate)
+
+### Changed
+
+- Recorded the product owner's explicit approval of the complete Phase 1B visual and interaction candidate, closed Phase 1B, and authorized the bounded Phase 2 landscape battlefield foundation.
+- Advanced the public status boundary to active Phase 2 while keeping its empty-battlefield/camera owner gate pending and Phase 3 blocked.
+- Added `docs/PHASE2_FOUNDATION.md` as the exact owner of the semantic shell, landscape viewport, camera, six-layer map, rendering, evidence, and Phase 2 approval contract.
+- Began one non-authoritative two-player landscape foundation using the owner-retained menu, environment-only ground, explicit map layers, blockers, anchors, foreground occlusion, and navigation debug presentation. No simulation or Phase 3 entity/movement work is included.
+- Preserved Project Engineering Standard v1.0 at `adopting`; unresolved rendered, browser, deployment, and physical-device evidence remains named.
+
+### Corrected
+
+- Restored the missing lower-body pixels in Astral Guardian movement cells one through three in the 96- and 128-pixel browser-decode base/mask samples from the intact approved Phase 1A master.
+- Preserved the existing upper regions byte-for-byte, processed the aligned masks through the same lower-region repair, clamped mask alpha to base alpha, and retained transparent cell edges and zero mask escapes.
+- Recorded the exact current hashes, sizes, and honest Sharp 0.35.3/libvips 8.18.3/libwebp 1.6.0 correction provenance. The four files now total 192,548 bytes.
+
+### Evidence and boundaries
+
+- The frozen source passes 4/4 Phase 1A asset checks, 18/18 combined Phase 1B/Phase 2 focused checks, 90/90 integrated checks, exact staging of 72 allowlisted files plus `.nojekyll`, and `git diff --check`.
+- Rendered desktop/tablet/phone/aspect/portrait evidence, protected merge, deployment, and live review remain pending and must not be inferred from source automation.
+- The Phase 1B approval does not convert the four browser samples into shipping atlases. The Phase 2 surface does not add combat entities, selection, pathfinding, movement, economy, capture, production, combat, AI, networking, a fourth structure category, or a replacement release.
+- The approved main-menu direction remains unchanged. The retired `v2026.8.15` tag and GitHub Release remain absent and must not be recreated.
+- `v2026.8.21c` is a source-candidate label only. No tag or GitHub Release is created or authorized by this change.
+
 ## [v2026.8.21b] — 2026-08-21 (Phase 1B visual-lock candidate)
 
 ### Added

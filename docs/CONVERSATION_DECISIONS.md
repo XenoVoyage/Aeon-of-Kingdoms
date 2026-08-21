@@ -145,6 +145,18 @@ The owner judged the package complete except that Aegis Titan's movement and act
 
 The candidate rebuilt Aegis movement and punch so crystal head, torso, hips, knees, feet, and attack direction agree on screen-right. Movement retains a pixel-locked upper body, left remains an exact mirror, and the ownership mask remains separate. After direct review, the owner approved the corrected Aegis Titan and integrated set on 2026-08-21, closing Phase 1A. This historical approval did not authorize publication or gameplay implementation.
 
+### 13. Approve the complete Phase 1B target
+
+The script-free Phase 1B review assembled the previously separate decisions into one target: the owner-retained minimal menu, map-dominant HUD, two opening factions with six permanent public identity contracts each, the complete battlefield and three-structure language, desktop/tablet/phone landscape controls, portrait gate, 4:3–21:9 viewport policy, safe-area rules, and measured 128/96-pixel runtime-art envelope.
+
+On 2026-08-21 the owner explicitly approved the complete Phase 1B candidate and authorized Phase 2 to begin. This closes the visual and interaction lock without claiming a shipping atlas, gameplay, physical-device evidence, tag, GitHub Release, or approval of the Phase 2 result.
+
+### 14. Repair the bounded Astral browser samples
+
+After approving Phase 1B, the owner noticed missing legs in three Astral Guardian movement cells shown by the browser-decode sample. Inspection proved that the approved 384-pixel authoring atlas and aligned mask still contained the complete lower bodies; only the four derived 96/128-pixel sample files were defective.
+
+The samples were repaired deterministically from the approved master. Their already-approved upper regions remained unchanged, only the missing lower regions of movement cells one through three were restored, the mask followed the identical geometry and stayed inside base alpha, and no new art was generated. This was treated as a small derivative/export defect, not a reason to reopen Phase 1B or reinterpret the locked production method.
+
 ## Rejected-attempt reference table
 
 | Rejected approach | Visible failure | Binding prevention |
@@ -173,16 +185,13 @@ The candidate rebuilt Aegis movement and punch so crystal head, torso, hips, kne
 - Document durable decisions in Git so a memoryless future model can continue safely.
 - Work one phase at a time and finish the active phase before expanding scope.
 
-## Unresolved decisions intentionally deferred
+## Unresolved decisions intentionally deferred after Phase 1B
 
-Phase 1A does not decide:
+Phase 1B does not decide:
 
-- the final six permanent role identities and names per faction;
-- the final runtime atlas cell size, encoding, loading strategy, or decoded-memory envelope;
-- the final menu, HUD, production bar, rally feedback, target feedback, or touch controls;
-- supported landscape aspect range, minimum viewport, safe-area and letterbox rules;
 - actual map navigation data, blockers, anchors, or occlusion masks;
+- implemented asset loading/failure behavior, browser/GPU residency, final layered-map budgets, or complete damage-state bytes;
 - movement/combat tuning, balance, AI values, refund table, or networking transport;
 - physical-device quality or deployed gameplay evidence.
 
-Those decisions belong to the explicit later gates in `REDESIGN.md`.
+Those decisions belong to the explicit Phase 2 and later gates in `REDESIGN.md`. The Phase 2 foundation may choose only its two-player map/camera/presentation data under `PHASE2_FOUNDATION.md`; it does not decide Phase 3 movement or later simulation rules.
