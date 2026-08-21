@@ -1,10 +1,10 @@
 # Phase 2 landscape battlefield foundation
 
-Status: **active verified-source candidate; rendered review, publication, and explicit Phase 2 owner approval pending**
+Status: **active deployed candidate; compact/aspect/physical-device evidence and explicit Phase 2 owner approval pending**
 
 This document owns the exact Phase 2 foundation contract and its evidence record. [`STATUS.md`](STATUS.md) owns the volatile current source, merge, deployment, browser, physical-device, Engineering Standard, and owner-gate state. [`REDESIGN.md`](REDESIGN.md) owns the ordered roadmap and gate. [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) and [`PRODUCTION_ART.md`](PRODUCTION_ART.md) remain authoritative for the approved visual/interaction target and production-art method.
 
-The product owner explicitly approved the complete Phase 1B candidate on 2026-08-21 and authorized Phase 2 to begin. That approval permits only the landscape battlefield foundation below. It does not approve this Phase 2 candidate, Phase 3 entity or movement work, a merge, deployment, tag, GitHub Release, or replacement release. The owner-retained menu design remains locked.
+The product owner explicitly approved the complete Phase 1B candidate on 2026-08-21 and authorized Phase 2 to begin, including autonomous protected publication and visual review of this bounded candidate. That approval permits only the landscape battlefield foundation below. It does not approve this Phase 2 candidate, Phase 3 entity or movement work, a tag, GitHub Release, or replacement release. The owner-retained menu design remains locked.
 
 ## Scope and exclusions
 
@@ -112,11 +112,11 @@ The statuses below are intentionally conservative until the frozen source candid
 | Complete automation | `node tests/run.js` | 90/90 passed |
 | Pages payload | `node .github/scripts/stage-pages.js _site` and exact allowlist inspection | 72 allowlisted files plus `.nojekyll` staged exactly |
 | Diff hygiene | `git diff --check` and complete branch review | Passed; two independent final audits found no source or diff blocker |
-| Desktop rendered review | Named CSS viewport, loaded ground, camera bounds/zoom, labels, no overflow, page-origin console result | Pending |
+| Desktop rendered review | Named CSS viewport, loaded ground, camera bounds/zoom, labels, no overflow, page-origin console result | Cloud Chrome at 1363×936 passed the retained menu, loaded ground, six 1363×936 canvases, Home, 1.00×→1.18× zoom, keyboard pan, debug, pause/resume, menu-focus recovery, and no-overflow/page-origin-console checks; exact browser version was not exposed |
 | Tablet landscape review | Named CSS viewport, safe areas, controls, camera focus/bounds, rotate recovery | Pending |
 | Phone landscape review | Named CSS viewport at or above 640×360, safe areas, touch composition, camera focus/bounds | Pending |
 | Aspect/portrait review | 4:3, 21:9, outside-range letterboxing, minimum viewport, and portrait gate | Pending |
-| Deployed review | Protected merge, Actions/Pages runs, live route/version/resources and primary journey | Pending |
+| Deployed review | Protected merge, Actions/Pages runs, live route/version/resources and primary journey | PR #16 squash-merged as `d17e8c9b4cc00a4beebf03aea443fd514197d608`; main audit `32526203611` and Pages `32526203607` passed; eleven sampled live files matched source byte for byte |
 | Broad browsers | Approved current/previous desktop and mobile browser matrix | Pending |
 | Physical devices | Named landscape phone and tablet sessions | Pending |
 | Owner gate | Empty battlefield resembles the approved concept and camera interaction feels correct | Pending explicit Phase 2 approval |

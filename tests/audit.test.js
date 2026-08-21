@@ -146,6 +146,11 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/STATUS.md"), /no `refs\/tags\/v2026\.8\.15` ref and no Release for that tag/i);
   assert.match(read("docs/STATUS.md"), /commit `7f88655f10504f44496fbba2e17871b16a5fe115` still returned successfully and remained an ancestor of `main`/i);
   assert.match(read("docs/STATUS.md"), /product owner explicitly approved the complete Phase 1B candidate and authorized Phase 2 to begin/i);
+  assert.match(read("docs/STATUS.md"), /pull request `#16` squash-merged the candidate as `d17e8c9b4cc00a4beebf03aea443fd514197d608`/i);
+  assert.match(read("docs/STATUS.md"), /main audit run `32526203611`, and Pages run `32526203607` completed successfully/i);
+  assert.match(read("docs/STATUS.md"), /exact matches for all seven deployed Phase 2 files and the four corrected Astral Guardian browser samples/i);
+  assert.match(read("docs/STATUS.md"), /live cloud Chrome session at 1363×936/i);
+  assert.match(read("docs/STATUS.md"), /compact\/tablet\/phone\/aspect\/portrait live reflow, 200% zoom, broad browsers, physical devices, subjective camera feel, and the Phase 2 owner gate remain pending/i);
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
   assert.match(read("docs/REDESIGN.md"), /Phase 1A — Production-feasibility proof/);
   assert.match(read("docs/REDESIGN.md"), /faction headquarters, Resource Point, and Production Outpost/);
