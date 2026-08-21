@@ -25,7 +25,7 @@ Each combat entity uses coherent baked full-body raster frames. A visible frame 
 - Every state uses one shared transparent cell size and one shared ground/root anchor for that entity.
 - World movement changes the entity's world coordinates. Animation frames never translate the entity across their cells.
 - A frame may change pose, silhouette, and occupied bounds, but it must not change the character's apparent scale, identity, equipment hand, or ground convention.
-- The current high-resolution proof uses a 384×384 master cell with root `(192, 354)`. This is a review/export profile, not a permanent runtime atlas size. Phase 1B must measure and approve the final runtime cell and atlas envelope without weakening the shared-anchor rule.
+- The current high-resolution proof uses a 384×384 master cell with root `(192, 354)`. This is a repository-only authoring profile, not a permanent runtime atlas size. The measured 128-pixel primary and 96-pixel compact 4×4 runtime-tier candidate is owned by [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md); it remains pending the combined Phase 1B owner gate and cannot weaken the shared-anchor rule.
 
 ## Approved animation baseline
 
@@ -126,7 +126,7 @@ Each package includes a canonical-right atlas, aligned player mask, metadata, on
 
 The integrated suite verifies all six atlases at pixel level: idle equals movement frame zero; the approved upper-body region is identical across movement frames; unused cells and cell edges remain transparent; masks stay inside visible alpha; state counts, cadence, facing, roots, and loop metadata match this contract; structure masks remain bounded; and the complete direct package remains below its 14 MiB review budget. Those checks do not visually approve the set.
 
-The final Aegis Titan export replaces a rejected nearly front-facing gait and punch. In the approved package, crystal head, torso, hips, knees, feet, and attack travel all agree on canonical screen-right before exact mirroring. Its accepted defeat source and player-color boundary remain intact. `docs/PHASE1A_HANDOFF.md` owns the exact closure record and Phase 1B boundary.
+The final Aegis Titan export replaces a rejected nearly front-facing gait and punch. In the approved package, crystal head, torso, hips, knees, feet, and attack travel all agree on canonical screen-right before exact mirroring. Its accepted defeat source and player-color boundary remain intact. `docs/PHASE1A_HANDOFF.md` owns the exact Phase 1A closure record; [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) owns the later complete visual-lock candidate.
 
 ## Review workflow and phase boundary
 

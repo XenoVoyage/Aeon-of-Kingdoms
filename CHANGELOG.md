@@ -2,6 +2,26 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.21b] — 2026-08-21 (Phase 1B visual-lock candidate)
+
+### Added
+
+- Added one script-free, non-playable Phase 1B review candidate that preserves the owner-retained minimal menu and approved Phase 1A art direction.
+- Added a static map-dominant HUD and annotated battlefield composition covering authored routes, hard blockers, exactly three structure categories, production/blocked-queue/rally feedback, combat readability, and six separate map layers.
+- Added six permanent identity contracts per opening faction: the six approved Phase 1A representatives plus six clearly marked candidate public identities derived from accepted broad mood language without importing prototype roles, stats, or balance.
+- Added desktop, tablet-landscape, phone-landscape, and portrait rotate-gate compositions with safe-area, explicit target, camera, production, cancellation, and rally interaction contracts.
+- Added a measured tiered runtime-art candidate: 128-pixel primary and 96-pixel compact 4×4 lossless-WebP base/mask atlases, logical `1/4/6/6` animation through an idle/movement-frame-zero alias, exact roots, bounded loading/failure behavior, and separately recorded structure/environment budgets.
+- Added four exact Astral Guardian base/mask review samples—183,574 bytes total—so a live browser can decode both proposed tiers without presenting them as a complete shipping runtime set.
+- Added a focused Phase 1B verification suite and an exact candidate specification at `docs/PHASE1B_VISUAL_LOCK.md`.
+- Kept full battlefield compositions visible with non-cropping image treatment, raised small-text contrast, made wide evidence tables keyboard-scrollable, and implemented safe-area-plus-12-pixel inset rules in the review CSS.
+
+### Boundaries
+
+- This source version is an owner-review candidate. Phase 1B remains open until explicit owner approval, and Phase 2 gameplay renderer work remains blocked.
+- The page is a static visual specification, not an implemented HUD, map, interaction system, shipping roster, runtime atlas, gameplay screenshot, physical-device result, tag, GitHub Release, or gameplay release.
+- The rejected `v2026.8.15` prototype, mixed `v2026.8.20a` proof, v5 assets, limb rigs, bone rigs, independent left/right art, independently redrawn movement upper bodies, color-only ownership, fourth structure categories, and Neon Voyage assets/layout/style are not reused.
+- `v2026.8.21b` is a canonical source/Pages label only. No tag or GitHub Release is created or planned by this change.
+
 ## [v2026.8.21a] — 2026-08-21 (Phase 1B planning status)
 
 ### Changed

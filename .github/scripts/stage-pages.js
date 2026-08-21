@@ -59,8 +59,15 @@ const RUNTIME_FILES = Object.freeze([
   "concepts/feasibility/phase1a/entities/ossuary-colossus/attack.webp",
   "concepts/feasibility/phase1a/entities/ossuary-colossus/defeat.webp",
   "concepts/feasibility/phase1a/entities/ossuary-colossus/player-colors.webp",
+  "concepts/phase1b/index.html",
+  "concepts/phase1b/visual-lock.css",
+  "concepts/phase1b/runtime/astral-guardian-96-base.webp",
+  "concepts/phase1b/runtime/astral-guardian-96-mask.webp",
+  "concepts/phase1b/runtime/astral-guardian-128-base.webp",
+  "concepts/phase1b/runtime/astral-guardian-128-mask.webp",
   "docs/REDESIGN.md",
   "docs/PRODUCTION_ART.md",
+  "docs/PHASE1B_VISUAL_LOCK.md",
   "docs/STATUS.md",
   "docs/ASSETS.md"
 ]);

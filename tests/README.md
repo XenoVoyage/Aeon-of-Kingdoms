@@ -1,6 +1,6 @@
 # Aeon of Kingdoms verification
 
-The active source boundary is a non-playable redesign status page, a reviewed mood-reference archive, a published approved Phase 1A Pages review, an approved production-art contract, repository-only authoring masters, and an archived v5 source record excluded from Pages. Verification proves that these boundaries and files are truthful, local, bounded, and internally consistent; it does not validate redesigned gameplay or replace separately recorded owner, deployment, rendered, and physical-device evidence. The rejected `v2026.8.15` prototype and its old tests remain historical evidence at commit `7f88655`; its public tag and GitHub Release were retired without rewriting history and must not be recreated.
+The active source boundary is a non-playable redesign status page, a reviewed mood-reference archive, a published approved Phase 1A Pages review, a script-free Phase 1B visual-lock candidate, an approved production-art contract, repository-only authoring masters, and an archived v5 source record excluded from Pages. Verification proves that these boundaries and files are truthful, local, bounded, and internally consistent; it does not validate redesigned gameplay or replace separately recorded owner, deployment, rendered, and physical-device evidence. The rejected `v2026.8.15` prototype and its old tests remain historical evidence at commit `7f88655`; its public tag and GitHub Release were retired without rewriting history and must not be recreated.
 
 Run the complete dependency-free verification from the repository root:
 
@@ -19,6 +19,7 @@ Node.js 20 or newer is used only for local and continuous verification. The suit
 | `concept-gallery.test.js` | Superseded mood/production-target boundaries, semantic image review, optimized local WebP budgets, gallery CSP, and exclusion from the offline service-worker shell |
 | `feasibility-gallery.test.js` | Integrity, staged delivery, accessibility, dimensions, payload, reduced-motion handling, and GDD-aligned content of the optimized published Phase 1A review; it does not claim gameplay |
 | `phase1a-production-assets.test.js` | Direct package inventory, 384×384 cell and `(192,354)` root contract, idle/move identity, invariant gait upper bodies, 1/4/6/6 state metadata, atlas transparency, player-mask containment, structure masks, corrected Aegis hash lock, actual-scale preview boundaries, and the 14 MiB review budget |
+| `phase1b-visual-lock.test.js` | Static owner-gate semantics, retained menu, three structures, six layers, twelve unique faction identities, four viewport states, local-only delivery, measured two-tier runtime envelope, provenance/non-reuse, and explicit Phase 2 block |
 
 ## Historical regression suites
 
@@ -32,7 +33,7 @@ The old six-faction visual-capture fixture and manually triggered workflow are a
 
 1. Run focused active tests while integrating the status page.
 2. Freeze the complete candidate and run `node tests/run.js`.
-3. Run `node .github/scripts/stage-pages.js _site` and verify the stage contains only `.nojekyll`, the four-file status shell, the four public status/contract documents, and the explicitly allowlisted mood and Phase 1A review surfaces: 58 generated files total (`.nojekyll` plus 57 allowlisted files).
+3. Run `node .github/scripts/stage-pages.js _site` and verify the stage contains only `.nojekyll`, the four-file status shell, the five public status/contract documents, and the explicitly allowlisted mood, Phase 1A review, and Phase 1B candidate surfaces: 65 generated files total (`.nojekyll` plus 64 allowlisted files, including four bounded runtime-envelope browser samples).
 4. Confirm no prototype script, style, manifest, icon, gameplay capture, release file, test, or repository configuration enters `_site`.
 5. Run `git diff --check`, inspect `git status --short`, and review the complete diff against the current base.
 6. Complete the applicable observations below. Keep source, simulated, rendered, deployed, and physical-device evidence separate.
@@ -49,6 +50,7 @@ The `_site` directory is generated delivery output and must not be committed.
 | Mood-reference gallery | Follow the visible status-page route; load all eight references; open one full-size image; use the back link; and inspect 320 px reflow, 200% zoom, desktop, phone portrait/landscape, keyboard focus, captions, and image-loading failures without treating the result as gameplay evidence or production-target approval |
 | Archived v5 source record | When auditing historical source, inspect the eleven files under `concepts/feasibility/images/` without treating their six-frame timing, authored facing, animation quality, or owner-gate language as current production approval; none may enter Pages |
 | Current production-art review | Follow the staged `concepts/feasibility/` route, `concepts/feasibility/phase1a/README.md`, and `docs/PRODUCTION_ART.md`: inspect all five review files, six canonical master atlases, masks, exact mirror output, all 24 actual-scale state playbacks, roots, equipment, anatomy, cadence, structure ownership, damage, and color variants; record staged-review, source-master, and owner evidence separately |
+| Phase 1B visual-lock candidate | Follow `concepts/phase1b/` and `docs/PHASE1B_VISUAL_LOCK.md`; inspect the retained menu, HUD hierarchy, annotated battlefield, twelve identity contracts, desktop/tablet/phone/portrait compositions, aspect/safe-area matrix, two-tier asset envelope, and non-reuse record. Review at 1440×900, 1024×768, 844×390, 390×844, keyboard focus, 200% zoom, and reduced motion; record cloud rendering separately from physical devices and owner approval |
 | Accessibility | Navigate every link by keyboard; verify semantic headings, visible focus, sufficient contrast, motion preference, zoom/reflow, and understandable status without color or animation |
 | Offline/cache | After one successful local or deployed load, verify the bounded status shell can reopen offline and activation removes older `aok-shell-*` prototype caches without deleting unrelated origins' caches |
 | Staged delivery | Inspect generated `_site`; verify its exact allowlist and open that staged copy before publication |

@@ -33,6 +33,8 @@ const REQUIRED_FILES = [
   "concepts/images/production-rally.webp",
   "concepts/feasibility/index.html",
   "concepts/feasibility/proof.css",
+  "concepts/phase1b/index.html",
+  "concepts/phase1b/visual-lock.css",
   "concepts/feasibility/images/production-battlefield-environment-v4.webp",
   "concepts/feasibility/images/structure-atlas-v2.webp",
   "concepts/feasibility/images/entity-team-color-v4.webp",
@@ -67,6 +69,7 @@ const REQUIRED_FILES = [
   "docs/REDESIGN.md",
   "docs/PRODUCTION_ART.md",
   "docs/PHASE1A_HANDOFF.md",
+  "docs/PHASE1B_VISUAL_LOCK.md",
   "docs/CONVERSATION_DECISIONS.md",
   "docs/NEW_CHAT_PROMPT.txt",
   "docs/STATUS.md",
@@ -75,6 +78,7 @@ const REQUIRED_FILES = [
   "tests/fixtures/visual-capture.js",
   "tests/feasibility-gallery.test.js",
   "tests/phase1a-production-assets.test.js",
+  "tests/phase1b-visual-lock.test.js",
   ".github/workflows/ci.yml",
   ".github/workflows/pages.yml",
   ".github/workflows/visual.yml",
@@ -92,7 +96,8 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(readme, /rejected the `v2026\.8\.15` prototype/);
   assert.match(readme, /docs\/REDESIGN\.md/);
   assert.match(readme, /image above is a non-gameplay composition built from separate assets/i);
-  assert.match(readme, /Phase 1B must lock the complete visual and interaction target before any Phase 2 renderer/i);
+  assert.match(readme, /explicit owner approval remains the gate before any Phase 2 renderer/i);
+  assert.match(readme, /Review the Phase 1B candidate/i);
   assert.match(readme, /rejected prototype remains available at commit \[`7f88655`/i);
   assert.match(readme, /misleading `v2026\.8\.15` tag and GitHub Release were retired without rewriting history/i);
   assert.doesNotMatch(readme, /releases\/tag\/v2026\.8\.15/i);
@@ -130,18 +135,18 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/STATUS.md"), /main audit run `32509285741` and Pages run `32509285737` completed successfully/i);
   assert.match(read("docs/STATUS.md"), /no `refs\/tags\/v2026\.8\.15` ref and no Release for that tag/i);
   assert.match(read("docs/STATUS.md"), /commit `7f88655f10504f44496fbba2e17871b16a5fe115` still returned successfully and remained an ancestor of `main`/i);
-  assert.match(read("docs/STATUS.md"), /Phase 1B planning is active, but its implementation checklist and asset\/runtime work have not started/i);
+  assert.match(read("docs/STATUS.md"), /complete non-playable Phase 1B visual-lock candidate is prepared for explicit owner review/i);
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
   assert.match(read("docs/REDESIGN.md"), /Phase 1A — Production-feasibility proof/);
   assert.match(read("docs/REDESIGN.md"), /faction headquarters, Resource Point, and Production Outpost/);
   assert.match(read("docs/REDESIGN.md"), /one stable idle frame; four right-facing movement frames/i);
   assert.match(read("docs/REDESIGN.md"), /visual pixels never decide walkability/i);
   assert.match(read("docs/REDESIGN.md"), /Checkpoint: \*\*complete on 2026-08-21\*\*/i);
-  assert.match(read("docs/REDESIGN.md"), /Phase 1B planning is active; its implementation checklist has not started/i);
+  assert.match(read("docs/REDESIGN.md"), /complete script-free candidate is defined in \[`PHASE1B_VISUAL_LOCK\.md`\]/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /Pages payload contains the five review compositions, all 24 actual-scale state playbacks, all six player-color proofs/i);
-  assert.match(read("SECURITY.md"), /published approved Phase 1A review are static, non-playable surfaces/i);
+  assert.match(read("SECURITY.md"), /published approved Phase 1A review, and script-free Phase 1B visual-lock candidate are static, non-playable surfaces/i);
   assert.doesNotMatch(read("SECURITY.md"), /current release is a static local browser game/i);
 });
 
@@ -161,13 +166,15 @@ test("approved production-art method survives a cold-start handoff", () => {
   assert.match(assets, /PRODUCTION_ART\.md/);
   assert.match(agents, /docs\/PHASE1A_HANDOFF\.md/);
   assert.match(contributing, /docs\/PHASE1A_HANDOFF\.md/);
+  assert.match(agents, /docs\/PHASE1B_VISUAL_LOCK\.md/);
+  assert.match(contributing, /docs\/PHASE1B_VISUAL_LOCK\.md/);
 
   assert.match(handoff, /authoritative Phase 1A closure record/i);
   assert.match(handoff, /owner approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
   assert.match(handoff, /pull request `#10`, squash commit `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`/i);
   assert.match(handoff, /protected pull requests `#11` and `#12` published the optimized approved Phase 1A visual review/i);
   assert.match(handoff, /rejected `v2026\.8\.15` tag and Release were retired without rewriting history/i);
-  assert.match(handoff, /Phase 1B planning is active/i);
+  assert.match(handoff, /script-free Phase 1B visual-lock candidate is prepared for explicit owner review/i);
   assert.match(handoff, /No Phase 2 renderer work begins before explicit Phase 1B approval/i);
   assert.match(newChatPrompt, /no assumed memory of earlier conversations/i);
   assert.match(newChatPrompt, /Do not edit until that cold-start report is complete/i);
@@ -304,9 +311,9 @@ test("Pages allowlist contains only review surfaces and public status documents"
     "concepts/feasibility/index.html",
     "concepts/feasibility/proof.css"
   ]);
-  assert.equal(files.length, 57);
+  assert.equal(files.length, 64);
   assert.equal(files.filter((entry) => /concepts\/feasibility\/phase1a\//.test(entry)).length, 37);
-  assert.deepEqual(files.slice(-4), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/STATUS.md", "docs/ASSETS.md"]);
+  assert.deepEqual(files.slice(-5), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/STATUS.md", "docs/ASSETS.md"]);
   const staged = files.join("\n");
   assert.doesNotMatch(staged, /(?:manifest|icon|gameplay|visual-capture|README|LICENSE|CHANGELOG|VERSION|package\.json)/i);
   assert.doesNotMatch(staged, /(?:css\/(?:tokens|app)\.css|js\/(?:config|core|simulation|ai|render|input|game)\.js)/);
