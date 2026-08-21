@@ -20,7 +20,7 @@ The owner's Astral Guardian review approved this method, not a final runtime atl
 
 ## Approved Phase 1A package
 
-The direct review package is stored at `concepts/feasibility/phase1a/`. It is the complete **owner-approved Phase 1A production-feasibility package**, not gameplay, a final runtime atlas, a published Pages payload, a tag, or a release. Its human review order is in the package `README.md`, and its machine-readable inventory is `manifest.json`. These unpublished paths remain outside the staged public asset record until a separate publication step is explicitly authorized.
+The direct review package is stored at `concepts/feasibility/phase1a/`. It is the complete **owner-approved Phase 1A production-feasibility package**, not gameplay, a final runtime atlas, a tag, or a release. Its human review order is in the package `README.md`, and its machine-readable inventory is `manifest.json`. The Pages candidate stages an optimized 37-file subset at `concepts/feasibility/`: the five review compositions, all 24 actual-scale state playbacks, six player-color proofs, environment plate, and damage proof. That subset totals **2,503,564 bytes**. Raw atlases, masks, structure masters, metadata, and package documents remain repository-only.
 
 ### Review inventory
 
@@ -80,7 +80,7 @@ The workspace visual audit caught and corrected four export defects before this 
 
 ## Superseded Phase 1A v5 proof inventory
 
-Intermediate `v2026.8.20b` is an unpublished review iteration retained for provenance. Its environment, structures, damage direction, and player-color boundary informed the approved contract, but its v5 entity animation sheets are superseded: they use the wrong authored facing, equal six-frame counts, whole-sprite transforms, and inconsistent anatomy/root behavior. None of these images is an implemented game screenshot, complete shipping sprite set, balanced map, or physical-device result.
+Intermediate `v2026.8.20b` is an unpublished review iteration retained in source and Git history for provenance but excluded from Pages. Its environment, structures, damage direction, and player-color boundary informed the approved contract, but its v5 entity animation sheets are superseded: they use the wrong authored facing, equal six-frame counts, whole-sprite transforms, and inconsistent anatomy/root behavior. None of these images is an implemented game screenshot, complete shipping sprite set, balanced map, or physical-device result.
 
 | File | Dimensions | Bytes | Purpose |
 | --- | ---: | ---: | --- |
@@ -96,7 +96,7 @@ Intermediate `v2026.8.20b` is an unpublished review iteration retained for prove
 | `concepts/feasibility/images/astral-baked-motion-audit-v5.webp` | 1800×1440 | 253,152 | All 24 left-facing Astral frames for direct anatomy, equipment, clipping, and ground-contact review |
 | `concepts/feasibility/images/gravebound-baked-motion-audit-v5.webp` | 1800×1440 | 170,352 | All 24 left-facing Gravebound frames for direct anatomy, equipment, clipping, and ground-contact review |
 
-Total superseded v5 proof-image payload: **2,263,262 bytes**. The two contact sheets are linked for optional direct inspection and are not embedded into the review page.
+Total archived superseded v5 proof-image payload: **2,263,262 bytes**. These source records are not staged to Pages or embedded into the approved review page.
 
 ### Origin, transformation, and distribution
 
@@ -107,7 +107,7 @@ Total superseded v5 proof-image payload: **2,263,262 bytes**. The two contact sh
 - **Player color:** blue Astral and violet Gravebound fabric plus small identity accents are isolated into a separate mask. Coral and emerald proofs show the intended ownership recolor boundary; white/gold armor, charcoal body material, and bone armor remain faction material rather than player color.
 - **Motion review result:** independently assembled limb boards remain rejected. Inspection of all 48 left-facing v5 timing frames exposed why whole-sprite transforms and separately sourced poses are also insufficient: stable anatomy alone did not guarantee a stable root, correct equipment scale, or convincing idle/movement playback.
 - **Distribution decision:** candidate review assets are project material under the repository's MIT license. Generated output may not be unique, and approval of the visible direction will not silently promote every candidate pixel to final shipping art.
-- **Delivery:** all eleven active files are local and total 2,263,262 bytes. The environment, entity, structure, player-color, and directional-motion layers remain separate, and all review images stay outside the four-file offline status-shell cache.
+- **Delivery:** all eleven archived files remain local source records totaling 2,263,262 bytes. They are excluded from the staged Pages candidate and the four-file offline status-shell cache; the approved 37-file review subset owns the publication boundary.
 
 ### Approved pipeline baseline and provisional budget
 

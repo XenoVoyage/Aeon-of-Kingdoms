@@ -9,7 +9,7 @@ Keep the standard status `adopting` while any applicable requirement remains fai
 
 ## Active redesign override
 
-The published `v2026.8.15` runtime was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
+The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
@@ -54,7 +54,7 @@ Use `CONTRIBUTING.md` as a public entrypoint, not a substitute for these rules. 
 
 ## 3. Product and delivery boundaries
 
-- The rejected playable prototype remains in the published tag/release `v2026.8.15`, Git history, and temporarily preserved prototype-era source used by historical regression tests. It is not the working-tree product baseline, public entry point, or Pages payload. Treat the published tag and release as immutable by project policy; do not imply that the hosting platform has technically locked them.
+- The rejected playable prototype remains at commit `7f88655` in Git history and in temporarily preserved prototype-era source used by historical regression tests. It is not the working-tree product baseline, public entry point, or Pages payload. The owner explicitly authorized retirement of its public `v2026.8.15` tag and GitHub Release; deletion remains pending until separately verified, and the label must never be reused after retirement.
 - `docs/STATUS.md` owns the current public runtime, local source boundary, active phase, and observed evidence. Never copy those volatile facts into this file or infer them from a version string.
 - The status page, `concepts/` archive, and `concepts/feasibility/` proof must work by opening their HTML entry points directly and from the `/Aeon-of-Kingdoms/` GitHub Pages subpath. The future game inherits that delivery constraint unless an approved phase changes it.
 - Multiplayer, signaling, TURN, matchmaking, accounts, hosted persistence, and a dedicated server are planned, not shipped. GitHub Pages and Actions are never described as a server.
@@ -97,7 +97,8 @@ Each responsibility has one source of truth. No gameplay source boundary exists 
 | Reviewed mood-reference content and feasibility boundary | `concepts/index.html` |
 | Mood-reference presentation | `concepts/gallery.css` |
 | Optimized mood-only visual references | `concepts/images/*.webp` |
-| Superseded v5 Phase 1A proof record | `concepts/feasibility/index.html`, `concepts/feasibility/proof.css`, and `concepts/feasibility/images/*.webp` |
+| Approved Phase 1A Pages publication candidate | `concepts/feasibility/index.html` and `concepts/feasibility/proof.css` |
+| Archived superseded v5 Phase 1A source assets | `concepts/feasibility/images/*.webp` |
 | Approved direct-file Phase 1A production-feasibility package | `concepts/feasibility/phase1a/README.md` and `concepts/feasibility/phase1a/manifest.json` |
 | Six representative atlases, masks, metadata, and actual-scale playback | `concepts/feasibility/phase1a/entities/*/` |
 | Accepted environment, structures, damage, ownership, and viewport compositions | `concepts/feasibility/phase1a/{environment,structures,review}/` |
@@ -176,7 +177,7 @@ Never weaken, skip, or delete a test to hide a defect. Never claim a check, depl
 - The ownership map in section 6 is canonical. `README.md` is the short human entrypoint; `CONTRIBUTING.md` is the public workflow; durable documents exist only for a distinct owner.
 - Update every affected owner in the same coherent change. Do not use durable documents as task logs, duplicate volatile status across files, or turn roadmap text into an implemented claim.
 - Search source, tests, templates, styles, configuration, manifests, workflows, documentation, loaders, and delivery paths before deleting. Remove only proven-dead code, assets, flags, dependencies, shims, generated output, and debug residue.
-- Preserve unfamiliar or unrelated work. Historical material belongs in immutable tags or Git history when removal is safe; do not restore rejected material to accelerate the redesign.
+- Preserve unfamiliar or unrelated work. Historical material belongs in Git history when removal is safe; create public tags only for intentional releases and do not restore rejected material to accelerate the redesign.
 
 ## 11. Versioning and releases
 
@@ -209,7 +210,7 @@ After the initial repository bootstrap, treat `main` as protected. Inspect the c
 - Work on a short-lived `agent/<description>` branch created from the current `main` unless the user explicitly authorizes another strategy.
 - Stage only task-related files. Keep commits coherent and record verification and evidence boundaries in the pull request.
 - Open pull requests as drafts by default. Do not merge without explicit authority or a repository rule that clearly grants it.
-- Do not force-push shared history, bypass required checks, self-approve where independent approval is required, expose credentials, or move/delete published tags and releases.
+- Do not force-push shared history, bypass required checks, self-approve where independent approval is required, expose credentials, or move/delete published tags and releases. The only exception is an exact owner-authorized retirement after verifying the target, reachability, and recovery boundary; never rewrite shared history or reuse the retired label.
 - Before review, compare the complete branch against the current base and rerun required checks on the final candidate.
 - Delete a branch only after proving it is not protected or active and its work is reachable from the default branch or an unchanged merged pull request.
 

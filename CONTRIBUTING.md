@@ -2,7 +2,7 @@
 
 Aeon of Kingdoms is undergoing a gated redesign. Contributions must preserve the approved redesign contract and enduring deterministic, accessible, secure browser boundaries; they must not preserve the rejected prototype presentation or gameplay by default.
 
-Phase 1A is approved and closed as a non-playable production-feasibility proof. Phase 1B is the next product boundary, but no gameplay renderer begins before its complete visual and interaction gate is explicitly approved. Read [`docs/STATUS.md`](docs/STATUS.md) for the exact current source, deployment, evidence, and Engineering Standard v1.0 adoption state rather than copying those volatile facts here.
+Phase 1A is approved and closed as a non-playable production-feasibility proof. Phase 1B planning is active, but its implementation checklist and asset/runtime work have not started; no gameplay renderer begins before its complete visual and interaction gate is explicitly approved. Read [`docs/STATUS.md`](docs/STATUS.md) for the exact current source, deployment, evidence, and Engineering Standard v1.0 adoption state rather than copying those volatile facts here.
 
 ## Before changing code
 

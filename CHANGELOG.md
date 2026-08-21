@@ -2,7 +2,23 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
-## [v2026.8.21] — 2026-08-21 (Phase 1A approved; unpublished)
+## [v2026.8.21a] — 2026-08-21 (Phase 1B planning status)
+
+### Changed
+
+- Advanced the visible project boundary from completed Phase 1A to active Phase 1B planning.
+- Marked only Phase 1B as the current roadmap step while stating that implementation has not started.
+- Prepared the owner-approved Phase 1A review matching the visual GDD to replace the public superseded v5 feasibility page through the protected Pages path.
+- Staged the five approved compositions, all six player-color proofs, all 24 actual-scale state playbacks, the environment-only plate, and the accepted damage proof; raw masters and metadata remain repository-only.
+- Recorded the owner's authorization to retire the misleading `v2026.8.15` GitHub Release and tag while preserving commit `7f88655` and normal Git history; deletion remains pending until separately verified.
+
+### Boundaries
+
+- No gameplay renderer, gameplay rule, Phase 1B asset expansion, dependency, analytics, network request, new tag, new GitHub Release, or physical-device evidence is included or claimed.
+- The Phase 1A publication candidate is a bounded, non-playable visual review—not a runtime atlas, implemented game, or release.
+- This version string and changelog heading do not independently claim a protected merge, Pages deployment, tag, or GitHub Release; [`docs/STATUS.md`](docs/STATUS.md) owns current publication evidence.
+
+## [v2026.8.21] — 2026-08-21 (deployed Phase 1A approval and standardization build; untagged)
 
 ### Changed
 
@@ -31,9 +47,11 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 
 ### Boundaries
 
-- The production method, corrected Aegis Titan, and complete Phase 1A visual package are owner-approved. Merge, publication, physical-device evidence, gameplay implementation, tag, and GitHub Release are not claimed.
+- The production method, corrected Aegis Titan, and complete Phase 1A visual package are owner-approved. The direct package remains outside the Pages allowlist and is not published gameplay; physical-device evidence, gameplay implementation, a tag, and a GitHub Release are not claimed.
 - The six representatives prove melee, ranged, and signature production behavior for each opening faction. They do not expand the later permanent role roster or establish final runtime atlas dimensions.
 - No gameplay, simulation, AI, networking, dependency, analytics, or external runtime request is added.
+- Pull request `#10` merged as commit `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`; main audit run `32496788387` and Pages run `32496788440` completed successfully.
+- The merged source passed 72/72 integrated checks on Node.js 20.20.2 and staged the exact 31-file Pages allowlist plus `.nojekyll`. This automation and deployment evidence does not establish rendered quality, physical-device behavior, gameplay, a tag, a GitHub Release, or publication of the direct Phase 1A package.
 
 ## [v2026.8.20a] — 2026-08-20 (deployed feasibility-review build; untagged)
 

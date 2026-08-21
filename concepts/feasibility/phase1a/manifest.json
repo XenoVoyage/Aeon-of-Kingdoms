@@ -1,10 +1,21 @@
 {
   "schema": 1,
   "phase": "1A",
-  "status": "phase1a-approved-unpublished",
-  "published": false,
+  "status": "phase1a-approved-publication-candidate",
+  "masterPackagePublication": "repository-only",
   "gameplay": false,
-  "candidateBranch": "agent/phase1a-unified-production-proof",
+  "publication": {
+    "reviewSurfaceState": "authorized-candidate",
+    "reviewRoute": "concepts/feasibility/",
+    "candidateAssetScope": "five review compositions, six player-color proofs, all 24 actual-scale state playbacks, environment plate, and damage proof",
+    "masterPackagePublished": false
+  },
+  "provenance": {
+    "originBranch": "agent/phase1a-unified-production-proof",
+    "pullRequest": 10,
+    "mergeCommit": "0d74dd9174f0db873c1c9ea8cfc824c1ea231660",
+    "sourceBranchDeletedAfterMerge": true
+  },
   "ownerReview": {
     "productionMethod": "approved-2026-08-20",
     "integratedSet": "approved-2026-08-21",

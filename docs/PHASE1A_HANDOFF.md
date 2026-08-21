@@ -4,9 +4,11 @@ Status date: **2026-08-21 (Europe/Zagreb)**
 
 Repository: `XenoVoyage/Aeon-of-Kingdoms`
 
-Working branch: `agent/phase1a-unified-production-proof`
+Origin branch: `agent/phase1a-unified-production-proof` (automatically deleted after merge)
 
-Public deployment: **still `v2026.8.20a`; this Phase 1A package is not deployed, tagged, released, or gameplay**
+Merge provenance: pull request `#10`, squash commit `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`
+
+Public transition: **the owner authorized `v2026.8.21a` to replace the superseded v5 page with the optimized approved Phase 1A visual review; raw masters remain repository-only; no tag, GitHub Release, or gameplay is created**
 
 This document is the authoritative Phase 1A closure record for a contributor or model with no access to the design conversation. [`STATUS.md`](STATUS.md) owns the current active boundary. The repository must be sufficient by itself; do not ask a future contributor to infer approved intent from chat memory, filenames, old screenshots, or the rejected prototype.
 
@@ -26,12 +28,14 @@ Read these sources in order before changing the project:
 
 ## Executive state
 
-- The product owner rejected the published `v2026.8.15` gameplay prototype as the future product baseline.
+- The product owner rejected the formerly deployed `v2026.8.15` gameplay prototype at commit `7f88655` as the future product baseline and directed retirement of its misleading public tag and GitHub Release without rewriting Git history.
 - Phase 0 truth/cleanup is complete. The live site truthfully shows a non-playable redesign status surface.
-- Phase 1A has produced a complete local production-feasibility package for two opening factions, six representative combat entities, three structure categories, a separate environment plate, damage language, six-player ownership treatment, and desktop/phone scale compositions.
+- Phase 1A produced a complete production-feasibility package for two opening factions, six representative combat entities, three structure categories, a separate environment plate, damage language, six-player ownership treatment, and desktop/phone scale compositions. Pull request `#10` merged it into source.
 - The owner approved the baked full-body directional-sprite method, one-frame idle, four-frame locked-upper-body movement, six-frame action and defeat, exact horizontal mirroring, separate player-color masks, environment-only battlefield, structure taxonomy, structure damage language, and six-player color-plus-symbol principle.
 - On 2026-08-21 the owner judged the complete package ready except that Aegis Titan's movement and action had inconsistent directional anatomy. The candidate replaced those states with a coherent right-facing gait and punch while retaining the approved identity, root, mask, and defeat behavior.
-- After direct review, the owner approved the corrected Aegis Titan and complete integrated package on 2026-08-21. Phase 1A is closed as a non-playable, unpublished production-feasibility and visual-direction proof.
+- After direct review, the owner approved the corrected Aegis Titan and complete integrated package on 2026-08-21. Phase 1A is closed as a non-playable production-feasibility and visual-direction proof.
+- The owner then authorized the standardization and closure change to merge and deploy. Protected pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`; its origin branch was automatically deleted. That deployment intentionally excluded the direct package. The owner later authorized a bounded public review containing the five approved compositions, all 24 actual-scale state playbacks, all six player-color proofs, the environment plate, and the damage proof; raw masters stay repository-only.
+- Phase 1B planning is active. Its implementation checklist, asset expansion, and runtime work have not started.
 - No redesigned gameplay renderer, movement system, combat system, AI, networking, production queue, map implementation, or touch implementation exists yet.
 
 ## Game being built
@@ -156,9 +160,9 @@ Do not reintroduce any of the following:
 
 ## Evidence boundary
 
-The repository's pixel tests can prove file inventory, dimensions, cell transparency, frame counts, root metadata, idle/move identity, movement upper-body identity, mask containment, structure-mask alignment, and package budgets. Manual workspace inspection establishes only that the rendered files were inspected. The product owner's direct approval is separately recorded above; it does not imply physical-device evidence, gameplay quality, publication, or runtime validation.
+The repository's pixel tests can prove file inventory, dimensions, cell transparency, frame counts, root metadata, idle/move identity, movement upper-body identity, mask containment, structure-mask alignment, and package budgets. Manual workspace inspection establishes only that the rendered files were inspected. The product owner's direct approval and later publication authorization are separately recorded above; neither implies physical-device evidence, gameplay quality, or runtime validation.
 
-Before publishing or merging this candidate, run from the repository root:
+For any future change to this package, run from the repository root:
 
 ```sh
 node tests/run.js
@@ -167,13 +171,13 @@ git diff --check
 git status --short
 ```
 
-Inspect the exact staged allowlist and complete branch diff. Do not publish, tag, release, or begin gameplay merely because checks pass.
+Inspect the exact staged allowlist and complete branch diff. Pull request `#10` historically passed 72/72 checks on Node.js 20.20.2 and deployed the earlier 31-file allowlist plus `.nojekyll`; the owner-authorized review publication candidate stages 57 allowlisted files plus `.nojekyll`. [`STATUS.md`](STATUS.md) owns final deployment evidence. Do not expand the bounded public subset, tag, release, or begin gameplay merely because checks pass.
 
 ## Closure and next boundary
 
-Phase 1A closed on 2026-08-21 when the product owner directly approved the corrected Aegis Titan and complete integrated set. The package remains unpublished and non-playable. Closure does not authorize a merge, deployment, tag, release, or gameplay renderer.
+Phase 1A closed on 2026-08-21 when the product owner directly approved the corrected Aegis Titan and complete integrated set. The standardization and closure record subsequently merged and deployed through pull request `#10`; the owner later authorized the optimized approved review for Pages while keeping authoring masters repository-only. Closure and publication authorization do not authorize a tag, release, gameplay renderer, or later-phase implementation.
 
-After the Engineering Standard v1.0 adoption checkpoint is reviewed, Phase 1B is next and must lock:
+Phase 1B planning is now active and must lock:
 
 1. original minimal menu and map-dominant gameplay HUD;
 2. complete battlefield target with routes, blockers, structures, production/rally feedback, and combat readability;
@@ -183,7 +187,7 @@ After the Engineering Standard v1.0 adoption checkpoint is reviewed, Phase 1B is
 6. supported landscape aspect range, minimum viewport, letterboxing/safe-area rules, and test matrix;
 7. explicit confirmation that rejected prototype and Neon Voyage assets/layouts were not reused.
 
-No Phase 2 renderer work begins before explicit Phase 1B approval.
+Every Phase 1B implementation checklist item remains open. No Phase 2 renderer work begins before explicit Phase 1B approval.
 
 ## Cold-start procedure
 
@@ -195,4 +199,4 @@ git log -5 --oneline --decorate
 node --test tests/phase1a-production-assets.test.js
 ```
 
-Then read the authority chain above, inspect the direct review files, and report its understanding of the active boundary, locked constraints, pending evidence, and intended next change before editing. If the checked-out branch differs from `agent/phase1a-unified-production-proof`, locate the recorded branch or pull request rather than recreating assets from memory.
+Then read the authority chain above, inspect the direct review files, and report its understanding of the active boundary, locked constraints, pending evidence, and intended next change before editing. Begin current work from `main` on a new short-lived branch. The Phase 1A origin branch was deleted after merge; use pull request `#10` and commit `0d74dd9174f0db873c1c9ea8cfc824c1ea231660` for provenance rather than recreating assets from memory.
