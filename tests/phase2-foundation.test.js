@@ -881,9 +881,11 @@ test("terrain renderer reads authored layers and provides color-plus-symbol debu
   assert.doesNotMatch(renderer, /(?:atlas|sprite|entity|combat|projectile)/i, "Phase 2 must stay an empty battlefield foundation");
 });
 
-test("renderer clears and draws all six world canvases in authored order", () => {
+test("renderer redraws all six world canvases after validated load even while complete is transiently false", () => {
   const clearOrder = [];
+  const drawImageCounts = Object.fromEntries(LAYERS.map((layer) => [layer, 0]));
   const strokeCounts = Object.fromEntries(LAYERS.map((layer) => [layer, 0]));
+  let dynamicDraws = 0;
   function contextFor(layer) {
     const context = {
       setTransform() {},
@@ -900,7 +902,7 @@ test("renderer clears and draws all six world canvases in authored order", () =>
       clip() {},
       arc() {},
       fillText() {},
-      drawImage() {}
+      drawImage() { drawImageCounts[layer] += 1; }
     };
     return context;
   }
@@ -914,11 +916,23 @@ test("renderer clears and draws all six world canvases in authored order", () =>
     canvases,
     map,
     camera,
-    groundImage: { complete: true, naturalWidth: map.world.width },
-    renderScaleCap: cameraApi.configuration.renderScaleCap
+    groundImage: {
+      complete: false,
+      naturalWidth: map.layers.ground.width,
+      naturalHeight: map.layers.ground.height
+    },
+    renderScaleCap: cameraApi.configuration.renderScaleCap,
+    onDynamicDraw() { dynamicDraws += 1; }
   });
   renderer.resize(800, 450, 3);
   assert.deepEqual(clearOrder, LAYERS);
+  assert.equal(drawImageCounts.ground, 1, "validated ground must paint immediately after backing-store resize");
+  assert.equal(
+    drawImageCounts.foreground,
+    map.layers.foreground.occluders.length,
+    "every foreground occluder must repaint from the validated ground image"
+  );
+  assert.equal(dynamicDraws, 1, "the Phase 3 dynamic hook must participate in the same initial full redraw");
   assert.equal(strokeCounts.detail, map.layers.detail.routeHints.length, "every route hint must stroke the detail canvas even when navigation debug is hidden");
   assert.equal(strokeCounts.navigation, 0, "navigation debug must remain empty while disabled");
   assert.equal(renderer.snapshot().renderScale, cameraApi.configuration.renderScaleCap);

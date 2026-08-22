@@ -216,7 +216,13 @@
     }
 
     function render() {
-      if (disposed || !groundImage.complete || groundImage.naturalWidth === 0) return;
+      // Both runtime entry points construct the renderer only after the ground
+      // image's load event and exact dimensions have been validated. Some
+      // browsers can still expose a transient false `complete` value while an
+      // async decode settles; returning here after resize has already cleared
+      // every backing store leaves the battlefield blank until another full
+      // redraw. Natural width is the stable decoded-readiness boundary.
+      if (disposed || groundImage.naturalWidth === 0) return;
       drawGround();
       drawDetail();
       drawNavigation();
@@ -226,7 +232,7 @@
     }
 
     function renderDynamic() {
-      if (disposed || !groundImage.complete || groundImage.naturalWidth === 0) return;
+      if (disposed || groundImage.naturalWidth === 0) return;
       drawDynamic();
     }
 

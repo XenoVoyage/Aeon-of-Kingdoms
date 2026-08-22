@@ -13,6 +13,7 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 
 ### Corrected
 
+- Corrected a live initial-paint race in the shared landscape renderer: a validated asynchronously decoded ground image may transiently report `complete` as false after canvas resize, which previously left all six cleared layers blank until a camera or navigation redraw. The renderer now uses the already-validated natural dimensions as its stable readiness boundary.
 - Re-exported the complete six-entity runtime set from the intact approved Phase 1A masters after reproducing blank lower-body rows in the unpublished Phase 1B budget survey. The published four-file Astral Guardian review sample remains unchanged.
 - Replaced the obsolete survey totals with measured complete-body totals: 734,126 encoded bytes and 12 MiB retained for Standard; 459,446 encoded bytes and 6.75 MiB retained for Compact; 1,193,572 encoded bytes combined.
 - Bounded runtime ownership preparation to one fixed faction seat per entity: Astral Concord uses seat 1 and Gravebound Court uses seat 2. Each entity retains one diagnostic base sheet and one final prepared owner sheet; decoded masks are released after validation.
