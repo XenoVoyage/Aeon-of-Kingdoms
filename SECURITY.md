@@ -14,14 +14,14 @@ Include the affected version, browser or environment, concise reproduction, expe
 
 ## Current boundary
 
-The deployed status boundary and published approved Phase 1A/Phase 1B reviews are static, non-playable surfaces. The bounded reviews contain only local images and HTML/CSS; repository-only masters and four staged runtime-envelope browser samples add no executable or network boundary. The approved Phase 2 source uses local classic JavaScript and Canvas only for a non-authoritative landscape shell, camera, map, and layered presentation. Phase 3 simulation and movement are authorized but not present on this planning branch. No account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection exists. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current version and deployment evidence.
+The status boundary and published approved Phase 1A/Phase 1B reviews are static, non-playable surfaces. The bounded reviews contain only local images and HTML/CSS; repository-only masters and four staged runtime-envelope browser samples add no executable or network boundary. The approved Phase 2 source uses local classic JavaScript and Canvas only for a non-authoritative landscape shell, camera, map, and layered presentation. The active Phase 3 owner-review candidate adds a local deterministic `MOVE` command/simulation boundary, local entity-art decoding, Canvas presentation, replay, snapshots, and checksums; it makes no network request and is not authoritative across clients. No account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection exists. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current version and deployment evidence.
 
 Relevant reports include:
 
 - script execution or Content Security Policy bypass;
 - unexpected external loading or network communication;
 - unsafe delivery, caching, or rendering of the local status and reference-gallery resources;
-- unbounded or unsafe Phase 2 pointer/touch/keyboard/lifecycle handling, local-resource loading, Canvas sizing, or map-data processing, and the corresponding Phase 3 command/simulation/art-loader boundary once implemented;
+- unbounded or unsafe Phase 2/Phase 3 pointer, touch, keyboard, lifecycle, local-resource loading, Canvas sizing, map-data, command, simulation, snapshot, replay, checksum, or art-loader processing;
 - GitHub Actions, Pages, artifact, branch-protection, or release-integrity weaknesses;
 - a vulnerability in a future networking feature that is actually present on `main`.
 

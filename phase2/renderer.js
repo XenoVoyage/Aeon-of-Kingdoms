@@ -62,6 +62,7 @@
 
   function createRenderer(options) {
     const { canvases, map, camera, groundImage, renderScaleCap } = options;
+    const onDynamicDraw = typeof options.onDynamicDraw === "function" ? options.onDynamicDraw : null;
     const contexts = Object.fromEntries(
       Object.entries(canvases).map(([name, canvas]) => [name, canvasContext(canvas)])
     );
@@ -194,6 +195,7 @@
 
     function drawDynamic() {
       prepare(contexts.dynamic);
+      if (onDynamicDraw) onDynamicDraw(contexts.dynamic);
     }
 
     function drawForeground() {
@@ -223,6 +225,11 @@
       drawForeground();
     }
 
+    function renderDynamic() {
+      if (disposed || !groundImage.complete || groundImage.naturalWidth === 0) return;
+      drawDynamic();
+    }
+
     function setNavigationVisible(visible) {
       navigationVisible = Boolean(visible);
       render();
@@ -240,7 +247,7 @@
       }
     }
 
-    return Object.freeze({ resize, render, setNavigationVisible, snapshot, destroy });
+    return Object.freeze({ resize, render, renderDynamic, setNavigationVisible, snapshot, destroy });
   }
 
   const api = Object.freeze({ createRenderer });

@@ -2,6 +2,28 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.22a] — 2026-08-22 (Phase 3 entity and movement candidate)
+
+### Added
+
+- Added a bounded local Phase 3 route that preserves the approved menu and six-layer landscape while placing the six proven representatives into a deterministic two-player movement scenario.
+- Added explicit desktop and touch selection, additive box selection, Move mode, right-click movement, keyboard/pointer camera controls, selection rings, non-color ownership symbols, destination feedback, and readable pause/load/error states.
+- Added a 20 Hz integer simulation with globally sequenced `MOVE` commands, footprint-aware deterministic routing, stable formation destinations, local separation, bounded repathing, canonical snapshots, replay logs, and FNV-1a checksums.
+- Added a reproducible 24-file lossless-WebP runtime-art package: base and aligned ownership mask pairs for six entities at 128-pixel Standard and 96-pixel Compact tiers.
+
+### Corrected
+
+- Re-exported the complete six-entity runtime set from the intact approved Phase 1A masters after reproducing blank lower-body rows in the unpublished Phase 1B budget survey. The published four-file Astral Guardian review sample remains unchanged.
+- Replaced the obsolete survey totals with measured complete-body totals: 734,126 encoded bytes and 12 MiB retained for Standard; 459,446 encoded bytes and 6.75 MiB retained for Compact; 1,193,572 encoded bytes combined.
+- Bounded runtime ownership preparation to one fixed faction seat per entity: Astral Concord uses seat 1 and Gravebound Court uses seat 2. Each entity retains one diagnostic base sheet and one final prepared owner sheet; decoded masks are released after validation.
+
+### Verified and bounded
+
+- The source candidate passes 122/122 dependency-free checks, deterministically regenerates every runtime atlas, stages exactly 108 allowlisted public files plus `.nojekyll`, and passes diff hygiene.
+- Phase 3 remains an owner-review candidate until explicit approval. Phase 4 structures/economy/production/rally, combat, AI, and networking code stay blocked.
+- The selected later multiplayer direction remains one private two-player host/client room joined by a short code. No network connection, signaling, account, matchmaking, chat, reconnect, spectator, or host-migration behavior is added here.
+- `v2026.8.22a` is a source/Pages label only. No tag or GitHub Release is created or authorized by this change.
+
 ## [v2026.8.22] — 2026-08-22 (Phase 2 closure and Phase 3 authorization)
 
 ### Changed
