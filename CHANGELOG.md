@@ -2,6 +2,20 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.22b] — 2026-08-22 (Phase 3 approval and Phase 4 authorization)
+
+### Changed
+
+- Recorded the owner's explicit approval of the repaired deployed Phase 3 entity/movement foundation and authorization of Phase 4 structures/economy/production/rally.
+- Updated the public status shell, approved Phase 3 route labels, cold-start handoff, roadmap, security boundary, contributor guide, verification map, and canonical phase record so Phase 3 is closed and Phase 4 is next without claiming Phase 4 runtime.
+- Preserved the selected future private two-player host/client room-code direction as documentation only; no networking connection, provider, dependency, or CSP exception is added.
+
+### Evidence and boundaries
+
+- Phase 3 retains its 32/32 focused and 122/122 complete checks, exact 108-file Pages allowlist plus `.nojekyll`, repaired 1363×936 Standard/Compact first paint, and primary movement journey.
+- Tablet/phone landscape, portrait, touch, broad-browser, keyboard-only entity control, and physical-device observations remain explicitly pending rather than inferred from owner approval.
+- `v2026.8.22b` is a source/Pages label only. No Git tag or GitHub Release is created or authorized, and no Phase 4, combat, AI, or networking runtime is included.
+
 ## [v2026.8.22a] — 2026-08-22 (Phase 3 entity and movement candidate)
 
 ### Added
@@ -22,7 +36,7 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 
 - The source candidate passes 122/122 dependency-free checks, deterministically regenerates every runtime atlas, stages exactly 108 allowlisted public files plus `.nojekyll`, and passes diff hygiene.
 - Hosted runners without the optional recorded ImageMagick authoring executable explicitly skip only atlas regeneration; committed bytes, hashes, dimensions, lossless encoding, manifest values, and decoded invariants remain mandatory.
-- Phase 3 remains an owner-review candidate until explicit approval. Phase 4 structures/economy/production/rally, combat, AI, and networking code stay blocked.
+- Implementation pull request `#19` and initial-paint repair pull request `#20` merged through successful protected audits and Pages deployments. Sampled live source bytes matched, and fresh 1363×936 Standard and Compact starts painted all twelve entities before any redraw control; the primary selection, movement, mirroring, feedback, pause, camera, and menu journeys passed in cloud Chrome.
 - The selected later multiplayer direction remains one private two-player host/client room joined by a short code. No network connection, signaling, account, matchmaking, chat, reconnect, spectator, or host-migration behavior is added here.
 - `v2026.8.22a` is a source/Pages label only. No tag or GitHub Release is created or authorized by this change.
 

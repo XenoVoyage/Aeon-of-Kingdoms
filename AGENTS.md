@@ -9,7 +9,7 @@ Keep the standard status `adopting` while any applicable requirement remains fai
 
 ## Active redesign override
 
-The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the approved complete Phase 1B visual/interaction contract; [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) owns the approved landscape foundation; and [`docs/PHASE3_ENTITY_MOVEMENT.md`](docs/PHASE3_ENTITY_MOVEMENT.md) owns the implemented entity/movement candidate contract and evidence gate. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
+The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the approved complete Phase 1B visual/interaction contract; [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) owns the approved landscape foundation; and [`docs/PHASE3_ENTITY_MOVEMENT.md`](docs/PHASE3_ENTITY_MOVEMENT.md) owns the closed approved entity/movement contract and evidence record. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
@@ -89,7 +89,7 @@ Do not expand the slice into an account system, content pipeline, framework migr
 
 ## 6. Ownership map
 
-Each responsibility has one source of truth. Phase 2 introduced the approved non-authoritative landscape shell, camera, map data, and layered renderer. Phase 3 introduces the first replacement authoritative entity/movement simulation, replay boundary, and runtime entity-art loader without beginning combat, structures/economy, AI, or networking. Prototype-era design documents remain historical until explicitly replaced.
+Each responsibility has one source of truth. Phase 2 introduced the approved non-authoritative landscape shell, camera, map data, and layered renderer. Phase 3 introduced the approved first replacement authoritative entity/movement simulation, replay boundary, and runtime entity-art loader without beginning combat, structures/economy, AI, or networking. Prototype-era design documents remain historical until explicitly replaced.
 
 | Area | Source of truth |
 | --- | --- |

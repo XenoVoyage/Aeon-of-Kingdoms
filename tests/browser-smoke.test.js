@@ -18,21 +18,21 @@ test("public shell truthfully presents the phased redesign", () => {
     /name=["']viewport["']/i,
     /id=["']main-content["']/i,
     /id=["']page-title["']/i,
-    /Phase 3 · Owner review candidate/i,
+    /Phase 3 complete · Phase 4 next/i,
     /Redesign in progress/i,
     /Phase 1A, Phase 1B, and the complete Phase 2 landscape\/camera foundation are approved/i,
-    /Review the Phase 3 movement candidate/i,
-    /Candidate · owner review/i,
-    /Movement only\. Later systems stay blocked/i,
-    /Status build v2026\.8\.22a/i
+    /Play the approved Phase 3 foundation/i,
+    /Phase 4 · next/i,
+    /Movement approved\. Phase 4 comes next/i,
+    /Status build v2026\.8\.22b/i
   ]) assert.match(html, pattern);
 
   const phaseItems = html.match(/<li class=["'][^"']*\bphase-item\b[^"']*["'][^>]*>[\s\S]*?<\/li>/gi) ?? [];
   const currentPhaseItems = phaseItems.filter((item) => /aria-current=["']step["']/i.test(item));
   assert.equal((html.match(/aria-current=["']step["']/gi) ?? []).length, 1, "exactly one current step is required");
   assert.equal(currentPhaseItems.length, 1, "aria-current must belong to one phase-list item");
-  assert.match(currentPhaseItems[0], /<span class=["']phase-number["']>03<\/span>/i);
-  assert.match(currentPhaseItems[0], /Candidate · owner review/i);
+  assert.match(currentPhaseItems[0], /<span class=["']phase-number["']>04<\/span>/i);
+  assert.match(currentPhaseItems[0], /Phase 4 · next/i);
 
   assert.match(html, /href=["']https:\/\/github\.com\/XenoVoyage\/Aeon-of-Kingdoms["']/i);
   assert.match(html, /href=["']concepts\/["']/i);
@@ -115,7 +115,7 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   };
   const caches = {
     open(name) {
-      assert.equal(name, "aok-shell-v2026.8.22a");
+      assert.equal(name, "aok-shell-v2026.8.22b");
       return Promise.resolve(cache);
     },
     keys() {

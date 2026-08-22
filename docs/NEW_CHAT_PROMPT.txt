@@ -6,7 +6,7 @@ Before editing:
 
 1. Run `git status --short --branch` and `git log -5 --oneline --decorate`.
 2. Read `AGENTS.md` completely, then follow its current required-reading and authority order.
-3. Read `docs/STATUS.md` for current phase, evidence, deployment, and Engineering Standard state; read `docs/REDESIGN.md` for product gates; then read every phase-specific owner it names for the active work (currently `docs/PHASE3_ENTITY_MOVEMENT.md` plus its locked Phase 2/1B/production-art inputs).
+3. Read `docs/STATUS.md` for current phase, evidence, deployment, and Engineering Standard state; read `docs/REDESIGN.md` for product gates; then read every phase-specific owner it names for the active work. Phase 3 is closed; the current boundary is to freeze the exact Phase 4 structures/economy/production/rally contract from the approved Phase 3, Phase 2, Phase 1B, and production-art inputs before adding runtime work.
 4. Inspect the relevant source, tests, pull request, review files, and decision owner.
 5. Run the focused checks named by the affected owner, then `node tests/run.js` before calling a candidate complete.
 
