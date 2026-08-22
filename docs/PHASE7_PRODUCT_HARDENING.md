@@ -1,6 +1,6 @@
 # Phase 7 product-hardening contract
 
-Status: **frozen planning contract on 2026-08-22; implementation, material owner decisions, browser/device evidence, root promotion, and closure remain pending**.
+Status: **frozen contract on 2026-08-22; a bounded implementation candidate is assembled, while protected publication, material owner decisions, browser/device evidence, root promotion, and closure remain pending**.
 
 This document owns the exact Phase 7 boundary after Phase 6 closes. It hardens the approved one-map, two-faction, local human-versus-computer skirmish without changing its authoritative rules or adding later content. [`STATUS.md`](STATUS.md) remains the sole owner of the active phase, commit, deployment, observed evidence, and Engineering Standard adoption state. [`REDESIGN.md`](REDESIGN.md) remains the owner of the phase sequence and final gate.
 
@@ -55,13 +55,13 @@ Phase 7 adds one focused Node built-in suite, `tests/phase7-product-hardening.te
 
 ### Semantic accessibility and color-independent state
 
-Source and VM checks must prove all of the following:
+Source and VM checks must prove the following source-owned semantic and state relationships. Actual CSS layout and the browser's native sequential-focus algorithm are explicitly routed to rendered-browser evidence below rather than simulated in Node.
 
 - Begin, Settings, fullscreen, art tier, camera, tactical commands, structure inspection, production, queue cancellation, rally, pause, navigation, menu return, load failure, viewport gates, and match result have semantic DOM text or accessible names outside Canvas.
 - Live selection, command rejection, queue/progress/blocked state, Resource, population, objective, pause, and match outcome use appropriate readable status text; Canvas pixels are never their only representation.
 - Owner uses faction/player text plus the stable `◇` or `✕` symbol; selection uses its own outline and Selected text; hostile target uses its own target geometry/text; health and damage use numeric/text state plus the approved damage treatment; disabled controls use native disabled state and readable reason/state; queue and objective state are not color- or animation-only.
 - Replacing or suppressing ownership hue in a renderer fixture does not remove the owner symbols, labels, selection geometry, target geometry, health state, objective, or disabled state.
-- Every interactive control retains a computed minimum target box of 44×44 CSS pixels at each supported cloud viewport unless it is a native text/select control whose containing labelled target meets that minimum.
+- Every interactive control is covered by an authored minimum target box of 44×44 CSS pixels unless it is a native text/select control whose containing labelled target owns that minimum. Source checks resolve the applicable authored rules; rendered-browser journeys measure actual computed rectangles at every supported cloud viewport.
 - Heading, landmark, label/control, dialog-title, described-by, live-region, progress, pressed-state, disabled-state, and hidden/inert relationships resolve to unique identifiers. No decorative Canvas or image enters the accessibility tree.
 - Asset-load failure blocks match creation, exposes a stable alert and menu recovery, and never substitutes external, wrong-tier, maskless, geometric, or rigged art.
 
@@ -76,8 +76,8 @@ Automated semantics do not prove a screen-reader session, contrast under a physi
 
 ### Keyboard and focus
 
-- Tab and Shift+Tab reach every enabled semantic control in DOM order; Enter and Space use native activation. Focus is visible and is never placed in a hidden gate, hidden tray, hidden screen, or disabled control.
-- Opening and closing Settings traps focus only while the native dialog is open and returns focus to its invoker. Begin focuses the battlefield application; Menu, load failure, and ordinary teardown return focus to a visible recovery control.
+- Source checks preserve native DOM order by rejecting positive `tabindex`, verify semantic control relationships, and prove visible programmatic recovery never chooses a hidden gate, hidden tray, hidden screen, or disabled control. Actual Tab and Shift+Tab sequencing, native Enter/Space activation, and native dialog focus trapping are rendered-browser evidence.
+- Opening and closing Settings traps focus only while the native dialog is open and returns focus to its invoker. Begin focuses the battlefield application; Menu and load failure return focus to a visible recovery control.
 - Arrow keys remain the collision-free required camera-pan path. Existing `M`, `F`, `X`, `D`, `G`, and `S` tactical shortcuts retain their labelled intent when the battlefield owns focus and their action is legal. Existing W/A/S/D camera aliases may act only when that same key was not consumed by a tactical shortcut; one key event may cause at most one camera or tactical action.
 - Escape clears transient pointer/touch/context mode without submitting a command. Blur, portrait entry, pause, visibility loss, and teardown clear held keys and cannot replay a stale key after resume.
 - Keyboard activation of production, queue cancellation, structure inspection, camera buttons, pause, navigation, fullscreen, and menu return is covered in the VM journey. Full keyboard-only spatial selection/destination remains the explicit owner decision above.
@@ -89,6 +89,8 @@ The pure viewport/camera functions retain exact checks at 1440×900 desktop, 102
 Rendered browser evidence then repeats the primary journey at 1440×900, 1024×768, 844×390, 640×360, 1680×720, 3000×1000, and 390×844 CSS pixels in both art tiers where the viewport is playable. It verifies:
 
 - no horizontal document overflow, clipped essential control, or control drawn inside a letterbox bar;
+- every visible interactive target has an actual computed rectangle of at least 44×44 CSS pixels at each named viewport, using its labelled container for the documented native-control exception;
+- Tab and Shift+Tab traverse enabled controls in DOM order, skip disabled/hidden/inert controls, preserve visible focus, and remain trapped by the open native Settings dialog; Enter and Space activate the focused native control;
 - safe-area variables remain `env(safe-area-inset-*)` plus 12 CSS pixels and the observable inset, when the environment exposes one, is recorded rather than guessed;
 - entity/structure/selection/target/health/queue text remains readable at minimum, authored-home, and maximum camera zoom;
 - an actual 200% browser-zoom journey beginning from a 1440×900 browser viewport remains operable at its resulting CSS viewport, without using a CSS transform as evidence;
@@ -113,10 +115,10 @@ Cloud browser journeys cover resize/portrait emulation, visibility where the sur
 
 - Retain the Phase 6 passive-opponent regression: seed `0x4a0e2026` ends in a computer victory at tick 3,715, below the existing 12,000-tick / 10-minute evidence ceiling.
 - Add a test-only 12,000-tick soak using the unchanged public simulation/command/checkpoint APIs and unchanged runtime configuration. It may construct a seeded fixture, but cannot add a shipping mode, invulnerability rule, alternate cap, private mutation path, or Phase 8 objective. At every sampled tick, every authoritative and AI collection remains at or below its canonical configuration cap and every identifier/reference validates.
-- Exercise exact-at-cap and one-over-cap cases for population, structures, production queues, pending commands, tactical selection, projectiles, events/effects, path work, AI candidates/probes/requests/threats, replay, snapshots, and composite checkpoints. The at-cap case is deterministic; the over-cap case fails closed without partial mutation or allocation proportional to hostile input.
+- Exercise exact-at-cap and one-over-cap cases wherever the approved public data contract can validly reach both sides: population, structures, production queues, pending commands, tactical selection, projectiles, event/threat collections, path/navigation work, AI request batches, and replay command count. For internal AI candidate/probe loop guards and the legacy-named `*ByteCap` encoded-length ceilings on snapshots, replay, AI state, and composite checkpoints, record observed valid maxima in the owning JavaScript canonical-string code units, prove the guard remains in source, and reject bounded ordinary oversized data through the earliest applicable public schema/count/field guard before state mutation. If valid schema-bounded data cannot reach the later encoded-length guard, do not use getters, proxies, alternate caps, semantically meaningless padding, or private mutation merely to fire it.
 - Restore and continue representative early, production, defense, regroup, pre-assault, and completed states. Future accepted receipts, checksums, outcomes, and cleanup converge with uninterrupted play.
 - Three Begin → active match → Menu cycles leave exactly one listener set during a match and none of the match-owned listeners, animation frames, pointer captures, transient collections, menu image, decoded masks, non-selected art tier, battle images, or canvas backing stores retained after final teardown.
-- Composite checkpoint encoding remains at or below the inherited 1,310,720-byte cap. Encoded size and collection counts are deterministic pass/fail evidence; Node heap usage is not.
+- Composite checkpoint encoding remains at or below the inherited legacy-named `checkpointByteCap` value of 1,310,720 canonical-string code units. Encoded length and collection counts are deterministic pass/fail evidence; Node heap usage is not.
 
 Decoded source-image arithmetic is checked separately from browser memory:
 
@@ -162,6 +164,19 @@ The same candidate tree must complete these named journeys without a Pages-origi
 4. **Viewport and motion:** run the named landscape/letterbox/minimum/portrait viewports, actual 200% browser zoom, reduced motion on/off checksum equivalence, identical-color diagnostic ownership review, portrait suspension, and landscape recovery.
 5. **Sustained bounded play:** run the deterministic 12,000-tick source soak and an available real-time rendered match; record configured collection maxima, checkpoint size, source-image/canvas arithmetic, cleanup, and only the performance/thermal observations the environment exposes.
 6. **Physical input matrix:** repeat the approved desktop, phone-landscape, and tablet-landscape paths on owner-designated hardware and browser versions. This journey cannot be completed by cloud emulation.
+
+## Implementation candidate record
+
+The `v2026.8.22i` source candidate implements only the authorized product-hardening layer on a separate `phase7/` route:
+
+- `index.html` owns the semantic menu, battlefield controls/status, viewport and load-recovery gates, local-only CSP, and unchanged dependency order through the closed Phase 6 modules.
+- `phase7.css` owns safe-area spacing, visible focus, 44-pixel targets, compact reflow that retains enabled controls, and reduced-motion presentation.
+- `hardening.js` owns composed suspension reasons, settled app-owned fullscreen/orientation lifecycle, safe focus recovery, decoded-source arithmetic, and exact six-Canvas backing arithmetic without touching simulation or AI state.
+- `app.js` owns the hardened shell orchestration: no scheduled frame while suspended, synchronized human/AI/simulation suspension, failure/completion/menu teardown, one selected art tier, semantic target/command/progress state, and zeroed Canvas backing stores after runtime retirement.
+
+The focused dependency-free suite passes 19/19 and the complete dependency-free suite passes 281/281 on the source candidate. It byte-locks the closed Phase 2 through Phase 6 implementation and complete Phase 6 evidence suites; exercises unsupported, synchronous-throw, rejected-Promise, successful, released, and cancelled browser-feature paths for both feature owners; proves reduced-motion authoritative equivalence and ownership cues with ownership hue suppressed; reaches exactly 12,000 active authoritative ticks with pure bounded Phase 6 planner observation; reaches the public 8,192-command replay cap; checks honest reachable limits and encoded-length guards; restores and converges checkpoints; verifies three input lifecycle teardown cycles; and executes the real `phase7/app.js` in a bounded VM across keyboard control, production/cancellation, lifecycle and viewport gates, failure recovery, completion, and teardown. The VM cannot establish decoded-image pixels, actual CSS layout, native sequential focus/dialog trapping, real fullscreen, physical-device, or thermal evidence. Exact staging contains 166 public files plus `.nojekyll`, adding only these four Phase 7 files.
+
+This record is source and staged-candidate evidence only. Protected publication, exact deployed bytes, named cloud-rendered journeys, the browser-family matrix, physical devices, actual 200% browser zoom, browser/GPU memory, thermal behavior, material owner decisions, root promotion, and Phase 7 closure remain pending until separately observed or explicitly resolved. No tag or GitHub Release is authorized.
 
 ## Gate and next boundary
 

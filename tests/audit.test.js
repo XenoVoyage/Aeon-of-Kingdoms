@@ -83,6 +83,10 @@ const REQUIRED_FILES = [
   "phase6/ai.js",
   "phase6/skirmish.js",
   "phase6/app.js",
+  "phase7/index.html",
+  "phase7/phase7.css",
+  "phase7/hardening.js",
+  "phase7/app.js",
   "concepts/feasibility/images/production-battlefield-environment-v4.webp",
   "concepts/feasibility/images/structure-atlas-v2.webp",
   "concepts/feasibility/images/entity-team-color-v4.webp",
@@ -150,6 +154,7 @@ const REQUIRED_FILES = [
   "tests/phase6-ai.test.js",
   "tests/phase6-skirmish.test.js",
   "tests/phase6-shell.test.js",
+  "tests/phase7-product-hardening.test.js",
   "tools/export-phase3-assets.js",
   "tools/export-phase4-structures.js",
   "tools/export-phase5-structures.js",
@@ -235,7 +240,7 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/PHASE3_ENTITY_MOVEMENT.md"), /Phase 4 structures, economy, production, and rally is the next authorized boundary/i);
   assert.doesNotMatch(read("docs/PHASE3_ENTITY_MOVEMENT.md"), /owner gate remains pending|explicit Phase 3 owner approval pending|Phase 3 remains active/i);
   assert.doesNotMatch(read("SECURITY.md"), /active Phase 3 owner-review candidate|current candidate/i);
-  assert.match(read("docs/NEW_CHAT_PROMPT.txt"), /Phase 0 through Phase 6 are closed.*PHASE6_STRATEGIC_AI\.md.*closed strategic-AI\/local-skirmish evidence.*PHASE7_PRODUCT_HARDENING\.md.*frozen active product-hardening planning contract/i);
+  assert.match(read("docs/NEW_CHAT_PROMPT.txt"), /Phase 0 through Phase 6 are closed.*PHASE6_STRATEGIC_AI\.md.*closed strategic-AI\/local-skirmish evidence.*PHASE7_PRODUCT_HARDENING\.md.*frozen active product-hardening implementation and still-pending evidence gate/i);
   assert.match(read("docs/ARCHITECTURE.md"), /PHASE6_STRATEGIC_AI\.md.*owns the closed strategic-AI\/local-skirmish foundation.*PHASE7_PRODUCT_HARDENING\.md.*owns the active product-hardening contract/i);
   assert.doesNotMatch(read("docs/ARCHITECTURE.md"), /No Phase 3 implementation exists/i);
   assert.match(read("docs/GAME_DESIGN.md"), /PHASE6_STRATEGIC_AI\.md.*owns the closed strategic-AI\/local-skirmish foundation.*PHASE7_PRODUCT_HARDENING\.md.*owns the active product-hardening contract/i);
@@ -373,8 +378,8 @@ test("status HTML uses only its local relative shell and a restrictive CSP", () 
   assert.doesNotMatch(html, /css\/(?:tokens|app)\.css/);
   assert.match(html, /docs\/REDESIGN\.md/);
   assert.match(html, /docs\/STATUS\.md/);
-  assert.match(html, /Phase 6 complete · Phase 7 planning active/i);
-  assert.match(html, /Phase 7 product hardening is planned/i);
+  assert.match(html, /Phase 6 complete · Phase 7 candidate active/i);
+  assert.match(html, /Phase 7 product hardening is under review/i);
   assert.match(html, /<span class=["']phase-number["']>07<\/span>/i);
   assert.match(html, /docs\/PHASE5_COMBAT_TACTICS\.md/i);
   assert.match(html, /docs\/PHASE6_STRATEGIC_AI\.md/i);
@@ -438,7 +443,7 @@ test("Pages allowlist contains only approved public surfaces and source-of-truth
     "concepts/feasibility/index.html",
     "concepts/feasibility/proof.css"
   ]);
-  assert.equal(files.length, 162);
+  assert.equal(files.length, 166);
   assert.equal(files.filter((entry) => /concepts\/feasibility\/phase1a\//.test(entry)).length, 37);
   assert.deepEqual(files.slice(-11), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/PHASE2_FOUNDATION.md", "docs/PHASE3_ENTITY_MOVEMENT.md", "docs/PHASE4_STRUCTURES_ECONOMY.md", "docs/PHASE5_COMBAT_TACTICS.md", "docs/PHASE6_STRATEGIC_AI.md", "docs/PHASE7_PRODUCT_HARDENING.md", "docs/STATUS.md", "docs/ASSETS.md"]);
   assert.deepEqual(files.filter((entry) => entry.startsWith("phase6/")), [
@@ -448,6 +453,12 @@ test("Pages allowlist contains only approved public surfaces and source-of-truth
     "phase6/ai.js",
     "phase6/skirmish.js",
     "phase6/app.js"
+  ]);
+  assert.deepEqual(files.filter((entry) => entry.startsWith("phase7/")), [
+    "phase7/index.html",
+    "phase7/phase7.css",
+    "phase7/hardening.js",
+    "phase7/app.js"
   ]);
   const staged = files.join("\n");
   assert.doesNotMatch(staged, /(?:icon|gameplay|visual-capture|README|LICENSE|CHANGELOG|VERSION|package\.json)/i);
