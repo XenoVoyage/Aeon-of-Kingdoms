@@ -11,6 +11,7 @@ const read = (relativePath) => fs.readFileSync(path.join(ROOT, relativePath), "u
 const staging = require(path.join(ROOT, ".github/scripts/stage-pages.js"));
 
 const PHASE4_SCRIPTS = Object.freeze([
+  "../phase2/map.js",
   "../phase2/camera.js",
   "../phase2/renderer.js?v=2026.8.22c",
   "../phase3/assets/entities/manifest.js",
