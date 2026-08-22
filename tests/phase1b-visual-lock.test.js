@@ -106,7 +106,8 @@ test("Phase 1B page records the approved and closed non-playable visual target",
   assert.match(html, /One visual target\.\s*<br>Zero gameplay claims/i);
   assert.match(html, /owner approved[^\n]*2026-08-21|approved by the product owner[^\n]*2026-08-21/i);
   assert.match(html, /Phase 1B[^\n]*(?:closed|complete)/i);
-  assert.match(html, /Phase 2[^\n]*(?:active|authorized|began|started)/i);
+  assert.match(html, /Phase 2[^\n]*approved and closed/i);
+  assert.match(html, /Phase 3[^\n]*(?:movement )?authorized/i);
   assert.doesNotMatch(html, /owner approval pending|Phase 2 stays blocked/i);
   assert.match(html, /not a renderer, match,\s+balance pass, shipping atlas, tag, or release/i);
   assert.match(html, /not running gameplay/i);

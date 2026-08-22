@@ -47,6 +47,9 @@ test("concept gallery presents eight mood references without claiming production
   assert.match(html, /no further approval is required for these eight mood\s+references/i);
   assert.match(html, /owner approved the separate corrected production-feasibility package/i);
   assert.match(html, /Open the approved Phase 1A review/i);
+  assert.match(html, /Phase 1B target and Phase 2 landscape\/camera foundation are approved and closed/i);
+  assert.match(html, /Phase 3 entity and movement work is now authorized/i);
+  assert.doesNotMatch(html, /visual-lock candidate is ready|complete target for owner review/i);
   assert.match(html, /approved visual review is published on Pages/i);
   assert.match(html, /not a validated final layout for two, four, or six players/i);
   assert.match(html, /only each faction headquarters is visually unique/i);

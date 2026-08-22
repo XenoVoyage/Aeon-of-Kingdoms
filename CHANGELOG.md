@@ -2,6 +2,23 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.22] — 2026-08-22 (Phase 2 closure and Phase 3 authorization)
+
+### Changed
+
+- Recorded the product owner's explicit approval of the complete Phase 2 landscape/camera foundation, closed its owner gate, and authorized bounded Phase 3 entity and movement work.
+- Added `docs/PHASE3_ENTITY_MOVEMENT.md` as the exact owner of Phase 3 scope, tuning, entity/command state, routing, formations, separation, runtime art, input, replay, snapshot, checksum, evidence, and owner gate.
+- Advanced the public status boundary to Phase 3 authorized while retaining the approved Phase 2 route as the last implemented candidate.
+- Recorded the owner-selected future multiplayer direction: one private two-player host/client room joined by a short code, with the creator authoritative and host departure ending the first-version match.
+- Clarified that GitHub Pages hosts only the future static client; reviewed signaling and likely TURN remain later infrastructure, and Phase 3 keeps networking absent with `connect-src 'none'`.
+
+### Boundaries
+
+- Phase 3 implementation does not begin in this closure/planning change. Structures/economy/production/rally, combat, AI, networking code, accounts, matchmaking, chat, spectators, host migration, reconnect, and join-in-progress remain excluded.
+- Compact/aspect/portrait, broad-browser, and physical-device Phase 2 observations remain evidence debt rather than retroactively claimed results.
+- The approved main menu, Phase 1A production art, Phase 1B visual/interaction target, Phase 2 landscape/camera, exactly three structure categories, environment separation, and player-color-plus-symbol rules remain locked.
+- `v2026.8.22` is a source/Pages label only. No tag or GitHub Release is created or authorized by this change.
+
 ## [v2026.8.21c] — 2026-08-21 (Phase 2 landscape-foundation source candidate)
 
 ### Changed
