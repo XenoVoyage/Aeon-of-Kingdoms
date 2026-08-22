@@ -457,6 +457,10 @@
 
   function submit(kind, payload, feedback = null) {
     if (!simulation) return null;
+    if (effectivePaused()) {
+      announce("Simulation is paused; command not accepted");
+      return Object.freeze({ ok: false, code: "paused" });
+    }
     const request = Object.freeze({
       protocolVersion: configuration.protocolVersion,
       configurationId: configuration.configurationId,
@@ -678,6 +682,7 @@
     if (input) input.setEnabled(stage === "battlefield" && playableViewport && !effectivePaused());
     pauseButton.setAttribute("aria-pressed", String(manualPaused));
     pauseButton.textContent = manualPaused ? "Resume" : "Pause";
+    updateSelectionUi();
   }
 
   function updateViewport() {
