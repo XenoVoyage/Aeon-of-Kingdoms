@@ -1,8 +1,8 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 through Phase 3 complete; Phase 4 structures, economy, production, and rally authorized next**.
+Status: **approved baseline; Phase 0 through Phase 3 complete; Phase 4 structures, economy, production, and rally candidate in integrated review**.
 
-This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact closed Phase 3 contract and evidence record, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input. Phase 4 is authorized as the next boundary but has no frozen contract or runtime implementation yet; roadmap authorization alone never turns future work into implemented behavior.
+This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact closed Phase 3 contract and evidence record, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input. [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) owns the frozen current contract and candidate evidence; its source existence does not independently establish rendered quality, deployment, or closure.
 
 The prototype remains in Git history as evidence. Its menu, battlefield presentation, art, map vocabulary, portrait behavior, movement feel, combat interaction, AI behavior, and public product claims are not design precedents for the replacement.
 
@@ -14,7 +14,7 @@ On 2026-08-20, the product owner reviewed the eight published Phase 1 references
 
 Later on 2026-08-20, the owner accepted the environment-only battlefield direction, the three-structure taxonomy and damage language, and recolorable ownership surfaces. After rejecting mixed art styles, bone/limb rigs, misassembled anatomy, undersized equipment, independently redrawn motion, and drifting frame roots, the owner approved the narrower combat-entity production method recorded in [`PRODUCTION_ART.md`](PRODUCTION_ART.md). That approval locked the method—not every candidate file or the complete roster—and authorized applying it to the remaining opening representatives. On 2026-08-21 the complete Phase 1A candidate was assembled under that method. The owner judged the integrated set ready except for Aegis Titan's nearly front-facing gait and punch; the feature-branch package corrected both to canonical screen-right. After direct review, the owner approved the corrected Aegis Titan and complete integrated set on 2026-08-21, closing Phase 1A. The owner then authorized the standardization and closure change to merge and deploy; protected pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`. The owner subsequently authorized a bounded Pages review of the approved compositions and actual-scale playback, while raw masters remain repository-only.
 
-The later script-free Phase 1B candidate assembled the menu/HUD, battlefield, complete opening identity language, landscape controls, viewport policy, and measured runtime-art decisions. After reviewing the integrated candidate, the owner explicitly approved complete Phase 1B on 2026-08-21 and authorized Phase 2 to begin. The owner then identified a small lower-body omission in three Astral Guardian movement cells in the derived browser samples; the approved authoring master remained intact, and the bounded samples were repaired from that master without changing the Phase 1B target. On 2026-08-22 the owner explicitly approved the complete Phase 2 landscape/camera candidate and authorized Phase 3. Later that day, after reviewing the repaired deployed entity/movement candidate, the owner explicitly approved Phase 3 and authorized Phase 4. This approval does not authorize combat, AI, networking, a tag, or a GitHub Release.
+The later script-free Phase 1B candidate assembled the menu/HUD, battlefield, complete opening identity language, landscape controls, viewport policy, and measured runtime-art decisions. After reviewing the integrated candidate, the owner explicitly approved complete Phase 1B on 2026-08-21 and authorized Phase 2 to begin. The owner then identified a small lower-body omission in three Astral Guardian movement cells in the derived browser samples; the approved authoring master remained intact, and the bounded samples were repaired from that master without changing the Phase 1B target. On 2026-08-22 the owner explicitly approved the complete Phase 2 landscape/camera candidate and authorized Phase 3. Later that day, after reviewing the repaired deployed entity/movement candidate, the owner explicitly approved Phase 3 and authorized Phase 4. The owner subsequently authorized autonomous implementation, technical and visual audit, protected publication, and progression through the remaining verified phases. That standing authorization does not permit fabricated evidence, an unreviewed infrastructure dependency, a Git tag, or a GitHub Release.
 
 ## Working rules
 
@@ -293,10 +293,12 @@ Gate: **complete on 2026-08-22** through explicit owner approval that selected a
 
 ### Phase 4 — Structures, economy, production, and rally
 
-- [ ] Implement only headquarters, Resource Point, and Production Outpost structure entities.
-- [ ] Implement capture, ownership treatment, economy/population effects, queue rules, progress UI, spawn validation, and rally commands.
-- [ ] Close and test the refund, blocked-complete, ownership-change, destruction, and invalid/unreachable rally outcomes.
-- [ ] Make production and rally deterministic, replayable, AI-usable, and network-ready.
+- [x] Freeze the exact contract in [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) without borrowing rejected prototype values.
+- [x] Implement only headquarters, Resource Point, and Production Outpost structure entities.
+- [x] Implement capture, ownership treatment, economy/population effects, queue rules, progress UI, spawn validation, and rally commands.
+- [x] Close and test the refund, blocked-complete, ownership-change, destruction, and invalid/unreachable rally outcomes.
+- [x] Make production and rally deterministic, replayable, AI-usable, and network-ready.
+- [ ] Complete named rendered, deployed, and live-byte evidence and close the gate before Phase 5 begins.
 
 Gate: a player can expand, produce, redirect reinforcements, lose structures, and recover through clear readable interactions.
 

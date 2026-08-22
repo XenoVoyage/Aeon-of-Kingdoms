@@ -2,5 +2,6 @@
 _site/
 /magick-*
 phase3/assets/.phase3-assets-check-*/
+phase4/assets/.phase4-structures-check-*/
 coverage/
 node_modules/

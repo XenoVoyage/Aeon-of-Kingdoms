@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#060914">
+    <meta name="color-scheme" content="dark">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; worker-src 'none'; manifest-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    >
+    <meta
+      name="description"
+      content="Phase 4 deterministic structures, economy, production, and rally candidate for Aeon of Kingdoms."
+    >
+    <title>Phase 4 structures and production — Aeon of Kingdoms</title>
+    <link rel="stylesheet" href="../phase2/phase2.css?v=2026.8.22c">
+    <link rel="stylesheet" href="phase4.css?v=2026.8.22c">
+  </head>
+  <body>
+    <a class="skip-link" href="#phase4-experience">Skip to the Phase 4 experience</a>
+
+    <div class="app-shell" id="app-shell" data-stage="menu">
+      <main id="phase4-experience" aria-label="Aeon of Kingdoms Phase 4 structures and production candidate">
+        <section class="menu-screen" id="menu-screen" aria-labelledby="menu-title">
+          <h1 class="visually-hidden" id="menu-title">Aeon of Kingdoms</h1>
+          <img
+            id="menu-art"
+            data-src="../concepts/images/minimal-menu.webp"
+            width="1672"
+            height="941"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          >
+          <p class="menu-fallback" id="menu-fallback" hidden>
+            The approved menu artwork could not be loaded. The semantic controls remain available.
+          </p>
+          <button class="menu-hit menu-hit-begin" id="begin-button" type="button">
+            <span class="visually-hidden">Begin Phase 4 structures and production candidate</span>
+          </button>
+          <button class="menu-hit menu-hit-settings" id="settings-button" type="button">
+            <span class="visually-hidden">Open display and art settings</span>
+          </button>
+          <button class="menu-hit menu-hit-audio" type="button" disabled aria-disabled="true" title="Audio begins in a later phase">
+            <span class="visually-hidden">Audio unavailable in Phase 4</span>
+          </button>
+          <button class="menu-hit menu-hit-fullscreen" id="menu-fullscreen-button" type="button">
+            <span class="visually-hidden">Enter fullscreen</span>
+          </button>
+          <a class="menu-status-link" href="../">Project status</a>
+        </section>
+
+        <section class="battlefield-screen" id="battlefield-screen" aria-labelledby="battlefield-title" hidden>
+          <h1 class="visually-hidden" id="battlefield-title">Moonfall Crossing structures, economy, production, and rally candidate</h1>
+          <div
+            class="play-frame"
+            id="play-frame"
+            tabindex="0"
+            role="application"
+            aria-describedby="control-help selection-summary event-status"
+            aria-label="Landscape battlefield. Select owned combat entities or inspect a structure, then use the contextual controls."
+          >
+            <canvas data-layer="ground" aria-hidden="true"></canvas>
+            <canvas data-layer="detail" aria-hidden="true"></canvas>
+            <canvas data-layer="navigation" aria-hidden="true"></canvas>
+            <canvas data-layer="anchors" aria-hidden="true"></canvas>
+            <canvas data-layer="dynamic" aria-hidden="true"></canvas>
+            <canvas data-layer="foreground" aria-hidden="true"></canvas>
+            <div class="selection-marquee" id="selection-marquee" hidden aria-hidden="true"></div>
+
+            <div class="battlefield-ui">
+              <div class="phase-badge">
+                <span>Phase 4 candidate</span>
+                <strong>Expand · produce · rally</strong>
+              </div>
+
+              <dl class="economy-strip" aria-label="Player 1 economy and objective">
+                <div><dt>Resource</dt><dd id="resource-value">240</dd></div>
+                <div><dt>Population</dt><dd id="population-value">10 + 0 / 18</dd></div>
+                <div><dt>Objective</dt><dd id="objective-value">Capture a shared structure</dd></div>
+              </dl>
+
+              <div class="selection-card">
+                <span>Selected</span>
+                <strong id="selection-summary">None</strong>
+                <small id="selection-detail">Choose combat entities or a structure.</small>
+              </div>
+
+              <label class="structure-jump" for="structure-select">
+                <span>Inspect structure</span>
+                <select id="structure-select">
+                  <option value="">None</option>
+                  <option value="astral-headquarters-anchor">Astral headquarters</option>
+                  <option value="central-resource-point-anchor">Central Resource Point</option>
+                  <option value="west-production-outpost-anchor">West Production Outpost</option>
+                  <option value="east-production-outpost-anchor">East Production Outpost</option>
+                  <option value="gravebound-headquarters-anchor">Gravebound headquarters</option>
+                </select>
+              </label>
+
+              <div class="camera-controls" aria-label="Camera controls">
+                <button id="zoom-out-button" type="button" aria-label="Zoom out">−</button>
+                <button id="zoom-in-button" type="button" aria-label="Zoom in">+</button>
+                <button id="reset-camera-button" type="button">Home</button>
+              </div>
+
+              <div class="command-controls" aria-label="Contextual commands">
+                <button id="move-mode-button" type="button" aria-pressed="false" disabled>Move</button>
+                <button id="rally-mode-button" type="button" aria-pressed="false" disabled>Rally</button>
+                <button id="clear-rally-button" type="button" disabled>Clear rally</button>
+                <button id="clear-selection-button" type="button" disabled>Clear</button>
+              </div>
+
+              <section class="producer-tray" id="producer-tray" tabindex="-1" aria-labelledby="producer-title" hidden>
+                <div class="producer-heading">
+                  <div>
+                    <span>Production</span>
+                    <strong id="producer-title">Owned producer</strong>
+                  </div>
+                  <span id="producer-queue-count">0 / 5</span>
+                </div>
+                <div class="production-options" id="production-options" aria-label="Production options">
+                  <button type="button" data-production-role="melee">
+                    <strong data-option-name>Melee</strong><span data-option-cost>60 · 1 pop · 4s</span>
+                  </button>
+                  <button type="button" data-production-role="ranged">
+                    <strong data-option-name>Ranged</strong><span data-option-cost>80 · 1 pop · 5s</span>
+                  </button>
+                  <button type="button" data-production-role="signature">
+                    <strong data-option-name>Signature</strong><span data-option-cost>180 · 3 pop · 9s</span>
+                  </button>
+                </div>
+                <label class="queue-progress" for="production-progress">
+                  <span id="production-state">Queue empty</span>
+                  <progress id="production-progress" max="1" value="0">0%</progress>
+                </label>
+                <ol class="production-queue" id="production-queue" aria-label="Ordered production queue"></ol>
+              </section>
+
+              <div class="review-controls" aria-label="Review controls">
+                <button id="navigation-button" type="button" aria-pressed="false">Navigation</button>
+                <button id="pause-button" type="button" aria-pressed="false">Pause</button>
+                <button id="battlefield-fullscreen-button" type="button">Fullscreen</button>
+                <button id="menu-button" type="button">Menu</button>
+              </div>
+
+              <p class="control-help" id="control-help">
+                Click / drag selects combat entities · click inspects structures · right-click moves or rallies · touch uses Move / Rally · two-finger camera
+              </p>
+              <p class="debug-status" id="debug-status" aria-hidden="true">Preparing local battlefield assets…</p>
+              <p class="event-status visually-hidden" id="event-status" role="status" aria-live="polite">Preparing local battlefield assets.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="viewport-gate" id="orientation-gate" role="status" aria-labelledby="orientation-title" hidden>
+          <span class="rotate-mark" aria-hidden="true">↻</span>
+          <p class="eyebrow">Landscape required</p>
+          <h1 id="orientation-title">Rotate your device.</h1>
+          <p>Authoritative play pauses and transient input clears until the battlefield returns to landscape.</p>
+        </section>
+
+        <section class="viewport-gate" id="size-gate" role="status" aria-labelledby="size-title" hidden>
+          <span class="frame-mark" aria-hidden="true">▭</span>
+          <p class="eyebrow">Viewport too small</p>
+          <h1 id="size-title">Give the battlefield more room.</h1>
+          <p>The supported landscape frame begins at 640 × 360 CSS pixels.</p>
+        </section>
+
+        <section class="load-error" id="load-error" role="alert" hidden>
+          <p class="eyebrow">Local battlefield assets unavailable</p>
+          <h1>The battlefield could not be opened.</h1>
+          <p id="load-error-detail">No simulation was started. Reload the page or return to the menu.</p>
+          <button id="error-menu-button" type="button">Return to menu</button>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="settings-dialog" aria-labelledby="settings-title">
+      <form method="dialog">
+        <p class="eyebrow">Pre-battle settings</p>
+        <h2 id="settings-title">Battlefield presentation</h2>
+        <label>
+          <input id="fullscreen-on-begin" type="checkbox">
+          Request fullscreen after Begin
+        </label>
+        <label class="setting-field" for="art-tier">
+          <span>Runtime entity art</span>
+          <select id="art-tier">
+            <option value="standard" selected>Standard · 128 px</option>
+            <option value="compact">Compact · 96 px</option>
+          </select>
+        </label>
+        <p>Only the selected local entity tier is decoded. Structure art uses the approved bounded 384-pixel envelope.</p>
+        <button value="close">Done</button>
+      </form>
+    </dialog>
+
+    <noscript>
+      <section class="noscript-gate">
+        <h1>JavaScript is required for the Phase 4 candidate.</h1>
+        <p><a href="../">Return to the project status.</a></p>
+      </section>
+    </noscript>
+
+    <script src="../phase2/camera.js"></script>
+    <script src="../phase2/renderer.js?v=2026.8.22c"></script>
+    <script src="../phase3/assets/entities/manifest.js"></script>
+    <script src="../phase3/assets.js"></script>
+    <script src="../phase3/input.js"></script>
+    <script src="config.js"></script>
+    <script src="map.js"></script>
+    <script src="navigation.js"></script>
+    <script src="simulation.js"></script>
+    <script src="replay.js"></script>
+    <script src="assets/structures/manifest.js"></script>
+    <script src="assets.js"></script>
+    <script src="renderer.js"></script>
+    <script src="input.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
