@@ -9,7 +9,7 @@ Keep the standard status `adopting` while any applicable requirement remains fai
 
 ## Active redesign override
 
-The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the approved complete Phase 1B visual/interaction contract; [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) owns the approved landscape foundation; and [`docs/PHASE3_ENTITY_MOVEMENT.md`](docs/PHASE3_ENTITY_MOVEMENT.md) owns the closed approved entity/movement contract and evidence record. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
+The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the approved complete Phase 1B visual/interaction contract; [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) owns the approved landscape foundation; [`docs/PHASE3_ENTITY_MOVEMENT.md`](docs/PHASE3_ENTITY_MOVEMENT.md) owns the closed approved entity/movement contract; and [`docs/PHASE4_STRUCTURES_ECONOMY.md`](docs/PHASE4_STRUCTURES_ECONOMY.md) owns the frozen current structures/economy/production/rally contract and candidate evidence. Phase approval never grants a Git tag or GitHub Release.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
@@ -48,10 +48,11 @@ Read in this order:
 7. `docs/PHASE1B_VISUAL_LOCK.md` for the approved menu/HUD, identities, controls, viewport, and runtime-art envelope.
 8. `docs/PHASE2_FOUNDATION.md` before changing the approved Phase 2 shell, camera, viewport/orientation behavior, map schema, terrain renderer, navigation debug, or Phase 2 evidence.
 9. `docs/PHASE3_ENTITY_MOVEMENT.md` before changing entities, selection, movement, pathfinding, formation, separation, replay, snapshots, checksums, runtime entity art, or Phase 3 evidence.
-10. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their later redesign replacements exist.
-11. `docs/NETCODE.md` only when commands, determinism, networking, lobbies, or servers are involved.
-12. `docs/CONVERSATION_DECISIONS.md` only for historical rationale; it never overrides the files above.
-13. The connected source, tests, issue, pull request, and decision owner.
+10. `docs/PHASE4_STRUCTURES_ECONOMY.md` before changing structures, capture, Resource, population, production, spawning, rally, or Phase 4 evidence.
+11. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their later redesign replacements exist.
+12. `docs/NETCODE.md` only when commands, determinism, networking, lobbies, or servers are involved.
+13. `docs/CONVERSATION_DECISIONS.md` only for historical rationale; it never overrides the files above.
+14. The connected source, tests, issue, pull request, and decision owner.
 
 Use `CONTRIBUTING.md` as a public entrypoint, not a substitute for these rules. Ask before selecting material product direction when the goal or acceptance criteria are absent.
 
@@ -120,6 +121,10 @@ Each responsibility has one source of truth. Phase 2 introduced the approved non
 | Phase 3 runtime entity manifest, preload/recolor/residency, and deterministic export | `phase3/assets/entities/manifest.js`, `phase3/assets.js`, and `tools/export-phase3-assets.js` |
 | Phase 3 selection/camera command translation and entity presentation | `phase3/input.js` and `phase3/renderer.js` |
 | Phase 3 semantic shell, lifecycle, fixed-step orchestration, and presentation | `phase3/index.html`, `phase3/phase3.css`, and `phase3/app.js` |
+| Phase 4 structures/economy/production/rally contract and evidence | `docs/PHASE4_STRUCTURES_ECONOMY.md` |
+| Phase 4 rules, map geometry, navigation, replay, and authoritative state | `phase4/config.js`, `phase4/map.js`, `phase4/navigation.js`, `phase4/simulation.js`, and `phase4/replay.js` |
+| Phase 4 reproducible structure derivatives, manifest, and runtime loader | `tools/export-phase4-structures.js`, `phase4/assets/structures/manifest.js`, and `phase4/assets.js` |
+| Phase 4 interaction, dynamic structure/entity ordering, shell, and presentation | `phase4/input.js`, `phase4/renderer.js`, `phase4/index.html`, `phase4/phase4.css`, and `phase4/app.js` |
 | Historical conversation rationale and rejected-attempt chronology | `docs/CONVERSATION_DECISIONS.md` |
 | Thin cold-start pointer for a new chat | `docs/NEW_CHAT_PROMPT.txt` |
 | Explicit Pages delivery allowlist | `.github/scripts/stage-pages.js` |
@@ -147,7 +152,7 @@ The replacement runtime must introduce one obvious configuration owner for exact
 
 ## 8. Networking boundary
 
-Read `docs/NETCODE.md` before changing a command schema or deterministic rule. The owner selected a future private two-player host/client room joined by a short code, using the host-authoritative ordered command stream with periodic hashes and bounded snapshots. Exact transport, signaling, TURN, provider, dependency, privacy, security, and CSP choices remain subject to the approved networking-phase spike; no network code belongs in Phase 3.
+Read `docs/NETCODE.md` before changing a command schema or deterministic rule. The owner selected a future private two-player host/client room joined by a short code, using the host-authoritative ordered command stream with periodic hashes and bounded snapshots. Exact transport, signaling, TURN, provider, dependency, privacy, security, and CSP choices remain subject to the approved networking-phase spike; no network code belongs before Phase 9.
 
 - Do not add a networking library until its exact version, license, provenance, signaling/relay behavior, privacy boundary, CSP needs, and failure modes are reviewed.
 - Do not put credentials, reusable seat tokens, TURN secrets, or cloud configuration in client source, URLs, logs, screenshots, issues, or commits.

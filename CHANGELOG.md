@@ -2,6 +2,23 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.22c] — 2026-08-22 (Phase 4 structures and economy candidate)
+
+### Added
+
+- Added the bounded Phase 4 route with the approved landscape and entities plus exactly five structure instances across the three locked categories: two faction headquarters, one shared Resource Point, and two shared Production Outposts.
+- Added deterministic capture, contested and unwind behavior, Resource income, population accounting, five-item production queues, ordered spawn validation, blocked-complete retry, full cancellation/loss refunds, and validated rally commands through the same fixed 20 Hz command boundary.
+- Added semantic Resource, population, objective, structure-selection, production, queue, progress, rejection, completion, and rally controls while keeping the approved menu unchanged and keeping Canvas presentation non-authoritative.
+- Added four reproducible exact-RGBA lossless-WebP structure base/mask pairs, restrained ownership recoloring, non-color owner symbols, shared entity/structure ground-root ordering, strict loading bounds, and a local-only failure state.
+- Added canonical Phase 4 snapshots, restore-and-continue behavior, replay convergence, checksums, four focused verification suites, and the exact Phase 4 contract in `docs/PHASE4_STRUCTURES_ECONOMY.md`.
+
+### Verified and bounded
+
+- The frozen source passes 45/45 focused Phase 4 checks, 167/167 complete dependency-free checks, exact reproduction of eight structure WebPs totaling 634,642 bytes, an exact 129-file allowlist plus `.nojekyll` (130 staged files total), diff hygiene, and direct source/asset review. Rendered-browser, protected publication, and live-byte evidence remain separately recorded until observed.
+- Combat damage, attacks, defeat, victory, strategic AI, modes, campaign, rooms, signaling, transport, accounts, matchmaking, chat, reconnect, spectators, and host migration are not included.
+- The source includes only intact runtime structure art. The accepted flattened outpost damage strip remains review evidence; production-ready damage and destroyed-state art begins with Phase 5 and must not be faked by cropping the strip.
+- `v2026.8.22c` is a source-candidate label only. No Git tag or GitHub Release is created or authorized by this change.
+
 ## [v2026.8.22b] — 2026-08-22 (Phase 3 approval and Phase 4 authorization)
 
 ### Changed

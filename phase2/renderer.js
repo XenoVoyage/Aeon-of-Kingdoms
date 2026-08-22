@@ -63,6 +63,7 @@
   function createRenderer(options) {
     const { canvases, map, camera, groundImage, renderScaleCap } = options;
     const onDynamicDraw = typeof options.onDynamicDraw === "function" ? options.onDynamicDraw : null;
+    const drawAnchorPreviews = options.drawAnchorPreviews !== false;
     const contexts = Object.fromEntries(
       Object.entries(canvases).map(([name, canvas]) => [name, canvasContext(canvas)])
     );
@@ -167,6 +168,7 @@
     function drawAnchors() {
       const context = contexts.anchors;
       prepare(context);
+      if (!drawAnchorPreviews) return;
       context.save();
       context.textAlign = "center";
       context.textBaseline = "middle";
