@@ -2,6 +2,20 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.22g] — 2026-08-22 (Phase 6 strategic-AI implementation candidate)
+
+### Added
+
+- Added a detached, strictly validated deterministic Standard planner with the frozen no-cheating observation boundary, exact strength model, bounded threat memory, reserve plus two disjoint field forces, strategic commitments, composition-aware production, rally planning, recovery, capture, pressure, and timed headquarters assaults.
+- Added one local `phase6/` human-versus-computer Moonfall Crossing route. Human and computer actions share the unchanged Phase 5 nine-command validator, authoritative sequence, simulation, map, combat, economy, replay, art, and presentation dependencies.
+- Added bounded Phase 6 AI/composite checkpoints, restore-and-continue convergence, mixed human/computer command replay, lifecycle suspension, and readable You/Computer identities outside Canvas while retaining the approved main menu and Standard/Compact art tiers.
+
+### Evidence and boundaries
+
+- The implementation candidate passes 37/37 checks across four focused Phase 6 suites and 262/262 complete dependency-free checks. The actual passive local skirmish deterministically ends in a computer victory at tick 3,715, within the 12,000-tick ceiling. Protected publication, exact deployed-byte comparison, page-origin console review, named rendered journeys, and Phase 6 closure remain pending until observed.
+- Exact staging succeeds with 161 public files plus `.nojekyll` (162 staged files total), adding exactly the six Phase 6 route files. It stages no prototype AI, test, repository-only source, external resource, networking code, tag, or Release.
+- `v2026.8.22g` is a source-candidate label only. It is not a Git tag or GitHub Release, and it does not claim deployment, broad-browser or physical-device evidence, Phase 6 closure, Phase 7 implementation, modes, campaign, or multiplayer.
+
 ## [v2026.8.22f] — 2026-08-22 (Phase 5 closure and Phase 6 contract)
 
 ### Changed
