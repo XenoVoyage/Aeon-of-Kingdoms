@@ -28,6 +28,49 @@ const STRUCTURES = Object.freeze({
   "production-outpost": [1024, 810]
 });
 
+const PHASE5_STRUCTURE_SOURCES = Object.freeze({
+  "structures/phase5/astral-headquarters-damaged.png": {
+    dimensions: [1024, 947],
+    bytes: 1115620,
+    sha256: "f4ec0110028982967653a66bff0811cd15534ea7052ceb4d65ba525d2d9a37ed"
+  },
+  "structures/phase5/astral-headquarters-destroyed.png": {
+    dimensions: [1024, 947],
+    bytes: 907533,
+    sha256: "e3b4484688b0256b91630f7be8cafb760d917bcaab22859937717b6e8567967c"
+  },
+  "structures/phase5/gravebound-headquarters-damaged.png": {
+    dimensions: [1024, 933],
+    bytes: 1006337,
+    sha256: "32ca744043e7a07e75e92d45ad9bb962c5e9e99025101bf75d863c94665b044b"
+  },
+  "structures/phase5/gravebound-headquarters-destroyed.png": {
+    dimensions: [1024, 933],
+    bytes: 797573,
+    sha256: "dcd92fda86f5b2c971a099f0e79f498c31a544fb704c078d6e8d8f5f603a7b65"
+  },
+  "structures/phase5/production-outpost-damaged.png": {
+    dimensions: [1024, 810],
+    bytes: 957835,
+    sha256: "4322a84081a615b6aa617ba14aea8063797d8c58e4cd93c905862566626e15e4"
+  },
+  "structures/phase5/production-outpost-destroyed.png": {
+    dimensions: [1024, 810],
+    bytes: 863728,
+    sha256: "a82d545ecb25220dbf2a8064dd5a2b15ec3d520aa40b2ec32e5c5225edc69fb1"
+  },
+  "structures/phase5/resource-point-damaged.png": {
+    dimensions: [1024, 1024],
+    bytes: 1036661,
+    sha256: "3af2d0c2941c650315e95eaba6c8af14b618f3c233db0c89410863daced377c3"
+  },
+  "structures/phase5/resource-point-destroyed.png": {
+    dimensions: [1024, 1024],
+    bytes: 920983,
+    sha256: "5bd8427d5e546bd214204128d6e8f9568927de9cb3eabe36372103f51bcb6272"
+  }
+});
+
 function read(relativePath) {
   return fs.readFileSync(path.join(ASSET_ROOT, relativePath));
 }
@@ -186,7 +229,8 @@ test("Phase 1A approved inventory is direct-file, explicit, and bounded", () => 
   assert.deepEqual(manifest.entities.map(({ id }) => id), ENTITIES);
   assert.deepEqual(manifest.players.map(({ symbol }) => symbol), ["diamond", "cross", "triangle", "circle", "bars", "chevron"]);
 
-  const files = listFiles(ASSET_ROOT).sort();
+  const phase5SourceNames = Object.keys(PHASE5_STRUCTURE_SOURCES).sort();
+  const files = listFiles(ASSET_ROOT).filter((name) => !phase5SourceNames.includes(name)).sort();
   assert.equal(files.length, 65);
   assert.equal(files.filter((name) => name.endsWith("/atlas.png")).length, 6);
   assert.equal(files.filter((name) => name.endsWith("/player-mask.png")).length, 6);
@@ -204,6 +248,26 @@ test("Phase 1A approved inventory is direct-file, explicit, and bounded", () => 
   for (const [name, expectedHash] of Object.entries(correctedAegisHashes)) {
     assert.equal(sha256(read(name)), expectedHash, `${name} no longer matches the reviewed direction correction`);
   }
+});
+
+test("Phase 5 tracks exactly eight transparent structure-damage sources outside the Phase 1A inventory", () => {
+  const expectedNames = Object.keys(PHASE5_STRUCTURE_SOURCES).sort();
+  const actualNames = listFiles(path.join(ASSET_ROOT, "structures", "phase5")).sort();
+  assert.deepEqual(actualNames, expectedNames);
+
+  let totalBytes = 0;
+  for (const name of expectedNames) {
+    const expected = PHASE5_STRUCTURE_SOURCES[name];
+    const bytes = read(name);
+    const image = decodePng(bytes);
+    assert.deepEqual([image.width, image.height], expected.dimensions, `${name} dimensions`);
+    assert.equal(bytes.length, expected.bytes, `${name} byte length`);
+    assert.equal(sha256(bytes), expected.sha256, `${name} source hash`);
+    assert.ok(image.data.some((value, index) => index % 4 === 3 && value === 0), `${name} must retain transparent pixels`);
+    assert.ok(image.data.some((value, index) => index % 4 === 3 && value > 0), `${name} must retain visible pixels`);
+    totalBytes += bytes.length;
+  }
+  assert.equal(totalBytes, 7606270);
 });
 
 test("all six entity packages obey the approved sprite, root, motion, and mask contract", () => {

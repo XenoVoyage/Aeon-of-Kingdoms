@@ -6,8 +6,8 @@ Before editing:
 
 1. Run `git status --short --branch` and `git log -5 --oneline --decorate`.
 2. Read `AGENTS.md` completely, then follow its current required-reading and authority order.
-3. Read `docs/STATUS.md` for current phase, evidence, deployment, and Engineering Standard state; read `docs/REDESIGN.md` for product gates; then read every phase-specific owner it names for the active work. Phase 0 through Phase 4 are closed; `docs/PHASE5_COMBAT_TACTICS.md` is the frozen active contract, and Phase 5 combat implementation is the next boundary.
-4. Inspect the relevant source, tests, pull request, review files, and decision owner.
+3. Read `docs/STATUS.md` for current phase, evidence, deployment, and Engineering Standard state; read `docs/REDESIGN.md` for product gates; then read every phase-specific owner it names for the active work. Phase 0 through Phase 4 are closed; `docs/PHASE5_COMBAT_TACTICS.md` owns the frozen active contract and local implementation candidate. Protected publication, deployed/rendered review, and Phase 5 closure remain pending; Phase 6 is not authorized.
+4. Inspect the relevant source, tests, pull request, review files, and decision owner. For the active boundary inspect the complete `phase5/` route, all four `tests/phase5-*.test.js` suites, the damage exporter/manifest, and the eight repository-only transparent Phase 5 structure sources.
 5. Run the focused checks named by the affected owner, then `node tests/run.js` before calling a candidate complete.
 
 Your first response must report the checked-out branch and commit, working-tree state, current boundary and pending gate, evidence actually inspected, and the smallest proposed change. Do not infer product intent from general RTS conventions, filenames, rejected prototypes, or historical conversation notes.

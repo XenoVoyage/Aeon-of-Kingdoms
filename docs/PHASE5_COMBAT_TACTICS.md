@@ -1,10 +1,10 @@
 # Phase 5 combat and tactical-command contract
 
-Status: **authorized and frozen for implementation on 2026-08-22; not implemented, verified, published, or deployed**.
+Status: **implementation candidate assembled and source-verified on 2026-08-22; not yet published, deployed, rendered-reviewed, approved, or closed**.
 
 This document owns the exact Phase 5 combat rules and candidate evidence. It extends the closed Phase 4 structures, economy, production, rally, movement, replay, and snapshot rules without starting strategic AI, modes, campaign scripting, networking, or product-hardening work. When this contract conflicts with prototype-era source, mood-reference numbers, or informal RTS conventions, this contract wins.
 
-The owner's standing authorization permits implementation, technical and visual audit, and protected publication of a correct candidate. The existence of this file is only an implementation authorization; it is not evidence that any combat behavior or asset below already exists.
+The owner's standing authorization permits implementation, technical and visual audit, and protected publication of a correct candidate. The local candidate now implements this contract, but source completion does not establish rendered quality, deployment, closure, or authorization to begin Phase 6.
 
 ## Scope
 
@@ -139,7 +139,7 @@ For a ring radius `R` in fixed units, the exact ordered offsets are `(R, 0)`, `(
 
 The 24 logical indices are shared across roles, not multiplied per role; an occupied ring/direction index is unavailable to every other attacker even though each role maps that index through its own gap table. Allocation is one bounded canonical pass per target after invalid reservations release. First, valid first-ring reservations held by melee/signature attackers retain in raw-ASCII attacker-ID order. Second, remaining melee/signature attackers take reachable unreserved first-ring slots in direction order. Third, valid ranged reservations retain when their logical slot was not claimed by either prior pass, then remaining ranged attackers scan all unreserved slots in ring/direction order. Fourth, remaining melee/signature waiters retain a still-free outer-ring reservation or scan the outer rings in ring/direction order. A higher-priority claim deterministically displaces a ranged or outer-waiting incumbent, which immediately participates in its later pass. With an unchanged target and attacker set, this pass produces unchanged reservations; moving combat targets move slot centres while logical identities remain stable.
 
-Only the first melee ring is inside the melee contact gap, only the first signature ring is inside the signature contact gap, and all three ranged rings are inside the 220-world-unit ranged maximum. Outer melee/signature reservations provide non-stacking waiting positions; they do not extend attack range. Because the canonical pass runs after releases, an outer waiter is promoted on the same tick that a reachable first-ring slot becomes free and ranged attackers cannot permanently occupy every contact-capable logical index. No target may hold more than 24 reservations. Overflow attackers keep their tactical order, wait at distinct ordinary separation destinations, and retry only when a reservation is released or the target materially changes; they do not run an unbounded per-tick path search.
+Only the first melee ring is inside the melee contact gap, only the first signature ring is inside the signature contact gap, and all three ranged rings are inside the 220-world-unit ranged maximum. Outer melee/signature reservations provide non-stacking waiting positions; they do not extend attack range. Because the canonical pass runs after releases, an outer waiter is promoted on the same tick that a reachable first-ring slot becomes free and ranged attackers cannot permanently occupy every contact-capable logical index. No target may hold more than 24 reservations. The legal single-hostile-seat maximum is 18 combat entities, so count overflow beyond 24 cannot occur. An attacker may still remain reservation-less when candidate slots are blocked, unreachable, or otherwise unavailable; it keeps its tactical order at a distinct ordinary separation destination and retries on the same stable release/material-target-change triggers rather than running an unbounded per-tick path search.
 
 A reservation releases on order replacement, target invalidation, leash break, route failure, attacker defeat, target defeat/destruction, or match completion. Reservations are authoritative because they affect movement and later attacks, and therefore are restored and checksummed.
 
@@ -152,7 +152,7 @@ At the due contact or launch tick, the simulation revalidates that attacker and 
 Melee and signature contacts create bounded damage packets immediately. Ranged contacts launch authoritative target-locked projectile entities with these exact rules:
 
 - speed is 16 world units, or 1,600 fixed units, per tick;
-- travel ticks are `ceil(targetEdgeDistanceFixedAtLaunch / 1600)`, clamped to 1 through 16;
+- travel ticks are `ceil(targetEdgeDistanceFixedAtLaunch / 1600)`, clamped to 1 through 14; the maximum is exactly `ceil(220 / 16) = 14` at the frozen ranged attack limit and speed;
 - the projectile stores its source seat, target identifier, damage, launch tick, arrival tick, and launch geometry; it has no collision, splash, retarget, capture, selection, or navigation behavior;
 - at arrival it rechecks that the target is living and hostile to the source seat; if so it creates one damage packet, otherwise it dissipates without damage;
 - later target movement, range, intervening entities, and a defeated source do not alter an already-valid launch;
@@ -220,13 +220,23 @@ Phase 5 does not add:
 
 Candidate support and champion identities remain visual language only until a later separately approved production and rules phase. Phase 6 owns strategic AI; Phase 7 owns product-hardening and physical-device release evidence; Phase 9 owns private host/client networking.
 
+## Local implementation-candidate evidence
+
+The `v2026.8.22e` source candidate implements the nine-command protocol, deterministic combat state, acquisition/leash/return orders, 24-slot reservations, bounded projectiles and effects, simultaneous damage, combat-entity defeat, structure damage/destruction, headquarters outcomes, replay/snapshot/checksum coverage, and the corresponding accessible interaction and presentation on the separate `phase5/` route. Phase 4 remains the last approved and deployed gameplay foundation.
+
+Candidate review corrected the natural ranged-flight upper-bound arithmetic from 16 to **14 ticks**: `ceil(220 / 16) = 14`. Runtime, configuration, stored launch geometry, restore validation, and focused fixtures use the exact 1–14 range; no natural 16-tick projectile evidence is claimed.
+
+The four focused Phase 5 suites pass **57/57** locally, and the complete dependency-free suite passes **225/225**. The deterministic exporter reproduces exactly twelve new lossless WebPs totaling **1,040,292 bytes**: four damaged bases, four aligned and damaged-alpha-clamped ownership masks, and four destroyed bases with no destroyed masks. The package records **6,418,944 decoded source bytes**, **12,811,776 retained two-player decoded bytes**, twelve retained state bases, twelve prepared ownership sheets, and zero border-alpha, mask-escape, transparent-RGB, or lossless-round-trip violations. Eight exact transparent damaged/destroyed PNG sources remain repository-only beneath `concepts/feasibility/phase1a/structures/phase5/`; the flattened review strip remains excluded.
+
+The explicit Pages candidate allowlist contains **154 public files plus `.nojekyll` (155 staged files total)**, including exactly 24 Phase 5 route files: twelve shell/source/manifest files and twelve WebPs. These are local candidate facts only. Protected pull-request audit, merge, Pages deployment, live-byte identity, page-origin console review, named desktop/compact rendered combat journeys, and every unavailable device/browser row remain pending. Phase 5 therefore remains open and Phase 6 is not authorized.
+
 ## Required candidate evidence
 
 Before Phase 5 can close:
 
 1. Focused simulation tests cover every strict command shape; ownership and atomic group validation; every order-table row; sticky targets; target-edge/ASCII acquisition; focus, attack-move, defend, and role-idle leashes; anchor loss; bounded unreachable outcomes; saved-route resume; STOP cancellation; and no hidden prior-order stack.
-2. Deterministic fixtures cover all 24 role-ordered reservation positions, moving targets, slot retention/release, mixed footprints, blocked/unreachable slots, overflow waiting, and invariant results under input collection permutation.
-3. Damage tests cover each role's health, range, start/contact/launch/cycle ticks, miss-and-consume behavior, replacement cancellation, the 96-projectile boundary, exact 1/16/intermediate travel ticks, hostility recheck, no retarget, simultaneous packets, mutual defeat, population release once, already-launched source defeat, and snapshot restore during active attacks and flight.
+2. Deterministic fixtures cover all 24 role-ordered reservation positions, moving targets, slot retention/release, mixed footprints, blocked/unreachable slots, the legal 18-attacker maximum with no count overflow, unavailable-slot waiting, and invariant results under input collection permutation.
+3. Damage tests cover each role's health, range, start/contact/launch/cycle ticks, miss-and-consume behavior, replacement cancellation, the 96-projectile boundary, exact 1/14/intermediate travel ticks, hostility recheck, no retarget, simultaneous packets, mutual defeat, population release once, already-launched source defeat, and snapshot restore during active attacks and flight.
 4. Structure fixtures cover every maximum-health and 50% threshold, neutral non-hostility, ownership changes before projectile impact, all Phase 4 destruction refunds, survivor-only capture, income/production suppression, single-headquarters victory, simultaneous-headquarters draw, completed-tick freeze, and post-match command rejection.
 5. Replay, restore-and-continue, periodic checksum, malformed snapshot/replay, cap, size, raw-ASCII ordering, command-sequence, and final-state convergence tests include every new authoritative field and each order kind.
 6. Asset checks reproducibly verify all twelve damaged/destroyed files, exact dimensions/bytes/hashes, lossless round trips, transparent bounds, aligned/clamped damaged masks, absent destroyed masks, stable roots/anchors, encoded and decoded ceilings, local-only paths, and explicit exclusion of the flattened review strip.
