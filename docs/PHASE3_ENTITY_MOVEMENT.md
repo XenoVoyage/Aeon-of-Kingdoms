@@ -1,22 +1,22 @@
 # Phase 3 entity and movement foundation
 
-Status: **implemented candidate; explicit Phase 3 owner approval pending**
+Status: **approved and closed on 2026-08-22**
 
 This document owns the exact Phase 3 implementation and evidence contract. [`STATUS.md`](STATUS.md) owns volatile source, merge, deployment, browser, physical-device, Engineering Standard, and owner-gate state. [`REDESIGN.md`](REDESIGN.md) owns the ordered roadmap. [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md), [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md), and [`PRODUCTION_ART.md`](PRODUCTION_ART.md) remain binding inputs.
 
-The product owner approved the complete Phase 2 candidate on 2026-08-22 and authorized Phase 3. That approval closed the empty-battlefield and camera-feel gate. The current candidate implements only the entity, selection, movement, replay, snapshot, checksum, and rendered-evidence work below. It does not implement or authorize structures/economy/production/rally, combat, AI, networking code, a tag, a GitHub Release, or a replacement gameplay release.
+The product owner approved the complete Phase 2 candidate on 2026-08-22 and authorized Phase 3. That approval closed the empty-battlefield and camera-feel gate. The subsequently approved Phase 3 foundation implements only the entity, selection, movement, replay, snapshot, checksum, and rendered-evidence work below. It does not implement structures/economy/production/rally, combat, AI, networking code, a tag, a GitHub Release, or a replacement gameplay release.
 
 ## Scope and exclusions
 
-The Phase 3 scope and current candidate comprise:
+The closed Phase 3 scope comprises:
 
-- one new `phase3/` candidate route that preserves the approved Phase 2 landscape shell, camera, map, and six world-layer owners;
+- one `phase3/` route that preserves the approved Phase 2 landscape shell, camera, map, and six world-layer owners;
 - a new fixed-step authoritative simulation containing bounded combat entities and validated `MOVE` commands;
 - click, tap, box, and additive selection plus contextual terrain movement orders;
 - deterministic polygon-aware routing, stable formation destinations, footprint-aware separation, and bounded congestion recovery;
 - approved representative entity base art and aligned player-color masks at the selected runtime tier, with stable idle and four-frame movement playback;
 - canonical snapshots, replay logs, restore-and-continue behavior, and periodic checksums;
-- required desktop, tablet-landscape, and phone-landscape rendered review for the Phase 3 owner gate; that evidence remains pending in the matrix below.
+- required rendered review recorded by evidence category; the observed desktop journey and explicitly pending tablet/phone/device rows remain distinct in the matrix below.
 
 Phase 3 must not implement capture, resources, population, production, queues, rally points, attack orders, combat, health outcomes, projectiles, defeat, AI, rooms, signaling, WebRTC, TURN, accounts, matchmaking, a fourth structure category, or any prototype compatibility API. The preserved prototype source and tests remain historical and excluded from the Pages runtime.
 
@@ -24,7 +24,7 @@ Phase 3 must not implement capture, resources, population, production, queues, r
 
 One immutable Phase 3 configuration is the source of truth for exact values:
 
-| Rule | Candidate value |
+| Rule | Approved Phase 3 value |
 | --- | --- |
 | Simulation cadence | 20 Hz; 50 ms fixed tick |
 | Fixed-point position scale | 100 integer subunits per world unit |
@@ -44,7 +44,7 @@ One immutable Phase 3 configuration is the source of truth for exact values:
 | Runtime art | 128 px cells by default; 96 px cells only through an explicit pre-battle Compact art setting |
 | Logical render cell | 160×160 world units for both tiers; destination root `(80,147.5)` |
 
-The representative movement values begin at 34 world units/second with radius 16 for melee, 31 with radius 14 for ranged, and 24 with radius 24 for signature entities. These are explicit Phase 3 candidate values, not faction balance approval. The owner gate may adjust them without expanding Phase 3.
+The representative movement values are 34 world units/second with radius 16 for melee, 31 with radius 14 for ranged, and 24 with radius 24 for signature entities. These values passed the Phase 3 movement gate; they are not broader faction-balance approval, and any later retuning requires its own authorized deterministic rule change.
 
 ## Entity and command contract
 
@@ -67,13 +67,13 @@ The representative movement values begin at 34 world units/second with radius 16
 
 ## Art and presentation contract
 
-- Runtime art is derived only from the approved 384 px Phase 1A atlases and aligned masks. Each selected tier is cropped and resized per cell before packing; masks are clamped to base alpha. The candidate adds six Standard and six Compact base/mask pairs—24 files—derived from the six masters; the four existing Astral Phase 1B review samples remain untouched and are not promoted as runtime files. The player chooses Standard (128) or Compact (96) in Settings before battle; viewport or device heuristics never switch tiers silently.
-- One recorded ImageMagick/libwebp exporter creates all six runtime pairs at both tiers. It independently resizes each source cell, re-locks movement rows `0–97` at Standard or `0–73` at Compact, clears the one-pixel border of every resized cell after filtering, clamps mask alpha to the corresponding base alpha, and then packs row-major. The measured candidate contains 24 lossless WebPs: Standard totals **734,126 encoded bytes** with a **12 MiB retained decoded ceiling**, Compact totals **459,446 encoded bytes** with a **6.75 MiB retained decoded ceiling**, and both tracked tiers total **1,193,572 encoded bytes**. The earlier 694,040- and 435,142-byte survey outputs were defective unpublished feasibility exports with blank lower-body rows and are not runtime ceilings. The four separately repaired published Astral Guardian Phase 1B samples remain untouched.
+- Runtime art is derived only from the approved 384 px Phase 1A atlases and aligned masks. Each selected tier is cropped and resized per cell before packing; masks are clamped to base alpha. Phase 3 adds six Standard and six Compact base/mask pairs—24 files—derived from the six masters; the four existing Astral Phase 1B review samples remain untouched and are not promoted as runtime files. The player chooses Standard (128) or Compact (96) in Settings before battle; viewport or device heuristics never switch tiers silently.
+- One recorded ImageMagick/libwebp exporter creates all six runtime pairs at both tiers. It independently resizes each source cell, re-locks movement rows `0–97` at Standard or `0–73` at Compact, clears the one-pixel border of every resized cell after filtering, clamps mask alpha to the corresponding base alpha, and then packs row-major. The approved set contains 24 lossless WebPs: Standard totals **734,126 encoded bytes** with a **12 MiB retained decoded ceiling**, Compact totals **459,446 encoded bytes** with a **6.75 MiB retained decoded ceiling**, and both tracked tiers total **1,193,572 encoded bytes**. The earlier 694,040- and 435,142-byte survey outputs were defective unpublished feasibility exports with blank lower-body rows and are not runtime ceilings. The four separately repaired published Astral Guardian Phase 1B samples remain untouched.
 - Both tiers draw into the same 160×160-world-unit destination cell, matching the approved actual-scale playback. Standard scales source root `(64,118)` by `5/4`; Compact scales `(48,88.5)` by `5/3`; both land on destination root `(80,147.5)`. Art tier never changes apparent entity scale, ground contact, selection bounds, navigation footprint, or authoritative position. Desktop and 844×390 landscape evidence must still compare minimum, normal, and maximum zoom against the approved compositions.
 - The 4×4 runtime layout maps movement to cells 0–3, action to 4–9, and defeat to 10–15; stable idle aliases movement cell 0. Phase 3 loads and plays only idle/move even though the bounded atlas preserves later families.
 - Movement cells retain a pixel-identical upper-body/equipment region. Canonical art faces screen-right; screen-left is rendered only by exact horizontal `scaleX(-1)` around the shared ground root.
 - Base and mask are frame-aligned. During preload the mask recolors only approved ownership surfaces into one final owner sheet, and every owner remains identifiable through a non-color seat symbol in the world and accessible status.
-- Player color is prepared once per loaded atlas, not recomputed in the hot render loop. For every masked pixel, coverage is `baseAlpha === 0 ? 0 : min(1, maskAlpha / baseAlpha)`. The runtime converts base and target color to HSL, substitutes the target hue and saturation while preserving the base pixel's lightness, mixes that result with the original RGB by normalized coverage, and preserves the original base alpha. Tests cover all six locked colors—Azure, Violet, Coral, Emerald, Amber, and Magenta—including antialiased-edge halo checks; a flat `source-in` fill or raw `maskAlpha / 255` mix is prohibited because either loses approved shading or leaks the source faction hue at translucent edges. The two-player candidate fixes Astral Concord to seat 1 and Gravebound Court to seat 2, retains the decoded base plus exactly one final precomposed owner sheet per entity, releases each decoded mask after preparation, and draws the precomposed owner sheet once. That bounded residency is the selected-tier 12 MiB Standard or 6.75 MiB Compact ceiling.
+- Player color is prepared once per loaded atlas, not recomputed in the hot render loop. For every masked pixel, coverage is `baseAlpha === 0 ? 0 : min(1, maskAlpha / baseAlpha)`. The runtime converts base and target color to HSL, substitutes the target hue and saturation while preserving the base pixel's lightness, mixes that result with the original RGB by normalized coverage, and preserves the original base alpha. Tests cover all six locked colors—Azure, Violet, Coral, Emerald, Amber, and Magenta—including antialiased-edge halo checks; a flat `source-in` fill or raw `maskAlpha / 255` mix is prohibited because either loses approved shading or leaks the source faction hue at translucent edges. The approved two-player foundation fixes Astral Concord to seat 1 and Gravebound Court to seat 2, retains the decoded base plus exactly one final precomposed owner sheet per entity, releases each decoded mask after preparation, and draws the precomposed owner sheet once. That bounded residency is the selected-tier 12 MiB Standard or 6.75 MiB Compact ceiling.
 - Before simulation starts, the local loader validates the selected tier's manifest schema, same-origin relative paths, paired base/mask completion, natural dimensions, decoded per-cell border alpha, and `maskAlpha <= baseAlpha` while preparing the ownership variants. Dependency-free Node source and Pages-byte checks freeze encoded SHA-256, bytes, dimensions, manifest/frame/root mapping, and budgets; one recorded exporter decode/round-trip audit proves upper-body identity and pixel invariants. The browser does not claim a cross-browser decoded-RGBA fingerprint. Failure produces a stable text-only preload error and instantiates no entity; no external fallback is requested.
 - No limb rig, runtime anatomy deformation, procedural stand-in, geometric placeholder ship, independently drawn left art, or independently redrawn idle/move upper body is permitted.
 - Rendering may interpolate the last and current fixed states but may not mutate either. Movement distance and order completion remain simulation-owned.
@@ -99,27 +99,26 @@ The representative movement values begin at 34 world units/second with radius 16
 | Evidence category | Required evidence | Current state |
 | --- | --- | --- |
 | Phase 2 owner gate | Explicit approval of empty battlefield and camera feel | Passed by owner message on 2026-08-22 |
-| Source contract | Bounded simulation, entity terminology, selected-tier assets, input, presentation, and local-only delivery agree with this document | Implemented; independent audit found no merge-blocking defect and its one arrival-feedback presentation defect was corrected before freeze |
-| Focused automation | Entity/command, navigation/movement, replay/snapshot/checksum, input/render/art, shell, and delivery suites | 32/32 Phase 3-focused checks pass on the frozen local candidate |
-| Complete automation | `node tests/run.js` | 122/122 checks pass on the frozen local candidate with the recorded ImageMagick toolchain; runners without that optional authoring tool explicitly skip only regeneration while retaining committed-byte/hash/invariant checks |
+| Source contract | Bounded simulation, entity terminology, selected-tier assets, input, presentation, and local-only delivery agree with this document | Implemented; independent audit found no merge-blocking defect, the arrival-feedback presentation defect was corrected before freeze, and the live initial-paint race was corrected through shared-renderer regression and repair PR `#20` |
+| Focused automation | Entity/command, navigation/movement, replay/snapshot/checksum, input/render/art, shell, and delivery suites | 32/32 Phase 3-focused checks pass on the frozen Phase 3 source |
+| Complete automation | `node tests/run.js` | 122/122 checks pass on the frozen Phase 3 source with the recorded ImageMagick toolchain; runners without that optional authoring tool explicitly skip only regeneration while retaining committed-byte/hash/invariant checks |
 | Pages payload | Exact allowlist and `_site` inspection | 108 explicitly allowlisted public files plus `.nojekyll` stage successfully; 109 files total |
 | Diff hygiene | `git diff --check` and complete branch review | `git diff --check` passes; independent review found no simulation, determinism, memory, CSP, delivery, or scope blocker |
-| Desktop rendered review | Selection, open-field movement, blocker routing, choke exit, mirroring, masks, and readable status | Pending rendered review |
+| Desktop rendered review | Selection, open-field movement, blocker routing, choke exit, mirroring, masks, and readable status | Partially observed in cloud Chrome at 1363×936: Standard/Compact first paint, full bodies, ownership, single/box selection, open/spaced group movement, unreachable and arrival feedback, exact mirrored-left presentation, pause/resume, zoom/Home, and menu recovery passed. An explicit rendered blocker-route/choke-exit journey remains unobserved; deterministic source coverage passes |
 | Tablet/phone landscape | Safe areas, tap/Move mode, two-pointer camera, formation readability, and recovery | Pending rendered review |
 | Determinism | Same seed/config/commands produce matching hashes and final snapshot; restore converges | Passing in the 32-check focused Phase 3 suite, including restore-and-continue and multi-command stress coverage |
-| Deployed review | Protected merge, Actions/Pages, exact live files, and primary journey | Pending protected publication and live review |
+| Deployed review | Protected merge, Actions/Pages, exact live files, and primary journey | Passed within the named boundary: implementation PR `#19` merged as `95c0c11c5f380c5582f737ab2a15831f350958f3`; initial-paint repair PR `#20` merged as `bbd43f6de725a15733997500e592ade91878f93c`; PR/main audits and Pages succeeded; sampled live bytes matched; the repaired 1363×936 primary journey passed |
 | Broad browsers and physical devices | Named browser/device sessions | Pending |
-| Owner gate | Selected armies move naturally without stacking, visual drift, or placeholder ships | Pending explicit Phase 3 approval |
+| Owner gate | Selected armies move naturally without stacking, visual drift, or placeholder ships | Passed by explicit owner approval on 2026-08-22 |
 
 Rendered browser emulation is not physical-device evidence. Passing automation does not prove movement feel. Deployment does not approve the phase.
 
 ## Owner gate and next boundary
 
-Phase 3 closes only after the frozen candidate has its required source, automated, rendered, and deployed evidence and the product owner explicitly confirms that selected armies move naturally without stacking, visual drift, or placeholder ships. Until then:
+The product owner explicitly approved the complete repaired candidate on 2026-08-22, confirming that the selected armies move naturally without stacking, visual drift, or placeholder ships and authorizing Phase 4. Phase 3 is therefore closed. That approval does not fabricate the pending tablet/phone landscape, broad-browser, or physical-device rows and does not convert Phase 3 into a complete game.
 
-- Phase 3 remains active at its owner gate;
 - the approved Phase 1A art, Phase 1B target, Phase 2 landscape/camera foundation, exactly three structure categories, environment separation, and player-color-plus-symbol rules remain locked;
-- Phase 4 structures, economy, production, and rally remain blocked;
-- the future private host/client room-code plan remains documentation only, with `connect-src 'none'` and no networking dependency in Phase 3;
+- Phase 4 structures, economy, production, and rally is the next authorized boundary and must receive its own exact contract and evidence;
+- the future private host/client room-code plan remains documentation only, with `connect-src 'none'` and no networking dependency in the closed Phase 3 source;
 - Engineering Standard v1.0 remains `adopting` while any applicable evidence is pending;
 - no tag or GitHub Release is created.

@@ -14,7 +14,7 @@ Include the affected version, browser or environment, concise reproduction, expe
 
 ## Current boundary
 
-The status boundary and published approved Phase 1A/Phase 1B reviews are static, non-playable surfaces. The bounded reviews contain only local images and HTML/CSS; repository-only masters and four staged runtime-envelope browser samples add no executable or network boundary. The approved Phase 2 source uses local classic JavaScript and Canvas only for a non-authoritative landscape shell, camera, map, and layered presentation. The active Phase 3 owner-review candidate adds a local deterministic `MOVE` command/simulation boundary, local entity-art decoding, Canvas presentation, replay, snapshots, and checksums; it makes no network request and is not authoritative across clients. No account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection exists. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current version and deployment evidence.
+The status boundary and published approved Phase 1A/Phase 1B reviews are static, non-playable surfaces. The bounded reviews contain only local images and HTML/CSS; repository-only masters and four staged runtime-envelope browser samples add no executable or network boundary. The approved Phase 2 source uses local classic JavaScript and Canvas only for a non-authoritative landscape shell, camera, map, and layered presentation. The approved Phase 3 foundation adds a local deterministic `MOVE` command/simulation boundary, local entity-art decoding, Canvas presentation, replay, snapshots, and checksums; it makes no network request and is not authoritative across clients. No Phase 4 runtime, account, payment, analytics, telemetry, matchmaking, relay, authoritative game server, or production multiplayer connection exists. [`docs/STATUS.md`](docs/STATUS.md) owns the exact current version and deployment evidence.
 
 Relevant reports include:
 
@@ -25,7 +25,7 @@ Relevant reports include:
 - GitHub Actions, Pages, artifact, branch-protection, or release-integrity weaknesses;
 - a vulnerability in a future networking feature that is actually present on `main`.
 
-Editing the preserved rejected prototype's local game state, AI behavior visible in historical source, camera feel or map composition without a security impact, host cheating in a future explicitly host-authoritative P2P match, browser-extension injection, and unsupported-browser defects are not security boundaries for the current candidate.
+Editing the preserved rejected prototype's local game state, AI behavior visible in historical source, camera feel or map composition without a security impact, host cheating in a future explicitly host-authoritative P2P match, browser-extension injection, and unsupported-browser defects are not security boundaries for the current source.
 
 ## Future multiplayer
 

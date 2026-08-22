@@ -1,6 +1,6 @@
 # Game design
 
-> **Prototype-era document:** everything below describes the rejected `v2026.8.15` direction as frozen history. Do not extend or implement its prescriptive language during the redesign. [`REDESIGN.md`](REDESIGN.md) is the active roadmap; [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) owns the approved visual/interaction target, [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the approved landscape foundation, and [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the authorized entity/movement rules. Later gameplay rules remain unresolved until their own phases.
+> **Prototype-era document:** everything below describes the rejected `v2026.8.15` direction as frozen history. Do not extend or implement its prescriptive language during the redesign. [`REDESIGN.md`](REDESIGN.md) is the active roadmap; [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) owns the approved visual/interaction target, [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the approved landscape foundation, and [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the approved entity/movement rules. Phase 4 structures/economy/production/rally is authorized next but remains unresolved until its exact replacement contract is frozen.
 
 Aeon of Kingdoms is a compact 2D real-time strategy game about control, reinforcement, and decisive movement. It removes worker queues and free-form base construction so the player can read the map, choose a force, and act quickly on desktop or touch.
 

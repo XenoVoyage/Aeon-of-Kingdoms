@@ -1,8 +1,8 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 through Phase 2 complete; Phase 3 entity and movement candidate implemented; explicit Phase 3 owner approval pending**.
+Status: **approved baseline; Phase 0 through Phase 3 complete; Phase 4 structures, economy, production, and rally authorized next**.
 
-This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact active implementation contract and evidence boundary, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input; this roadmap does not turn work-in-progress source into a completed or owner-approved phase.
+This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact closed Phase 3 contract and evidence record, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input. Phase 4 is authorized as the next boundary but has no frozen contract or runtime implementation yet; roadmap authorization alone never turns future work into implemented behavior.
 
 The prototype remains in Git history as evidence. Its menu, battlefield presentation, art, map vocabulary, portrait behavior, movement feel, combat interaction, AI behavior, and public product claims are not design precedents for the replacement.
 
@@ -14,7 +14,7 @@ On 2026-08-20, the product owner reviewed the eight published Phase 1 references
 
 Later on 2026-08-20, the owner accepted the environment-only battlefield direction, the three-structure taxonomy and damage language, and recolorable ownership surfaces. After rejecting mixed art styles, bone/limb rigs, misassembled anatomy, undersized equipment, independently redrawn motion, and drifting frame roots, the owner approved the narrower combat-entity production method recorded in [`PRODUCTION_ART.md`](PRODUCTION_ART.md). That approval locked the method—not every candidate file or the complete roster—and authorized applying it to the remaining opening representatives. On 2026-08-21 the complete Phase 1A candidate was assembled under that method. The owner judged the integrated set ready except for Aegis Titan's nearly front-facing gait and punch; the feature-branch package corrected both to canonical screen-right. After direct review, the owner approved the corrected Aegis Titan and complete integrated set on 2026-08-21, closing Phase 1A. The owner then authorized the standardization and closure change to merge and deploy; protected pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`. The owner subsequently authorized a bounded Pages review of the approved compositions and actual-scale playback, while raw masters remain repository-only.
 
-The later script-free Phase 1B candidate assembled the menu/HUD, battlefield, complete opening identity language, landscape controls, viewport policy, and measured runtime-art decisions. After reviewing the integrated candidate, the owner explicitly approved complete Phase 1B on 2026-08-21 and authorized Phase 2 to begin. The owner then identified a small lower-body omission in three Astral Guardian movement cells in the derived browser samples; the approved authoring master remained intact, and the bounded samples were repaired from that master without changing the Phase 1B target. On 2026-08-22 the owner explicitly approved the complete Phase 2 landscape/camera candidate and authorized Phase 3. The Phase 3 implementation candidate now exists, but that earlier authorization is not Phase 3 approval and does not authorize Phase 4, a tag, or a GitHub Release.
+The later script-free Phase 1B candidate assembled the menu/HUD, battlefield, complete opening identity language, landscape controls, viewport policy, and measured runtime-art decisions. After reviewing the integrated candidate, the owner explicitly approved complete Phase 1B on 2026-08-21 and authorized Phase 2 to begin. The owner then identified a small lower-body omission in three Astral Guardian movement cells in the derived browser samples; the approved authoring master remained intact, and the bounded samples were repaired from that master without changing the Phase 1B target. On 2026-08-22 the owner explicitly approved the complete Phase 2 landscape/camera candidate and authorized Phase 3. Later that day, after reviewing the repaired deployed entity/movement candidate, the owner explicitly approved Phase 3 and authorized Phase 4. This approval does not authorize combat, AI, networking, a tag, or a GitHub Release.
 
 ## Working rules
 
@@ -280,16 +280,16 @@ Gate: **complete on 2026-08-22** through explicit owner approval that the integr
 
 ### Phase 3 — Entity and movement foundation
 
-The exact authorized scope, values, exclusions, and evidence gate live in [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md). Phase 3 is the active owner-gate boundary. The candidate implements selection and movement only through a fixed 20 Hz integer simulation and canonical replay/snapshot/checksum path; no combat, structure/economy, AI, or networking code is included.
+The exact closed scope, values, exclusions, and evidence record live in [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md). The approved foundation implements selection and movement only through a fixed 20 Hz integer simulation and canonical replay/snapshot/checksum path; no combat, structure/economy, AI, or networking code is included.
 
 - [x] Replace prototype unit terminology and state with the approved entity contract.
 - [x] Audit authoritative state, commands, tests, selectors, and current UI so no live `unit*` compatibility contract remains; historical prototype documents may retain the old word.
 - [x] Add click/tap/box/additive selection, contextual terrain movement, formation destinations, hard blocker routing, local separation, large footprints, and bounded congestion recovery.
 - [x] Add the six approved representative atlases, aligned ownership masks, preload validation, exact mirroring, and idle/move state animation at explicit Standard and Compact tiers.
-- [x] Add deterministic source scenarios for slow group movement through open terrain, blockers, and chokepoints; rendered movement-feel evidence remains pending.
+- [x] Add deterministic source scenarios for slow group movement through open terrain, blockers, and chokepoints; the 1363×936 desktop movement journey passed, while an explicit rendered blocker-route/choke-exit journey and named viewport/browser/device rows remain pending evidence.
 - [x] Establish replay, canonical snapshot, restore-and-continue, and periodic checksum tests now; maintain them through every later phase and supported browser.
 
-Gate: **pending explicit owner approval** that selected armies move naturally without stacking, visual drift, or placeholder ships. Phase 4 remains blocked until that gate closes.
+Gate: **complete on 2026-08-22** through explicit owner approval that selected armies move naturally without stacking, visual drift, or placeholder ships. Pending viewport/browser/device rows remain named evidence debt rather than fabricated results.
 
 ### Phase 4 — Structures, economy, production, and rally
 

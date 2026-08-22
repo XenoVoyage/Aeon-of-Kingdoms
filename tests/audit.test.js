@@ -138,7 +138,7 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/ASSETS.md"), /Rejected prototype archive/);
   assert.match(read("docs/ASSETS.md"), /1,253,726 bytes/);
   assert.match(read("tests/README.md"), /approved production-art contract/i);
-  assert.match(read("docs/STATUS.md"), /Active phase \| Phase 0 through Phase 2 are approved and closed/i);
+  assert.match(read("docs/STATUS.md"), /Active phase \| Phase 0 through Phase 3 are approved and closed/i);
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
   assert.match(read("docs/STATUS.md"), /reproduced the then-current 77\/77 checks/i);
@@ -177,6 +177,16 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/REDESIGN.md"), /script-free Phase 1B candidate assembled the menu\/HUD, battlefield, complete opening identity language/i);
   assert.match(read("docs/REDESIGN.md"), /owner explicitly approved complete Phase 1B on 2026-08-21 and authorized Phase 2 to begin/i);
   assert.match(read("docs/REDESIGN.md"), /On 2026-08-22 the owner explicitly approved the complete Phase 2 landscape\/camera candidate and authorized Phase 3/i);
+  assert.match(read("docs/REDESIGN.md"), /Gate: \*\*complete on 2026-08-22\*\* through explicit owner approval that selected armies move naturally without stacking, visual drift, or placeholder ships/i);
+  assert.match(read("docs/PHASE3_ENTITY_MOVEMENT.md"), /Status: \*\*approved and closed on 2026-08-22\*\*/i);
+  assert.match(read("docs/PHASE3_ENTITY_MOVEMENT.md"), /Phase 4 structures, economy, production, and rally is the next authorized boundary/i);
+  assert.doesNotMatch(read("docs/PHASE3_ENTITY_MOVEMENT.md"), /owner gate remains pending|explicit Phase 3 owner approval pending|Phase 3 remains active/i);
+  assert.doesNotMatch(read("SECURITY.md"), /active Phase 3 owner-review candidate|current candidate/i);
+  assert.match(read("docs/NEW_CHAT_PROMPT.txt"), /Phase 3 is closed; the current boundary is to freeze the exact Phase 4 structures\/economy\/production\/rally contract/i);
+  assert.match(read("docs/ARCHITECTURE.md"), /Phase 4 structures\/economy\/production\/rally is authorized next but has no frozen contract or runtime implementation yet/i);
+  assert.doesNotMatch(read("docs/ARCHITECTURE.md"), /No Phase 3 implementation exists/i);
+  assert.match(read("docs/GAME_DESIGN.md"), /Phase 4 structures\/economy\/production\/rally is authorized next/i);
+  assert.match(read("docs/ASSETS.md"), /approved runtime-entity foundation/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /Pages payload contains the five review compositions, all 24 actual-scale state playbacks, all six player-color proofs/i);
