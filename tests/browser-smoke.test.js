@@ -18,13 +18,13 @@ test("public shell truthfully presents the phased redesign", () => {
     /name=["']viewport["']/i,
     /id=["']main-content["']/i,
     /id=["']page-title["']/i,
-    /Phase 3 · Movement authorized/i,
+    /Phase 3 · Owner review candidate/i,
     /Redesign in progress/i,
     /Phase 1A, Phase 1B, and the complete Phase 2 landscape\/camera foundation are approved/i,
-    /Review the approved Phase 2 foundation/i,
-    /Authorized · implementation next/i,
+    /Review the Phase 3 movement candidate/i,
+    /Candidate · owner review/i,
     /Movement only\. Later systems stay blocked/i,
-    /Status build v2026\.8\.22/i
+    /Status build v2026\.8\.22a/i
   ]) assert.match(html, pattern);
 
   const phaseItems = html.match(/<li class=["'][^"']*\bphase-item\b[^"']*["'][^>]*>[\s\S]*?<\/li>/gi) ?? [];
@@ -32,12 +32,13 @@ test("public shell truthfully presents the phased redesign", () => {
   assert.equal((html.match(/aria-current=["']step["']/gi) ?? []).length, 1, "exactly one current step is required");
   assert.equal(currentPhaseItems.length, 1, "aria-current must belong to one phase-list item");
   assert.match(currentPhaseItems[0], /<span class=["']phase-number["']>03<\/span>/i);
-  assert.match(currentPhaseItems[0], /Authorized · implementation next/i);
+  assert.match(currentPhaseItems[0], /Candidate · owner review/i);
 
   assert.match(html, /href=["']https:\/\/github\.com\/XenoVoyage\/Aeon-of-Kingdoms["']/i);
   assert.match(html, /href=["']concepts\/["']/i);
   assert.match(html, /href=["']concepts\/phase1b\/["']/i);
   assert.match(html, /href=["']phase2\/["']/i);
+  assert.match(html, /href=["']phase3\/["']/i);
   assert.match(html, /href=["']docs\/PHASE3_ENTITY_MOVEMENT\.md["']/i);
   assert.match(html, /href=["']docs\/REDESIGN\.md["']/i);
   assert.match(html, /href=["']docs\/STATUS\.md["']/i);
@@ -114,7 +115,7 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   };
   const caches = {
     open(name) {
-      assert.equal(name, "aok-shell-v2026.8.22");
+      assert.equal(name, "aok-shell-v2026.8.22a");
       return Promise.resolve(cache);
     },
     keys() {
@@ -220,7 +221,7 @@ test("Pages staging contains approved public routes and source-of-truth links bu
     "concepts/feasibility/index.html",
     "concepts/feasibility/proof.css"
   ]);
-  assert.equal(files.length, 73);
+  assert.equal(files.length, 108);
   assert.equal(files.filter((entry) => /concepts\/feasibility\/phase1a\//.test(entry)).length, 37);
   assert.deepEqual(files.slice(-7), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/PHASE2_FOUNDATION.md", "docs/PHASE3_ENTITY_MOVEMENT.md", "docs/STATUS.md", "docs/ASSETS.md"]);
   assert.doesNotMatch(files.join("\n"), /concepts\/feasibility\/images\//i);

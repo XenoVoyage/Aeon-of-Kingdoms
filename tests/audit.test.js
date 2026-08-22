@@ -42,6 +42,17 @@ const REQUIRED_FILES = [
   "phase2/renderer.js",
   "phase2/input.js",
   "phase2/app.js",
+  "phase3/index.html",
+  "phase3/phase3.css",
+  "phase3/config.js",
+  "phase3/navigation.js",
+  "phase3/simulation.js",
+  "phase3/replay.js",
+  "phase3/assets/entities/manifest.js",
+  "phase3/assets.js",
+  "phase3/renderer.js",
+  "phase3/input.js",
+  "phase3/app.js",
   "concepts/feasibility/images/production-battlefield-environment-v4.webp",
   "concepts/feasibility/images/structure-atlas-v2.webp",
   "concepts/feasibility/images/entity-team-color-v4.webp",
@@ -89,6 +100,11 @@ const REQUIRED_FILES = [
   "tests/phase1a-production-assets.test.js",
   "tests/phase1b-visual-lock.test.js",
   "tests/phase2-foundation.test.js",
+  "tests/phase3-assets.test.js",
+  "tests/phase3-interaction-render.test.js",
+  "tests/phase3-shell.test.js",
+  "tests/phase3-simulation.test.js",
+  "tools/export-phase3-assets.js",
   ".github/workflows/ci.yml",
   ".github/workflows/pages.yml",
   ".github/workflows/visual.yml",
@@ -160,7 +176,7 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/REDESIGN.md"), /Checkpoint: \*\*complete on 2026-08-21\*\*/i);
   assert.match(read("docs/REDESIGN.md"), /script-free Phase 1B candidate assembled the menu\/HUD, battlefield, complete opening identity language/i);
   assert.match(read("docs/REDESIGN.md"), /owner explicitly approved complete Phase 1B on 2026-08-21 and authorized Phase 2 to begin/i);
-  assert.match(read("docs/REDESIGN.md"), /Phase 2 approved and closed on 2026-08-22; Phase 3 entity and movement foundation authorized/i);
+  assert.match(read("docs/REDESIGN.md"), /On 2026-08-22 the owner explicitly approved the complete Phase 2 landscape\/camera candidate and authorized Phase 3/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /Pages payload contains the five review compositions, all 24 actual-scale state playbacks, all six player-color proofs/i);
@@ -335,11 +351,17 @@ test("Pages allowlist contains only approved public surfaces and source-of-truth
     "concepts/feasibility/index.html",
     "concepts/feasibility/proof.css"
   ]);
-  assert.equal(files.length, 73);
+  assert.equal(files.length, 108);
   assert.equal(files.filter((entry) => /concepts\/feasibility\/phase1a\//.test(entry)).length, 37);
   assert.deepEqual(files.slice(-7), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/PHASE2_FOUNDATION.md", "docs/PHASE3_ENTITY_MOVEMENT.md", "docs/STATUS.md", "docs/ASSETS.md"]);
   const staged = files.join("\n");
-  assert.doesNotMatch(staged, /(?:manifest|icon|gameplay|visual-capture|README|LICENSE|CHANGELOG|VERSION|package\.json)/i);
+  assert.doesNotMatch(staged, /(?:icon|gameplay|visual-capture|README|LICENSE|CHANGELOG|VERSION|package\.json)/i);
+  assert.equal(files.includes("manifest.webmanifest"), false, "the retired install manifest must stay private");
+  assert.deepEqual(
+    files.filter((entry) => /manifest/i.test(entry)),
+    ["phase3/assets/entities/manifest.js"],
+    "only the approved Phase 3 runtime-art manifest may be public"
+  );
   assert.doesNotMatch(staged, /(?:css\/(?:tokens|app)\.css|js\/(?:config|core|simulation|ai|render|input|game)\.js)/);
   assert.doesNotMatch(staged, /^(?:tests|\.github)\//m);
   assert.doesNotMatch(staged, /concepts\/feasibility\/images\//, "superseded v5 proof must not remain public");

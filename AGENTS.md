@@ -9,7 +9,7 @@ Keep the standard status `adopting` while any applicable requirement remains fai
 
 ## Active redesign override
 
-The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the approved complete Phase 1B visual/interaction contract; [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) owns the approved landscape foundation; and [`docs/PHASE3_ENTITY_MOVEMENT.md`](docs/PHASE3_ENTITY_MOVEMENT.md) owns the authorized entity/movement implementation and evidence gate. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
+The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the approved complete Phase 1B visual/interaction contract; [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) owns the approved landscape foundation; and [`docs/PHASE3_ENTITY_MOVEMENT.md`](docs/PHASE3_ENTITY_MOVEMENT.md) owns the implemented entity/movement candidate contract and evidence gate. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
@@ -89,7 +89,7 @@ Do not expand the slice into an account system, content pipeline, framework migr
 
 ## 6. Ownership map
 
-Each responsibility has one source of truth. Phase 2 introduced the approved non-authoritative landscape shell, camera, map data, and layered renderer. Phase 3 is authorized to introduce the first replacement authoritative entity/movement simulation after its planning change merges. Prototype-era design documents remain historical until explicitly replaced.
+Each responsibility has one source of truth. Phase 2 introduced the approved non-authoritative landscape shell, camera, map data, and layered renderer. Phase 3 introduces the first replacement authoritative entity/movement simulation, replay boundary, and runtime entity-art loader without beginning combat, structures/economy, AI, or networking. Prototype-era design documents remain historical until explicitly replaced.
 
 | Area | Source of truth |
 | --- | --- |
@@ -114,6 +114,12 @@ Each responsibility has one source of truth. Phase 2 introduced the approved non
 | Phase 2 bounded camera-input translation and transient cleanup | `phase2/input.js` |
 | Phase 2 camera, map, and layered rendering | `phase2/camera.js`, `phase2/map.js`, and `phase2/renderer.js` |
 | Phase 3 entity/movement contract and evidence | `docs/PHASE3_ENTITY_MOVEMENT.md` |
+| Phase 3 immutable rules, roster, caps, and identity ordering | `phase3/config.js` |
+| Phase 3 navigation and authoritative entity/movement state | `phase3/navigation.js` and `phase3/simulation.js` |
+| Phase 3 canonical replay, snapshot restore, and checksum | `phase3/replay.js` |
+| Phase 3 runtime entity manifest, preload/recolor/residency, and deterministic export | `phase3/assets/entities/manifest.js`, `phase3/assets.js`, and `tools/export-phase3-assets.js` |
+| Phase 3 selection/camera command translation and entity presentation | `phase3/input.js` and `phase3/renderer.js` |
+| Phase 3 semantic shell, lifecycle, fixed-step orchestration, and presentation | `phase3/index.html`, `phase3/phase3.css`, and `phase3/app.js` |
 | Historical conversation rationale and rejected-attempt chronology | `docs/CONVERSATION_DECISIONS.md` |
 | Thin cold-start pointer for a new chat | `docs/NEW_CHAT_PROMPT.txt` |
 | Explicit Pages delivery allowlist | `.github/scripts/stage-pages.js` |
@@ -161,6 +167,7 @@ There is no install step, runtime dependency, or build step for the current stat
 | Focused Phase 1A asset check | `node --test tests/phase1a-production-assets.test.js` |
 | Focused Phase 1B visual-lock check | `node --test tests/phase1b-visual-lock.test.js` |
 | Focused Phase 2 foundation check | `node --test tests/phase2-foundation.test.js` |
+| Focused Phase 3 entity/movement checks | `node --test tests/phase3-assets.test.js tests/phase3-interaction-render.test.js tests/phase3-shell.test.js tests/phase3-simulation.test.js` |
 | Complete automated verification | `node tests/run.js` |
 | Stage the exact Pages payload | `node .github/scripts/stage-pages.js _site` |
 | Diff hygiene | `git diff --check` |
@@ -168,6 +175,7 @@ There is no install step, runtime dependency, or build step for the current stat
 
 - Add a deterministic regression for every fixed defect or changed rule.
 - Use Node.js built-ins only. The verification harness installs no dependency and makes no network request.
+- When available, the Phase 3 asset suite invokes the recorded local ImageMagick `convert` executable and its lossless-WebP delegate to reproduce generated files; this is an optional authoring-verification toolchain, not a browser runtime dependency or build step. Runners without it must report one explicit skip while retaining the committed-byte/hash/invariant checks.
 - Run focused checks while iterating, then `node tests/run.js` on the frozen candidate.
 - Run `git diff --check`, inspect `git status --short`, and review the complete diff against the current base.
 - Verify every runtime script appears exactly once and in dependency order; every local reference resolves; Pages stages only its explicit allowlist; and no external runtime resource slipped in.

@@ -1,0 +1,145 @@
+#phase3-experience {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.selection-marquee {
+  position: absolute;
+  z-index: 8;
+  border: 1px solid rgba(116, 233, 243, 0.92);
+  background: rgba(116, 233, 243, 0.12);
+  box-shadow: 0 0 1rem rgba(116, 233, 243, 0.14);
+  pointer-events: none;
+}
+
+.selection-card,
+.seat-legend {
+  position: absolute;
+  left: var(--safe-left);
+  border: 1px solid var(--line);
+  background: var(--panel);
+  text-shadow: 0 1px 8px #000;
+}
+
+.selection-card {
+  top: calc(var(--safe-top) + 3.75rem);
+  display: grid;
+  min-width: 9rem;
+  gap: 0.15rem;
+  padding: 0.55rem 0.72rem;
+}
+
+.selection-card span {
+  color: var(--quiet);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.selection-card strong {
+  font-size: 0.76rem;
+  font-weight: 640;
+}
+
+.seat-legend {
+  top: calc(var(--safe-top) + 7.3rem);
+  display: grid;
+  gap: 0.28rem;
+  margin: 0;
+  padding: 0.48rem 0.7rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  list-style: none;
+}
+
+.seat-legend li:first-child span {
+  color: #2fa9ff;
+}
+
+.seat-legend li:last-child span {
+  color: #a55cff;
+}
+
+.command-controls {
+  position: absolute;
+  right: var(--safe-right);
+  top: calc(var(--safe-top) + 3.25rem);
+  display: flex;
+  gap: 0.35rem;
+}
+
+.command-controls button {
+  padding: 0.55rem 0.78rem;
+  font-size: 0.72rem;
+  font-weight: 680;
+}
+
+.command-controls button[aria-pressed="true"] {
+  border-color: #f2d486;
+  color: #f2d486;
+  box-shadow: inset 0 -2px #f2d486;
+}
+
+.command-controls button:disabled {
+  cursor: default;
+  opacity: 0.46;
+}
+
+.setting-field {
+  display: grid;
+  align-items: start;
+}
+
+.setting-field span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 680;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.setting-field select {
+  min-height: 44px;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  background: #050912;
+  color: var(--ink);
+}
+
+@media (max-height: 520px) {
+  .selection-card {
+    top: calc(var(--safe-top) + 2.9rem);
+  }
+
+  .seat-legend {
+    display: none;
+  }
+
+  .command-controls {
+    top: calc(var(--safe-top) + 2.9rem);
+  }
+}
+
+@media (max-width: 850px) {
+  .selection-card {
+    min-width: 0;
+    max-width: 38%;
+  }
+
+  .seat-legend {
+    display: none;
+  }
+
+  .command-controls {
+    right: var(--safe-right);
+  }
+
+  .review-controls button:nth-child(1),
+  .review-controls button:nth-child(3) {
+    display: none;
+  }
+}

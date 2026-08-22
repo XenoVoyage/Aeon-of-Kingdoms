@@ -1,4 +1,6 @@
 .DS_Store
 _site/
+/magick-*
+phase3/assets/.phase3-assets-check-*/
 coverage/
 node_modules/

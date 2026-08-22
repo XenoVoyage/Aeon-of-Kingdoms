@@ -1,6 +1,6 @@
 # Assets and art direction
 
-This file owns the active reference inventory, provenance record, and rejected proof archive. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) owns the approved visible, facing, animation, player-color, structure-damage, and validation method; [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) owns the approved measured runtime envelope; [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the approved landscape asset use; [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the authorized runtime-entity asset boundary; and [`REDESIGN.md`](REDESIGN.md) owns phase scope and approval gates. The four Phase 1B browser samples remain review-only and are not shipping atlases or an implemented loader.
+This file owns the active reference inventory, provenance record, and rejected proof archive. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) owns the approved visible, facing, animation, player-color, structure-damage, and validation method; [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) owns the approved measured runtime envelope; [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the approved landscape asset use; [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the implemented runtime-entity candidate boundary; and [`REDESIGN.md`](REDESIGN.md) owns phase scope and approval gates. The four Phase 1B browser samples remain untouched review-only evidence and are not promoted as the Phase 3 runtime files.
 
 ## Approved production method
 
@@ -64,6 +64,26 @@ The original derived set used the ImageMagick 6.9.12-98 Q16/libwebp 1.3.2 per-ce
 
 The current files repair only those lower regions from the intact approved master with Sharp 0.35.3, libvips 8.18.3, libwebp 1.6.0, and independent Lanczos3 cell resizing. Rows `0–73` in the 96-pixel cells and `0–97` in the 128-pixel cells remain byte-for-byte unchanged; the aligned mask follows the same repair and is clamped to base alpha. Direct inspection confirms complete legs at both tiers, stable upper regions, transparent cell edges, and zero mask escape pixels. Direction/review remains XenoVoyage; the source art was generated for this project through OpenAI image generation and is distributed under the repository's existing project-material decision. Tests freeze the current dimensions, bytes, and hashes. Browser load/decode observations belong in [`STATUS.md`](STATUS.md).
 
+### Phase 3 runtime entity candidate
+
+Phase 3 derives a fresh complete runtime set from the six approved 384-pixel masters without changing the four published Phase 1B Astral Guardian samples above. `tools/export-phase3-assets.js` records the ImageMagick/libwebp export, independent cell resize, movement upper-body lock, one-pixel transparent border, aligned-mask clamp, lossless round-trip audit, and manifest generation. The candidate contains one base and one mask at each of two tiers for each of six representatives: **24 local lossless WebPs** under `phase3/assets/entities/`.
+
+| Approved representative | Standard 128 base+mask | Compact 96 base+mask |
+| --- | ---: | ---: |
+| Astral Guardian | 119,742 | 74,966 |
+| Starbow | 114,074 | 71,834 |
+| Aegis Titan | 132,808 | 83,142 |
+| Gravebound Reaver | 100,810 | 64,214 |
+| Hollow String | 111,056 | 69,776 |
+| Ossuary Colossus | 155,636 | 95,514 |
+| **Measured tier total** | **734,126** | **459,446** |
+
+Both tracked tiers total **1,193,572 encoded bytes**. `phase3/assets/entities/manifest.js` freezes each file's dimensions, byte count, SHA-256, frame map, source/destination roots, invariant audit, and tier budget. Standard is the default; Compact is an explicit pre-battle choice, and the loader never retains both tiers.
+
+The Phase 3 runtime loader fixes Astral Concord to seat 1 and Gravebound Court to seat 2. It validates each selected base/mask pair, precomposes exactly one final owner-colored sheet per entity, releases the decoded mask, and retains only the diagnostic base plus that final owner sheet. The selected-tier retained decoded ceiling is therefore **12 MiB Standard** or **6.75 MiB Compact**. The HSL shading transform and alpha-coverage rule remain tested against all six locked player presentations even though the current two-player candidate prepares only its two faction-to-seat mappings.
+
+This complete export also exposed why the earlier feasibility totals were too small: the unpublished six-entity survey files behind **694,040 Standard** and **435,142 Compact** had blank lower-body rows in five entities. Those totals and their doubled projections are retained below only as historical Phase 1B feasibility evidence; they are not valid runtime ceilings. The four separately repaired public Astral Guardian samples were not the defective five-entity files and remain unchanged.
+
 ### Structure packages
 
 | Base | Dimensions | Base bytes | Mask bytes | Boundary |
@@ -124,20 +144,20 @@ Total archived superseded v5 proof-image payload: **2,263,262 bytes**. These sou
 - **Distribution decision:** candidate review assets are project material under the repository's MIT license. Generated output may not be unique, and approval of the visible direction will not silently promote every candidate pixel to final shipping art.
 - **Delivery:** all eleven archived files remain local source records totaling 2,263,262 bytes. They are excluded from the staged Pages payload and the four-file offline status-shell cache; the approved 37-file review subset owns the publication boundary.
 
-### Approved pipeline baseline and measured Phase 1B profile
+### Approved pipeline baseline and historical Phase 1B profile
 
-The production method, selected tiers, and budget envelope were approved through the combined Phase 1B owner gate. Implementation, loader behavior, browser/GPU measurements, and every eventual atlas still require their own evidence:
+The production method, selected tiers, and budget envelope were approved through the combined Phase 1B owner gate. The Phase 3 candidate now implements the first six-representative runtime set and loader; the twelve-identity projection, browser/GPU measurements, and every later atlas still require their own evidence:
 
 - **Master:** one controlled baked full-body sprite source per combat entity, with stable ground, selection, contact, and effect anchors plus a frame-aligned player-color mask. No limb rig or art tool ships to the browser.
 - **Directions:** author the right-facing sequence and use an exact X-mirror for left-facing gameplay. Another depth angle may be proposed only if actual camera play proves two facings insufficient.
 - **Animation families and frames:** idle uses one stable frame; move uses four lower-body gait frames at the reference 8 FPS; attack/cast and defeat use six full-body frames at the reference 12 FPS and 10 FPS respectively. Simulation ticks remain authoritative.
 - **Frame and atlas envelope:** the 384×384, root `(192,354)` masters remain repository-only. The approved measured profile packs 16 unique frames into a 4×4 local lossless-WebP base plus separate mask: primary 128×128 cells in a 512×512 sheet with root `(64,118)`; compact 96×96 cells in a 384×384 sheet with rational root `(48,88.5)`. Logical idle aliases the byte-identical movement-frame-zero rectangle, preserving `1/4/6/6` without duplication.
 - **Corrected export method:** crop cells before scaling; rescale each independently; reapply the movement-frame-zero upper region to movement frames one through three; pack; process the mask through the same path; clamp mask alpha to base alpha; then lossless encode. The packed-sheet-resize trial is rejected because cross-cell sampling broke the upper-body invariant.
-- **Measured encoded evidence:** after replacing the corrected Astral pair values, the six-pair samples total 435,142 bytes at 96 and 694,040 bytes at 128. Doubling the complete representative set projects 870,284 and 1,388,080 bytes for twelve identities. Both tiers together project 2,258,364 bytes, below the retained 3.25 MiB hard cap; each final entity still must pass 256 KiB ordinary or 384 KiB signature limits.
+- **Historical encoded survey:** after substituting the separately repaired Astral sample values, the unpublished six-pair feasibility survey appeared to total 435,142 bytes at 96 and 694,040 bytes at 128 and projected 870,284 and 1,388,080 bytes for twelve identities. Phase 3 reproduction proved that the other five survey exports had blank lower-body rows, so those totals and the 2,258,364-byte both-tier projection are historical defective evidence, not runtime ceilings. The fresh six-representative Phase 3 totals are 459,446 Compact, 734,126 Standard, and 1,193,572 combined; every later accepted atlas must still pass its own exact budget and visual checks.
 - **Decoded entity pixels:** one selected twelve-identity tier is exactly 13.5 MiB at 96 or 24 MiB at 128. Default to 128; use 96 only when the player explicitly selects **Compact art** in Settings before battle. Load only participating factions and never intentionally retain both tiers decoded. Browser/GPU bookkeeping is measured separately and is not inferred from Resource Timing decoded-body bytes.
 - **Structures:** the 384-pixel maximum-edge candidate for four current base/mask pairs measures 630,706 encoded bytes and 4,279,296 decoded RGBA bytes. The larger 512 alternative is rejected unless maximum-zoom review proves 384 insufficient. Transparent damage-state masters do not yet exist for every structure, so those bytes remain unmeasured.
-- **Loading/failure:** validate local base, mask, metadata, dimensions, frame map, root, and hash before battle. A missing required bundle shows a stable text-only local preload error, does not instantiate the affected entity, and blocks battle start; it never downloads an external substitute or improvises anatomy/ownership. Release the menu resource before match loading and measure actual residency rather than assuming it drops.
-- **Validation gate:** the approved Phase 1A package proves the exact contract across all six representatives. The original ImageMagick 6.9.12-98 Q16/libwebp 1.3.2 survey established the per-cell envelope but missed the Astral derivative's absent lower-body pixels. The current Sharp 0.35.3/libvips 8.18.3/libwebp 1.6.0 correction preserves the upper regions, restores the lower bodies from the intact master, clamps masks, and retains zero mask escapes. Rendered browser scale/halo/root/mirror checks of the corrected public bytes, actual loader failure tests, GPU/process residency, physical devices, and the six candidate identities' eventual art remain separate evidence.
+- **Loading/failure:** the Phase 3 candidate validates local base, mask, manifest, dimensions, frame map, root, and hash before battle. A missing required bundle shows a stable text-only local preload error, instantiates no entity, and blocks battle start; it never downloads an external substitute or improvises anatomy/ownership. It retains one selected tier, releases each mask after owner-sheet preparation, and exposes disposal for the remaining decoded sheets. Browser/GPU bookkeeping and menu-resource release remain measured evidence rather than assumptions.
+- **Validation gate:** the approved Phase 1A package proves the exact contract across all six representatives. The original ImageMagick 6.9.12-98 Q16/libwebp 1.3.2 survey established a useful per-cell method but produced incomplete lower-body rows in five unpublished entity exports; the separately published Astral derivative was repaired and remains untouched. The fresh Phase 3 exporter reproduces all six complete entities at both tiers, clamps masks, clears cell borders, and records zero upper-region, border, mask-escape, and lossless-round-trip differences. Rendered browser scale/halo/root/mirror checks, GPU/process residency, and physical devices remain separate evidence.
 
 ## Reviewed redesign mood references
 
