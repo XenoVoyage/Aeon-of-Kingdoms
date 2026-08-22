@@ -173,10 +173,14 @@ test("combat and structure selection stay mutually exclusive and context chooses
 test("the app advances only fixed simulation ticks and never implements later-phase authority", () => {
   const app = read("phase4/app.js");
   const loop = functionBody(app, "animationLoop");
+  const submit = functionBody(app, "submit");
+  const syncInputState = functionBody(app, "syncInputState");
   assert.match(app, /simulationApi\.createSimulation\(\{\s*map,\s*seed:/);
   assert.match(app, /simulation\.submitCommand\(/);
   assert.match(app, /replayApi\.canAppendAccepted\([^)]*predictedReceipt/);
   assert.match(app, /replayApi\.appendAccepted\(/);
+  assert.match(submit, /if \(effectivePaused\(\)\)[\s\S]*code:\s*["']paused["']/, "the submit boundary must reject the same frame that pause or lifecycle loss begins");
+  assert.match(syncInputState, /updateSelectionUi\(\)/, "pause and lifecycle changes must synchronously refresh every command control");
   assert.match(loop, /configuration\.tickDurationMs/);
   assert.match(loop, /configuration\.maxCatchUpTicks/);
   assert.match(loop, /simulation\.step\(\)/);
