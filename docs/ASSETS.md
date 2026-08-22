@@ -1,6 +1,6 @@
 # Assets and art direction
 
-This file owns the active reference inventory, provenance record, and rejected proof archive. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) owns the approved visible, facing, animation, player-color, structure-damage, and validation method; [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) owns the approved measured runtime envelope; [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the active landscape-foundation asset use and evidence boundary; and [`REDESIGN.md`](REDESIGN.md) owns phase scope and approval gates. Phase 1B approval does not make the browser samples a shipping atlas or implemented loader.
+This file owns the active reference inventory, provenance record, and rejected proof archive. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) owns the approved visible, facing, animation, player-color, structure-damage, and validation method; [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) owns the approved measured runtime envelope; [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the approved landscape asset use; [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the authorized runtime-entity asset boundary; and [`REDESIGN.md`](REDESIGN.md) owns phase scope and approval gates. The four Phase 1B browser samples remain review-only and are not shipping atlases or an implemented loader.
 
 ## Approved production method
 

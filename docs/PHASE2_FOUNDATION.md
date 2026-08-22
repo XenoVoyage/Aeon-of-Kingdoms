@@ -1,10 +1,10 @@
 # Phase 2 landscape battlefield foundation
 
-Status: **active deployed candidate; compact/aspect/physical-device evidence and explicit Phase 2 owner approval pending**
+Status: **approved and closed on 2026-08-22; compact/aspect/physical-device evidence remains recorded debt**
 
 This document owns the exact Phase 2 foundation contract and its evidence record. [`STATUS.md`](STATUS.md) owns the volatile current source, merge, deployment, browser, physical-device, Engineering Standard, and owner-gate state. [`REDESIGN.md`](REDESIGN.md) owns the ordered roadmap and gate. [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) and [`PRODUCTION_ART.md`](PRODUCTION_ART.md) remain authoritative for the approved visual/interaction target and production-art method.
 
-The product owner explicitly approved the complete Phase 1B candidate on 2026-08-21 and authorized Phase 2 to begin, including autonomous protected publication and visual review of this bounded candidate. That approval permits only the landscape battlefield foundation below. It does not approve this Phase 2 candidate, Phase 3 entity or movement work, a tag, GitHub Release, or replacement release. The owner-retained menu design remains locked.
+The product owner explicitly approved the complete Phase 1B candidate on 2026-08-21 and authorized Phase 2 to begin, including autonomous protected publication and visual review of this bounded candidate. On 2026-08-22, after reviewing the integrated foundation, the owner explicitly approved Phase 2 and authorized Phase 3. That later approval closes only the empty-battlefield and camera-feel gate. It does not approve Phase 3, a tag, GitHub Release, or replacement release. The owner-retained menu design remains locked.
 
 ## Scope and exclusions
 
@@ -119,16 +119,15 @@ The statuses below are intentionally conservative until the frozen source candid
 | Deployed review | Protected merge, Actions/Pages runs, live route/version/resources and primary journey | PR #16 squash-merged as `d17e8c9b4cc00a4beebf03aea443fd514197d608`; main audit `32526203611` and Pages `32526203607` passed; eleven sampled live files matched source byte for byte |
 | Broad browsers | Approved current/previous desktop and mobile browser matrix | Pending |
 | Physical devices | Named landscape phone and tablet sessions | Pending |
-| Owner gate | Empty battlefield resembles the approved concept and camera interaction feels correct | Pending explicit Phase 2 approval |
+| Owner gate | Empty battlefield resembles the approved concept and camera interaction feels correct | Passed by explicit owner approval on 2026-08-22 |
 
 Rendered desktop emulation is not a physical-device result. Passing automation does not prove camera feel. A deployment does not approve the phase. Unavailable evidence remains named rather than inferred.
 
 ## Owner gate and next boundary
 
-Phase 2 closes only when the frozen candidate has the required source/automated/rendered evidence and the product owner explicitly confirms that the empty battlefield resembles the approved concept and camera interaction feels correct. Until then:
+The product owner explicitly confirmed on 2026-08-22 that the complete Phase 2 candidate is approved and authorized Phase 3. Phase 2 is therefore closed. The compact/aspect/portrait, broad-browser, and physical-device rows remain honest evidence debt rather than retroactively claimed results.
 
-- Phase 2 remains active;
-- the approved Phase 1B menu, visual/interaction target, and asset envelope stay locked;
-- Engineering Standard v1.0 remains `adopting` while any applicable evidence is pending;
-- no Phase 3 combat-entity, selection, pathfinding, or movement implementation begins;
-- no tag or GitHub Release is created, and publication/merge state is reported only from observed GitHub evidence.
+- The approved Phase 1B menu, visual/interaction target, asset envelope, and this Phase 2 landscape/camera foundation stay locked.
+- Phase 3 may implement only the bounded contract in [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md).
+- Engineering Standard v1.0 remains `adopting` while any applicable evidence is pending.
+- No tag or GitHub Release is created, and publication/merge state is reported only from observed GitHub evidence.

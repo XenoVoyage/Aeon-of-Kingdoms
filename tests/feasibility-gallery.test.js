@@ -72,6 +72,9 @@ test("published Phase 1A review presents the approved package without claiming g
   assert.match(html, /Owner-approved production direction · Non-playable/i);
   assert.match(html, /One coherent world\. Six proven entities/i);
   assert.match(html, /Phase 1A is approved and closed/i);
+  assert.match(html, /Phase 1B visual lock and Phase 2 landscape\/camera foundation are approved and\s+closed/i);
+  assert.match(html, /Phase 3 entity and movement work is now authorized/i);
+  assert.doesNotMatch(html, /ready for explicit owner review|Phase 2\s+implementation has not started/i);
 
   for (const section of ["battlefield", "ownership", "motion", "contract"]) {
     assert.match(html, new RegExp(`id=["']${section}["']`, "i"), `missing ${section} review section`);
@@ -180,7 +183,7 @@ test("staged Phase 1A review assets are the exact optimized current set", () => 
 
 test("Pages stages only the approved published review subset and excludes the v5 proof", () => {
   const files = staging.verifyRuntimeFiles();
-  assert.equal(files.length, 72);
+  assert.equal(files.length, 73);
   assert.ok(files.includes("concepts/feasibility/index.html"));
   assert.ok(files.includes("concepts/feasibility/proof.css"));
   for (const asset of STAGED_REVIEW_ASSETS) assert.ok(files.includes(asset), `approved review asset is not staged: ${asset}`);

@@ -22,9 +22,10 @@ Read these sources in order before changing the project:
 4. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) - binding art, facing, animation, mask, structure, and validation rules.
 5. This handoff - exact Phase 1A closure, review paths, rejected approaches, and next boundary.
 6. [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) - the later owner-approved complete non-playable Phase 1B target.
-7. [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) - the authorized active landscape-foundation contract and exact pending owner gate.
-8. [`../concepts/feasibility/phase1a/README.md`](../concepts/feasibility/phase1a/README.md) and [`manifest.json`](../concepts/feasibility/phase1a/manifest.json) - direct review order and machine-readable inventory.
-9. [`CONVERSATION_DECISIONS.md`](CONVERSATION_DECISIONS.md) - historical rationale only; it never overrides the files above.
+7. [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) - the approved and closed landscape-foundation contract and retained evidence debt.
+8. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) - the later authorized entity/movement contract and current owner gate.
+9. [`../concepts/feasibility/phase1a/README.md`](../concepts/feasibility/phase1a/README.md) and [`manifest.json`](../concepts/feasibility/phase1a/manifest.json) - direct review order and machine-readable inventory.
+10. [`CONVERSATION_DECISIONS.md`](CONVERSATION_DECISIONS.md) - historical rationale only; it never overrides the files above.
 
 `GAME_DESIGN.md` and `ARCHITECTURE.md` are explicitly prototype-era historical documents until later redesign phases replace them. Do not restore their rejected names, structure taxonomy, tuning, UI, runtime layout, or art direction.
 
@@ -38,7 +39,7 @@ Read these sources in order before changing the project:
 - After direct review, the owner approved the corrected Aegis Titan and complete integrated package on 2026-08-21. Phase 1A is closed as a non-playable production-feasibility and visual-direction proof.
 - The owner then authorized the standardization and closure change to merge and deploy. Protected pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`; its origin branch was automatically deleted. That deployment intentionally excluded the direct package. Protected pull requests `#11` and `#12` later published the bounded public review containing the five approved compositions, all 24 actual-scale state playbacks, all six player-color proofs, the environment plate, and the damage proof; raw masters stay repository-only.
 - The later script-free Phase 1B target fixed the complete menu/HUD, twelve identities, landscape controls, viewport policy, and measured runtime-art envelope without creating shipping atlases or gameplay. The owner explicitly approved that complete target on 2026-08-21 and authorized Phase 2.
-- Phase 2 may now build only the semantic landscape shell, bounded camera, six-layer two-player map, terrain renderer, blockers, and navigation debug surface defined in [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md). No movement simulation, combat, AI, networking, production queue, or Phase 3 entity implementation is authorized.
+- At the time of this handoff, Phase 2 could build only the semantic landscape shell, bounded camera, six-layer two-player map, terrain renderer, blockers, and navigation debug surface defined in [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md). The owner later approved Phase 2 on 2026-08-22 and authorized the separate Phase 3 contract; [`STATUS.md`](STATUS.md) owns that current boundary.
 
 ## Game being built
 
@@ -189,7 +190,7 @@ The later target in [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) and [`con
 6. supported landscape aspect range, minimum viewport, letterboxing/safe-area rules, and test matrix;
 7. explicit confirmation that rejected prototype and Neon Voyage assets/layouts were not reused.
 
-The owner explicitly approved the combined candidate on 2026-08-21, closing every Phase 1B checklist item and authorizing the bounded Phase 2 foundation. The later correction of missing lower-body pixels in three derived Astral Guardian browser-sample movement cells restored them from the intact approved master and did not change or reopen the Phase 1B decisions. Phase 2 still requires its own evidence and explicit owner gate; Phase 3 remains blocked.
+The owner explicitly approved the combined candidate on 2026-08-21, closing every Phase 1B checklist item and authorizing the bounded Phase 2 foundation. The later correction of missing lower-body pixels in three derived Astral Guardian browser-sample movement cells restored them from the intact approved master and did not change or reopen the Phase 1B decisions. That was the boundary at Phase 1B closure; the owner subsequently approved Phase 2 on 2026-08-22 and authorized Phase 3 under [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md).
 
 ## Cold-start procedure
 

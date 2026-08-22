@@ -1,6 +1,6 @@
 # Architecture
 
-> **Prototype-era document:** everything below describes the rejected `v2026.8.15` runtime as frozen historical evidence. Prescriptive language records what that prototype did; it is not an instruction to preserve source names, ownership, data shapes, tuning, or behavior. [`REDESIGN.md`](REDESIGN.md) owns the replacement phases, and [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the active landscape shell, camera, map, and layered-renderer boundary. No authoritative replacement simulation exists yet.
+> **Prototype-era document:** everything below describes the rejected `v2026.8.15` runtime as frozen historical evidence. Prescriptive language records what that prototype did; it is not an instruction to preserve source names, ownership, data shapes, tuning, or behavior. [`REDESIGN.md`](REDESIGN.md) owns the replacement phases, [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the approved landscape shell/camera/map/renderer, and [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the authorized first replacement simulation boundary. No Phase 3 implementation exists on the closure/planning branch.
 
 Aeon of Kingdoms is a static browser game: semantic HTML, responsive CSS, classic JavaScript, and a Canvas battlefield. The playable client has no build step or runtime package dependency and works both from `file://` and from the GitHub Pages repository subpath.
 

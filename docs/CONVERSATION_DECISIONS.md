@@ -157,6 +157,16 @@ After approving Phase 1B, the owner noticed missing legs in three Astral Guardia
 
 The samples were repaired deterministically from the approved master. Their already-approved upper regions remained unchanged, only the missing lower regions of movement cells one through three were restored, the mask followed the identical geometry and stayed inside base alpha, and no new art was generated. This was treated as a small derivative/export defect, not a reason to reopen Phase 1B or reinterpret the locked production method.
 
+### 15. Approve and close Phase 2
+
+After reviewing the deployed landscape/camera foundation, the owner explicitly approved the complete Phase 2 candidate on 2026-08-22 and authorized Phase 3. This closes the empty-battlefield and camera-feel gate. Compact/aspect/portrait, broad-browser, and physical-device observations remain separate evidence debt; the approval does not fabricate them or approve Phase 3's result.
+
+### 16. Select the first future multiplayer experience
+
+The owner asked to keep multiplayer simple: one player hosts a private room and one client joins with a short room code. This selects the first user experience and host-authoritative topology, not an implementation provider. GitHub Pages can host only the static client; a later networking phase must still review signaling and likely TURN, plus security, privacy, dependency, CSP, and failure handling. Host departure ends the first-version match. Accounts, public matchmaking, chat, spectators, reconnect, host migration, join-in-progress, and public discovery remain outside that first version.
+
+The deterministic `MOVE` command boundary, replay, canonical snapshots, and periodic checksums begin in Phase 3 so the later transport does not create a second rules implementation. No room UI, networking dependency, or connection request is added in Phase 3.
+
 ## Rejected-attempt reference table
 
 | Rejected approach | Visible failure | Binding prevention |
@@ -195,3 +205,5 @@ Phase 1B does not decide:
 - physical-device quality or deployed gameplay evidence.
 
 Those decisions belong to the explicit Phase 2 and later gates in `REDESIGN.md`. The Phase 2 foundation may choose only its two-player map/camera/presentation data under `PHASE2_FOUNDATION.md`; it does not decide Phase 3 movement or later simulation rules.
+
+This final paragraph records the boundary as it stood after Phase 1B. Later owner decisions closed Phase 2 and selected the narrow future room-code topology above; [`STATUS.md`](STATUS.md) and the phase-specific contracts own current state.

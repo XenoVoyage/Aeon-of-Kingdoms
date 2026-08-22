@@ -1,8 +1,8 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 and Phase 1A complete; Phase 1B approved and closed on 2026-08-21; Phase 2 landscape battlefield foundation active; explicit Phase 2 owner gate pending**.
+Status: **approved baseline; Phase 0 through Phase 2 complete; Phase 2 approved and closed on 2026-08-22; Phase 3 entity and movement foundation authorized**.
 
-This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the exact active implementation contract and evidence boundary; this roadmap does not turn work-in-progress source into a completed or owner-approved phase.
+This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact active implementation contract and evidence boundary, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input; this roadmap does not turn work-in-progress source into a completed or owner-approved phase.
 
 The prototype remains in Git history as evidence. Its menu, battlefield presentation, art, map vocabulary, portrait behavior, movement feel, combat interaction, AI behavior, and public product claims are not design precedents for the replacement.
 
@@ -14,7 +14,7 @@ On 2026-08-20, the product owner reviewed the eight published Phase 1 references
 
 Later on 2026-08-20, the owner accepted the environment-only battlefield direction, the three-structure taxonomy and damage language, and recolorable ownership surfaces. After rejecting mixed art styles, bone/limb rigs, misassembled anatomy, undersized equipment, independently redrawn motion, and drifting frame roots, the owner approved the narrower combat-entity production method recorded in [`PRODUCTION_ART.md`](PRODUCTION_ART.md). That approval locked the method—not every candidate file or the complete roster—and authorized applying it to the remaining opening representatives. On 2026-08-21 the complete Phase 1A candidate was assembled under that method. The owner judged the integrated set ready except for Aegis Titan's nearly front-facing gait and punch; the feature-branch package corrected both to canonical screen-right. After direct review, the owner approved the corrected Aegis Titan and complete integrated set on 2026-08-21, closing Phase 1A. The owner then authorized the standardization and closure change to merge and deploy; protected pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`. The owner subsequently authorized a bounded Pages review of the approved compositions and actual-scale playback, while raw masters remain repository-only.
 
-The later script-free Phase 1B candidate assembled the menu/HUD, battlefield, complete opening identity language, landscape controls, viewport policy, and measured runtime-art decisions. After reviewing the integrated candidate, the owner explicitly approved complete Phase 1B on 2026-08-21 and authorized Phase 2 to begin. The owner then identified a small lower-body omission in three Astral Guardian movement cells in the derived browser samples; the approved authoring master remained intact, and the bounded samples were repaired from that master without changing the Phase 1B target. This approval starts only the Phase 2 landscape foundation. It is not Phase 2 approval and does not authorize Phase 3, a tag, or a GitHub Release.
+The later script-free Phase 1B candidate assembled the menu/HUD, battlefield, complete opening identity language, landscape controls, viewport policy, and measured runtime-art decisions. After reviewing the integrated candidate, the owner explicitly approved complete Phase 1B on 2026-08-21 and authorized Phase 2 to begin. The owner then identified a small lower-body omission in three Astral Guardian movement cells in the derived browser samples; the approved authoring master remained intact, and the bounded samples were repaired from that master without changing the Phase 1B target. On 2026-08-22 the owner explicitly approved the complete Phase 2 landscape/camera candidate and authorized Phase 3. That approval does not approve Phase 3, a tag, or a GitHub Release.
 
 ## Working rules
 
@@ -268,17 +268,19 @@ Gate: **complete on 2026-08-21** through explicit owner approval of the combined
 
 ### Phase 2 — Landscape battlefield foundation
 
-The exact active contract and evidence matrix live in [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md). Source-candidate work may proceed within this phase; none of the open checks below or the gate is satisfied merely because code exists or automation passes.
+The exact closed contract and evidence matrix live in [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md). The owner approved the integrated candidate on 2026-08-22; unobserved compact/aspect/physical-device evidence remains recorded rather than fabricated.
 
-- [ ] New semantic shell and original menu from scratch.
-- [ ] Landscape orientation gate and supported-browser lock request.
-- [ ] Camera pan, focus-centred zoom, bounds, resize, pause, and lifecycle behavior.
-- [ ] New map schema, terrain renderer, blockers, navigation debug view, and two-player layout.
-- [ ] Rendered desktop, phone-landscape, and tablet-landscape evidence.
+- [x] New semantic shell and original menu from scratch.
+- [x] Landscape orientation gate and supported-browser lock request.
+- [x] Camera pan, focus-centred zoom, bounds, resize, pause, and lifecycle behavior.
+- [x] New map schema, terrain renderer, blockers, navigation debug view, and two-player layout.
+- [x] Rendered cloud-desktop evidence; compact/aspect/portrait, broad-browser, and physical-device observations remain separately recorded evidence debt.
 
-Gate: the empty battlefield already resembles the approved concept and camera interaction feels correct.
+Gate: **complete on 2026-08-22** through explicit owner approval that the integrated Phase 2 candidate looks and feels correct.
 
 ### Phase 3 — Entity and movement foundation
+
+The exact authorized scope, values, exclusions, and evidence gate live in [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md). Phase 3 is the active implementation boundary after the Phase 2 closure record merges.
 
 - [ ] Replace prototype unit terminology and state with the approved entity contract.
 - [ ] Audit authoritative state, commands, tests, selectors, and current UI so no live `unit*` compatibility contract remains; historical prototype documents may retain the old word.
@@ -335,10 +337,10 @@ Gate: additional content expands the approved game without weakening the core sl
 
 ### Phase 9 — Networked multiplayer
 
-- [ ] Compare authority and transport candidates against the approved simulation, browser constraints, infrastructure, privacy, failure, and cost requirements.
+- [ ] Preserve the owner-selected private two-player host/client topology and compare only viable transport, signaling, and relay candidates against the approved simulation, browser constraints, infrastructure, privacy, failure, and cost requirements.
 - [ ] Extend the already-running replay, snapshot, and checksum harness with protocol and hostile-input tests offline.
 - [ ] Exercise two local clients through simulated delay, jitter, duplication, reordering, loss, disconnect, and resync.
-- [ ] Implement the approved private-room authority and transport behind the deterministic command boundary, with a compatibility handshake, honest connectivity UI, and bounded reconnect.
+- [ ] Implement one host and one client behind the deterministic command boundary, joined by a short private room code, with a compatibility handshake, honest connectivity UI, and an explicit match-ending host-loss outcome.
 - [ ] If the approved transport is WebRTC, add separately reviewed signaling and TURN boundaries before claiming general connectivity.
 - [ ] Verify real matches across different networks and physical devices.
 
@@ -346,7 +348,7 @@ Gate: multiplayer is advertised only after complete real cross-network matches.
 
 ### Phase 10 — Future enhancements
 
-Candidates, not commitments: validated 4- and 6-player layouts, additional factions and maps, further campaign missions, team modes, alliances, replay, spectators, host migration, fog of war, richer abilities, optional dedicated authority, and public matchmaking. Each requires a separate scope, threat model, performance budget, and acceptance gate.
+Candidates, not commitments: validated 4- and 6-player layouts, additional factions and maps, further campaign missions, team modes, alliances, replay, reconnect, join-in-progress, spectators, host migration, fog of war, richer abilities, optional dedicated authority, and public matchmaking. Each requires a separate scope, threat model, performance budget, and acceptance gate.
 
 ## First replacement release definition
 

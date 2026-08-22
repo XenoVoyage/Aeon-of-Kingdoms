@@ -9,7 +9,7 @@ Keep the standard status `adopting` while any applicable requirement remains fai
 
 ## Active redesign override
 
-The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the approved complete Phase 1B visual/interaction contract; and [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) owns the landscape-foundation implementation contract and evidence gate. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
+The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the approved complete Phase 1B visual/interaction contract; [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) owns the approved landscape foundation; and [`docs/PHASE3_ENTITY_MOVEMENT.md`](docs/PHASE3_ENTITY_MOVEMENT.md) owns the authorized entity/movement implementation and evidence gate. Phase approval never grants an implicit merge, deployment, tag, release, or later-phase implementation.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
@@ -46,11 +46,12 @@ Read in this order:
 5. `tests/README.md` for the verification and manual-acceptance map.
 6. `docs/PHASE1A_HANDOFF.md` when Phase 1A inputs, approval, direct review paths, or rejected methods are relevant.
 7. `docs/PHASE1B_VISUAL_LOCK.md` for the approved menu/HUD, identities, controls, viewport, and runtime-art envelope.
-8. `docs/PHASE2_FOUNDATION.md` before changing the Phase 2 shell, camera, viewport/orientation behavior, map schema, terrain renderer, navigation debug, or Phase 2 evidence.
-9. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their later redesign replacements exist.
-10. `docs/NETCODE.md` only when commands, determinism, networking, lobbies, or servers are involved.
-11. `docs/CONVERSATION_DECISIONS.md` only for historical rationale; it never overrides the files above.
-12. The connected source, tests, issue, pull request, and decision owner.
+8. `docs/PHASE2_FOUNDATION.md` before changing the approved Phase 2 shell, camera, viewport/orientation behavior, map schema, terrain renderer, navigation debug, or Phase 2 evidence.
+9. `docs/PHASE3_ENTITY_MOVEMENT.md` before changing entities, selection, movement, pathfinding, formation, separation, replay, snapshots, checksums, runtime entity art, or Phase 3 evidence.
+10. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their later redesign replacements exist.
+11. `docs/NETCODE.md` only when commands, determinism, networking, lobbies, or servers are involved.
+12. `docs/CONVERSATION_DECISIONS.md` only for historical rationale; it never overrides the files above.
+13. The connected source, tests, issue, pull request, and decision owner.
 
 Use `CONTRIBUTING.md` as a public entrypoint, not a substitute for these rules. Ask before selecting material product direction when the goal or acceptance criteria are absent.
 
@@ -59,7 +60,7 @@ Use `CONTRIBUTING.md` as a public entrypoint, not a substitute for these rules. 
 - The rejected playable prototype remains at commit `7f88655` in Git history and in temporarily preserved prototype-era source used by historical regression tests. It is not the working-tree product baseline, public entry point, or Pages payload. Its public `v2026.8.15` tag and GitHub Release were retired on 2026-08-21 at the owner's direction while the commit and normal Git history remained reachable. The retired label must never be recreated or reused.
 - `docs/STATUS.md` owns the current public runtime, local source boundary, active phase, and observed evidence. Never copy those volatile facts into this file or infer them from a version string.
 - The status page, `concepts/` archive, and `concepts/feasibility/` proof must work by opening their HTML entry points directly and from the `/Aeon-of-Kingdoms/` GitHub Pages subpath. The future game inherits that delivery constraint unless an approved phase changes it.
-- Multiplayer, signaling, TURN, matchmaking, accounts, hosted persistence, and a dedicated server are planned, not shipped. GitHub Pages and Actions are never described as a server.
+- Multiplayer is planned, not shipped. The owner selected a future private two-player host/client room joined by a short code; signaling, likely TURN, and every provider/security/privacy/CSP choice remain deferred. GitHub Pages and Actions are never described as a server.
 - The first replacement release targets a proven two-player local slice. Four- and six-player layouts are later scale work and require separate routing, performance, fairness, and play evidence.
 
 Do not expand the slice into an account system, content pipeline, framework migration, live service, or speculative abstraction without explicit scope.
@@ -88,7 +89,7 @@ Do not expand the slice into an account system, content pipeline, framework migr
 
 ## 6. Ownership map
 
-Each responsibility has one source of truth. Phase 2 introduces only the non-authoritative landscape shell, camera, map data, and layered renderer; no authoritative gameplay simulation source exists yet. Prototype-era design documents remain historical until explicitly replaced.
+Each responsibility has one source of truth. Phase 2 introduced the approved non-authoritative landscape shell, camera, map data, and layered renderer. Phase 3 is authorized to introduce the first replacement authoritative entity/movement simulation after its planning change merges. Prototype-era design documents remain historical until explicitly replaced.
 
 | Area | Source of truth |
 | --- | --- |
@@ -112,6 +113,7 @@ Each responsibility has one source of truth. Phase 2 introduces only the non-aut
 | Phase 2 presentation and safe-area/orientation layout | `phase2/phase2.css` |
 | Phase 2 bounded camera-input translation and transient cleanup | `phase2/input.js` |
 | Phase 2 camera, map, and layered rendering | `phase2/camera.js`, `phase2/map.js`, and `phase2/renderer.js` |
+| Phase 3 entity/movement contract and evidence | `docs/PHASE3_ENTITY_MOVEMENT.md` |
 | Historical conversation rationale and rejected-attempt chronology | `docs/CONVERSATION_DECISIONS.md` |
 | Thin cold-start pointer for a new chat | `docs/NEW_CHAT_PROMPT.txt` |
 | Explicit Pages delivery allowlist | `.github/scripts/stage-pages.js` |
@@ -139,7 +141,7 @@ The replacement runtime must introduce one obvious configuration owner for exact
 
 ## 8. Networking boundary
 
-Read `docs/NETCODE.md` before changing a command schema or deterministic rule. A host-authoritative ordered command stream with periodic hashes and bounded snapshots is the leading research model, but transport and topology remain subject to the approved networking-phase spike.
+Read `docs/NETCODE.md` before changing a command schema or deterministic rule. The owner selected a future private two-player host/client room joined by a short code, using the host-authoritative ordered command stream with periodic hashes and bounded snapshots. Exact transport, signaling, TURN, provider, dependency, privacy, security, and CSP choices remain subject to the approved networking-phase spike; no network code belongs in Phase 3.
 
 - Do not add a networking library until its exact version, license, provenance, signaling/relay behavior, privacy boundary, CSP needs, and failure modes are reviewed.
 - Do not put credentials, reusable seat tokens, TURN secrets, or cloud configuration in client source, URLs, logs, screenshots, issues, or commits.

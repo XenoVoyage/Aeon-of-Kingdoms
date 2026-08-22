@@ -1,8 +1,8 @@
 # Multiplayer and netcode plan
 
-> **Redesign dependency:** everything below is frozen prototype-era research input, not an approved topology or schema. The replacement must rebuild commands and snapshots around approved entity, production, rally, combat, and AI state, then compare transport options in its networking phase. Do not implement networking before the earlier gates in [`REDESIGN.md`](REDESIGN.md) pass.
+> **Owner-selected future direction:** the first multiplayer experience will be a simple private two-player host/client room joined by a short room code. The room creator's browser is authoritative. Implementation remains deferred to the networking phase after the local simulation gates in [`REDESIGN.md`](REDESIGN.md); this decision does not authorize networking code, a provider, a dependency, or a CSP exception now.
 
-Multiplayer was an architectural target, not a feature of the published rejected prototype. The GitHub Pages prototype is local-only and makes no signaling, relay, matchmaking, or game-server request.
+Multiplayer was an architectural target, not a feature of the published rejected prototype. The current GitHub Pages source is local-only and makes no signaling, relay, matchmaking, or game-server request.
 
 ## Hosting reality
 
@@ -17,9 +17,9 @@ The design therefore separates one deterministic game protocol from two future a
 
 Both adapters must feed the same validated command interface. Game rules must not import transport APIs.
 
-## Recommended first multiplayer model
+## Selected first multiplayer model
 
-Use a host-authoritative deterministic command stream rather than broadcasting every unit transform every render frame.
+Use a host-authoritative deterministic command stream rather than broadcasting every entity transform every render frame.
 
 1. A client converts selection and orders into a compact command.
 2. The host validates ownership, rate, payload bounds, resources, and target legality.
@@ -52,16 +52,17 @@ Every message needs an exact versioned schema and a maximum encoded size. A conc
 
 Entity identifiers, selected-entity count, command rate, chat length, snapshot bytes, resync frequency, and lobby seats all require hard limits. Unknown fields and invalid enum values are rejected; remote data is never merged blindly into state or DOM.
 
-## WebRTC room lifecycle
+## Private room lifecycle
 
-The initial P2P milestone should remain deliberately narrow:
+The owner selected this deliberately narrow first milestone on 2026-08-22:
 
-- 2–6 known players join a private room through an explicit room code or invitation.
+- Exactly two known players join a private room through a short room code: one host and one client.
 - The creator is the match host and only authority.
 - Faction, team, map layout, and mode lock before the seed and starting tick are committed.
 - Readiness includes protocol version, deterministic configuration hash, and asset/build version.
-- Host departure ends the match in the first release; host migration is postponed until it can be proven safe.
-- Reconnect is bounded and uses a fresh authenticated seat token plus snapshot; it never trusts a claimed player identifier.
+- Host departure ends the first-version match. Host migration, join-in-progress, reconnect, spectators, public matchmaking, accounts, chat, and public discovery are excluded from the first version.
+
+The room code is a discovery handle, not a credential or secret. It must not be presented as security by itself, and reusable seat material must never be placed in the URL, logs, screenshots, issues, or source.
 
 WebRTC still needs signaling. Many real networks also require a TURN relay. A third-party helper may simplify discovery, but its license, maintainer provenance, pinned version, relay behavior, privacy impact, CSP domains, and failure modes must be reviewed before adoption. No dependency is approved merely because it has a convenient CDN build; production resources remain repository-local and version-pinned.
 
@@ -78,9 +79,9 @@ Host authority prevents ordinary clients from creating entities or spending reso
 Before either adapter ships:
 
 - validate and cap every remote value before allocation or lookup;
-- authenticate seat assignment and reconnect without exposing reusable secrets in URLs or logs;
+- authenticate seat assignment without exposing reusable secrets in URLs or logs; if reconnect is later added, authenticate it through a separately bounded token flow;
 - escape user-controlled names and chat as text;
-- rate-limit signaling, commands, snapshots, reconnects, and room creation;
+- rate-limit signaling, commands, snapshots, and room creation; rate-limit reconnect separately if it is later added;
 - define idle, background-tab, disconnect, and host-loss outcomes;
 - keep deterministic configuration hashes and protocol versions in the handshake;
 - test malformed, duplicate, delayed, reordered, and flood traffic;
@@ -91,8 +92,8 @@ Before either adapter ships:
 
 1. Freeze deterministic command, replay, hash, and snapshot tests entirely offline.
 2. Run two local clients through an in-memory transport with delay, jitter, duplication, and loss simulation.
-3. Add a manually signaled WebRTC two-player prototype with no public lobby.
-4. Add reviewed signaling and TURN configuration, private 2–6-player rooms, reconnect, and honest connectivity UI.
+3. Add a manually signaled WebRTC two-player host/client prototype with no public lobby.
+4. Add reviewed signaling and TURN configuration, short private room codes, and honest connectivity UI.
 5. Measure command bandwidth, resync rate, long-match convergence, background-tab behavior, and mobile thermals.
 6. Only then evaluate public discovery and the optional dedicated WebSocket authority.
 
