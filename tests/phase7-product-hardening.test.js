@@ -110,14 +110,14 @@ const PHASE7_SCRIPTS = Object.freeze([
   "../phase6/ai.js",
   "../phase6/skirmish.js",
   "hardening.js",
-  "app.js?v=2026.8.22i"
+  "app.js?v=2026.8.22j"
 ]);
 
 const PHASE7_STYLES = Object.freeze([
   "../phase2/phase2.css?v=2026.8.22e",
   "../phase5/phase5.css?v=2026.8.22e",
   "../phase6/phase6.css?v=2026.8.22g",
-  "phase7.css?v=2026.8.22i"
+  "phase7.css?v=2026.8.22j"
 ]);
 
 function command(simulation, kind, payload, overrides = {}) {
@@ -852,6 +852,23 @@ test("Phase 7 is one strict local four-file shell over the closed Phase 6 stack"
   const references = Array.from(html.matchAll(/\b(?:src|href|data-src)=["']([^"']+)["']/gi), (match) => match[1]);
   assert.equal(references.every(localReference), true, "every shell reference must remain repository-local");
   assert.deepEqual(fs.readdirSync(path.join(ROOT, "phase7")).sort(), ["app.js", "hardening.js", "index.html", "phase7.css"]);
+
+  const contract = read("docs/PHASE7_PRODUCT_HARDENING.md");
+  const status = read("docs/STATUS.md");
+  const roadmap = read("docs/REDESIGN.md");
+  for (const evidence of [contract, status]) {
+    assert.match(evidence, /pull request `#30`/i);
+    assert.match(evidence, /461c100eb48d83d2ba960a300313c19848d89f41/);
+    assert.match(evidence, /1c2240fc097893c2099a7eb19602a641fa5a093d/);
+    assert.match(evidence, /32598168338/);
+    assert.match(evidence, /32598490594/);
+    assert.match(evidence, /32598490580/);
+    assert.match(evidence, /1363×936/);
+    assert.match(evidence, /Pages-origin warning or error/i);
+    assert.match(evidence, /physical-device[\s\S]*pending/i);
+  }
+  assert.match(roadmap, /published implementation candidate; not closed/i);
+  assert.match(roadmap, /direct HTTP byte identity[\s\S]*remain pending/i);
 });
 
 test("Phase 7 semantic IDs and relationships are unique, resolvable, and outside Canvas", () => {
