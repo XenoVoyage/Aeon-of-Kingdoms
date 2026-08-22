@@ -2,7 +2,7 @@
 
 Aeon of Kingdoms is undergoing a gated redesign. Contributions must preserve the approved redesign contract and enduring deterministic, accessible, secure browser boundaries; they must not preserve the rejected prototype presentation or gameplay by default.
 
-Phase 1A through Phase 6 are approved and closed. Phase 7 product hardening has an exact frozen planning contract, but no Phase 7 implementation is claimed; networking remains later work until its own phase. Read [`docs/STATUS.md`](docs/STATUS.md) for the exact current source, deployment, evidence, and Engineering Standard v1.0 adoption state rather than copying those volatile facts here.
+Phase 1A through Phase 6 are approved and closed. Phase 7 product hardening has an exact frozen contract and a separate implementation candidate under audit; networking remains later work until its own phase. Read [`docs/STATUS.md`](docs/STATUS.md) for the exact current source, deployment, evidence, and Engineering Standard v1.0 adoption state rather than copying those volatile facts here.
 
 ## Before changing code
 
@@ -33,7 +33,7 @@ Inspect the connected source, tests, issues, pull requests, and recent changes. 
 - Complete the applicable manual rows in [`tests/README.md`](tests/README.md) and label simulated, rendered, deployed, network, and physical-device observations separately.
 - Run `git diff --check`, review the complete branch diff, and open a draft pull request with the repository template.
 
-The transition page, concept reviews, and approved Phase 2 through Phase 6 routes need no installation or runtime build. The active Phase 7 change is planning-only until its contract authorizes a bounded implementation. Node.js 20 or newer is used only for local and continuous verification and deterministic authoring checks. A successful local check does not establish rendered quality, a Pages deployment, phase approval, or a release.
+The transition page, concept reviews, approved Phase 2 through Phase 6 routes, and the separate Phase 7 candidate need no installation or runtime build. Node.js 20 or newer is used only for local and continuous verification and deterministic authoring checks. A successful local check does not establish rendered quality, a Pages deployment, phase approval, or a release.
 
 ## Product changes
 

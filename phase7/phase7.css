@@ -1,0 +1,318 @@
+:root {
+  --safe-top: calc(env(safe-area-inset-top) + 12px);
+  --safe-right: calc(env(safe-area-inset-right) + 12px);
+  --safe-bottom: calc(env(safe-area-inset-bottom) + 12px);
+  --safe-left: calc(env(safe-area-inset-left) + 12px);
+}
+
+#phase7-experience {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.state-stack {
+  display: contents;
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+input:focus-visible,
+dialog button:focus-visible,
+.play-frame:focus-visible,
+.viewport-gate:focus-visible,
+.load-error:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.skip-link,
+.menu-status-link,
+.noscript-gate a {
+  min-height: 44px;
+}
+
+.skip-link,
+.menu-status-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.menu-hit-begin,
+.menu-hit-settings {
+  left: max(3.5%, var(--safe-left));
+}
+
+.menu-hit-audio,
+.menu-hit-fullscreen {
+  bottom: max(4.1%, var(--safe-bottom));
+  left: auto;
+}
+
+.menu-hit-fullscreen {
+  right: max(2.8%, var(--safe-right));
+}
+
+.menu-hit-audio {
+  right: calc(max(2.8%, var(--safe-right)) + max(4.1%, 44px));
+}
+
+.menu-status-link {
+  top: max(2.5%, var(--safe-top));
+  right: max(2%, var(--safe-right));
+}
+
+.menu-skirmish-identity {
+  bottom: max(3.6%, var(--safe-bottom));
+}
+
+.menu-fallback {
+  padding:
+    max(2rem, var(--safe-top))
+    max(2rem, var(--safe-right))
+    max(2rem, var(--safe-bottom))
+    max(2rem, var(--safe-left));
+}
+
+.menu-fallback:not([hidden]) {
+  align-content: start;
+  justify-items: center;
+  padding-top: max(3.5rem, var(--safe-top));
+}
+
+.menu-fallback:not([hidden]) ~ .menu-hit {
+  z-index: 2;
+  border: 1px solid rgba(116, 233, 243, 0.7);
+  background: rgba(7, 17, 29, 0.96);
+  color: var(--ink);
+}
+
+.menu-fallback:not([hidden]) ~ .menu-hit:disabled {
+  border-color: rgba(226, 231, 244, 0.28);
+  color: var(--muted);
+}
+
+.menu-fallback:not([hidden]) ~ .menu-hit > .visually-hidden {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0.45rem !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+dialog {
+  max-width: calc(100vw - var(--safe-left) - var(--safe-right));
+  max-height: calc(100dvh - var(--safe-top) - var(--safe-bottom));
+  overflow: auto;
+}
+
+.setting-field select,
+.structure-jump select {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.viewport-gate:focus,
+.load-error:focus {
+  outline: 3px solid var(--cyan);
+  outline-offset: -6px;
+}
+
+/* Phase 5 hid these at compact widths. Phase 7 reflows them instead so every
+   enabled view and command control remains visible and keyboard-reachable. */
+#phase7-experience .review-controls button:nth-child(1),
+#phase7-experience .review-controls button:nth-child(3),
+#phase7-experience .command-controls #clear-selection-button,
+#phase7-experience .command-controls #clear-rally-button,
+#phase7-experience .command-controls #rally-mode-button,
+#phase7-experience .command-controls:has(#rally-mode-button:enabled)
+  > button:not(#rally-mode-button):not(#clear-rally-button),
+#phase7-experience .command-controls:has(#rally-mode-button:enabled) #rally-mode-button,
+#phase7-experience .command-controls:has(#rally-mode-button:enabled) #clear-rally-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 900px), (max-height: 500px) {
+  #phase7-experience .battlefield-ui {
+    --compact-state-width: min(15rem, 34vw);
+  }
+
+  .state-stack {
+    position: absolute;
+    z-index: 12;
+    top: var(--safe-top);
+    bottom: calc(var(--safe-bottom) + 3.2rem);
+    left: var(--safe-left);
+    display: flex;
+    width: var(--compact-state-width);
+    flex-direction: column;
+    gap: 0.25rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    pointer-events: auto;
+  }
+
+  .state-stack > .phase-badge,
+  .state-stack > .economy-strip,
+  .state-stack > .selection-card,
+  .state-stack > .structure-jump,
+  .state-stack > .match-status {
+    position: static;
+    width: 100%;
+    max-width: none;
+    flex: 0 0 auto;
+    transform: none;
+  }
+
+  .state-stack > .phase-badge {
+    padding: 0.38rem 0.48rem;
+  }
+
+  .state-stack > .phase-badge span,
+  .state-stack > .phase-badge strong,
+  .state-stack > .phase-badge small {
+    font-size: 0.57rem;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .state-stack > .economy-strip {
+    display: grid;
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr) minmax(0, 1.45fr);
+  }
+
+  .state-stack > .economy-strip div,
+  .state-stack > .economy-strip div:last-child {
+    display: grid;
+    min-width: 0;
+    padding: 0.3rem 0.32rem;
+  }
+
+  .state-stack > .economy-strip dd {
+    max-width: none;
+    overflow: visible;
+    font-size: 0.61rem;
+    line-height: 1.2;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .state-stack > .selection-card,
+  .state-stack > .structure-jump {
+    padding: 0.38rem 0.48rem;
+  }
+
+  .state-stack > .selection-card small {
+    font-size: 0.58rem;
+  }
+
+  .state-stack > .match-status {
+    padding: 0.38rem 0.48rem;
+    font-size: 0.6rem;
+    line-height: 1.25;
+  }
+
+  .camera-controls {
+    top: var(--safe-top);
+  }
+
+  .command-controls {
+    top: calc(var(--safe-top) + 2.75rem);
+    display: grid;
+    width: min(
+      52vw,
+      calc(100% - var(--safe-left) - var(--safe-right) - var(--compact-state-width) - 0.5rem)
+    );
+    max-height: calc(88px + 0.3rem);
+    grid-template-columns: repeat(5, minmax(44px, 1fr));
+    gap: 0.3rem;
+    overflow: auto;
+  }
+
+  .command-controls button {
+    width: 100%;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.22rem;
+    font-size: 0.57rem;
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+
+  .producer-tray {
+    width: min(
+      21rem,
+      calc(100% - var(--safe-left) - var(--safe-right) - var(--compact-state-width) - 0.5rem)
+    );
+    max-height: calc(100% - var(--safe-top) - var(--safe-bottom) - 12rem);
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+
+  .review-controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(44px, auto));
+    gap: 0.25rem;
+  }
+
+  .review-controls button {
+    min-width: 44px;
+    min-height: 44px;
+    padding-inline: 0.48rem;
+    font-size: 0.62rem;
+  }
+
+  .debug-status {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .menu-skirmish-identity {
+    bottom: var(--safe-bottom);
+    left: 50%;
+    display: grid;
+    max-width: 52%;
+    transform: translateX(-50%);
+  }
+
+  .menu-skirmish-identity div {
+    min-height: 44px;
+    padding: 0.24rem 0.4rem;
+  }
+
+  .menu-skirmish-identity div + div {
+    border-top: 1px solid rgba(226, 231, 244, 0.18);
+    border-left: 0;
+  }
+
+  .production-options {
+    grid-template-columns: repeat(3, minmax(44px, 1fr));
+  }
+
+  .production-options button,
+  .production-queue button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

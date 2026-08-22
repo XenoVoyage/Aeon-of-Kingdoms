@@ -2,6 +2,20 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.22i] — 2026-08-22 (Phase 7 product-hardening implementation candidate)
+
+### Added
+
+- Added the separate four-file `phase7/` product-hardening route over byte-locked Phase 2 through Phase 6 modules. The fixed 20 Hz battle rules, nine-command protocol, deterministic Standard planner, art, map, and outcomes remain unchanged.
+- Added composed manual/viewport/visibility/focus/BFCache suspension, settled fullscreen/orientation requests and app-owned release, zero scheduled presentation work while suspended, image/canvas teardown, focus recovery, semantic target/command/progress state, minimum-control reflow, safe-area layout, and reduced-motion presentation.
+- Added `tests/phase7-product-hardening.test.js` for strict shell/CSP/source locks, viewport and memory arithmetic, lifecycle/browser-feature behavior, deterministic reduced-motion equivalence, an exact 12,000-active-tick soak, reachable at/over-cap cases, an exact 8,192-command replay boundary, checkpoint convergence, repeated input teardown, ownership-hue suppression, and bounded VM execution of the real Phase 7 app across keyboard control, production/cancellation, lifecycle and viewport gates, failure recovery, completion, and final teardown.
+
+### Evidence and boundaries
+
+- The focused Phase 7 suite passes 19/19 and the complete dependency-free suite passes 281/281. Exact Pages staging contains 166 public files plus `.nojekyll` (167 staged files total), adding only the four Phase 7 route files and no dependency, network, storage, audio, Phase 8, or Phase 9 runtime.
+- The source candidate truthfully retains pending cloud-rendered, deployed, browser-family, physical-device, actual 200% browser-zoom, thermal, owner-decision, and root-promotion rows. Source automation and arithmetic do not substitute for those observations.
+- `v2026.8.22i` is a source-candidate label only. It is intentionally not a Git tag or GitHub Release, and this candidate does not claim Phase 7 closure, a root game promotion, modes, campaign, or multiplayer.
+
 ## [v2026.8.22h] — 2026-08-22 (Phase 6 closure and Phase 7 product-hardening contract)
 
 ### Changed

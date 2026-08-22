@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#060914">
+    <meta name="color-scheme" content="dark">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; worker-src 'none'; manifest-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    >
+    <meta
+      name="description"
+      content="Phase 7 product-hardening candidate for the deterministic Aeon of Kingdoms Standard local skirmish."
+    >
+    <title>Phase 7 product-hardening candidate — Aeon of Kingdoms</title>
+    <link rel="stylesheet" href="../phase2/phase2.css?v=2026.8.22e">
+    <link rel="stylesheet" href="../phase5/phase5.css?v=2026.8.22e">
+    <link rel="stylesheet" href="../phase6/phase6.css?v=2026.8.22g">
+    <link rel="stylesheet" href="phase7.css?v=2026.8.22i">
+  </head>
+  <body>
+    <a class="skip-link" href="#phase7-experience">Skip to the Phase 7 experience</a>
+
+    <div class="app-shell" id="app-shell" data-stage="menu">
+      <main id="phase7-experience" aria-label="Aeon of Kingdoms Phase 7 product-hardening candidate">
+        <section class="menu-screen" id="menu-screen" aria-labelledby="menu-title">
+          <h1 class="visually-hidden" id="menu-title">Aeon of Kingdoms</h1>
+          <img
+            id="menu-art"
+            data-src="../concepts/images/minimal-menu.webp"
+            width="1672"
+            height="941"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          >
+          <p class="menu-fallback" id="menu-fallback" hidden>
+            The approved menu artwork could not be loaded. The semantic controls remain available.
+          </p>
+          <button class="menu-hit menu-hit-begin" id="begin-button" type="button">
+            <span class="visually-hidden">Begin the Phase 7 Standard local skirmish</span>
+          </button>
+          <button class="menu-hit menu-hit-settings" id="settings-button" type="button">
+            <span class="visually-hidden">Open display and art settings</span>
+          </button>
+          <button
+            class="menu-hit menu-hit-audio"
+            type="button"
+            disabled
+            aria-disabled="true"
+            aria-describedby="audio-status"
+            title="Audio unavailable in Phase 7"
+          >
+            <span class="visually-hidden">Audio unavailable</span>
+          </button>
+          <button
+            class="menu-hit menu-hit-fullscreen"
+            id="menu-fullscreen-button"
+            type="button"
+            aria-describedby="browser-feature-status"
+          >
+            <span class="visually-hidden">Request fullscreen</span>
+          </button>
+          <dl class="menu-skirmish-identity" aria-label="Standard local skirmish players">
+            <div><dt>You</dt><dd>Astral Concord · ◇ Azure</dd></div>
+            <div><dt>Computer</dt><dd>Gravebound Court · ✕ Violet</dd></div>
+          </dl>
+          <a class="menu-status-link" href="../">Project status</a>
+        </section>
+
+        <section class="battlefield-screen" id="battlefield-screen" aria-labelledby="battlefield-title" hidden>
+          <h1 class="visually-hidden" id="battlefield-title">Moonfall Crossing Standard local skirmish</h1>
+          <div
+            class="play-frame"
+            id="play-frame"
+            tabindex="0"
+            role="region"
+            aria-labelledby="battlefield-title"
+            aria-describedby="skirmish-identity control-help selection-summary selection-detail target-status event-status browser-feature-status"
+          >
+            <canvas data-layer="ground" aria-hidden="true"></canvas>
+            <canvas data-layer="detail" aria-hidden="true"></canvas>
+            <canvas data-layer="navigation" aria-hidden="true"></canvas>
+            <canvas data-layer="anchors" aria-hidden="true"></canvas>
+            <canvas data-layer="dynamic" aria-hidden="true"></canvas>
+            <canvas data-layer="foreground" aria-hidden="true"></canvas>
+            <div class="selection-marquee" id="selection-marquee" hidden aria-hidden="true"></div>
+
+            <div class="battlefield-ui">
+              <div class="state-stack">
+                <div class="phase-badge" id="skirmish-identity">
+                  <span>Phase 7 · Product hardening</span>
+                  <strong>You · Astral Concord · ◇ Azure</strong>
+                  <small>Computer · Gravebound Court · ✕ Violet</small>
+                </div>
+
+                <dl class="economy-strip" aria-label="Your economy and objective">
+                  <div><dt>Resource</dt><dd id="resource-value">240</dd></div>
+                  <div><dt>Population</dt><dd id="population-value">10 + 0 / 18</dd></div>
+                  <div><dt>Objective</dt><dd id="objective-value">Destroy the hostile headquarters</dd></div>
+                </dl>
+
+                <section class="selection-card" aria-labelledby="selection-heading">
+                  <span id="selection-heading">Selected</span>
+                  <strong id="selection-summary">None</strong>
+                  <small id="selection-detail">Choose combat entities or a structure to inspect owner, health, and order.</small>
+                </section>
+
+                <label class="structure-jump" for="structure-select">
+                  <span>Inspect structure</span>
+                  <select id="structure-select">
+                    <option value="">None</option>
+                    <option value="astral-headquarters-anchor">Astral headquarters</option>
+                    <option value="central-resource-point-anchor">Central Resource Point</option>
+                    <option value="west-production-outpost-anchor">West Production Outpost</option>
+                    <option value="east-production-outpost-anchor">East Production Outpost</option>
+                    <option value="gravebound-headquarters-anchor">Gravebound headquarters</option>
+                  </select>
+                </label>
+
+                <p class="match-status" id="match-status" role="status" aria-live="polite" aria-atomic="true">
+                  Match active · You versus Computer · both headquarters intact
+                </p>
+              </div>
+
+              <div class="camera-controls" aria-label="Camera controls" aria-describedby="camera-help">
+                <button id="zoom-out-button" type="button" aria-label="Zoom out">−</button>
+                <button id="zoom-in-button" type="button" aria-label="Zoom in">+</button>
+                <button id="reset-camera-button" type="button">Home</button>
+              </div>
+
+              <p class="visually-hidden" id="command-availability">
+                Tactical commands require a selected owned combat entity and an active, unpaused match.
+              </p>
+              <p class="visually-hidden" id="rally-availability">
+                Rally commands require an inspected owned headquarters or Production Outpost and an active, unpaused match.
+              </p>
+              <p class="visually-hidden" id="selection-clear-availability">
+                Clear selection requires a selected combat entity or structure.
+              </p>
+              <div class="command-controls" role="group" aria-label="Tactical commands" aria-describedby="command-availability rally-availability selection-clear-availability">
+                <button id="move-mode-button" type="button" aria-pressed="false" aria-keyshortcuts="M" aria-describedby="command-availability" disabled>Move</button>
+                <button id="attack-mode-button" type="button" aria-pressed="false" aria-keyshortcuts="F" aria-describedby="command-availability" disabled>Attack</button>
+                <button id="attack-move-mode-button" type="button" aria-pressed="false" aria-keyshortcuts="X" aria-describedby="command-availability" disabled>Attack Move</button>
+                <button id="defend-point-mode-button" type="button" aria-pressed="false" aria-keyshortcuts="D" aria-describedby="command-availability" disabled>Defend Point</button>
+                <button id="defend-entity-mode-button" type="button" aria-pressed="false" aria-keyshortcuts="G" aria-describedby="command-availability" disabled>Defend Ally</button>
+                <button id="stop-button" type="button" aria-keyshortcuts="S" aria-describedby="command-availability" disabled>Stop</button>
+                <button id="rally-mode-button" type="button" aria-pressed="false" aria-describedby="rally-availability" disabled>Rally</button>
+                <button id="clear-rally-button" type="button" aria-describedby="rally-availability" disabled>Clear rally</button>
+                <button id="clear-selection-button" type="button" aria-describedby="selection-clear-availability" disabled>Clear</button>
+              </div>
+
+              <section class="producer-tray" id="producer-tray" tabindex="-1" aria-labelledby="producer-title" hidden>
+                <div class="producer-heading">
+                  <div>
+                    <span>Production</span>
+                    <strong id="producer-title">Owned producer</strong>
+                  </div>
+                  <span id="producer-queue-count">0 / 5</span>
+                </div>
+                <div class="production-options" id="production-options" aria-label="Production options" aria-describedby="production-state">
+                  <button type="button" data-production-role="melee">
+                    <strong data-option-name>Melee</strong><span data-option-cost>60 · 1 pop · 4s</span>
+                  </button>
+                  <button type="button" data-production-role="ranged">
+                    <strong data-option-name>Ranged</strong><span data-option-cost>80 · 1 pop · 5s</span>
+                  </button>
+                  <button type="button" data-production-role="signature">
+                    <strong data-option-name>Signature</strong><span data-option-cost>180 · 3 pop · 9s</span>
+                  </button>
+                </div>
+                <label class="queue-progress" for="production-progress">
+                  <span id="production-state">Queue empty</span>
+                  <progress id="production-progress" role="progressbar" max="1" value="0" aria-valuetext="Queue empty">0%</progress>
+                </label>
+                <ol class="production-queue" id="production-queue" aria-label="Ordered production queue"></ol>
+              </section>
+
+              <div class="review-controls" aria-label="Match and view controls">
+                <button id="navigation-button" type="button" aria-pressed="false">Navigation</button>
+                <button id="pause-button" type="button" aria-pressed="false">Pause</button>
+                <button
+                  id="battlefield-fullscreen-button"
+                  type="button"
+                  aria-describedby="browser-feature-status"
+                >Fullscreen</button>
+                <button id="menu-button" type="button">Menu</button>
+              </div>
+
+              <p class="control-help" id="control-help">
+                Arrow keys pan · wheel and ± zoom · Home resets · drag selects · hostile hover shows ⊗ · right-click hostile focuses fire · touch uses explicit commands · M/F/X/D/G/S tactical shortcuts
+              </p>
+              <p class="visually-hidden" id="camera-help">Arrow keys pan the camera. Minus and plus zoom from the center. Home restores the authored view.</p>
+              <p class="debug-status" id="debug-status" aria-hidden="true">Preparing local battlefield assets…</p>
+              <p class="event-status visually-hidden" id="event-status" role="status" aria-live="polite" aria-atomic="true">Preparing the Standard local skirmish.</p>
+              <p class="visually-hidden" id="target-status" role="status" aria-live="polite" aria-atomic="true">Target: none.</p>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="viewport-gate"
+          id="orientation-gate"
+          role="status"
+          tabindex="-1"
+          aria-live="polite"
+          aria-atomic="true"
+          aria-labelledby="orientation-title"
+          hidden
+        >
+          <span class="rotate-mark" aria-hidden="true">↻</span>
+          <p class="eyebrow">Landscape required</p>
+          <h1 id="orientation-title">Rotate your device.</h1>
+          <p>Authoritative play and presentation pause, and transient input clears, until the battlefield returns to landscape.</p>
+        </section>
+
+        <section
+          class="viewport-gate"
+          id="size-gate"
+          role="status"
+          tabindex="-1"
+          aria-live="polite"
+          aria-atomic="true"
+          aria-labelledby="size-title"
+          hidden
+        >
+          <span class="frame-mark" aria-hidden="true">▭</span>
+          <p class="eyebrow">Viewport too small</p>
+          <h1 id="size-title">Give the battlefield more room.</h1>
+          <p>The supported landscape frame begins at 640 × 360 CSS pixels. Authoritative play remains paused below that boundary.</p>
+        </section>
+
+        <section class="load-error" id="load-error" role="alert" tabindex="-1" aria-labelledby="load-error-title" hidden>
+          <p class="eyebrow">Local battlefield assets unavailable</p>
+          <h1 id="load-error-title">The battlefield could not be opened.</h1>
+          <p id="load-error-detail">No skirmish was started. Reload the page or return to the menu.</p>
+          <button id="error-menu-button" type="button">Return to menu</button>
+        </section>
+
+        <p class="visually-hidden" id="audio-status">Audio remains unavailable in Phase 7 pending an explicit product-owner decision.</p>
+        <p class="visually-hidden" id="browser-feature-status" role="status" aria-live="polite" aria-atomic="true">
+          Fullscreen and landscape-orientation requests have not been made.
+        </p>
+      </main>
+    </div>
+
+    <dialog id="settings-dialog" aria-labelledby="settings-title" aria-describedby="settings-description">
+      <form method="dialog">
+        <p class="eyebrow">Pre-battle settings</p>
+        <h2 id="settings-title">Battlefield presentation</h2>
+        <p id="settings-description">Settings apply to the next local match and are not stored.</p>
+        <label>
+          <input id="fullscreen-on-begin" type="checkbox">
+          Request fullscreen after Begin
+        </label>
+        <label class="setting-field" for="art-tier">
+          <span>Runtime entity art</span>
+          <select id="art-tier">
+            <option value="standard" selected>Standard · 128 px</option>
+            <option value="compact">Compact · 96 px</option>
+          </select>
+        </label>
+        <p>Only the selected local entity tier is decoded. Structure art uses the approved bounded 384-pixel envelope.</p>
+        <button type="submit" value="close">Done</button>
+      </form>
+    </dialog>
+
+    <noscript>
+      <section class="noscript-gate">
+        <h1>JavaScript is required for the Phase 7 product-hardening candidate.</h1>
+        <p><a href="../">Return to the project status.</a></p>
+      </section>
+    </noscript>
+
+    <script src="../phase2/map.js"></script>
+    <script src="../phase2/camera.js"></script>
+    <script src="../phase2/renderer.js?v=2026.8.22e"></script>
+    <script src="../phase3/assets/entities/manifest.js"></script>
+    <script src="../phase3/assets.js"></script>
+    <script src="../phase3/input.js"></script>
+    <script src="../phase4/config.js"></script>
+    <script src="../phase4/map.js"></script>
+    <script src="../phase4/assets/structures/manifest.js"></script>
+    <script src="../phase4/assets.js"></script>
+    <script src="../phase5/config.js"></script>
+    <script src="../phase5/map.js"></script>
+    <script src="../phase5/navigation.js"></script>
+    <script src="../phase5/simulation.js"></script>
+    <script src="../phase5/replay.js"></script>
+    <script src="../phase5/assets/structures/manifest.js"></script>
+    <script src="../phase5/assets.js"></script>
+    <script src="../phase5/renderer.js"></script>
+    <script src="../phase5/input.js"></script>
+    <script src="../phase6/config.js"></script>
+    <script src="../phase6/ai.js"></script>
+    <script src="../phase6/skirmish.js"></script>
+    <script src="hardening.js"></script>
+    <script src="app.js?v=2026.8.22i"></script>
+  </body>
+</html>

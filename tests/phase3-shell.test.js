@@ -121,7 +121,7 @@ test("Pages stages the complete bounded Phase 3 route and exactly 24 runtime Web
   const files = staging.verifyRuntimeFiles();
   const phase3Files = files.filter((relativePath) => relativePath.startsWith("phase3/"));
   const webps = phase3Files.filter((relativePath) => relativePath.endsWith(".webp"));
-  assert.equal(files.length, 162);
+  assert.equal(files.length, 166);
   assert.equal(phase3Files.length, 35);
   assert.equal(webps.length, 24);
   assert.ok(phase3Files.includes("phase3/index.html"));
