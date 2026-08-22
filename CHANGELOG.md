@@ -2,6 +2,21 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.22d] — 2026-08-22 (Phase 4 closure and Phase 5 authorization)
+
+### Changed
+
+- Closed the structures, capture, Resource, population, production, spawn, refund, and rally gate after protected publication and live review, and froze the exact Phase 5 combat/tactical-command contract without adding combat runtime yet.
+- Corrected two live-only Phase 4 integration defects found during rendered review: the missing Phase 2 map dependency that blocked startup, and a throttled-frame race that could leave command controls briefly enabled after Pause.
+- Updated the public status shell and contributor handoff so Phase 4 is an approved playable foundation and Phase 5 is the active implementation boundary.
+
+### Evidence and boundaries
+
+- Implementation PR `#22`, dependency repair PR `#23`, and pause-boundary repair PR `#24` passed protected audits and merged. Final `main` commit `10b510ba2dc9da19fef85b1cb78e4047a69c5240` passed main audit `32573016677` and Pages deployment `32573016684`.
+- Phase 4 retains 45/45 focused and 167/167 complete checks, eight reproducible structure WebPs totaling 634,642 bytes, exact Pages staging, byte-identical live source samples and all eight live WebPs, plus named 1363×936 Standard and Compact cloud-Chrome journeys covering capture, production, refund, rally, spawn, pause gating, and menu recovery.
+- Tablet/phone landscape, portrait, touch, broad-browser, blocked-spawn recovery, orientation/fullscreen recovery, and physical-device observations remain named evidence debt rather than inferred results.
+- `v2026.8.22d` is a source/Pages label only. No Git tag or GitHub Release is created or authorized, and Phase 5 combat remains unimplemented in this planning change.
+
 ## [v2026.8.22c] — 2026-08-22 (Phase 4 structures and economy candidate)
 
 ### Added

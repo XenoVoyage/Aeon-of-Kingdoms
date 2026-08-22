@@ -26,7 +26,7 @@ const PHASE4_SCRIPTS = Object.freeze([
   "assets.js",
   "renderer.js",
   "input.js",
-  "app.js"
+  "app.js?v=2026.8.22d"
 ]);
 
 const PHASE4_LOCAL_SOURCES = Object.freeze([

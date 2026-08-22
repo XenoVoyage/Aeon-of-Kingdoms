@@ -6,7 +6,7 @@ Before editing:
 
 1. Run `git status --short --branch` and `git log -5 --oneline --decorate`.
 2. Read `AGENTS.md` completely, then follow its current required-reading and authority order.
-3. Read `docs/STATUS.md` for current phase, evidence, deployment, and Engineering Standard state; read `docs/REDESIGN.md` for product gates; then read every phase-specific owner it names for the active work. Phase 3 is closed; Phase 4 has a frozen contract and integrated candidate whose remaining boundary is complete verification, protected publication, live review, and closure before Phase 5 combat begins.
+3. Read `docs/STATUS.md` for current phase, evidence, deployment, and Engineering Standard state; read `docs/REDESIGN.md` for product gates; then read every phase-specific owner it names for the active work. Phase 0 through Phase 4 are closed; `docs/PHASE5_COMBAT_TACTICS.md` is the frozen active contract, and Phase 5 combat implementation is the next boundary.
 4. Inspect the relevant source, tests, pull request, review files, and decision owner.
 5. Run the focused checks named by the affected owner, then `node tests/run.js` before calling a candidate complete.
 

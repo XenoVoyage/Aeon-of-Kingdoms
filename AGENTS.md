@@ -9,7 +9,7 @@ Keep the standard status `adopting` while any applicable requirement remains fai
 
 ## Active redesign override
 
-The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the approved complete Phase 1B visual/interaction contract; [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) owns the approved landscape foundation; [`docs/PHASE3_ENTITY_MOVEMENT.md`](docs/PHASE3_ENTITY_MOVEMENT.md) owns the closed approved entity/movement contract; and [`docs/PHASE4_STRUCTURES_ECONOMY.md`](docs/PHASE4_STRUCTURES_ECONOMY.md) owns the frozen current structures/economy/production/rally contract and candidate evidence. Phase approval never grants a Git tag or GitHub Release.
+The formerly deployed `v2026.8.15` runtime at commit `7f88655` was rejected by the product owner and is historical evidence, not the visual, interaction, gameplay, terminology, or AI baseline for future work. [`docs/REDESIGN.md`](docs/REDESIGN.md) owns the approved replacement sequence and gates; [`docs/PRODUCTION_ART.md`](docs/PRODUCTION_ART.md) owns the enduring visual-production method; [`docs/PHASE1B_VISUAL_LOCK.md`](docs/PHASE1B_VISUAL_LOCK.md) owns the approved complete Phase 1B visual/interaction contract; [`docs/PHASE2_FOUNDATION.md`](docs/PHASE2_FOUNDATION.md) owns the approved landscape foundation; [`docs/PHASE3_ENTITY_MOVEMENT.md`](docs/PHASE3_ENTITY_MOVEMENT.md) owns the closed approved entity/movement contract; [`docs/PHASE4_STRUCTURES_ECONOMY.md`](docs/PHASE4_STRUCTURES_ECONOMY.md) owns the closed approved structures/economy/production/rally contract; and [`docs/PHASE5_COMBAT_TACTICS.md`](docs/PHASE5_COMBAT_TACTICS.md) owns the frozen active combat/tactical-command contract. Phase approval never grants a Git tag or GitHub Release.
 
 - Aeon of Kingdoms must have an original design. Neon Voyage may demonstrate restraint and clarity but its UI, structure, styles, and gameplay must not be copied.
 - Treat the existing runtime as disposable. No menu, renderer, map, site type, tuning value, interaction, AI behavior, or source boundary survives merely because it is implemented or tested.
@@ -49,10 +49,11 @@ Read in this order:
 8. `docs/PHASE2_FOUNDATION.md` before changing the approved Phase 2 shell, camera, viewport/orientation behavior, map schema, terrain renderer, navigation debug, or Phase 2 evidence.
 9. `docs/PHASE3_ENTITY_MOVEMENT.md` before changing entities, selection, movement, pathfinding, formation, separation, replay, snapshots, checksums, runtime entity art, or Phase 3 evidence.
 10. `docs/PHASE4_STRUCTURES_ECONOMY.md` before changing structures, capture, Resource, population, production, spawning, rally, or Phase 4 evidence.
-11. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their later redesign replacements exist.
-12. `docs/NETCODE.md` only when commands, determinism, networking, lobbies, or servers are involved.
-13. `docs/CONVERSATION_DECISIONS.md` only for historical rationale; it never overrides the files above.
-14. The connected source, tests, issue, pull request, and decision owner.
+11. `docs/PHASE5_COMBAT_TACTICS.md` before changing combat commands, stances, targeting, range, leashes, projectiles, damage, defeat, structure health/destruction, headquarters outcome, combat feedback, or Phase 5 evidence.
+12. `docs/GAME_DESIGN.md` and `docs/ARCHITECTURE.md` only with their prototype-era warnings until their later redesign replacements exist.
+13. `docs/NETCODE.md` only when commands, determinism, networking, lobbies, or servers are involved.
+14. `docs/CONVERSATION_DECISIONS.md` only for historical rationale; it never overrides the files above.
+15. The connected source, tests, issue, pull request, and decision owner.
 
 Use `CONTRIBUTING.md` as a public entrypoint, not a substitute for these rules. Ask before selecting material product direction when the goal or acceptance criteria are absent.
 
@@ -90,7 +91,7 @@ Do not expand the slice into an account system, content pipeline, framework migr
 
 ## 6. Ownership map
 
-Each responsibility has one source of truth. Phase 2 introduced the approved non-authoritative landscape shell, camera, map data, and layered renderer. Phase 3 introduced the approved first replacement authoritative entity/movement simulation, replay boundary, and runtime entity-art loader without beginning combat, structures/economy, AI, or networking. Prototype-era design documents remain historical until explicitly replaced.
+Each responsibility has one source of truth. Phase 2 introduced the approved non-authoritative landscape shell, camera, map data, and layered renderer. Phase 3 introduced the approved first replacement authoritative entity/movement simulation, replay boundary, and runtime entity-art loader. Phase 4 introduced the approved structures/economy/production/rally foundation. Phase 5 currently owns only the frozen combat/tactical-command implementation contract; its runtime and damage assets do not exist yet. Prototype-era design documents remain historical until explicitly replaced.
 
 | Area | Source of truth |
 | --- | --- |
@@ -125,6 +126,7 @@ Each responsibility has one source of truth. Phase 2 introduced the approved non
 | Phase 4 rules, map geometry, navigation, replay, and authoritative state | `phase4/config.js`, `phase4/map.js`, `phase4/navigation.js`, `phase4/simulation.js`, and `phase4/replay.js` |
 | Phase 4 reproducible structure derivatives, manifest, and runtime loader | `tools/export-phase4-structures.js`, `phase4/assets/structures/manifest.js`, and `phase4/assets.js` |
 | Phase 4 interaction, dynamic structure/entity ordering, shell, and presentation | `phase4/input.js`, `phase4/renderer.js`, `phase4/index.html`, `phase4/phase4.css`, and `phase4/app.js` |
+| Frozen Phase 5 combat/tactical-command contract and future evidence | `docs/PHASE5_COMBAT_TACTICS.md` |
 | Historical conversation rationale and rejected-attempt chronology | `docs/CONVERSATION_DECISIONS.md` |
 | Thin cold-start pointer for a new chat | `docs/NEW_CHAT_PROMPT.txt` |
 | Explicit Pages delivery allowlist | `.github/scripts/stage-pages.js` |
@@ -173,6 +175,7 @@ There is no install step, runtime dependency, or build step for the current stat
 | Focused Phase 1B visual-lock check | `node --test tests/phase1b-visual-lock.test.js` |
 | Focused Phase 2 foundation check | `node --test tests/phase2-foundation.test.js` |
 | Focused Phase 3 entity/movement checks | `node --test tests/phase3-assets.test.js tests/phase3-interaction-render.test.js tests/phase3-shell.test.js tests/phase3-simulation.test.js` |
+| Focused Phase 4 structures/economy checks | `node --test tests/phase4-assets.test.js tests/phase4-interaction-render.test.js tests/phase4-shell.test.js tests/phase4-simulation.test.js` |
 | Complete automated verification | `node tests/run.js` |
 | Stage the exact Pages payload | `node .github/scripts/stage-pages.js _site` |
 | Diff hygiene | `git diff --check` |

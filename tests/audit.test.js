@@ -103,6 +103,7 @@ const REQUIRED_FILES = [
   "docs/PHASE2_FOUNDATION.md",
   "docs/PHASE3_ENTITY_MOVEMENT.md",
   "docs/PHASE4_STRUCTURES_ECONOMY.md",
+  "docs/PHASE5_COMBAT_TACTICS.md",
   "docs/CONVERSATION_DECISIONS.md",
   "docs/NEW_CHAT_PROMPT.txt",
   "docs/STATUS.md",
@@ -142,7 +143,8 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(readme, /image above remains Phase 1A review evidence rather than a runtime screenshot/i);
   assert.match(readme, /owner approved the complete Phase 3 entity\/movement foundation on 2026-08-22 and authorized autonomous completion/i);
   assert.match(readme, /approved Phase 1B review/i);
-  assert.match(readme, /Phase 4 candidate extends the same fixed 20 Hz simulation/i);
+  assert.match(readme, /approved Phase 4 foundation extends the same fixed 20 Hz simulation/i);
+  assert.match(readme, /Phase 5 now has an exact frozen combat\/tactical-command contract/i);
   assert.match(readme, /rejected prototype remains available at commit \[`7f88655`/i);
   assert.match(readme, /retired `v2026\.8\.15` tag and GitHub Release must not be recreated/i);
   assert.doesNotMatch(readme, /releases\/tag\/v2026\.8\.15/i);
@@ -156,10 +158,10 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/ASSETS.md"), /Rejected prototype archive/);
   assert.match(read("docs/ASSETS.md"), /1,253,726 bytes/);
   assert.match(read("tests/README.md"), /approved production-art contract/i);
-  assert.match(read("docs/STATUS.md"), /Active phase \| Phase 0 through Phase 3 are approved and closed/i);
+  assert.match(read("docs/STATUS.md"), /Active phase \| Phase 0 through Phase 4 are approved and closed/i);
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
-  assert.match(read("docs/STATUS.md"), /reproduced the then-current 77\/77 checks/i);
+  assert.match(read("docs/STATUS.md"), /Phase 4 passes 45\/45 focused and 167\/167 complete dependency-free checks/i);
   assert.match(read("docs/STATUS.md"), /Engineering standard \| v1\.0 governs the repository and is structurally applied, but remains `adopting`/i);
   assert.match(read("docs/STATUS.md"), /24-file Pages allowlist/i);
   assert.match(read("docs/STATUS.md"), /Pages staged the exact 31-file allowlist plus `\.nojekyll`/i);
@@ -200,10 +202,13 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/PHASE3_ENTITY_MOVEMENT.md"), /Phase 4 structures, economy, production, and rally is the next authorized boundary/i);
   assert.doesNotMatch(read("docs/PHASE3_ENTITY_MOVEMENT.md"), /owner gate remains pending|explicit Phase 3 owner approval pending|Phase 3 remains active/i);
   assert.doesNotMatch(read("SECURITY.md"), /active Phase 3 owner-review candidate|current candidate/i);
-  assert.match(read("docs/NEW_CHAT_PROMPT.txt"), /Phase 4 has a frozen contract and integrated candidate whose remaining boundary is complete verification/i);
-  assert.match(read("docs/ARCHITECTURE.md"), /PHASE4_STRUCTURES_ECONOMY\.md.*owns the current structures\/economy\/production\/rally candidate/i);
+  assert.match(read("docs/NEW_CHAT_PROMPT.txt"), /Phase 0 through Phase 4 are closed.*PHASE5_COMBAT_TACTICS\.md.*frozen active contract/i);
+  assert.match(read("docs/ARCHITECTURE.md"), /PHASE4_STRUCTURES_ECONOMY\.md.*owns the approved structures\/economy foundation.*PHASE5_COMBAT_TACTICS\.md.*owns the active combat\/tactical-command contract/i);
   assert.doesNotMatch(read("docs/ARCHITECTURE.md"), /No Phase 3 implementation exists/i);
-  assert.match(read("docs/GAME_DESIGN.md"), /PHASE4_STRUCTURES_ECONOMY\.md.*owns the current structures\/economy\/production\/rally candidate/i);
+  assert.match(read("docs/GAME_DESIGN.md"), /PHASE4_STRUCTURES_ECONOMY\.md.*owns the approved structures\/economy foundation.*PHASE5_COMBAT_TACTICS\.md.*owns the active combat\/tactical-command contract/i);
+  assert.match(read("docs/PHASE4_STRUCTURES_ECONOMY.md"), /Status: \*\*closed on 2026-08-22/i);
+  assert.match(read("docs/PHASE5_COMBAT_TACTICS.md"), /Status: \*\*authorized and frozen for implementation on 2026-08-22; not implemented, verified, published, or deployed\*\*/i);
+  assert.match(read("docs/PHASE5_COMBAT_TACTICS.md"), /simulation rate \| 20 ticks per second/i);
   assert.match(read("docs/ASSETS.md"), /approved runtime-entity foundation/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`/i);
@@ -320,6 +325,10 @@ test("status HTML uses only its local relative shell and a restrictive CSP", () 
   assert.doesNotMatch(html, /css\/(?:tokens|app)\.css/);
   assert.match(html, /docs\/REDESIGN\.md/);
   assert.match(html, /docs\/STATUS\.md/);
+  assert.match(html, /Phase 4 complete · Phase 5 contract frozen/i);
+  assert.match(html, /Phase 5 combat is ready for implementation/i);
+  assert.match(html, /<span class=["']phase-number["']>05<\/span>/i);
+  assert.match(html, /docs\/PHASE5_COMBAT_TACTICS\.md/i);
 });
 
 test("local Markdown links resolve", () => {
@@ -379,9 +388,9 @@ test("Pages allowlist contains only approved public surfaces and source-of-truth
     "concepts/feasibility/index.html",
     "concepts/feasibility/proof.css"
   ]);
-  assert.equal(files.length, 129);
+  assert.equal(files.length, 130);
   assert.equal(files.filter((entry) => /concepts\/feasibility\/phase1a\//.test(entry)).length, 37);
-  assert.deepEqual(files.slice(-8), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/PHASE2_FOUNDATION.md", "docs/PHASE3_ENTITY_MOVEMENT.md", "docs/PHASE4_STRUCTURES_ECONOMY.md", "docs/STATUS.md", "docs/ASSETS.md"]);
+  assert.deepEqual(files.slice(-9), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/PHASE2_FOUNDATION.md", "docs/PHASE3_ENTITY_MOVEMENT.md", "docs/PHASE4_STRUCTURES_ECONOMY.md", "docs/PHASE5_COMBAT_TACTICS.md", "docs/STATUS.md", "docs/ASSETS.md"]);
   const staged = files.join("\n");
   assert.doesNotMatch(staged, /(?:icon|gameplay|visual-capture|README|LICENSE|CHANGELOG|VERSION|package\.json)/i);
   assert.equal(files.includes("manifest.webmanifest"), false, "the retired install manifest must stay private");

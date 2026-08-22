@@ -1,6 +1,6 @@
 # Phase 4 structures, economy, production, and rally contract
 
-Status: **implemented and frozen as the Phase 4 candidate on 2026-08-22; integrated, publication, and live evidence remain pending**.
+Status: **closed on 2026-08-22 after source, automated, rendered Standard and Compact art-tier journeys at a desktop 1363×936 viewport, protected-publication, and live-byte evidence passed; unavailable device/browser observations remain named debt**.
 
 This document owns the exact Phase 4 rules and acceptance evidence. It extends the approved Phase 2 landscape and Phase 3 entity/movement foundation without starting combat, strategic AI, campaign logic, or networking. When this document conflicts with prototype-era source or mood-reference numbers, this document wins.
 
@@ -145,15 +145,23 @@ This means an entity arriving this tick can contribute to capture, a capture com
 - Capture, selection, owner, rally, blocked production, rejection, and completion use text or shape plus color. Progress bars are not live regions; transition announcements are bounded and separate from the 20 Hz debug readout.
 - Pause, lifecycle loss, orientation gates, resize, menu return, and teardown clear transient interaction modes safely.
 
-## Required candidate evidence
+## Closure evidence
 
-Before Phase 4 closes:
+Phase 4 closed against the following source, deployment, and available rendered requirements; unavailable device/browser rows remain explicit debt rather than inferred evidence:
 
 1. Focused tests cover strict commands; capture/contest/unwind/switch; income; population; queue bounds and timing; every refund row; blocked retry without duplication; spawn ordering and occupancy; ownership and destruction settlement; rally set/reject/preserve/clear; spawned movement; snapshot validation; restore-and-continue; replay convergence; and checksums.
 2. Asset checks reproduce and verify the eight approved lossless structure base/mask derivatives, exact dimensions/bytes/hashes, alpha containment, local paths, and decoded bounds.
 3. Shell/input/render tests cover semantic HUD state, keyboard-operable production controls, combat-versus-structure selection, contextual mouse/touch modes, dynamic sorting, non-color cues, lifecycle cleanup, CSP, and the exact Pages allowlist.
 4. The complete dependency-free suite, asset reproduction, Pages staging, diff hygiene, and working-tree review pass.
-5. Named rendered desktop and compact-landscape journeys inspect first paint, both art tiers, all three categories, neutral and owned cues, capture, queue/progress/cancel, blocked spawn recovery, rally set/reject/clear, spawned movement, pause/orientation recovery, and menu return. Physical-device and unavailable-browser observations remain named debt rather than inferred.
+5. Named rendered journeys at a 1363×936 desktop viewport inspect first paint in the Standard and Compact art tiers, all three categories, neutral and owned cues, capture, queue/progress/cancel, rally set/clear, pause/resume, and menu return. Blocked-spawn recovery, invalid-rally preservation, spawned rally movement, and orientation behavior are deterministic test evidence; live compact-landscape, physical-device, touch, and unavailable-browser observations remain named debt rather than inferred.
 6. Protected publication and live-byte verification are recorded separately from source and rendered review.
 
-Gate: a player can expand, produce, redirect reinforcements, lose shared structures, and recover through deterministic readable interactions. The owner's 2026-08-22 authorization permits autonomous technical/visual review and protected publication of a correct candidate; it does not create a Git tag or GitHub Release.
+The frozen source passes 45/45 focused Phase 4 checks and 167/167 complete dependency-free checks. The exporter reproduces all eight exact-RGBA lossless structure WebPs at 634,642 encoded bytes. The candidate staged 129 explicitly allowlisted public files plus `.nojekyll`, and diff hygiene passed.
+
+Implementation pull request `#22` merged as `fbd4852c81a584b188dcf90d4d0ced6ce7f4b6c0`. The first live review exposed a missing Phase 2 map dependency; repair pull request `#23` merged as `e2d55ec0520dd236dda566ff9512932d79afbbea`. The continued live journey exposed a throttled-frame paused-command race; repair pull request `#24` merged as final Phase 4 commit `10b510ba2dc9da19fef85b1cb78e4047a69c5240`. Final main audit `32573016677` and Pages deployment `32573016684` completed successfully.
+
+No-cache SHA-256 checks matched merged source for the live root, Phase 4 entry, app, configuration, map, structure manifest, and all eight structure WebPs. Fresh cloud-Chrome journeys at 1363×936 loaded both Standard 128-pixel and Compact 96-pixel entity tiers with all six landscape layers and no Pages-origin warning or error. The observed primary journey covered all three structure categories, neutral and color-plus-symbol owned cues, army selection and movement, a completed Production Outpost capture, queue progress, a completed spawn, full cancellation refund, rally set and clear, synchronous pause command gating, resume/menu recovery, and exact structure/entity ground-root presentation. Deterministic suites separately cover contest/unwind/switch, blocked-complete recovery without duplication, invalid rally preservation, ownership/destruction settlement, spawned rally movement, snapshots, restore, replay, and checksums.
+
+The cloud browser did not expose viewport resizing or physical touch hardware. Tablet/phone landscape, portrait and rotation recovery, touch gestures, broad browsers, 200% zoom, fullscreen recovery, a live blocked-spawn recovery journey, generalized stale-cache/rollback, and physical-device observations remain named evidence debt rather than inferred results.
+
+Gate: **complete on 2026-08-22** under the owner's standing goal-mode authorization. A player can expand, produce, redirect reinforcements, lose shared structures, and recover through deterministic readable interactions. This closure does not create a Git tag or GitHub Release and does not approve Phase 5 implementation output.
