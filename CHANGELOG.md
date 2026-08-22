@@ -2,6 +2,22 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.22f] — 2026-08-22 (Phase 5 closure and Phase 6 contract)
+
+### Changed
+
+- Closed Phase 5 after protected publication, exact deployed-byte verification, page-origin console review, and named Standard/Compact desktop combat journeys passed.
+- Updated the status shell so the approved Phase 5 combat foundation remains directly playable while Phase 6 is clearly identified as the active unimplemented boundary.
+- Added `docs/PHASE6_STRATEGIC_AI.md` as the exact owner of one local human-versus-computer Moonfall Crossing skirmish, one no-cheating deterministic Standard AI, its observation redaction, task forces, production/capture/recovery/assault rules, command orchestration, checkpoints, replay, presentation, bounds, and closure gate.
+
+### Evidence and boundaries
+
+- Phase 5 implementation pull request `#26` passed protected audit `32582567751` and merged as `4c94369888911e7ff9c06ca53836fb6903b8e304`; main audit `32582619287` and Pages deployment `32582619288` succeeded.
+- The remote merge tree exactly matched the frozen local candidate after protected automation caught and forced repair of eight truncated large-blob uploads. Cache-busted requests then matched the root plus all 24 Phase 5 route files byte for byte.
+- The visible 1363×936 cloud-Chrome review exercised selection, focus attack, attack-move, point/entity defend, STOP, ranged combat, casualties, survivor capture, headquarters damage, production, full refund, pause/resume, navigation, settings, Standard/Compact loading, and menu return with no Pages-origin warning or error. Exact unforced destroyed/victory/draw, cancellation, reservation, restore, and replay edges remain established by deterministic tests.
+- Phase 6 runtime, modes, campaign, product hardening, networking, external requests, tags, and Releases remain absent. Physical-device and unavailable browser rows remain named Phase 7 debt.
+- `v2026.8.22f` is a source/Pages label only. No Git tag or GitHub Release is created or authorized.
+
 ## [v2026.8.22e] — 2026-08-22 (Phase 5 combat implementation candidate)
 
 ### Added

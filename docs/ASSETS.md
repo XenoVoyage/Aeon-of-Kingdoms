@@ -125,7 +125,7 @@ The twelve-file encoded set is below its 3 MiB ceiling. Decoded-source arithmeti
 | `structures/phase5/production-outpost-damaged.png` | 1024×810 | 957,835 | `4322a84081a615b6aa617ba14aea8063797d8c58e4cd93c905862566626e15e4` |
 | `structures/phase5/production-outpost-destroyed.png` | 1024×810 | 863,728 | `a82d545ecb25220dbf2a8064dd5a2b15ec3d520aa40b2ec32e5c5225edc69fb1` |
 
-These eight sources total **7,606,270 bytes** and are never staged to Pages. They were authored after Phase 1A for the Phase 5 implementation candidate, so they are not added to the original approved 65-file Phase 1A package count or its 14 MiB review budget. The staged runtime candidate contains only the twelve derived WebPs and their strict manifest; publication, rendered review, and Phase 5 closure remain pending.
+These eight sources total **7,606,270 bytes** and are never staged to Pages. They were authored after Phase 1A for the Phase 5 implementation candidate, so they are not added to the original approved 65-file Phase 1A package count or its 14 MiB review budget. The approved deployed runtime contains only the twelve derived WebPs and their strict manifest; all eight authoring sources remain repository-only after Phase 5 closure.
 
 This complete export also exposed why the earlier feasibility totals were too small: the unpublished six-entity survey files behind **694,040 Standard** and **435,142 Compact** had blank lower-body rows in five entities. Those totals and their doubled projections are retained below only as historical Phase 1B feasibility evidence; they are not valid runtime ceilings. The four separately repaired public Astral Guardian samples were not the defective five-entity files and remain unchanged.
 
