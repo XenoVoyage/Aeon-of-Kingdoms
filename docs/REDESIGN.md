@@ -1,8 +1,8 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 through Phase 5 complete; Phase 6 strategic-AI/local-skirmish implementation candidate under final audit**.
+Status: **approved baseline; Phase 0 through Phase 6 complete; Phase 7 product-hardening planning active under a frozen contract**.
 
-This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact closed Phase 3 contract and evidence record, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input. [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) owns the closed structures/economy/production/rally contract and evidence. [`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md) owns the closed combat/tactical-command contract and evidence. [`PHASE6_STRATEGIC_AI.md`](PHASE6_STRATEGIC_AI.md) owns the frozen active strategic-AI/local-skirmish implementation candidate; its current source state does not claim protected publication, rendered evidence, or closure.
+This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact closed Phase 3 contract and evidence record, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input. [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) owns the closed structures/economy/production/rally contract and evidence. [`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md) owns the closed combat/tactical-command contract and evidence. [`PHASE6_STRATEGIC_AI.md`](PHASE6_STRATEGIC_AI.md) owns the closed strategic-AI/local-skirmish contract and evidence. [`PHASE7_PRODUCT_HARDENING.md`](PHASE7_PRODUCT_HARDENING.md) owns the frozen active product-hardening planning contract; this change does not claim Phase 7 implementation, physical-device or broad-browser results, or resolved audio/options/onboarding decisions.
 
 The prototype remains in Git history as evidence. Its menu, battlefield presentation, art, map vocabulary, portrait behavior, movement feel, combat interaction, AI behavior, and public product claims are not design precedents for the replacement.
 
@@ -321,19 +321,22 @@ The exact authorized implementation boundary is frozen in [`PHASE6_STRATEGIC_AI.
 
 - [x] Implement bounded threat assessment, production planning, defensive reserve, task forces, objective value, retreat/regroup, and timed assaults in the source candidate.
 - [x] Add deterministic focused coverage for defense, multi-front behavior, composition, recovery, orchestration, checkpoints, replay, lifecycle, and bounded completion.
-- [ ] Complete final technical and rendered tuning of the first two-player Conquest skirmish, publish through the protected path, and close the gate only after exact live evidence passes.
+- [x] Complete final technical and rendered tuning of the first two-player Conquest skirmish, publish through the protected path, and close the gate only after exact live evidence passes.
 
-Gate: **active; implementation candidate under final audit**. AI must present varied credible pressure without cheating, leaking hidden state, issuing every entity the same destination, or creating a deterministic stalemate in the frozen completion scenarios.
+Gate: **complete on 2026-08-22** under the owner's standing goal-mode authorization. Phase 6 passed 37/37 focused and 262/262 complete dependency-free checks, including an exact tick-3,715 passive computer victory; pull request `#28` passed audit `32588621330`, merged as `f713d58bb7a9460bce7f9e4c88cabc999e17a20f` with exact tree `e2a556e56b286d1e23d1d0c6b3399db10a6b6fb4`, and main audit `32588951779` plus Pages run `32588951783` succeeded. All 161 live allowlisted files matched merged source, and named 1363×936 Standard/Compact cloud-Chrome journeys covered first paint, production, capture, separate reserve/front behavior, timed assault, defense/recovery/regroup, pause, outcome, Navigation, and menu recovery without a Pages-origin warning or error. Physical-device and broad-browser observations remain explicit Phase 7 debt.
 
 ### Phase 7 — Product hardening
 
+The exact active planning boundary is frozen in [`PHASE7_PRODUCT_HARDENING.md`](PHASE7_PRODUCT_HARDENING.md). This planning change preserves the approved Phase 5 and Phase 6 runtime bytes and does not begin a hardening implementation, select audio/options/onboarding behavior, replace the status page, or start Phase 8 or Phase 9.
+
 - [ ] Physical desktop, phone, and tablet input testing.
 - [ ] Landscape rotation/fullscreen/background recovery.
-- [ ] Accessibility, reduced motion, color-independent state, audio, options, and onboarding.
+- [ ] Accessibility, reduced-motion, and color-independent-state verification against the frozen evidence matrix.
+- [ ] Obtain explicit product decisions for audio, options, and onboarding before implementing those areas; do not infer them from the prototype or general RTS convention.
 - [ ] Long-match performance, thermal, memory, congestion, queue, and population-cap tests.
 - [ ] Replace the interim redesign/status page only after owner approval of the complete local slice.
 
-Gate: one polished map, two factions, and local skirmish meet the release evidence matrix.
+Gate: **active; frozen planning contract only**. Phase 7 closes only when one polished map, two factions, and the local skirmish meet the exact release evidence matrix. No unavailable physical-device, broad-browser, thermal, or long-session result is inferred.
 
 ### Phase 8 — Modes and campaign
 
