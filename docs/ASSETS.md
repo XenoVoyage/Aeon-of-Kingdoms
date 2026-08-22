@@ -1,6 +1,6 @@
 # Assets and art direction
 
-This file owns the active reference inventory, provenance record, and rejected proof archive. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) owns the approved visible, facing, animation, player-color, structure-damage, and validation method; [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) owns the approved measured runtime envelope; [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the approved landscape asset use; [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the approved runtime-entity foundation; [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) owns the current runtime-structure boundary; and [`REDESIGN.md`](REDESIGN.md) owns phase scope and approval gates. The four Phase 1B browser samples remain untouched review-only evidence and are not promoted as runtime files.
+This file owns the active reference inventory, provenance record, and rejected proof archive. [`PRODUCTION_ART.md`](PRODUCTION_ART.md) owns the approved visible, facing, animation, player-color, structure-damage, and validation method; [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md) owns the approved measured runtime envelope; [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) owns the approved landscape asset use; [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the approved runtime-entity foundation; [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) owns the approved intact runtime-structure set; [`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md) owns the active bounded damage/destroyed asset boundary; and [`REDESIGN.md`](REDESIGN.md) owns phase scope and approval gates. The four Phase 1B browser samples remain untouched review-only evidence and are not promoted as runtime files.
 
 ## Approved production method
 
@@ -82,7 +82,7 @@ Both tracked tiers total **1,193,572 encoded bytes**. `phase3/assets/entities/ma
 
 The Phase 3 runtime loader fixes Astral Concord to seat 1 and Gravebound Court to seat 2. It validates each selected base/mask pair, precomposes exactly one final owner-colored sheet per entity, releases the decoded mask, and retains only the diagnostic base plus that final owner sheet. The selected-tier retained decoded ceiling is therefore **12 MiB Standard** or **6.75 MiB Compact**. The HSL shading transform and alpha-coverage rule remain tested against all six locked player presentations even though the approved two-player foundation prepares only its two faction-to-seat mappings.
 
-### Phase 4 runtime structure set
+### Approved Phase 4 runtime structure set
 
 Phase 4 derives one complete 384-pixel-maximum-edge base/mask pair for each of the four approved forms without trimming or reframing its transparent canvas. `tools/export-phase4-structures.js` validates the approved Phase 1A source package, resizes base and mask with identical Lanczos geometry, clamps mask alpha, clears transparent RGB, encodes exact lossless WebP with metadata stripped, regenerates the manifest, and supports byte-for-byte `--check` reproduction.
 
@@ -98,7 +98,11 @@ Phase 4 derives one complete 384-pixel-maximum-edge base/mask pair for each of t
 
 The earlier Phase 1B measurement of **630,706 bytes** used libwebp's non-exact transparent-pixel behavior. Phase 4 corrected that boundary by enabling exact RGBA preservation; the **3,936-byte** increase prevents invisible RGB synthesis and freezes zero transparent RGB plus zero decoded RGBA round-trip differences. This is an authoring correction, not a visible-art change.
 
-Only the intact runtime state exists in this set. `production-outpost-damage.webp` remains a flattened RGB review strip with no aligned transparency and is explicitly excluded from runtime loading; it must not be cropped into fake damage states. Phase 5 owns production-ready damage/destruction art and combat-driven state changes.
+Only the approved intact runtime state exists in this set. `production-outpost-damage.webp` remains a flattened RGB review strip with no aligned transparency and is explicitly excluded from runtime loading; it must not be cropped into fake damage states.
+
+### Active Phase 5 damage and destroyed asset boundary
+
+Phase 5 is authorized to add exactly twelve production derivatives for the four approved forms: four damaged bases, four aligned and base-alpha-clamped damaged ownership masks, and four destroyed bases without ownership masks. Every derivative must retain its intact sibling's canvas, ground root, footprint, and anchors, remain within the frozen 3 MiB encoded and 13 MiB decoded ceilings, and pass reproducible dimension, hash, transparency, and mask-containment checks. These files are **not implemented or measured yet**; no Phase 4 intact asset or flattened review strip counts as Phase 5 damage-state evidence.
 
 This complete export also exposed why the earlier feasibility totals were too small: the unpublished six-entity survey files behind **694,040 Standard** and **435,142 Compact** had blank lower-body rows in five entities. Those totals and their doubled projections are retained below only as historical Phase 1B feasibility evidence; they are not valid runtime ceilings. The four separately repaired public Astral Guardian samples were not the defective five-entity files and remain unchanged.
 

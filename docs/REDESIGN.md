@@ -1,8 +1,8 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 through Phase 3 complete; Phase 4 structures, economy, production, and rally candidate in integrated review**.
+Status: **approved baseline; Phase 0 through Phase 4 complete; Phase 5 combat and tactical-command contract frozen for implementation**.
 
-This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact closed Phase 3 contract and evidence record, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input. [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) owns the frozen current contract and candidate evidence; its source existence does not independently establish rendered quality, deployment, or closure.
+This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact closed Phase 3 contract and evidence record, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input. [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) owns the closed structures/economy/production/rally contract and evidence. [`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md) owns the frozen active combat/tactical-command implementation boundary; its planning existence does not claim combat runtime or approval.
 
 The prototype remains in Git history as evidence. Its menu, battlefield presentation, art, map vocabulary, portrait behavior, movement feel, combat interaction, AI behavior, and public product claims are not design precedents for the replacement.
 
@@ -144,13 +144,14 @@ Combat entities automatically acquire valid hostiles inside a configured awarene
 
 | Current order | Nearby hostile | Directly attacked | Target invalid or unreachable | Completion |
 | --- | --- | --- | --- | --- |
-| `MOVE` | Does not initiate or detour | May return fire only under the approved stance, then resumes | Repath within bounds or stop with feedback | Idle at destination |
-| `ATTACK_ENTITY` | Keeps explicit target | Keeps explicit target unless unable to respond | Bounded repath, then stop or resume the queued prior order according to the approved queue rule | Idle or resume queued order |
-| `ATTACK_MOVE` | Acquires by stable threat/priority rules | May reprioritize the immediate attacker deterministically | Return to route after bounded engagement; stop with feedback if destination is unreachable | Idle at destination |
+| `MOVE` | Does not acquire or detour | Does not return fire | Repath within bounds or stop with feedback | Idle at destination |
+| `ATTACK_ENTITY` | Keeps the explicit target | Keeps the explicit target | Bounded repath, then idle on invalid, unreachable, or leash break; no prior order resumes | Idle |
+| `ATTACK_MOVE` | Acquires by target-edge distance then raw-ASCII identifier | Keeps its sticky valid target | Returns within the frozen threshold, then resumes its saved route; stops with feedback if the destination is unreachable | Idle at destination |
 | `DEFEND` | Engages only inside the defended area's/entity's leash | Responds within the same leash | Returns to the defend anchor when pursuit ends | Persists until replaced or stopped |
-| `STOP` / idle | May acquire only under the approved idle stance | May defend itself without starting an unlimited pursuit | Remains stopped | Persists until replaced |
+| `STOP` | Acquires nothing | Does not return fire | Remains stopped | Persists until replaced |
+| `IDLE` | Acquires combat entities only under the frozen awareness/leash rules | Keeps its sticky valid target | Returns within the frozen threshold of its idle root | Remains idle after return |
 
-Phase 5 must close stance, leash, prior-order queue, and target-priority values before implementation. Tests cover every row rather than relying on informal “nearby combat” behavior.
+[`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md) freezes the exact stance, leash, retained-order, target-priority, contact, projectile, damage, defeat, structure-health, and victory values before implementation. Tests cover every row rather than relying on informal “nearby combat” behavior.
 
 ## Strategic AI contract
 
@@ -298,15 +299,17 @@ Gate: **complete on 2026-08-22** through explicit owner approval that selected a
 - [x] Implement capture, ownership treatment, economy/population effects, queue rules, progress UI, spawn validation, and rally commands.
 - [x] Close and test the refund, blocked-complete, ownership-change, destruction, and invalid/unreachable rally outcomes.
 - [x] Make production and rally deterministic, replayable, AI-usable, and network-ready.
-- [ ] Complete named rendered, deployed, and live-byte evidence and close the gate before Phase 5 begins.
+- [x] Complete named rendered, deployed, and live-byte evidence and close the gate before Phase 5 begins; live review found and drove repair of the missing browser map dependency and paused-command race before closure.
 
-Gate: a player can expand, produce, redirect reinforcements, lose structures, and recover through clear readable interactions.
+Gate: **complete on 2026-08-22** under the owner's standing goal-mode authorization after source, automated, rendered Standard and Compact art-tier journeys at a desktop 1363×936 viewport, protected-publication, exact live-byte, and primary interaction evidence passed. Unavailable device/browser observations remain named debt.
 
 ### Phase 5 — Combat and tactical commands
 
+The exact authorized implementation boundary is frozen in [`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md). It retains the six approved representatives and the Phase 4 economy rather than inventing the remaining Phase 1B identities or borrowing prototype combat values.
+
 - [ ] Focus attack with desktop enemy hover/right-click and mobile contextual attack.
 - [ ] Autonomous acquire, attack range, chase/leash, retarget, defend, stop, and attack-move.
-- [ ] Melee contact positions, ranged spacing, projectiles where required, simultaneous damage, support behavior, defeat, and structure assault.
+- [ ] Melee contact positions, ranged spacing, projectiles where required, simultaneous damage, role-specific behavior, defeat, and structure assault.
 - [ ] Complete combat animation and feedback states.
 
 Gate: short battles are tactically understandable, visually faithful, deterministic, and satisfying on desktop and touch.
