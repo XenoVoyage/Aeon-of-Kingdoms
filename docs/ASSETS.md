@@ -100,9 +100,32 @@ The earlier Phase 1B measurement of **630,706 bytes** used libwebp's non-exact t
 
 Only the approved intact runtime state exists in this set. `production-outpost-damage.webp` remains a flattened RGB review strip with no aligned transparency and is explicitly excluded from runtime loading; it must not be cropped into fake damage states.
 
-### Active Phase 5 damage and destroyed asset boundary
+### Phase 5 implementation-candidate damage and destroyed set
 
-Phase 5 is authorized to add exactly twelve production derivatives for the four approved forms: four damaged bases, four aligned and base-alpha-clamped damaged ownership masks, and four destroyed bases without ownership masks. Every derivative must retain its intact sibling's canvas, ground root, footprint, and anchors, remain within the frozen 3 MiB encoded and 13 MiB decoded ceilings, and pass reproducible dimension, hash, transparency, and mask-containment checks. These files are **not implemented or measured yet**; no Phase 4 intact asset or flattened review strip counts as Phase 5 damage-state evidence.
+Phase 5 adds exactly twelve production derivatives for the four approved forms: four damaged bases, four aligned and damaged-base-alpha-clamped ownership masks, and four destroyed bases without ownership masks. `tools/export-phase5-structures.js` accepts only the eight exact transparent repository sources below, preserves each Phase 4 canvas and presentation record, derives the damaged mask only from the intact ownership mask, strips metadata, clears transparent RGB, encodes exact lossless WebP, records the complete provenance/audit, and supports byte-for-byte `--check` reproduction. It never reads the flattened `production-outpost-damage.webp` review strip as a runtime source.
+
+| Form | Runtime canvas | Damaged base | Damaged mask | Destroyed base | Total |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Astral headquarters | 384×355 | 160,964 | 7,268 | 107,812 | 276,044 |
+| Gravebound headquarters | 384×350 | 141,366 | 9,358 | 94,632 | 245,356 |
+| Resource Point | 384×384 | 153,506 | 9,150 | 121,744 | 284,400 |
+| Production Outpost | 384×304 | 126,130 | 6,284 | 102,078 | 234,492 |
+| **Total** | — | **581,966** | **32,060** | **426,266** | **1,040,292** |
+
+The twelve-file encoded set is below its 3 MiB ceiling. Decoded-source arithmetic is **6,418,944 bytes**, below 13 MiB. The two-player loader reuses the four intact Phase 4 bases, retains all twelve intact/damaged/destroyed bases plus twelve prepared intact/damaged owner sheets, and totals **12,811,776 decoded RGBA bytes**, also below 13 MiB; it releases all eight decoded masks and every temporary canvas. The aggregate audit records zero border-alpha pixels, mask escapes, transparent-RGB pixels, and lossless round-trip differences. Exactly 10,522 damaged-mask pixels were clamped to damaged alpha, and 29,232 transparent RGB pixels were cleared before encoding.
+
+| Repository-only authored source | Dimensions | Bytes | SHA-256 |
+| --- | ---: | ---: | --- |
+| `structures/phase5/astral-headquarters-damaged.png` | 1024×947 | 1,115,620 | `f4ec0110028982967653a66bff0811cd15534ea7052ceb4d65ba525d2d9a37ed` |
+| `structures/phase5/astral-headquarters-destroyed.png` | 1024×947 | 907,533 | `e3b4484688b0256b91630f7be8cafb760d917bcaab22859937717b6e8567967c` |
+| `structures/phase5/gravebound-headquarters-damaged.png` | 1024×933 | 1,006,337 | `32ca744043e7a07e75e92d45ad9bb962c5e9e99025101bf75d863c94665b044b` |
+| `structures/phase5/gravebound-headquarters-destroyed.png` | 1024×933 | 797,573 | `dcd92fda86f5b2c971a099f0e79f498c31a544fb704c078d6e8d8f5f603a7b65` |
+| `structures/phase5/resource-point-damaged.png` | 1024×1024 | 1,036,661 | `3af2d0c2941c650315e95eaba6c8af14b618f3c233db0c89410863daced377c3` |
+| `structures/phase5/resource-point-destroyed.png` | 1024×1024 | 920,983 | `5bd8427d5e546bd214204128d6e8f9568927de9cb3eabe36372103f51bcb6272` |
+| `structures/phase5/production-outpost-damaged.png` | 1024×810 | 957,835 | `4322a84081a615b6aa617ba14aea8063797d8c58e4cd93c905862566626e15e4` |
+| `structures/phase5/production-outpost-destroyed.png` | 1024×810 | 863,728 | `a82d545ecb25220dbf2a8064dd5a2b15ec3d520aa40b2ec32e5c5225edc69fb1` |
+
+These eight sources total **7,606,270 bytes** and are never staged to Pages. They were authored after Phase 1A for the Phase 5 implementation candidate, so they are not added to the original approved 65-file Phase 1A package count or its 14 MiB review budget. The staged runtime candidate contains only the twelve derived WebPs and their strict manifest; publication, rendered review, and Phase 5 closure remain pending.
 
 This complete export also exposed why the earlier feasibility totals were too small: the unpublished six-entity survey files behind **694,040 Standard** and **435,142 Compact** had blank lower-body rows in five entities. Those totals and their doubled projections are retained below only as historical Phase 1B feasibility evidence; they are not valid runtime ceilings. The four separately repaired public Astral Guardian samples were not the defective five-entity files and remain unchanged.
 
@@ -115,7 +138,7 @@ This complete export also exposed why the earlier feasibility totals were too sm
 | `structures/resource-point.png` | 1024×1024 | 951,762 | 56,248 | Neutral shared base; flag, capture ring, mark, and bounded light masked |
 | `structures/production-outpost.png` | 1024×810 | 977,617 | 43,129 | Neutral shared base; banners, crystals, mark, and bounded light masked |
 
-The complete 65-file direct package totals **12,692,541 bytes**, below its 14 MiB review budget. It intentionally has no HTML, CSS, or JavaScript review application.
+The original approved 65-file direct package totals **12,692,541 bytes**, below its 14 MiB review budget. It intentionally has no HTML, CSS, or JavaScript review application. The eight later `structures/phase5/` source PNGs are tracked alongside the masters for provenance but remain outside this historical Phase 1A inventory and budget.
 
 ### Generation, prompts, and transformations
 
@@ -130,6 +153,7 @@ Direction and review: **XenoVoyage**. Raster generation: project-specific OpenAI
 | Hollow String | Hooded skeletal archer with one large bow and quiver, same camera/style, controlled gait, draw/release action, and coherent defeat | `exec-7fafae76-ec70-46be-ae62-4bc1316d423e.png`; `exec-9e60777a-a4d2-462a-9c3c-243507a08d7a.png`; `exec-e64af89d-4a50-4026-9860-f22b041f646e.png` |
 | Ossuary Colossus | Massive skeletal signature entity with one attached tower shield and free striking fist, heavy gait, punch action, and shield-preserving collapse | `exec-a05e660a-3158-4d2d-b1e6-4ae9d62aa6d3.png`; `exec-4bfd1a5d-8525-417a-8782-8f7f40701534.png`; `exec-b1cdf0bb-7be7-4cd5-9088-2af24274b789.png` |
 | Structures | Isolated painted Astral HQ, Gravebound HQ, shared Resource Point, and shared Production Outpost in the accepted cartoon-leaning battlefield style | `exec-ec136d59-9706-461b-bb19-57b30c9a3dbf.png`; `exec-c97ba4d3-fee6-476d-a923-3ab3b6066616.png`; `exec-d5c6e6ef-fd2f-465b-9e7d-b49eabd74915.png`; `exec-55e63d5b-ea8d-4206-8a44-f4e5584619a4.png` |
+| Phase 5 structure damage | The same four approved forms as readable damaged and collapsed transparent full-canvas sources, preserving architecture and ground-root placement | Exact repository sources and SHA-256 values are frozen in the Phase 5 table above and `phase5/assets/structures/manifest.js` |
 
 Local processing used Sharp and ImageMagick only after generation: border-connected neutral background removal; component filtering; shared-scale/root normalization; exact idle-to-move-frame-zero reuse; upper-body pixel locking for movement; frame-aligned material masks; atlas and JSON export; exact horizontal mirror in review playback; actual-scale WebP encoding; structure downscaling to a 1024-pixel envelope; mask clamping inside source alpha; narrowed saturated-color selection so cool masonry shadows remain fixed; and code-native review composition. No limb was independently generated, substituted, or runtime-rigged after the approved method was locked.
 
@@ -177,7 +201,7 @@ The production method, selected tiers, and budget envelope were approved through
 - **Corrected export method:** crop cells before scaling; rescale each independently; reapply the movement-frame-zero upper region to movement frames one through three; pack; process the mask through the same path; clamp mask alpha to base alpha; then lossless encode. The packed-sheet-resize trial is rejected because cross-cell sampling broke the upper-body invariant.
 - **Historical encoded survey:** after substituting the separately repaired Astral sample values, the unpublished six-pair feasibility survey appeared to total 435,142 bytes at 96 and 694,040 bytes at 128 and projected 870,284 and 1,388,080 bytes for twelve identities. Phase 3 reproduction proved that the other five survey exports had blank lower-body rows, so those totals and the 2,258,364-byte both-tier projection are historical defective evidence, not runtime ceilings. The fresh six-representative Phase 3 totals are 459,446 Compact, 734,126 Standard, and 1,193,572 combined; every later accepted atlas must still pass its own exact budget and visual checks.
 - **Decoded entity pixels:** one selected twelve-identity tier is exactly 13.5 MiB at 96 or 24 MiB at 128. Default to 128; use 96 only when the player explicitly selects **Compact art** in Settings before battle. Load only participating factions and never intentionally retain both tiers decoded. Browser/GPU bookkeeping is measured separately and is not inferred from Resource Timing decoded-body bytes.
-- **Structures:** the historical Phase 1B non-exact measurement was 630,706 bytes. The implemented Phase 4 exact-RGBA set is 634,642 encoded bytes and 4,279,296 decoded base-plus-mask bytes; the larger 512 alternative remains rejected unless maximum-zoom review proves 384 insufficient. Transparent damage-state masters do not yet exist, so those bytes remain unmeasured.
+- **Structures:** the historical Phase 1B non-exact measurement was 630,706 bytes. The implemented Phase 4 exact-RGBA intact set is 634,642 encoded bytes and 4,279,296 decoded base-plus-mask bytes; the larger 512 alternative remains rejected unless maximum-zoom review proves 384 insufficient. The Phase 5 candidate adds twelve exact-RGBA damage derivatives totaling 1,040,292 encoded bytes, with exact source/retained arithmetic and provenance recorded above.
 - **Loading/failure:** the approved Phase 3 foundation validates local base, mask, manifest, dimensions, frame map, root, and hash before battle. A missing required bundle shows a stable text-only local preload error, instantiates no entity, and blocks battle start; it never downloads an external substitute or improvises anatomy/ownership. It retains one selected tier, releases each mask after owner-sheet preparation, and exposes disposal for the remaining decoded sheets. Browser/GPU bookkeeping and menu-resource release remain measured evidence rather than assumptions.
 - **Validation gate:** the approved Phase 1A package proves the exact contract across all six representatives. The original ImageMagick 6.9.12-98 Q16/libwebp 1.3.2 survey established a useful per-cell method but produced incomplete lower-body rows in five unpublished entity exports; the separately published Astral derivative was repaired and remains untouched. The fresh Phase 3 exporter reproduces all six complete entities at both tiers, clamps masks, clears cell borders, and records zero upper-region, border, mask-escape, and lossless-round-trip differences. Rendered browser scale/halo/root/mirror checks, GPU/process residency, and physical devices remain separate evidence.
 
@@ -217,7 +241,7 @@ The Phase 1A closing set is intentionally smaller than the later six-role-per-fa
 - **Animation proof:** each representative demonstrates one stable idle frame, four lower-body-only movement frames, six full-body attack/cast frames, and six full-body defeat frames. Art is authored facing right and mirrored exactly for left gameplay; every state keeps coherent anatomy, oversized attached equipment, and one shared root. Runtime limb deformation, independently assembled body parts, and independently redrawn idle/movement upper bodies are not accepted.
 - **Map proof:** the visible battlefield stays painted and coherent. Ground, non-blocking detail, navigation/blocker mask, anchors, dynamic ordering, and foreground occlusion remain separate map data; mountain pixels never become implicit collision, and technical layer diagrams are not presented as game art.
 - **Pipeline decision:** use controlled baked full-body 2D frames plus frame-aligned player-color masks, exported to a local transparent atlas with small metadata. Record master format, exporter, directions, mirroring limits, dimensions, frame rate, bytes, anchors, origin, author/tool, license, transformations, validation, and owner state for every accepted asset.
-- **Runtime budget:** the 12,692,541-byte direct package is a bounded review/master set, not the shipping load. The approved measured Phase 1B profile is recorded above and in [`PHASE1B_VISUAL_LOCK.md`](PHASE1B_VISUAL_LOCK.md); implemented load/failure checks, layered-map assets, final damage-state bytes, browser residency, and physical-device quality remain open.
+- **Runtime budget:** the 12,692,541-byte original Phase 1A direct package is a bounded review/master set, not the shipping load; the eight later Phase 5 source PNGs are separate repository-only provenance. The approved measured Phase 1B profile and implemented Phase 3/4/5 candidate bytes are recorded above and in their owner documents. Phase 5 deployed/browser residency and physical-device quality remain open.
 
 ## Rejected prototype archive
 

@@ -1,8 +1,8 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 through Phase 4 complete; Phase 5 combat and tactical-command contract frozen for implementation**.
+Status: **approved baseline; Phase 0 through Phase 4 complete; Phase 5 combat implementation candidate in review**.
 
-This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact closed Phase 3 contract and evidence record, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input. [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) owns the closed structures/economy/production/rally contract and evidence. [`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md) owns the frozen active combat/tactical-command implementation boundary; its planning existence does not claim combat runtime or approval.
+This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact closed Phase 3 contract and evidence record, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input. [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) owns the closed structures/economy/production/rally contract and evidence. [`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md) owns the frozen active combat/tactical-command boundary and local implementation-candidate evidence; candidate existence does not claim publication, rendered approval, closure, or Phase 6 authority.
 
 The prototype remains in Git history as evidence. Its menu, battlefield presentation, art, map vocabulary, portrait behavior, movement feel, combat interaction, AI behavior, and public product claims are not design precedents for the replacement.
 
@@ -305,14 +305,15 @@ Gate: **complete on 2026-08-22** under the owner's standing goal-mode authorizat
 
 ### Phase 5 — Combat and tactical commands
 
-The exact authorized implementation boundary is frozen in [`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md). It retains the six approved representatives and the Phase 4 economy rather than inventing the remaining Phase 1B identities or borrowing prototype combat values.
+The exact authorized implementation boundary is frozen in [`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md). The local `v2026.8.22e` candidate implements it with the six approved representatives and Phase 4 economy rather than inventing the remaining Phase 1B identities or borrowing prototype combat values. Its 57/57 focused and 225/225 complete dependency-free checks plus reproducible damage assets do not replace the pending protected-publication and rendered gates.
 
-- [ ] Focus attack with desktop enemy hover/right-click and mobile contextual attack.
-- [ ] Autonomous acquire, attack range, chase/leash, retarget, defend, stop, and attack-move.
-- [ ] Melee contact positions, ranged spacing, projectiles where required, simultaneous damage, role-specific behavior, defeat, and structure assault.
-- [ ] Complete combat animation and feedback states.
+- [x] Implement focus attack with desktop enemy hover/right-click and mobile contextual attack in the source candidate.
+- [x] Implement autonomous acquire, attack range, chase/leash, retarget, defend, stop, and attack-move in the source candidate.
+- [x] Implement melee contact positions, ranged spacing, bounded projectiles, simultaneous damage, role-specific behavior, defeat, and structure assault in the source candidate.
+- [x] Bind combat animation and accessible feedback states to authoritative timing in the source candidate.
+- [ ] Publish through the protected path, verify live bytes and page-origin loading, complete the named rendered journeys, repair findings, and close the gate before Phase 6 begins.
 
-Gate: short battles are tactically understandable, visually faithful, deterministic, and satisfying on desktop and touch.
+Gate: **pending**. Short battles must be tactically understandable, visually faithful, deterministic, and satisfying on desktop and touch. Phase 6 remains unauthorized until this gate closes.
 
 ### Phase 6 — Strategic AI and local skirmish
 

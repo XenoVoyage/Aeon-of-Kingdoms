@@ -2,6 +2,22 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.22e] — 2026-08-22 (Phase 5 combat implementation candidate)
+
+### Added
+
+- Added the bounded Phase 5 route with focus attack, attack-move, point/entity defend, stop, automatic nearby combat, sticky targets, role-specific leashes and return behavior, 24-slot contact reservations, bounded projectiles, simultaneous damage, defeat, structure destruction, and headquarters victory/draw outcomes.
+- Added accessible health, order, target, command, projectile-limit, structure-state, and match-result presentation while retaining the approved menu, six-layer landscape, full-body action/defeat rows, exact left mirror, and simulation-owned timing.
+- Added eight repository-only transparent damaged/destroyed structure sources and twelve staged-candidate exact-RGBA lossless WebPs: four damaged bases, four aligned/clamped damaged masks, and four owner-independent destroyed bases.
+
+### Evidence and boundaries
+
+- The local implementation candidate passes 57/57 focused Phase 5 checks and the complete dependency-free suite passes 225/225. Its reproducible twelve-WebP damage package totals 1,040,292 encoded bytes, remains within the frozen decoded budgets, and records zero border-alpha, mask-escape, transparent-RGB, or lossless-round-trip violations.
+- Candidate review corrected the natural ranged-projectile travel bound to 1–14 ticks: at the frozen 220-world-unit maximum range and 16-world-unit-per-tick speed, `ceil(220 / 16)` is 14. No 16-tick natural-flight claim remains.
+- The explicit Pages allowlist contains 154 public files plus `.nojekyll` (155 staged files total), including the bounded 24-file Phase 5 route. The eight authored Phase 5 source PNGs remain repository-only and outside Pages.
+- Protected publication, deployed-byte identity, page-origin console review, named rendered combat journeys, and the Phase 5 closure gate remain pending. Phase 6 strategic AI is not authorized by this source candidate, and multiplayer remains unshipped.
+- `v2026.8.22e` is a source-candidate label only. No Git tag or GitHub Release is created or authorized.
+
 ## [v2026.8.22d] — 2026-08-22 (Phase 4 closure and Phase 5 authorization)
 
 ### Changed

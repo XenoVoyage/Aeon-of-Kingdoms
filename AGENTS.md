@@ -91,7 +91,7 @@ Do not expand the slice into an account system, content pipeline, framework migr
 
 ## 6. Ownership map
 
-Each responsibility has one source of truth. Phase 2 introduced the approved non-authoritative landscape shell, camera, map data, and layered renderer. Phase 3 introduced the approved first replacement authoritative entity/movement simulation, replay boundary, and runtime entity-art loader. Phase 4 introduced the approved structures/economy/production/rally foundation. Phase 5 currently owns only the frozen combat/tactical-command implementation contract; its runtime and damage assets do not exist yet. Prototype-era design documents remain historical until explicitly replaced.
+Each responsibility has one source of truth. Phase 2 introduced the approved non-authoritative landscape shell, camera, map data, and layered renderer. Phase 3 introduced the approved first replacement authoritative entity/movement simulation, replay boundary, and runtime entity-art loader. Phase 4 introduced the approved structures/economy/production/rally foundation. Phase 5 now has a local combat/tactical-command implementation candidate and reproducible damage-state asset pipeline; protected publication, rendered review, and closure remain pending. Prototype-era design documents remain historical until explicitly replaced.
 
 | Area | Source of truth |
 | --- | --- |
@@ -126,7 +126,10 @@ Each responsibility has one source of truth. Phase 2 introduced the approved non
 | Phase 4 rules, map geometry, navigation, replay, and authoritative state | `phase4/config.js`, `phase4/map.js`, `phase4/navigation.js`, `phase4/simulation.js`, and `phase4/replay.js` |
 | Phase 4 reproducible structure derivatives, manifest, and runtime loader | `tools/export-phase4-structures.js`, `phase4/assets/structures/manifest.js`, and `phase4/assets.js` |
 | Phase 4 interaction, dynamic structure/entity ordering, shell, and presentation | `phase4/input.js`, `phase4/renderer.js`, `phase4/index.html`, `phase4/phase4.css`, and `phase4/app.js` |
-| Frozen Phase 5 combat/tactical-command contract and future evidence | `docs/PHASE5_COMBAT_TACTICS.md` |
+| Phase 5 combat/tactical-command contract and candidate evidence | `docs/PHASE5_COMBAT_TACTICS.md` |
+| Phase 5 rules, map overlay, navigation, authoritative combat state, replay, restore, and checksums | `phase5/config.js`, `phase5/map.js`, `phase5/navigation.js`, `phase5/simulation.js`, and `phase5/replay.js` |
+| Phase 5 reproducible damage-state sources, derivatives, manifest, and runtime loader | `concepts/feasibility/phase1a/structures/phase5/`, `tools/export-phase5-structures.js`, `phase5/assets/structures/manifest.js`, and `phase5/assets.js` |
+| Phase 5 interaction, combat presentation, semantic shell, lifecycle, and fixed-step orchestration | `phase5/input.js`, `phase5/renderer.js`, `phase5/index.html`, `phase5/phase5.css`, and `phase5/app.js` |
 | Historical conversation rationale and rejected-attempt chronology | `docs/CONVERSATION_DECISIONS.md` |
 | Thin cold-start pointer for a new chat | `docs/NEW_CHAT_PROMPT.txt` |
 | Explicit Pages delivery allowlist | `.github/scripts/stage-pages.js` |
