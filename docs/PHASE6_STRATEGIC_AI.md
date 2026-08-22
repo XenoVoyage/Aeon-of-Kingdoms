@@ -80,7 +80,7 @@ For one living combat entity, current strength is:
 
 At full health this is exactly 392 for melee, 471 for ranged, and 736 for signature representatives. A group is the safe-integer sum of its living members. No faction, ownership color, animation, damage type, armor, counter multiplier, or prototype value changes the score.
 
-Local opposition uses living hostile roots within 320 world units of the objective root. A headquarters emergency exists when a hostile root is within that radius of the computer headquarters or a remembered damage event names that headquarters. An owned Production Outpost is threatened when a hostile root is within 288 world units or its capture state is contested. Threat memories expire exactly 120 ticks after their event tick; when more than eight qualify, keep the newest tick first, then event kind, then source identifier, then target identifier, all with raw-ASCII ties.
+Local opposition uses living hostile roots within 320 world units of the objective root. A headquarters emergency exists when a hostile root is within that radius of the computer headquarters or a remembered damage event names that headquarters. An owned Production Outpost is threatened when a hostile root is within 288 world units or its capture state is contested. Threat memories expire exactly 120 ticks after their event tick; when more than eight qualify, keep the newest tick first, then event kind, then source identifier, then target identifier, all with raw-ASCII ties. A Phase 5 aggregate event that exposes no source is recorded with `sourceId: null`; for ordering only, that value compares as the empty ASCII string and is never inferred from private combat state.
 
 ## Strategic needs and objective order
 
@@ -94,7 +94,7 @@ Every decision builds no more than 24 candidates, removes invalid/destroyed entr
 6. smaller reachable route cost;
 7. raw-ASCII objective identifier.
 
-At most the first 16 pre-route candidates receive a route probe. An unreachable candidate is removed; it does not trigger a broader search that tick.
+Every call to the inherited navigator's `findRoute` counts as one route probe, including per-entity capture-formation validation and producer-to-objective comparison. At most 16 calls may occur in one decision. A candidate that cannot complete all required checks inside the remaining allowance is removed without another search that tick. Route cost is the safe-integer sum of `floor(sqrt(dx² + dy²))` from the start through each returned fixed-point waypoint; an empty successful route costs zero. That derived cost is used only for deterministic ordering and never changes authoritative movement.
 
 | Need | Exact trigger | Objective value | Legal tactical result |
 | --- | --- | ---: | --- |
@@ -180,4 +180,3 @@ Before Phase 6 can close:
 10. Protected publication, deployed tree, exact live-byte identity, page-origin console, and named Standard/Compact rendered journeys across several frozen battle states. The live journey must visibly show separate reserve/front behavior, defense, production, capture, regroup or retreat, a timed assault, readable outcome, pause/lifecycle recovery, and menu return. Physical-device and broad-browser evidence remains Phase 7 debt rather than an inferred Phase 6 result.
 
 Gate: the computer creates varied, credible, bounded pressure through legal player commands without cheating, leaking hidden state, collapsing every entity onto one destination, or creating a deterministic stalemate in the frozen completion scenarios. No tag or GitHub Release is authorized by closing this gate.
-
