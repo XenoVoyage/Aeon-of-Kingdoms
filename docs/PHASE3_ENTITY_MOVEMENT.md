@@ -101,7 +101,7 @@ The representative movement values begin at 34 world units/second with radius 16
 | Phase 2 owner gate | Explicit approval of empty battlefield and camera feel | Passed by owner message on 2026-08-22 |
 | Source contract | Bounded simulation, entity terminology, selected-tier assets, input, presentation, and local-only delivery agree with this document | Implemented; independent audit found no merge-blocking defect and its one arrival-feedback presentation defect was corrected before freeze |
 | Focused automation | Entity/command, navigation/movement, replay/snapshot/checksum, input/render/art, shell, and delivery suites | 32/32 Phase 3-focused checks pass on the frozen local candidate |
-| Complete automation | `node tests/run.js` | 122/122 checks pass on the frozen local candidate |
+| Complete automation | `node tests/run.js` | 122/122 checks pass on the frozen local candidate with the recorded ImageMagick toolchain; runners without that optional authoring tool explicitly skip only regeneration while retaining committed-byte/hash/invariant checks |
 | Pages payload | Exact allowlist and `_site` inspection | 108 explicitly allowlisted public files plus `.nojekyll` stage successfully; 109 files total |
 | Diff hygiene | `git diff --check` and complete branch review | `git diff --check` passes; independent review found no simulation, determinism, memory, CSP, delivery, or scope blocker |
 | Desktop rendered review | Selection, open-field movement, blocker routing, choke exit, mirroring, masks, and readable status | Pending rendered review |

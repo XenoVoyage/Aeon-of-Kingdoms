@@ -11,6 +11,14 @@ const ROOT = path.resolve(__dirname, "..");
 const ASSET_ROOT = path.join(ROOT, "phase3/assets/entities");
 const MANIFEST_PATH = path.join(ASSET_ROOT, "manifest.js");
 const EXPORTER_PATH = path.join(ROOT, "tools/export-phase3-assets.js");
+const CONVERT_COMMAND = process.env.AOK_PHASE3_CONVERT || "convert";
+const convertProbe = spawnSync(CONVERT_COMMAND, ["-version"], {
+  encoding: "utf8",
+  windowsHide: true
+});
+const REPRODUCTION_SKIP = convertProbe.status === 0
+  ? false
+  : "recorded ImageMagick toolchain is unavailable; committed bytes and invariants remain verified";
 const manifest = require(MANIFEST_PATH);
 const assets = require(path.join(ROOT, "phase3/assets.js"));
 const EXPECTED_ENTITIES = Object.freeze([
@@ -194,7 +202,7 @@ test("manifest records the exact approved sources and reproducible ImageMagick/l
   assert.equal(manifest.toolchain.exporterSha256, sha256(fs.readFileSync(EXPORTER_PATH)));
 });
 
-test("exporter deterministically regenerates every derived file and decoded invariant", () => {
+test("exporter deterministically regenerates every derived file and decoded invariant", { skip: REPRODUCTION_SKIP }, () => {
   const result = spawnSync(process.execPath, [EXPORTER_PATH, "--check"], {
     cwd: ROOT,
     encoding: "utf8",

@@ -175,7 +175,7 @@ There is no install step, runtime dependency, or build step for the current stat
 
 - Add a deterministic regression for every fixed defect or changed rule.
 - Use Node.js built-ins only. The verification harness installs no dependency and makes no network request.
-- The Phase 3 asset suite invokes the recorded local ImageMagick `convert` executable and its lossless-WebP delegate to reproduce generated files; this is a verification toolchain, not a browser runtime dependency or build step.
+- When available, the Phase 3 asset suite invokes the recorded local ImageMagick `convert` executable and its lossless-WebP delegate to reproduce generated files; this is an optional authoring-verification toolchain, not a browser runtime dependency or build step. Runners without it must report one explicit skip while retaining the committed-byte/hash/invariant checks.
 - Run focused checks while iterating, then `node tests/run.js` on the frozen candidate.
 - Run `git diff --check`, inspect `git status --short`, and review the complete diff against the current base.
 - Verify every runtime script appears exactly once and in dependency order; every local reference resolves; Pages stages only its explicit allowlist; and no external runtime resource slipped in.

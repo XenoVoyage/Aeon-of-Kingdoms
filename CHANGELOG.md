@@ -20,6 +20,7 @@ All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime
 ### Verified and bounded
 
 - The source candidate passes 122/122 dependency-free checks, deterministically regenerates every runtime atlas, stages exactly 108 allowlisted public files plus `.nojekyll`, and passes diff hygiene.
+- Hosted runners without the optional recorded ImageMagick authoring executable explicitly skip only atlas regeneration; committed bytes, hashes, dimensions, lossless encoding, manifest values, and decoded invariants remain mandatory.
 - Phase 3 remains an owner-review candidate until explicit approval. Phase 4 structures/economy/production/rally, combat, AI, and networking code stay blocked.
 - The selected later multiplayer direction remains one private two-player host/client room joined by a short code. No network connection, signaling, account, matchmaking, chat, reconnect, spectator, or host-migration behavior is added here.
 - `v2026.8.22a` is a source/Pages label only. No tag or GitHub Release is created or authorized by this change.
