@@ -411,7 +411,13 @@ test("workflows are bounded, least-privilege, and deploy the staged allowlist", 
   assert.match(pages, /id-token: write/);
   assert.match(pages, /node tests\/run\.js/);
   assert.match(pages, /stage-pages\.js _site/);
-  assert.match(pages, /path: _site/);
+  const uploadStart = pages.indexOf("uses: actions/upload-pages-artifact@");
+  const uploadEnd = pages.indexOf("\n\n  deploy:", uploadStart);
+  assert.ok(uploadStart >= 0 && uploadEnd > uploadStart, "Pages artifact step must be present");
+  const uploadStep = pages.slice(uploadStart, uploadEnd);
+  assert.match(uploadStep, /actions\/upload-pages-artifact@[a-f0-9]{40}/);
+  assert.match(uploadStep, /path: _site/);
+  assert.match(uploadStep, /include-hidden-files: true/, "the explicit staged .nojekyll file must reach the Pages artifact");
   assert.doesNotMatch(pages, /path: \.\s*$/m, "Pages must not upload the repository root");
   for (const workflow of [ci, pages]) {
     assert.doesNotMatch(workflow, /uses:\s+[^\s@]+@v\d+/i, "actions must be pinned to immutable commit SHAs");
@@ -423,8 +429,10 @@ test("workflows are bounded, least-privilege, and deploy the staged allowlist", 
 
 test("Pages allowlist contains only approved public surfaces and source-of-truth documents", () => {
   const staging = require(path.join(ROOT, ".github/scripts/stage-pages.js"));
+  const stagingSource = read(".github/scripts/stage-pages.js");
   const files = staging.verifyRuntimeFiles();
   assert.deepEqual(files, staging.RUNTIME_FILES);
+  assert.match(stagingSource, /fs\.writeFileSync\(path\.join\(outputPath, "\.nojekyll"\), "", \{ flag: "wx" \}\);/);
   assert.deepEqual(files.slice(0, 16), [
     "index.html",
     "sw.js",

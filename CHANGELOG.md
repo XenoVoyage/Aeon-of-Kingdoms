@@ -2,6 +2,20 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.22j] — 2026-08-22 (Phase 7 publication evidence and Pages artifact correction)
+
+### Changed
+
+- Recorded protected pull request `#30`, its successful pull-request and main audits, the successful Pages deployment, and the exact 1363×936 cloud-Chrome Standard/Compact accessibility, interaction, lifecycle, failure-recovery, and teardown observations actually completed.
+- Corrected the verified Pages artifact boundary by opting the pinned `actions/upload-pages-artifact` v5 step into hidden files. Its secure input remains the freshly recreated `_site` directory containing only 166 explicitly allowlisted public files and the intentional empty `.nojekyll` marker.
+- Added an audit regression tying `include-hidden-files: true` to the pinned Pages upload step and locking the staging script's exclusive `.nojekyll` creation.
+
+### Evidence and boundaries
+
+- Pull request `#30` passed Offline audit run `32598168338` and squash-merged as `461c100eb48d83d2ba960a300313c19848d89f41`; main Offline audit `32598490594` and Pages run `32598490580` succeeded.
+- Pages artifact `9482284342` contained all 166 public files byte-identical to the merged stage. Its digest was `sha256:ec946b392f45e6f33bc979c34bef3a15373278cc43744b757641fb1193a29a08`; comparison also exposed the action's default exclusion of `.nojekyll`, which this version corrects before claiming exact 167-file artifact identity.
+- Physical-device, other-browser-family, actual 200% browser-zoom, browser/GPU memory, thermal, material product-decision, root-promotion, and Phase 7 closure claims remain pending or explicitly unavailable. `v2026.8.22j` is not a Git tag or GitHub Release and adds no Phase 8 or Phase 9 runtime.
+
 ## [v2026.8.22i] — 2026-08-22 (Phase 7 product-hardening implementation candidate)
 
 ### Added

@@ -24,7 +24,7 @@ test("public shell truthfully presents the phased redesign", () => {
     /Play the approved Phase 6 Standard local skirmish/i,
     /<span class=["']phase-number["']>07<\/span>/i,
     /Phase 7 product hardening is under review/i,
-    /Status build v2026\.8\.22i/i
+    /Status build v2026\.8\.22j/i
   ]) assert.match(html, pattern);
 
   const phaseItems = html.match(/<li class=["'][^"']*\bphase-item\b[^"']*["'][^>]*>[\s\S]*?<\/li>/gi) ?? [];
@@ -122,7 +122,7 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   };
   const caches = {
     open(name) {
-      assert.equal(name, "aok-shell-v2026.8.22i");
+      assert.equal(name, "aok-shell-v2026.8.22j");
       return Promise.resolve(cache);
     },
     keys() {
