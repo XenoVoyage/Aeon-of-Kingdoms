@@ -158,6 +158,7 @@ const RUNTIME_FILES = Object.freeze([
   "docs/PHASE3_ENTITY_MOVEMENT.md",
   "docs/PHASE4_STRUCTURES_ECONOMY.md",
   "docs/PHASE5_COMBAT_TACTICS.md",
+  "docs/PHASE6_STRATEGIC_AI.md",
   "docs/STATUS.md",
   "docs/ASSETS.md"
 ]);

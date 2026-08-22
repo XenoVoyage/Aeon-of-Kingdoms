@@ -183,7 +183,7 @@ test("staged Phase 1A review assets are the exact optimized current set", () => 
 
 test("Pages stages only the approved published review subset and excludes the v5 proof", () => {
   const files = staging.verifyRuntimeFiles();
-  assert.equal(files.length, 154);
+  assert.equal(files.length, 155);
   assert.ok(files.includes("concepts/feasibility/index.html"));
   assert.ok(files.includes("concepts/feasibility/proof.css"));
   for (const asset of STAGED_REVIEW_ASSETS) assert.ok(files.includes(asset), `approved review asset is not staged: ${asset}`);

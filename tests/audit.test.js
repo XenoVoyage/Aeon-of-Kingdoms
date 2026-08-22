@@ -116,6 +116,7 @@ const REQUIRED_FILES = [
   "docs/PHASE3_ENTITY_MOVEMENT.md",
   "docs/PHASE4_STRUCTURES_ECONOMY.md",
   "docs/PHASE5_COMBAT_TACTICS.md",
+  "docs/PHASE6_STRATEGIC_AI.md",
   "docs/CONVERSATION_DECISIONS.md",
   "docs/NEW_CHAT_PROMPT.txt",
   "docs/STATUS.md",
@@ -161,7 +162,7 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(readme, /owner approved the complete Phase 3 entity\/movement foundation on 2026-08-22 and authorized autonomous completion/i);
   assert.match(readme, /approved Phase 1B review/i);
   assert.match(readme, /approved Phase 4 foundation extends the same fixed 20 Hz simulation/i);
-  assert.match(readme, /local Phase 5 implementation candidate now adds the frozen focus, attack-move, defend, stop/i);
+  assert.match(readme, /approved deployed Phase 5 foundation adds focus attack, attack-move, defend, stop/i);
   assert.match(readme, /rejected prototype remains available at commit \[`7f88655`/i);
   assert.match(readme, /retired `v2026\.8\.15` tag and GitHub Release must not be recreated/i);
   assert.doesNotMatch(readme, /releases\/tag\/v2026\.8\.15/i);
@@ -175,10 +176,10 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/ASSETS.md"), /Rejected prototype archive/);
   assert.match(read("docs/ASSETS.md"), /1,253,726 bytes/);
   assert.match(read("tests/README.md"), /approved production-art contract/i);
-  assert.match(read("docs/STATUS.md"), /Active phase \| Phase 0 through Phase 4 are approved and closed\. Phase 5 has an exact frozen contract and a local implementation candidate/i);
+  assert.match(read("docs/STATUS.md"), /Active phase \| Phase 0 through Phase 5 are approved and closed\. Phase 6 is authorized with an exact frozen strategic-AI\/local-skirmish contract/i);
   assert.match(read("docs/STATUS.md"), /owner-supplied capture establishes only the visible portrait mobile state/);
   assert.match(read("docs/STATUS.md"), /product owner approved Phase 0/);
-  assert.match(read("docs/STATUS.md"), /Phase 4 retains 45\/45 focused and 167\/167 complete dependency-free checks/i);
+  assert.match(read("docs/STATUS.md"), /Phase 5 passes 57\/57 focused and 225\/225 complete dependency-free checks/i);
   assert.match(read("docs/STATUS.md"), /Engineering standard \| v1\.0 governs the repository and is structurally applied, but remains `adopting`/i);
   assert.match(read("docs/STATUS.md"), /24-file Pages allowlist/i);
   assert.match(read("docs/STATUS.md"), /Pages staged the exact 31-file allowlist plus `\.nojekyll`/i);
@@ -205,6 +206,10 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/STATUS.md"), /exact matches for all seven deployed Phase 2 files and the four corrected Astral Guardian browser samples/i);
   assert.match(read("docs/STATUS.md"), /live cloud Chrome session at 1363×936/i);
   assert.match(read("docs/STATUS.md"), /explicitly approved the complete Phase 2 candidate.*retaining unobserved compact, broad-browser, and physical-device evidence as debt/i);
+  assert.match(read("docs/STATUS.md"), /pull request `#26` passed audit run `32582567751` and squash-merged as `4c94369888911e7ff9c06ca53836fb6903b8e304`/i);
+  assert.match(read("docs/STATUS.md"), /Main Offline audit `32582619287` and Pages deployment `32582619288` succeeded/i);
+  assert.match(read("docs/STATUS.md"), /Phase 5 therefore closed under the standing authorization/i);
+  assert.match(read("docs/STATUS.md"), /Phase 6 is authorized only inside the exact contract in \[`PHASE6_STRATEGIC_AI\.md`\]/i);
   assert.match(read("docs/REDESIGN.md"), /Phase 0 and this roadmap baseline/);
   assert.match(read("docs/REDESIGN.md"), /Phase 1A — Production-feasibility proof/);
   assert.match(read("docs/REDESIGN.md"), /faction headquarters, Resource Point, and Production Outpost/);
@@ -219,15 +224,25 @@ test("public documentation identifies the rejected prototype and active redesign
   assert.match(read("docs/PHASE3_ENTITY_MOVEMENT.md"), /Phase 4 structures, economy, production, and rally is the next authorized boundary/i);
   assert.doesNotMatch(read("docs/PHASE3_ENTITY_MOVEMENT.md"), /owner gate remains pending|explicit Phase 3 owner approval pending|Phase 3 remains active/i);
   assert.doesNotMatch(read("SECURITY.md"), /active Phase 3 owner-review candidate|current candidate/i);
-  assert.match(read("docs/NEW_CHAT_PROMPT.txt"), /Phase 0 through Phase 4 are closed.*PHASE5_COMBAT_TACTICS\.md.*local implementation candidate/i);
-  assert.match(read("docs/ARCHITECTURE.md"), /PHASE4_STRUCTURES_ECONOMY\.md.*owns the approved structures\/economy foundation.*PHASE5_COMBAT_TACTICS\.md.*owns the active combat\/tactical-command contract/i);
+  assert.match(read("docs/NEW_CHAT_PROMPT.txt"), /Phase 0 through Phase 5 are closed.*PHASE6_STRATEGIC_AI\.md.*frozen active strategic-AI\/local-skirmish contract/i);
+  assert.match(read("docs/ARCHITECTURE.md"), /PHASE5_COMBAT_TACTICS\.md.*owns the closed combat\/tactical-command foundation.*PHASE6_STRATEGIC_AI\.md.*owns the active strategic-AI\/local-skirmish contract/i);
   assert.doesNotMatch(read("docs/ARCHITECTURE.md"), /No Phase 3 implementation exists/i);
-  assert.match(read("docs/GAME_DESIGN.md"), /PHASE4_STRUCTURES_ECONOMY\.md.*owns the approved structures\/economy foundation.*PHASE5_COMBAT_TACTICS\.md.*owns the active combat\/tactical-command contract/i);
+  assert.match(read("docs/GAME_DESIGN.md"), /PHASE5_COMBAT_TACTICS\.md.*owns the closed combat\/tactical-command foundation.*PHASE6_STRATEGIC_AI\.md.*owns the active strategic-AI\/local-skirmish contract/i);
   assert.match(read("docs/PHASE4_STRUCTURES_ECONOMY.md"), /Status: \*\*closed on 2026-08-22/i);
-  assert.match(read("docs/PHASE5_COMBAT_TACTICS.md"), /Status: \*\*implementation candidate assembled and source-verified on 2026-08-22; not yet published, deployed, rendered-reviewed, approved, or closed\*\*/i);
+  assert.match(read("docs/PHASE5_COMBAT_TACTICS.md"), /Status: \*\*approved and closed on 2026-08-22 under the owner's standing goal-mode authorization\*\*/i);
   assert.match(read("docs/PHASE5_COMBAT_TACTICS.md"), /four focused Phase 5 suites pass \*\*57\/57\*\*/i);
   assert.match(read("docs/PHASE5_COMBAT_TACTICS.md"), /complete dependency-free suite passes \*\*225\/225\*\*/i);
   assert.match(read("docs/PHASE5_COMBAT_TACTICS.md"), /simulation rate \| 20 ticks per second/i);
+  assert.match(read("docs/PHASE5_COMBAT_TACTICS.md"), /Protected pull request \[`#26`\].*squash-merged as `4c94369888911e7ff9c06ca53836fb6903b8e304`/i);
+  assert.match(read("docs/PHASE5_COMBAT_TACTICS.md"), /Gate: \*\*complete on 2026-08-22\*\* under the owner's standing goal-mode authorization/i);
+  assert.match(read("docs/PHASE6_STRATEGIC_AI.md"), /Status: \*\*authorized and frozen on 2026-08-22; implementation has not started\*\*/i);
+  assert.match(read("docs/PHASE6_STRATEGIC_AI.md"), /Profile: one `Standard` deterministic AI with no resource, population, health, damage, speed, vision, command, routing, timing, or information bonus/i);
+  assert.match(read("docs/PHASE6_STRATEGIC_AI.md"), /Phase 6 commands retain Phase 5 protocol `3` and battle configuration `phase5-combat-tactics-v1`/i);
+  assert.match(read("docs/PHASE6_STRATEGIC_AI.md"), /AI configuration \| `phase6-strategic-ai-v1`/i);
+  assert.match(read("docs/PHASE6_STRATEGIC_AI.md"), /exactly 3: `reserve`, `front-a`, `front-b`/i);
+  assert.match(read("docs/PHASE6_STRATEGIC_AI.md"), /Evidence match ceiling \| 12,000 ticks \/ 10 minutes/i);
+  assert.match(read("docs/PHASE6_STRATEGIC_AI.md"), /does \*\*not\*\* add scoring or a new objective mode/i);
+  assert.match(read("docs/PHASE6_STRATEGIC_AI.md"), /Gate: the computer creates varied, credible, bounded pressure through legal player commands without cheating/i);
   assert.match(read("docs/ASSETS.md"), /approved runtime-entity foundation/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /product owner directly approved the corrected Aegis Titan and complete integrated package on 2026-08-21/i);
   assert.match(read("concepts/feasibility/phase1a/README.md"), /pull request `#10` squash-merged as `0d74dd9174f0db873c1c9ea8cfc824c1ea231660`/i);
@@ -344,10 +359,11 @@ test("status HTML uses only its local relative shell and a restrictive CSP", () 
   assert.doesNotMatch(html, /css\/(?:tokens|app)\.css/);
   assert.match(html, /docs\/REDESIGN\.md/);
   assert.match(html, /docs\/STATUS\.md/);
-  assert.match(html, /Phase 4 complete · Phase 5 implementation candidate/i);
-  assert.match(html, /Phase 5 combat candidate is in review/i);
-  assert.match(html, /<span class=["']phase-number["']>05<\/span>/i);
+  assert.match(html, /Phase 5 complete · Phase 6 contract frozen/i);
+  assert.match(html, /Phase 6 strategic AI is authorized/i);
+  assert.match(html, /<span class=["']phase-number["']>06<\/span>/i);
   assert.match(html, /docs\/PHASE5_COMBAT_TACTICS\.md/i);
+  assert.match(html, /docs\/PHASE6_STRATEGIC_AI\.md/i);
 });
 
 test("local Markdown links resolve", () => {
@@ -407,9 +423,9 @@ test("Pages allowlist contains only approved public surfaces and source-of-truth
     "concepts/feasibility/index.html",
     "concepts/feasibility/proof.css"
   ]);
-  assert.equal(files.length, 154);
+  assert.equal(files.length, 155);
   assert.equal(files.filter((entry) => /concepts\/feasibility\/phase1a\//.test(entry)).length, 37);
-  assert.deepEqual(files.slice(-9), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/PHASE2_FOUNDATION.md", "docs/PHASE3_ENTITY_MOVEMENT.md", "docs/PHASE4_STRUCTURES_ECONOMY.md", "docs/PHASE5_COMBAT_TACTICS.md", "docs/STATUS.md", "docs/ASSETS.md"]);
+  assert.deepEqual(files.slice(-10), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/PHASE2_FOUNDATION.md", "docs/PHASE3_ENTITY_MOVEMENT.md", "docs/PHASE4_STRUCTURES_ECONOMY.md", "docs/PHASE5_COMBAT_TACTICS.md", "docs/PHASE6_STRATEGIC_AI.md", "docs/STATUS.md", "docs/ASSETS.md"]);
   const staged = files.join("\n");
   assert.doesNotMatch(staged, /(?:icon|gameplay|visual-capture|README|LICENSE|CHANGELOG|VERSION|package\.json)/i);
   assert.equal(files.includes("manifest.webmanifest"), false, "the retired install manifest must stay private");

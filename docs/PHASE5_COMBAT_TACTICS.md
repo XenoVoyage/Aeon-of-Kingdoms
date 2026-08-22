@@ -1,10 +1,10 @@
 # Phase 5 combat and tactical-command contract
 
-Status: **implementation candidate assembled and source-verified on 2026-08-22; not yet published, deployed, rendered-reviewed, approved, or closed**.
+Status: **approved and closed on 2026-08-22 under the owner's standing goal-mode authorization**.
 
 This document owns the exact Phase 5 combat rules and candidate evidence. It extends the closed Phase 4 structures, economy, production, rally, movement, replay, and snapshot rules without starting strategic AI, modes, campaign scripting, networking, or product-hardening work. When this contract conflicts with prototype-era source, mood-reference numbers, or informal RTS conventions, this contract wins.
 
-The owner's standing authorization permits implementation, technical and visual audit, and protected publication of a correct candidate. The local candidate now implements this contract, but source completion does not establish rendered quality, deployment, closure, or authorization to begin Phase 6.
+The owner's standing authorization permitted implementation, technical and visual audit, protected publication, and evidence-backed closure without another routine approval request. Source completion alone did not establish closure; the protected merge, deployed-byte proof, and named rendered journey recorded below closed the phase and authorized the separately frozen Phase 6 boundary.
 
 ## Scope
 
@@ -220,15 +220,25 @@ Phase 5 does not add:
 
 Candidate support and champion identities remain visual language only until a later separately approved production and rules phase. Phase 6 owns strategic AI; Phase 7 owns product-hardening and physical-device release evidence; Phase 9 owns private host/client networking.
 
-## Local implementation-candidate evidence
+## Implementation-candidate source evidence
 
-The `v2026.8.22e` source candidate implements the nine-command protocol, deterministic combat state, acquisition/leash/return orders, 24-slot reservations, bounded projectiles and effects, simultaneous damage, combat-entity defeat, structure damage/destruction, headquarters outcomes, replay/snapshot/checksum coverage, and the corresponding accessible interaction and presentation on the separate `phase5/` route. Phase 4 remains the last approved and deployed gameplay foundation.
+The `v2026.8.22e` source candidate implements the nine-command protocol, deterministic combat state, acquisition/leash/return orders, 24-slot reservations, bounded projectiles and effects, simultaneous damage, combat-entity defeat, structure damage/destruction, headquarters outcomes, replay/snapshot/checksum coverage, and the corresponding accessible interaction and presentation on the separate `phase5/` route.
 
 Candidate review corrected the natural ranged-flight upper-bound arithmetic from 16 to **14 ticks**: `ceil(220 / 16) = 14`. Runtime, configuration, stored launch geometry, restore validation, and focused fixtures use the exact 1–14 range; no natural 16-tick projectile evidence is claimed.
 
 The four focused Phase 5 suites pass **57/57** locally, and the complete dependency-free suite passes **225/225**. The deterministic exporter reproduces exactly twelve new lossless WebPs totaling **1,040,292 bytes**: four damaged bases, four aligned and damaged-alpha-clamped ownership masks, and four destroyed bases with no destroyed masks. The package records **6,418,944 decoded source bytes**, **12,811,776 retained two-player decoded bytes**, twelve retained state bases, twelve prepared ownership sheets, and zero border-alpha, mask-escape, transparent-RGB, or lossless-round-trip violations. Eight exact transparent damaged/destroyed PNG sources remain repository-only beneath `concepts/feasibility/phase1a/structures/phase5/`; the flattened review strip remains excluded.
 
-The explicit Pages candidate allowlist contains **154 public files plus `.nojekyll` (155 staged files total)**, including exactly 24 Phase 5 route files: twelve shell/source/manifest files and twelve WebPs. These are local candidate facts only. Protected pull-request audit, merge, Pages deployment, live-byte identity, page-origin console review, named desktop/compact rendered combat journeys, and every unavailable device/browser row remain pending. Phase 5 therefore remains open and Phase 6 is not authorized.
+The explicit Pages candidate allowlist contains **154 public files plus `.nojekyll` (155 staged files total)**, including exactly 24 Phase 5 route files: twelve shell/source/manifest files and twelve WebPs. These facts were frozen before protected publication and then independently reproduced against the merged tree.
+
+## Publication, live review, and closure evidence
+
+Protected pull request [`#26`](https://github.com/XenoVoyage/Aeon-of-Kingdoms/pull/26) passed Offline audit run `32582567751` and squash-merged as `4c94369888911e7ff9c06ca53836fb6903b8e304`. Main Offline audit run `32582619287` and Pages deployment run `32582619288` completed successfully. The remote merge tree `2c9dbe220bdf1e621eee395e998dab74aac16ccb` exactly equals the frozen local candidate tree. A connector upload had first truncated eight large source PNG blobs; the failed protected audit caught the mismatch, all eight blobs were re-uploaded in bounded chunks, every remote blob hash and the complete tree were rechecked against local Git objects, and only the corrected candidate was merged.
+
+Cache-busted live requests returned HTTP 200 and matched merged source byte for byte for the root status page and all **24** allowlisted Phase 5 route files, including all twelve damage WebPs. GitHub Pages advertised a ten-minute HTTP cache; a repeated WebP changed from cache miss to hit without changing bytes. The status-shell service worker does not retain Phase 5 route resources. No warning or error from the Pages origin appeared during the live review; cloud-browser extension metadata errors were excluded because they did not originate from the project.
+
+Fresh visible cloud-Chrome journeys at a `1363×936` desktop viewport loaded both Standard 128-pixel and Compact 96-pixel entity tiers, the environment-only battlefield, all six ordered canvas layers, all three structure categories, all six full-body representatives, restrained ownership masks, and color-plus-symbol ownership cues. The exercised journey covered single and six-entity selection; explicit focus attack; accepted attack-move; point and friendly-entity defend; STOP before contact; ranged travel, automatic hostile response, casualties, and defeat cleanup; survivor-only Resource Point capture; a six-entity headquarters assault that reduced the hostile headquarters from `1800` to `1624`; completed production; immediate full-refund cancellation; synchronous pause/resume with an unchanged paused tick; navigation overlay; menu/settings return; and choosing the Compact tier through the actual menu before Begin. Bounded congestion recovery and target release remained readable rather than trapping the simulation.
+
+Deterministic automation separately establishes the exact cases that are impractical to force through an unprivileged live UI: STOP after contact, attack-move resume, defend-anchor loss, all reservation permutations, projectile cap/arrival edges, simultaneous defeat, every damaged/destroyed threshold, destruction settlement and queue refund, single-headquarters victory, simultaneous-headquarters draw, strict restore, and replay convergence. The browser journey did not claim those unobserved states. Tablet/phone landscape, portrait/rotation recovery, physical touch, another browser family, 200% rendered zoom, reduced-motion preference emulation, fullscreen recovery, long-match performance/thermal behavior, generalized stale-cache/rollback, and physical devices remain explicit Phase 7 evidence debt.
 
 ## Required candidate evidence
 
@@ -245,4 +255,4 @@ Before Phase 5 can close:
 9. Named rendered desktop and compact-landscape journeys inspect first paint in both art tiers; focus attack; automatic idle combat and return; attack-move engagement/resume; point and friendly-entity defend including anchor loss; STOP before and after contact; melee/signature reservations; ranged spacing/projectiles; simultaneous defeat; capture after casualties; intact/damaged/destroyed structures; queue refund; single-headquarters victory; draw; pause/orientation recovery; readable touch controls; reduced motion; and menu return.
 10. Protected publication, deployed commit, live-byte identity, local-resource loading, page-origin console, and primary short-battle journey are recorded separately. Browser emulation, unavailable browser families, physical phone/tablet, performance/thermal, and real-device touch observations remain explicitly named evidence debt rather than inferred from automation.
 
-Gate: short battles are tactically understandable, visually faithful to the approved full-body production method, deterministic across replay and restore, readable on desktop and touch layouts, and bounded under the frozen combat caps. No tag or GitHub Release is authorized by closing this gate.
+Gate: **complete on 2026-08-22** under the owner's standing goal-mode authorization after source, automated, protected-publication, exact live-byte, page-origin console, Standard/Compact first-paint, and named desktop combat evidence passed. Unavailable device/browser rows remain named debt. No tag or GitHub Release was created or authorized by closing this gate.

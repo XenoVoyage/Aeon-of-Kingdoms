@@ -2,7 +2,7 @@
 
 Aeon of Kingdoms is undergoing a gated redesign. Contributions must preserve the approved redesign contract and enduring deterministic, accessible, secure browser boundaries; they must not preserve the rejected prototype presentation or gameplay by default.
 
-Phase 1A through Phase 4 are approved and closed. Phase 5 combat/tactical commands have a frozen implementation contract; strategic AI and networking remain later work until their own phases. Read [`docs/STATUS.md`](docs/STATUS.md) for the exact current source, deployment, evidence, and Engineering Standard v1.0 adoption state rather than copying those volatile facts here.
+Phase 1A through Phase 5 are approved and closed. Phase 6 strategic AI and the local human-versus-computer skirmish have an exact frozen contract; networking remains later work until its own phase. Read [`docs/STATUS.md`](docs/STATUS.md) for the exact current source, deployment, evidence, and Engineering Standard v1.0 adoption state rather than copying those volatile facts here.
 
 ## Before changing code
 
@@ -16,8 +16,9 @@ Phase 1A through Phase 4 are approved and closed. Phase 5 combat/tactical comman
 8. Read [`docs/PHASE3_ENTITY_MOVEMENT.md`](docs/PHASE3_ENTITY_MOVEMENT.md) before changing entities, selection, movement, navigation, formation, separation, replay, snapshots, checksums, runtime entity art, or the Phase 3 evidence record.
 9. Read [`docs/PHASE4_STRUCTURES_ECONOMY.md`](docs/PHASE4_STRUCTURES_ECONOMY.md) before changing structures, capture, Resource, population, production, spawning, rally, or Phase 4 evidence.
 10. Read [`docs/PHASE5_COMBAT_TACTICS.md`](docs/PHASE5_COMBAT_TACTICS.md) before changing combat commands, stances, targeting, range, leashes, projectiles, damage, defeat, structure destruction, headquarters outcome, combat presentation, or Phase 5 evidence.
-11. Treat [`docs/GAME_DESIGN.md`](docs/GAME_DESIGN.md) and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) as prototype-era records until their approved redesign replacements exist. [`docs/ASSETS.md`](docs/ASSETS.md) owns the active review-reference inventory and keeps the old asset record in a clearly marked archive. Use [`tests/README.md`](tests/README.md) for the active verification boundary.
-12. Read [`docs/NETCODE.md`](docs/NETCODE.md) before changing determinism, commands, protocol, transport, lobby, or server behavior.
+11. Read [`docs/PHASE6_STRATEGIC_AI.md`](docs/PHASE6_STRATEGIC_AI.md) before changing computer observation, planning, task forces, local-skirmish orchestration, AI checkpoints, or Phase 6 evidence.
+12. Treat [`docs/GAME_DESIGN.md`](docs/GAME_DESIGN.md) and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) as prototype-era records until their approved redesign replacements exist. [`docs/ASSETS.md`](docs/ASSETS.md) owns the active review-reference inventory and keeps the old asset record in a clearly marked archive. Use [`tests/README.md`](tests/README.md) for the active verification boundary.
+13. Read [`docs/NETCODE.md`](docs/NETCODE.md) before changing determinism, commands, protocol, transport, lobby, or server behavior.
 
 Inspect the connected source, tests, issues, pull requests, and recent changes. Ask before inventing a material design or infrastructure decision.
 
