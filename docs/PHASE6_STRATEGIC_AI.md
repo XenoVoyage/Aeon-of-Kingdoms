@@ -1,6 +1,6 @@
 # Phase 6 strategic AI and local-skirmish contract
 
-Status: **authorized and frozen on 2026-08-22; implementation has not started**.
+Status: **frozen implementation candidate assembled on 2026-08-22; final audit, protected publication, rendered evidence, and closure remain pending**.
 
 This document owns the exact Phase 6 boundary. It extends the closed Phase 5 combat simulation with one deterministic computer command producer and one local human-versus-computer skirmish route. It does not change the approved battle rules, add a mode score, start product hardening, or start networking. When this contract conflicts with prototype AI, prototype tests, informal RTS convention, or a visual mockup, this contract wins.
 
@@ -178,5 +178,13 @@ Before Phase 6 can close:
 8. Shell tests prove the local opponent and result are readable outside Canvas, internal AI state is not leaked, the route stays local-only under restrictive CSP, and the exact Pages allowlist excludes prototype AI and repository-only sources.
 9. The focused Phase 6 suites, every inherited Phase 3–5 focused suite, the complete dependency-free suite, Pages staging, reference/CSP audit, diff hygiene, working-tree review, and an independent branch-to-base review pass on the frozen candidate.
 10. Protected publication, deployed tree, exact live-byte identity, page-origin console, and named Standard/Compact rendered journeys across several frozen battle states. The live journey must visibly show separate reserve/front behavior, defense, production, capture, regroup or retreat, a timed assault, readable outcome, pause/lifecycle recovery, and menu return. Physical-device and broad-browser evidence remains Phase 7 debt rather than an inferred Phase 6 result.
+
+## Implementation-candidate state
+
+The bounded source candidate adds exactly six staged route files: `phase6/index.html`, `phase6/phase6.css`, `phase6/config.js`, `phase6/ai.js`, `phase6/skirmish.js`, and `phase6/app.js`. It reuses the closed Phase 5 configuration, map, navigation, simulation, replay, asset, renderer, and input owners instead of forking battle rules. The planner receives only detached validated observations, returns legal request intents plus detached state, and the skirmish facade alone owns submission, mixed replay, authoritative advancement, suspension, restore, and composite checkpoints.
+
+Four focused dependency-free suites pass **37/37** across the Phase 6 configuration, observation/planning/scenarios, skirmish facade/checkpoint/replay, and local-only shell; the complete dependency-free suite passes **262/262**. The actual passive `createSkirmish` regression with seed `0x4a0e2026` ends in a computer victory at tick **3,715**, below the 12,000-tick evidence ceiling. Exact Pages staging adds only the six route files to the existing allowlist, for **161 public files plus `.nojekyll` (162 staged files total)**. Prototype AI, tests, repository-only sources, networking, external requests, tags, and GitHub Releases remain excluded.
+
+This source state does not claim a protected merge, Pages deployment, exact live-byte identity, rendered Standard/Compact journey, broad-browser result, physical-device result, or gate closure. Those evidence categories must be recorded only after they are observed.
 
 Gate: the computer creates varied, credible, bounded pressure through legal player commands without cheating, leaking hidden state, collapsing every entity onto one destination, or creating a deterministic stalemate in the frozen completion scenarios. No tag or GitHub Release is authorized by closing this gate.

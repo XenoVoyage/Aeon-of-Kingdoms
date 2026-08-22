@@ -18,13 +18,13 @@ test("public shell truthfully presents the phased redesign", () => {
     /name=["']viewport["']/i,
     /id=["']main-content["']/i,
     /id=["']page-title["']/i,
-    /Phase 5 complete · Phase 6 contract frozen/i,
+    /Phase 5 complete · Phase 6 candidate under review/i,
     /Redesign in progress/i,
     /Phase 1A through Phase 5 are approved/i,
-    /Play the approved Phase 5 combat foundation/i,
+    /Play the Phase 6 Standard local-skirmish candidate/i,
     /<span class=["']phase-number["']>06<\/span>/i,
-    /Phase 6 strategic AI is authorized/i,
-    /Status build v2026\.8\.22f/i
+    /Phase 6 strategic AI is in final audit/i,
+    /Status build v2026\.8\.22g/i
   ]) assert.match(html, pattern);
 
   const phaseItems = html.match(/<li class=["'][^"']*\bphase-item\b[^"']*["'][^>]*>[\s\S]*?<\/li>/gi) ?? [];
@@ -40,6 +40,8 @@ test("public shell truthfully presents the phased redesign", () => {
   assert.match(html, /href=["']phase2\/["']/i);
   assert.match(html, /href=["']phase3\/["']/i);
   assert.match(html, /href=["']phase4\/["']/i);
+  assert.match(html, /href=["']phase5\/["']/i);
+  assert.match(html, /href=["']phase6\/["']/i);
   assert.match(html, /href=["']docs\/PHASE4_STRUCTURES_ECONOMY\.md["']/i);
   assert.match(html, /href=["']docs\/PHASE5_COMBAT_TACTICS\.md["']/i);
   assert.match(html, /href=["']docs\/PHASE6_STRATEGIC_AI\.md["']/i);
@@ -118,7 +120,7 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   };
   const caches = {
     open(name) {
-      assert.equal(name, "aok-shell-v2026.8.22f");
+      assert.equal(name, "aok-shell-v2026.8.22g");
       return Promise.resolve(cache);
     },
     keys() {
@@ -224,7 +226,7 @@ test("Pages staging contains approved public routes and source-of-truth links bu
     "concepts/feasibility/index.html",
     "concepts/feasibility/proof.css"
   ]);
-  assert.equal(files.length, 155);
+  assert.equal(files.length, 161);
   assert.equal(files.filter((entry) => /concepts\/feasibility\/phase1a\//.test(entry)).length, 37);
   assert.deepEqual(files.slice(-10), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/PHASE2_FOUNDATION.md", "docs/PHASE3_ENTITY_MOVEMENT.md", "docs/PHASE4_STRUCTURES_ECONOMY.md", "docs/PHASE5_COMBAT_TACTICS.md", "docs/PHASE6_STRATEGIC_AI.md", "docs/STATUS.md", "docs/ASSETS.md"]);
   assert.doesNotMatch(files.join("\n"), /concepts\/feasibility\/images\//i);
@@ -264,7 +266,7 @@ test("Pages-subpath delivery serves every linked local status resource", async (
     assert.equal(response.status, 200, `failed to load ${reference} from the Pages subpath`);
   }
 
-  for (const route of ["concepts/", "concepts/feasibility/", "concepts/phase1b/", "phase2/", "phase3/", "phase4/", "phase5/"]) {
+  for (const route of ["concepts/", "concepts/feasibility/", "concepts/phase1b/", "phase2/", "phase3/", "phase4/", "phase5/", "phase6/"]) {
     const routeUrl = new URL(route, base);
     const routePage = await fetch(routeUrl);
     assert.equal(routePage.status, 200);

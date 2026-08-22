@@ -1,8 +1,8 @@
 # Aeon of Kingdoms redesign roadmap
 
-Status: **approved baseline; Phase 0 through Phase 5 complete; Phase 6 strategic-AI/local-skirmish contract active**.
+Status: **approved baseline; Phase 0 through Phase 5 complete; Phase 6 strategic-AI/local-skirmish implementation candidate under final audit**.
 
-This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact closed Phase 3 contract and evidence record, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input. [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) owns the closed structures/economy/production/rally contract and evidence. [`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md) owns the closed combat/tactical-command contract and evidence. [`PHASE6_STRATEGIC_AI.md`](PHASE6_STRATEGIC_AI.md) owns the frozen active strategic-AI/local-skirmish boundary; its contract does not claim implementation, publication, rendered evidence, or closure.
+This document is the active source of truth for replacing the rejected `v2026.8.15` prototype. It records the full sequence, acceptance gates, terminology, and future boundaries so work can proceed one verified phase at a time. [`PHASE3_ENTITY_MOVEMENT.md`](PHASE3_ENTITY_MOVEMENT.md) owns the exact closed Phase 3 contract and evidence record, with [`PHASE2_FOUNDATION.md`](PHASE2_FOUNDATION.md) retained as its approved landscape/camera input. [`PHASE4_STRUCTURES_ECONOMY.md`](PHASE4_STRUCTURES_ECONOMY.md) owns the closed structures/economy/production/rally contract and evidence. [`PHASE5_COMBAT_TACTICS.md`](PHASE5_COMBAT_TACTICS.md) owns the closed combat/tactical-command contract and evidence. [`PHASE6_STRATEGIC_AI.md`](PHASE6_STRATEGIC_AI.md) owns the frozen active strategic-AI/local-skirmish implementation candidate; its current source state does not claim protected publication, rendered evidence, or closure.
 
 The prototype remains in Git history as evidence. Its menu, battlefield presentation, art, map vocabulary, portrait behavior, movement feel, combat interaction, AI behavior, and public product claims are not design precedents for the replacement.
 
@@ -319,11 +319,11 @@ Gate: **complete on 2026-08-22** under the owner's standing goal-mode authorizat
 
 The exact authorized implementation boundary is frozen in [`PHASE6_STRATEGIC_AI.md`](PHASE6_STRATEGIC_AI.md). It defines one local human-versus-computer Moonfall Crossing skirmish, one no-cheating deterministic Standard AI, three bounded task forces, exact observation and command boundaries, and headquarters elimination without adding a Phase 8 scoring mode.
 
-- [ ] Threat assessment, production planning, defensive reserve, task forces, objective value, retreat/regroup, and timed assaults.
-- [ ] Scenario tests for defense, multi-front behavior, composition, recovery, and match completion.
-- [ ] Finish and tune the first two-player Conquest skirmish.
+- [x] Implement bounded threat assessment, production planning, defensive reserve, task forces, objective value, retreat/regroup, and timed assaults in the source candidate.
+- [x] Add deterministic focused coverage for defense, multi-front behavior, composition, recovery, orchestration, checkpoints, replay, lifecycle, and bounded completion.
+- [ ] Complete final technical and rendered tuning of the first two-player Conquest skirmish, publish through the protected path, and close the gate only after exact live evidence passes.
 
-Gate: **active**. AI presents varied credible pressure without cheating, leaking hidden state, issuing every entity the same destination, or creating a deterministic stalemate in the frozen completion scenarios.
+Gate: **active; implementation candidate under final audit**. AI must present varied credible pressure without cheating, leaking hidden state, issuing every entity the same destination, or creating a deterministic stalemate in the frozen completion scenarios.
 
 ### Phase 7 — Product hardening
 
