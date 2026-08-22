@@ -18,20 +18,20 @@ test("public shell truthfully presents the phased redesign", () => {
     /name=["']viewport["']/i,
     /id=["']main-content["']/i,
     /id=["']page-title["']/i,
-    /Phase 5 complete · Phase 6 candidate under review/i,
+    /Phase 6 complete · Phase 7 planning active/i,
     /Redesign in progress/i,
-    /Phase 1A through Phase 5 are approved/i,
-    /Play the Phase 6 Standard local-skirmish candidate/i,
-    /<span class=["']phase-number["']>06<\/span>/i,
-    /Phase 6 strategic AI is in final audit/i,
-    /Status build v2026\.8\.22g/i
+    /Phase 1A through Phase 6 are approved/i,
+    /Play the approved Phase 6 Standard local skirmish/i,
+    /<span class=["']phase-number["']>07<\/span>/i,
+    /Phase 7 product hardening is planned/i,
+    /Status build v2026\.8\.22h/i
   ]) assert.match(html, pattern);
 
   const phaseItems = html.match(/<li class=["'][^"']*\bphase-item\b[^"']*["'][^>]*>[\s\S]*?<\/li>/gi) ?? [];
   const currentPhaseItems = phaseItems.filter((item) => /aria-current=["']step["']/i.test(item));
   assert.equal((html.match(/aria-current=["']step["']/gi) ?? []).length, 1, "exactly one current step is required");
   assert.equal(currentPhaseItems.length, 1, "aria-current must belong to one phase-list item");
-  assert.match(currentPhaseItems[0], /<span class=["']phase-number["']>06<\/span>/i);
+  assert.match(currentPhaseItems[0], /<span class=["']phase-number["']>07<\/span>/i);
   assert.match(currentPhaseItems[0], /Active/i);
 
   assert.match(html, /href=["']https:\/\/github\.com\/XenoVoyage\/Aeon-of-Kingdoms["']/i);
@@ -45,6 +45,7 @@ test("public shell truthfully presents the phased redesign", () => {
   assert.match(html, /href=["']docs\/PHASE4_STRUCTURES_ECONOMY\.md["']/i);
   assert.match(html, /href=["']docs\/PHASE5_COMBAT_TACTICS\.md["']/i);
   assert.match(html, /href=["']docs\/PHASE6_STRATEGIC_AI\.md["']/i);
+  assert.match(html, /href=["']docs\/PHASE7_PRODUCT_HARDENING\.md["']/i);
   assert.match(html, /href=["']docs\/REDESIGN\.md["']/i);
   assert.match(html, /href=["']docs\/STATUS\.md["']/i);
   assert.match(html, /<script\b[^>]*src=["']js\/status\.js["']/i);
@@ -120,7 +121,7 @@ test("service-worker upgrade bypasses stale HTTP cache and refreshes only the re
   };
   const caches = {
     open(name) {
-      assert.equal(name, "aok-shell-v2026.8.22g");
+      assert.equal(name, "aok-shell-v2026.8.22h");
       return Promise.resolve(cache);
     },
     keys() {
@@ -226,9 +227,9 @@ test("Pages staging contains approved public routes and source-of-truth links bu
     "concepts/feasibility/index.html",
     "concepts/feasibility/proof.css"
   ]);
-  assert.equal(files.length, 161);
+  assert.equal(files.length, 162);
   assert.equal(files.filter((entry) => /concepts\/feasibility\/phase1a\//.test(entry)).length, 37);
-  assert.deepEqual(files.slice(-10), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/PHASE2_FOUNDATION.md", "docs/PHASE3_ENTITY_MOVEMENT.md", "docs/PHASE4_STRUCTURES_ECONOMY.md", "docs/PHASE5_COMBAT_TACTICS.md", "docs/PHASE6_STRATEGIC_AI.md", "docs/STATUS.md", "docs/ASSETS.md"]);
+  assert.deepEqual(files.slice(-11), ["docs/REDESIGN.md", "docs/PRODUCTION_ART.md", "docs/PHASE1B_VISUAL_LOCK.md", "docs/PHASE2_FOUNDATION.md", "docs/PHASE3_ENTITY_MOVEMENT.md", "docs/PHASE4_STRUCTURES_ECONOMY.md", "docs/PHASE5_COMBAT_TACTICS.md", "docs/PHASE6_STRATEGIC_AI.md", "docs/PHASE7_PRODUCT_HARDENING.md", "docs/STATUS.md", "docs/ASSETS.md"]);
   assert.doesNotMatch(files.join("\n"), /concepts\/feasibility\/images\//i);
   for (const relativePath of staging.RUNTIME_FILES) {
     assert.doesNotMatch(relativePath, /^(?:manifest\.webmanifest|icons\/|css\/(?:tokens|app)\.css|js\/(?:config|core|simulation|ai|render|input|game)\.js|docs\/assets\/)/);

@@ -2,7 +2,7 @@
 "use strict";
 
 const CACHE_PREFIX = "aok-shell-";
-const CACHE_NAME = `${CACHE_PREFIX}v2026.8.22g`;
+const CACHE_NAME = `${CACHE_PREFIX}v2026.8.22h`;
 const SHELL_ASSETS = Object.freeze([
   "./",
   "index.html",

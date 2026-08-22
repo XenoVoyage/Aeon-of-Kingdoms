@@ -2,6 +2,21 @@
 
 All notable player-facing changes to Aeon of Kingdoms are recorded here. Runtime labels use Calendar Versioning: `vYYYY.M.D`, followed by `a`, `b`, and so on for additional releases on the same date. `VERSION.txt` is the canonical current version; a changelog heading does not prove that a tag, GitHub Release, or deployment exists.
 
+## [v2026.8.22h] — 2026-08-22 (Phase 6 closure and Phase 7 product-hardening contract)
+
+### Changed
+
+- Closed Phase 6 after its frozen no-cheating Standard planner, three bounded task forces, legal-command local-skirmish orchestration, mixed replay, composite checkpoints, protected publication, exact deployed bytes, and available rendered journeys passed the gate.
+- Added `docs/PHASE7_PRODUCT_HARDENING.md` as the frozen active contract for release-readiness evidence over the unchanged local slice. This planning change adds no hardening runtime and makes no audio, options, onboarding, physical-device, broad-browser, Phase 8, or Phase 9 decision or result.
+- Updated the public status shell and contributor handoff so the approved Phase 6 local skirmish remains directly playable while Phase 7 is identified as the active planning boundary.
+
+### Evidence and boundaries
+
+- Phase 6 implementation pull request `#28` passed Offline audit `32588621330` at candidate commit `ab619699fbed11dd10e4d9309e1c79f644925771` and squash-merged as `f713d58bb7a9460bce7f9e4c88cabc999e17a20f`; its exact tree is `e2a556e56b286d1e23d1d0c6b3399db10a6b6fb4`. Main Offline audit `32588951779` and Pages run `32588951783` succeeded, and all 161 allowlisted live files matched merged source after one transient HTTP 503 was retried.
+- A visible 1363×936 cloud-Chrome review covered Standard first paint, production, captures, separate reserve/front behavior, a timed assault, exact tick-3,715 computer victory, synchronous pause, active-pressure defense/recovery/regroup, menu recovery, and Compact first paint/Navigation with no Pages-origin warning or error.
+- Physical devices, tablet/phone landscape and portrait/rotation behavior, touch hardware, other browser engines, and broader browser coverage remain explicit Phase 7 evidence debt rather than inferred results.
+- `v2026.8.22h` is a source/Pages candidate label only. It is not a Git tag or GitHub Release, and this closure/planning source change does not implement Phase 7, modes, campaign, or networking.
+
 ## [v2026.8.22g] — 2026-08-22 (Phase 6 strategic-AI implementation candidate)
 
 ### Added
